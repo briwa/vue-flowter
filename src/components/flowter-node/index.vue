@@ -2,8 +2,9 @@
   <div
     class="flowter-node-parent"
     :style="containerStyle">
-    <div class="flowter-node"
-    :style="nodeStyle">
+    <div
+      class="flowter-node"
+      :style="nodeStyle">
       <span>{{ text }}</span>
     </div>
     <slot :orient-point="orientPoints.s" />
