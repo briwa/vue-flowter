@@ -1,8 +1,10 @@
 <template>
-  <div class="flowter-node-parent">
+  <div
+    class="flowter-node-parent"
+    :style="containerStyle">
     <div class="flowter-node"
     :style="nodeStyle">
-      {{ text }}
+      <span>{{ text }}</span>
     </div>
     <slot :orient-point="orientPoints.s" />
   </div>
@@ -11,13 +13,18 @@
 <style>
 .flowter-node-parent {
   position: absolute;
-  top: 0px;
-  left: 200px;
 }
 
 .flowter-node {
   box-sizing: border-box;
   border: 2px solid #000000;
   position: relative;
+  text-align: center;
+}
+
+.flowter-node span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 </style>

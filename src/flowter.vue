@@ -1,13 +1,49 @@
 <template>
   <div id="app">
     <img class="bg" src="./assets/grid.png"/>
-    <div class="cont">
-      <flowter-node :id="1" text="lol">
+    <div
+      :style="containerStyle"
+      class="flowter-container">
+      <flowter-node
+        :left="200"
+        :top="50"
+        :id="1"
+        text="First">
         <template v-slot:default="{ orientPoint }">
-          <flowter-edge :from="3" :to="3" :start-point="orientPoint" :end-point="[50,150]" />
-          <flowter-edge :from="3" :to="3" :start-point="orientPoint" :end-point="[0,150]" />
-          <flowter-edge :from="3" :to="3" :start-point="orientPoint" :end-point="[100,200]" />
+          <flowter-edge
+            :from="3"
+            :to="3"
+            :start-point="orientPoint"
+            :end-point="[50,150]" />
+          <flowter-edge
+            :from="3"
+            :to="3"
+            :start-point="orientPoint"
+            :end-point="[-50,100]" />
+          <flowter-edge
+            :from="3"
+            :to="3"
+            :start-point="orientPoint"
+            :end-point="[150,200]" />
         </template>
+      </flowter-node>
+      <flowter-node
+        :left="100"
+        :top="200"
+        :id="2"
+        text="Second">
+      </flowter-node>
+      <flowter-node
+        :left="200"
+        :top="300"
+        :id="3"
+        text="Third">
+      </flowter-node>
+      <flowter-node
+        :left="300"
+        :top="400"
+        :id="4"
+        text="Fourth">
       </flowter-node>
     </div>
   </div>
@@ -18,9 +54,6 @@
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
 .bg {
@@ -30,7 +63,7 @@
   opacity: 0.1;
 }
 
-.cont {
+.flowter-container {
   zoom: 2;
 }
 </style>
