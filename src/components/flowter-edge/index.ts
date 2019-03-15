@@ -9,16 +9,12 @@ enum Marker {
 export default class FlowterEdge extends Vue {
   @Prop({ type: Number, required: true })
   public from!: number
-
   @Prop({ type: Number, required: true })
   public to!: number
-
   @Prop({ type: Array, required: true })
   public startPoint!: [number, number]
-
   @Prop({ type: Array, required: true })
   public endPoint!: [number, number]
-
   @Prop({ type: String, default: Marker.END })
   public marker!: Marker
 
