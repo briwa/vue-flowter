@@ -10,6 +10,11 @@ enum PathStyle {
   ANGLE = 'angle'
 }
 
+enum Direction {
+  FORWARD = 'forward',
+  BACKWARD = 'backward'
+}
+
 @Component
 export default class FlowterEdge extends Vue {
   @Prop({ type: Array, required: true })
@@ -37,19 +42,27 @@ export default class FlowterEdge extends Vue {
   public get polylinePoints () {
     // Let's make a really naive approach on the edge.
     // For now, all edges move downwards.
+    // Magic number -2 is so that the tip of the arrow
+    // won't touch the next node, because it's ugly.
     const edgeHeight = this.renderedHeight - 2
     const halfHeight = this.renderedHeight / 2
 
+    // Straight arrows don't need no customizations
     if (this.relativeWidth === 0) {
       return `0,0 0,${edgeHeight} `
     }
 
     const halfWidth = this.relativeWidth / 2
-    const startX = Math.abs(halfWidth) - (this.minSize / 2)
+    const startX = (this.direction === Direction.FORWARD
+      ? Math.abs(halfWidth) : halfWidth) - (this.minSize / 2)
 
     switch (this.pathStyle) {
       case PathStyle.CROSS: {
-        return `${startX},0 ${startX + halfWidth},${edgeHeight}`
+        // When the arrows are crossing at the end,
+        // they're all stacked together, which makes it hard to see.
+        // Move it slightly to either direction so that it's better.
+        const arrowOffset = halfWidth > 0 ? 6 : -6
+        return `${startX},0 ${startX + halfWidth - arrowOffset},${edgeHeight}`
       }
       case PathStyle.ANGLE: {
         return `${startX},0 `
@@ -70,17 +83,14 @@ export default class FlowterEdge extends Vue {
   public get viewBox () {
     return `-${this.minSize} 0 ${this.renderedWidth} ${this.renderedHeight}`
   }
-    // Since SVG viewboxes are counted in 'units',
-  // it would only get multiplied by the container's ratio
-  // (it is intended this way). So now, all calculations to the DOM
-  // is multiplied by this ratio, but NOT on the SVG itself.
+  // Minimum size of the edge, both width and height
   private get minSize () {
     return 10
   }
   private get relativeWidth () {
     // Multiply by two because the edge starts
-    // from the middle of the node. It should take up
-    // two times the difference.
+    // from the middle of the SVG. The size should be
+    // at least twice the difference
     return (this.endPoint[0] - this.startPoint[0]) * 2
   }
   private get relativeHeight () {
@@ -91,5 +101,9 @@ export default class FlowterEdge extends Vue {
   }
   private get renderedHeight () {
     return Math.max(Math.abs(this.relativeHeight), this.minSize)
+  }
+  private get direction () {
+    return this.relativeWidth >= 0 || this.relativeHeight >= 0
+      ? Direction.FORWARD : Direction.BACKWARD
   }
 }

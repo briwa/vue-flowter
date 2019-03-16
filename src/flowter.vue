@@ -18,8 +18,8 @@
           <flowter-edge
             v-for="edge in getEdges(node)"
             :key="`edge-${edge.from}-${edge.to}`"
-            :start-point="getStartPoint(node)"
-            :end-point="getEndPoint(edge)" />
+            :start-point="edge.startPoint"
+            :end-point="edge.endPoint" />
         </div>
       </div>
     </div>

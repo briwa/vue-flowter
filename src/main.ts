@@ -37,6 +37,7 @@ const edges = [
   { from: 'da', to: 'f', option: 'Yes' },
   { from: 'db', to: 'e', option: 'No' },
   { from: 'db', to: 'f', option: 'Yes' },
+  { from: 'db', to: 'cc' },
   { from: 'e', to: 'i' },
   { from: 'f', to: 'i' }
 ]
