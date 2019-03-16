@@ -7,7 +7,6 @@
       :style="nodeStyle">
       <span>{{ text }}</span>
     </div>
-    <slot :orient-point="orientPoints.s" />
   </div>
 </template>
 <script lang="ts" src="./index.ts"></script>

@@ -10,11 +10,12 @@ export default class FlowterNode extends Vue {
   public top!: number
   @Prop({ type: Number, default: 0 })
   public left!: number
-
-  // Data
-  public width: number = 100
-  public height: number = 50
-  public fontSize: number = 12
+  @Prop({ type: Number, default: 100 })
+  public width!: number
+  @Prop({ type: Number, default: 50 })
+  public height!: number
+  @Prop({ type: Number, default: 12 })
+  public fontSize!: number
 
   public get nodeStyle () {
     return {
@@ -25,20 +26,10 @@ export default class FlowterNode extends Vue {
       overflow: 'hidden'
     }
   }
-
   public get containerStyle () {
     return {
       top: `${this.top}px`,
       left: `${this.left}px`
-    }
-  }
-
-  public get orientPoints () {
-    return {
-      n: [this.width / 2, 0],
-      w: [this.width / 2, this.height / 2],
-      e: [this.width, this.height / 2],
-      s: [this.width / 2, this.height]
     }
   }
 }

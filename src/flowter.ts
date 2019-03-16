@@ -2,6 +2,9 @@ import { Prop, Component, Vue } from 'vue-property-decorator'
 import FlowterEdge from '@/components/flowter-edge/index.vue'
 import FlowterNode from '@/components/flowter-node/index.vue'
 
+// TODO:
+// - Use x/y for all points related
+
 interface GraphNode {
   text: string
 }
@@ -11,6 +14,8 @@ interface RenderedGraphNode {
   text: string
   top: number
   left: number
+  width: number
+  height: number
 }
 
 interface GraphEdge {
@@ -31,49 +36,37 @@ interface EdgeDict {
   }
 })
 export default class Flowter extends Vue {
-  // @Prop({ type: Array, default: () => [] })
-  // public nodes!: GraphNode[]
-  // @Prop({ type: Array, default: () => [] })
-  // public edges!: GraphEdge[]
+  @Prop({ type: Object, required: true })
+  public nodes!: Record<string, GraphNode>
+  @Prop({ type: Array, default: () => [] })
+  public edges!: GraphEdge[]
   @Prop({ type: Number, default: 500 })
   public width!: number
   @Prop({ type: Number, default: 500 })
   public height!: number
 
-  // Data
-  public nodes: Record<string, GraphNode> = {
-    1: { text: 'First A' },
-    2: { text: 'First B' },
-    3: { text: 'Second?' },
-    4: { text: 'You said No' },
-    5: { text: 'You said Yes' },
-    6: { text: 'Since you said No, then No' },
-    7: { text: 'Since you said Yes, then Yes' },
-    8: { text: 'Alright then.' }
-  }
-  public edges: GraphEdge[] = [
-    { from: '1', to: '3' },
-    { from: '2', to: '3' },
-    { from: '3', to: '4', option: 'No' },
-    { from: '3', to: '5', option: 'Yes' },
-    { from: '4', to: '6' },
-    { from: '5', to: '7' },
-    { from: '6', to: '8' },
-    { from: '7', to: '8' }
-  ]
-  public nodeOrients = []
-
   // Computed
+  public get defaultNodeWidth () {
+    return 100
+  }
+  public get defaultNodeHeight () {
+    return 50
+  }
+  public get defaultNodeRowSpacing () {
+    return 100
+  }
+  public get defaultNodeColSpacing () {
+    return 50
+  }
   public get containerStyle () {
     return {
       width: `${this.width}px`,
       height: `${this.height}px`
     }
   }
-
-  public get shapedNodes () {
-    // Map all edges into to/from ids for easier access
-    const { toIds, fromIds } = this.edges.reduce<EdgeDict>((dict, edge) => {
+  // Map all edges into to/from ids for easier access
+  public get edgesDict () {
+    return this.edges.reduce<EdgeDict>((dict, edge) => {
       if (!dict.toIds[edge.from]) {
         dict.toIds[edge.from] = []
       }
@@ -89,7 +82,9 @@ export default class Flowter extends Vue {
       toIds: {},
       fromIds: {}
     })
-
+  }
+  public get renderedNodes () {
+    const { toIds, fromIds } = this.edgesDict
     const nodes: RenderedGraphNode[][] = []
 
     // Loop through the nodes dictionary
@@ -127,20 +122,34 @@ export default class Flowter extends Vue {
           nodes.push([{
             id: nodeId,
             text: node.text,
-            top: rowIdx * 100,
-            left: 0
+            top: rowIdx * this.defaultNodeRowSpacing,
+            left: (this.width / 2) - (this.defaultNodeWidth / 2),
+            width: this.defaultNodeWidth,
+            height: this.defaultNodeHeight
           }])
-        } else {
-          // Another node in the layer
-          const rowIdx = nodes.length - 1
+        } else { // Another node in the layer
           const row = nodes[nodes.length - 1]
-          const colIdx = row.length
+          const rowIdx = nodes.length - 1
 
           row.push({
             id: nodeId,
             text: node.text,
-            top: rowIdx * 100,
-            left: colIdx * 150
+            top: rowIdx * this.defaultNodeRowSpacing,
+            left: 0,
+            width: this.defaultNodeWidth,
+            height: this.defaultNodeHeight
+          })
+
+          // After the new node gets pushed,
+          // The current nodes horizontal position in that row
+          // needs to get 'fixed' since new member came along
+          const rowHorizontalLength = (row.length * this.defaultNodeWidth)
+            + ((row.length - 1) * this.defaultNodeColSpacing)
+
+          row.forEach((n, idx) => {
+            n.left = (this.width / 2) - (rowHorizontalLength / 2)
+              + (idx * (this.defaultNodeWidth))
+              + (idx !== 0 ? this.defaultNodeColSpacing : 0)
           })
         }
       }
@@ -148,8 +157,49 @@ export default class Flowter extends Vue {
 
     return nodes
   }
+  public get renderedNodesDict () {
+    const dict: Record<string, RenderedGraphNode> = {}
 
+    for (const row of this.renderedNodes) {
+      for (const node of row) {
+        dict[node.id] = node
+      }
+    }
+
+    return dict
+  }
+
+  // Methods
   public getEdges (node: RenderedGraphNode) {
     return this.edges.filter((edge) => edge.from === node.id)
+  }
+  public getOrientPoints (node: RenderedGraphNode) {
+    return {
+      n: [node.width / 2, 0],
+      w: [node.width / 2, node.height / 2],
+      e: [node.width, node.height / 2],
+      s: [node.width / 2, node.height]
+    }
+  }
+  public getStartPoint (originNode: RenderedGraphNode) {
+    const points = this.getOrientPoints(originNode)
+    // TODO: for now, orient is always from the south
+    const point = points.s
+
+    return [
+      point[0] + originNode.left,
+      point[1] + originNode.top
+    ]
+  }
+  public getEndPoint (edge: GraphEdge) {
+    const targetNode = this.renderedNodesDict[edge.to]
+    const points = this.getOrientPoints(targetNode)
+    // TODO: for now, orient is always from the north
+    const point = points.n
+
+    return [
+      point[0] + targetNode.left,
+      point[1] + targetNode.top
+    ]
   }
 }
