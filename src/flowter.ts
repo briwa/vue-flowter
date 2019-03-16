@@ -40,52 +40,28 @@ export default class Flowter extends Vue {
   public nodes!: Record<string, GraphNode>
   @Prop({ type: Array, default: () => [] })
   public edges!: GraphEdge[]
-  @Prop({ type: Number, default: 500 })
+  @Prop({ type: Number, default: null })
   public width!: number
-  @Prop({ type: Number, default: 500 })
+  @Prop({ type: Number, default: null })
   public height!: number
 
   // Computed
-  public get defaultNodeWidth () {
-    return 100
-  }
-  public get defaultNodeHeight () {
-    return 50
-  }
-  public get defaultNodeRowSpacing () {
-    return 100
-  }
-  public get defaultNodeColSpacing () {
-    return 50
-  }
   public get containerStyle () {
+    const minWidth = Math.max(this.width, this.containerWidth)
+    const minHeight = Math.max(this.height, this.containerHeight)
+
     return {
-      width: `${this.width}px`,
-      height: `${this.height}px`
+      width: `${this.width || this.containerWidth}px`,
+      height: `${this.height || this.containerHeight}px`,
+      minWidth: `${minWidth}px`,
+      minHeight: `${minHeight}px`,
+      overflow: 'hidden'
     }
-  }
-  // Map all edges into to/from ids for easier access
-  public get edgesDict () {
-    return this.edges.reduce<EdgeDict>((dict, edge) => {
-      if (!dict.toIds[edge.from]) {
-        dict.toIds[edge.from] = []
-      }
-
-      if (!dict.fromIds[edge.to]) {
-        dict.fromIds[edge.to] = []
-      }
-
-      dict.toIds[edge.from].push(edge.to)
-      dict.fromIds[edge.to].push(edge.from)
-      return dict
-    }, {
-      toIds: {},
-      fromIds: {}
-    })
   }
   public get renderedNodes () {
     const { toIds, fromIds } = this.edgesDict
     const nodes: RenderedGraphNode[][] = []
+    let maxColSize = 0
 
     // Loop through the nodes dictionary
     // to shape it into rows of nodes
@@ -117,47 +93,76 @@ export default class Flowter extends Vue {
 
         // New layer with the new node
         if (pushAsNewRow) {
-          const rowIdx = nodes.length
+          // The new column size would at least be 1,
+          // let's see if it's bigger than the current one
+          maxColSize = Math.max(1, maxColSize)
 
           nodes.push([{
             id: nodeId,
             text: node.text,
-            top: rowIdx * this.defaultNodeRowSpacing,
-            left: (this.width / 2) - (this.defaultNodeWidth / 2),
+            top: 0,
+            left: 0,
             width: this.defaultNodeWidth,
             height: this.defaultNodeHeight
           }])
+
         } else { // Another node in the layer
           const row = nodes[nodes.length - 1]
-          const rowIdx = nodes.length - 1
 
           row.push({
             id: nodeId,
             text: node.text,
-            top: rowIdx * this.defaultNodeRowSpacing,
+            top: 0,
             left: 0,
             width: this.defaultNodeWidth,
             height: this.defaultNodeHeight
           })
 
-          // After the new node gets pushed,
-          // The current nodes horizontal position in that row
-          // needs to get 'fixed' since new member came along
-          const rowHorizontalLength = (row.length * this.defaultNodeWidth)
-            + ((row.length - 1) * this.defaultNodeColSpacing)
-
-          row.forEach((n, idx) => {
-            n.left = (this.width / 2) - (rowHorizontalLength / 2)
-              + (idx * (this.defaultNodeWidth))
-              + (idx !== 0 ? this.defaultNodeColSpacing : 0)
-          })
+          maxColSize = Math.max(row.length, maxColSize)
         }
       }
     }
 
+    // Since the full rows and cols of the nodes is there,
+    // the maximum width can only now be determined.
+    const maxRowLength = (maxColSize * this.defaultNodeWidth)
+      + ((maxColSize - 1) * this.defaultNodeColSpacing)
+    const minWidth = Math.max(this.width, maxRowLength)
+
+    nodes.forEach((row, rowIdx) => {
+      const currRowLength = (row.length * this.defaultNodeWidth)
+          + ((row.length - 1) * this.defaultNodeColSpacing)
+
+      row.forEach((node, colIdx) => {
+        // TODO: This needs no change when
+        // the horizontal mode is implemented
+        node.top = rowIdx * (this.defaultNodeHeight + this.defaultNodeRowSpacing)
+
+        node.left =
+          // Get the leftmost position
+          (minWidth / 2) - (currRowLength / 2)
+          // Plus each of the nodes' width
+          // Plus the spacing for each of the node (except the first one)
+          + (colIdx * (this.defaultNodeWidth + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
+      })
+    })
+
     return nodes
   }
-  public get renderedNodesDict () {
+  private get containerWidth () {
+    const maxColSize = this.renderedNodes.reduce((colSize, row) => {
+      return Math.max(colSize, row.length)
+    }, 0)
+
+    return maxColSize * this.defaultNodeWidth
+      + ((maxColSize - 1) * this.defaultNodeColSpacing)
+  }
+  private get containerHeight () {
+    return this.renderedNodes.length * this.defaultNodeHeight
+      + ((this.renderedNodes.length - 1) * this.defaultNodeRowSpacing)
+  }
+  // Map all nodes into a dictionary for easier access
+  private get renderedNodesDict () {
     const dict: Record<string, RenderedGraphNode> = {}
 
     for (const row of this.renderedNodes) {
@@ -167,6 +172,37 @@ export default class Flowter extends Vue {
     }
 
     return dict
+  }
+  // Map all edges into to/from ids also for easier access
+  private get edgesDict () {
+    return this.edges.reduce<EdgeDict>((dict, edge) => {
+      if (!dict.toIds[edge.from]) {
+        dict.toIds[edge.from] = []
+      }
+
+      if (!dict.fromIds[edge.to]) {
+        dict.fromIds[edge.to] = []
+      }
+
+      dict.toIds[edge.from].push(edge.to)
+      dict.fromIds[edge.to].push(edge.from)
+      return dict
+    }, {
+      toIds: {},
+      fromIds: {}
+    })
+  }
+  private get defaultNodeWidth () {
+    return 100
+  }
+  private get defaultNodeHeight () {
+    return 50
+  }
+  private get defaultNodeRowSpacing () {
+    return 50
+  }
+  private get defaultNodeColSpacing () {
+    return 50
   }
 
   // Methods

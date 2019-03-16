@@ -3,28 +3,42 @@ import Flowter from './flowter.vue'
 
 Vue.config.productionTip = false
 
-// This is an example of the props you can supply.
-// Used in development.
+// This is an example of the props
+// that can be supplied. Only used in development.
 const nodes = {
-  1: { text: 'First A' },
-  2: { text: 'First B' },
-  3: { text: 'Second?' },
-  4: { text: 'You said No' },
-  5: { text: 'You said Yes' },
-  6: { text: 'No means No' },
-  7: { text: 'Yes means Yes' },
-  8: { text: 'That\'s it!' }
+  a: { text: 'First A' },
+  b: { text: 'First B' },
+  c: { text: 'First C' },
+  cc: { text: 'Second' },
+  ccc: { text: 'After second 2' },
+  cccc: { text: 'After second 3' },
+  ccccc: { text: 'After second 4' },
+  cccccc: { text: 'After second 5' },
+  da: { text: 'Third A?' },
+  db: { text: 'Third B?' },
+  e: { text: 'You said No' },
+  f: { text: 'You said Yes' },
+  i: { text: 'That\'s it!' }
 }
 
 const edges = [
-  { from: '1', to: '3' },
-  { from: '2', to: '3' },
-  { from: '3', to: '4', option: 'No' },
-  { from: '3', to: '5', option: 'Yes' },
-  { from: '4', to: '6' },
-  { from: '5', to: '7' },
-  { from: '6', to: '8' },
-  { from: '7', to: '8' }
+  { from: 'a', to: 'cc' },
+  { from: 'b', to: 'cc' },
+  { from: 'c', to: 'cc' },
+  { from: 'cc', to: 'ccc' },
+  { from: 'cc', to: 'cccc' },
+  { from: 'cc', to: 'ccccc' },
+  { from: 'cc', to: 'cccccc' },
+  { from: 'ccc', to: 'da' },
+  { from: 'cccc', to: 'da' },
+  { from: 'ccccc', to: 'db' },
+  { from: 'cccccc', to: 'db' },
+  { from: 'da', to: 'e', option: 'No' },
+  { from: 'da', to: 'f', option: 'Yes' },
+  { from: 'db', to: 'e', option: 'No' },
+  { from: 'db', to: 'f', option: 'Yes' },
+  { from: 'e', to: 'i' },
+  { from: 'f', to: 'i' }
 ]
 
 new Vue({
