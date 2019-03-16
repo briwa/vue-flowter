@@ -21,10 +21,14 @@ export default class FlowterEdge extends Vue {
   public startPoint!: [number, number]
   @Prop({ type: Array, required: true })
   public endPoint!: [number, number]
+  @Prop({ type: Array, required: true })
+  public centerPoint!: [number, number]
   @Prop({ type: String, default: Marker.END })
   public marker!: Marker
   @Prop({ type: String, default: PathStyle.ANGLE })
   public pathStyle!: PathStyle
+  @Prop({ type: String, default: Direction.FORWARD })
+  public direction!: Direction
 
   // Computed
   public get edgeStyle () {
@@ -44,6 +48,7 @@ export default class FlowterEdge extends Vue {
     // For now, all edges move downwards.
     // Magic number -2 is so that the tip of the arrow
     // won't touch the next node, because it's ugly.
+    const magicNumber = -2
     const edgeHeight = this.renderedHeight - 2
     const halfHeight = this.renderedHeight / 2
 
@@ -53,22 +58,52 @@ export default class FlowterEdge extends Vue {
     }
 
     const halfWidth = this.relativeWidth / 2
-    const startX = (this.direction === Direction.FORWARD
-      ? Math.abs(halfWidth) : halfWidth) - (this.minSize / 2)
+    const startX = Math.abs(halfWidth) - (this.minSize / 2)
+
+    // When the arrows are crossing at the end,
+    // they're all stacked together, which makes it hard to see.
+    // Move it slightly to either direction so that it's better.
+    const arrowOffset = halfWidth > 0 ? 6 : -6
 
     switch (this.pathStyle) {
       case PathStyle.CROSS: {
-        // When the arrows are crossing at the end,
-        // they're all stacked together, which makes it hard to see.
-        // Move it slightly to either direction so that it's better.
-        const arrowOffset = halfWidth > 0 ? 6 : -6
         return `${startX},0 ${startX + halfWidth - arrowOffset},${edgeHeight}`
       }
       case PathStyle.ANGLE: {
-        return `${startX},0 `
-          + `${startX},${halfHeight} `
-          + `${startX + halfWidth},${halfHeight} `
-          + `${startX + halfWidth},${edgeHeight} `
+        switch (this.direction) {
+          case Direction.FORWARD: {
+            return `${startX},0 `
+              + `${startX},${halfHeight} `
+              + `${startX + halfWidth},${halfHeight} `
+              + `${startX + halfWidth},${edgeHeight} `
+          }
+          case Direction.BACKWARD: {
+            // There are two types of backward edge:
+            // 1. The one that goes vertical then horizontal
+            // 2. The one that goes horizontal then vertical
+            // We should determine the type by the size of width and height
+            // Also, the detour direction matters depending on whether
+            // the target x and the origin x is placed
+            // TODO: improve this ever-complicated algorithm
+            const direction = this.startPoint[0] > this.centerPoint[0] ? 1 : -1
+            const detourOffset = this.startPoint[0] > this.centerPoint[0]
+              ? (this.detourSize * 2) + magicNumber : 0
+
+            // (1)
+            if (this.renderedHeight >= this.renderedWidth) {
+              return `${startX + this.detourSize - (magicNumber * direction)},${arrowOffset * direction} `
+                + `${startX + halfWidth + detourOffset},${arrowOffset * direction} `
+                + `${startX + halfWidth + detourOffset},${edgeHeight} `
+                + `${startX + halfWidth + this.detourSize},${edgeHeight} `
+            }
+
+            // (2)
+            return `${startX + this.detourSize - magicNumber},${-arrowOffset * direction} `
+              + `${startX + detourOffset },${-arrowOffset * direction} `
+              + `${startX + detourOffset },${edgeHeight} `
+              + `${startX + this.detourSize + halfWidth },${edgeHeight} `
+          }
+        }
       }
     }
   }
@@ -87,6 +122,10 @@ export default class FlowterEdge extends Vue {
   private get minSize () {
     return 10
   }
+  // For backward edge, there should be a space to 'detour'
+  private get detourSize () {
+    return 10
+  }
   private get relativeWidth () {
     // Multiply by two because the edge starts
     // from the middle of the SVG. The size should be
@@ -97,13 +136,14 @@ export default class FlowterEdge extends Vue {
     return this.endPoint[1] - this.startPoint[1]
   }
   private get renderedWidth () {
-    return Math.max(Math.abs(this.relativeWidth), this.minSize) + this.minSize
+    const naturalSize = Math.max(Math.abs(this.relativeWidth), this.minSize) + this.minSize
+    if (this.direction === Direction.FORWARD) {
+      return naturalSize
+    }
+
+    return naturalSize + (this.detourSize * 2)
   }
   private get renderedHeight () {
     return Math.max(Math.abs(this.relativeHeight), this.minSize)
-  }
-  private get direction () {
-    return this.relativeWidth >= 0 || this.relativeHeight >= 0
-      ? Direction.FORWARD : Direction.BACKWARD
   }
 }

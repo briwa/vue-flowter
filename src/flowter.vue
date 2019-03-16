@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div class="flowter-container">
     <img class="bg" src="./assets/grid.png"/>
     <div
       :style="containerStyle"
-      class="flowter-container">
+      class="flowter-parent">
       <div
         v-for="(row, rowIdx) in renderedNodes"
         :key="rowIdx">
@@ -19,7 +19,10 @@
             v-for="edge in getEdges(node)"
             :key="`edge-${edge.from}-${edge.to}`"
             :start-point="edge.startPoint"
-            :end-point="edge.endPoint" />
+            :end-point="edge.endPoint"
+            :marker="edge.marker"
+            :direction="edge.direction"
+            :center-point="centerPoint" />
         </div>
       </div>
     </div>
@@ -27,7 +30,7 @@
 </template>
 <script lang="ts" src="./flowter.ts"></script>
 <style>
-#app {
+.flowter-container {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,7 +43,7 @@
   opacity: 0.1;
 }
 
-.flowter-container {
+.flowter-parent {
   position: relative;
 }
 </style>
