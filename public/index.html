@@ -11,13 +11,37 @@
         padding: 0;
         margin: 0;
       }
+
+      .flowter-container {
+        font-family: Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        width: 1000px;
+        text-align: center;
+      }
+
+      .flowter-parent {
+        display: inline-block;
+      }
+
+      .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.1;
+      }
     </style>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but vue-flowter doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div class="flowter-container">
+      <img class="bg" src="./grid.png"/>
+      <div id="app">
+        Loading...
+      </div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
