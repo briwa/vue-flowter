@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Flowter from './flowter.vue'
+import Flowter from './index.vue'
 
 Vue.config.productionTip = false
 
