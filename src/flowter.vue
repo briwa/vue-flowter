@@ -8,12 +8,12 @@
         v-for="(row, rowIdx) in shapedNodes"
         :key="rowIdx">
         <flowter-node
-          v-for="(node, colIdx) in row"
+          v-for="node in row"
           :key="node.id"
           :id="node.id"
           :text="node.text"
-          :top="rowIdx * 100"
-          :left="colIdx * 150">
+          :top="node.top"
+          :left="node.left">
         </flowter-node>
       </div>
     </div>

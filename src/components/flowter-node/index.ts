@@ -2,8 +2,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
 export default class FlowterNode extends Vue {
-  @Prop({ type: Number, required: true })
-  public id!: number
+  @Prop({ type: String, required: true })
+  public id!: string
   @Prop({ type: String, default: '' })
   public text!: string
   @Prop({ type: Number, default: 0 })
