@@ -5,6 +5,11 @@ enum Marker {
   END = 'end'
 }
 
+enum PathStyle {
+  CROSS = 'cross',
+  ANGLE = 'angle'
+}
+
 @Component
 export default class FlowterEdge extends Vue {
   @Prop({ type: Array, required: true })
@@ -13,6 +18,8 @@ export default class FlowterEdge extends Vue {
   public endPoint!: [number, number]
   @Prop({ type: String, default: Marker.END })
   public marker!: Marker
+  @Prop({ type: String, default: PathStyle.ANGLE })
+  public pathStyle!: PathStyle
 
   // Computed
   public get edgeStyle () {
@@ -40,10 +47,17 @@ export default class FlowterEdge extends Vue {
     const halfWidth = this.relativeWidth / 2
     const startX = Math.abs(halfWidth) - (this.minSize / 2)
 
-    return `${startX},0 `
-      + `${startX},${halfHeight} `
-      + `${startX + halfWidth},${halfHeight} `
-      + `${startX + halfWidth},${edgeHeight} `
+    switch (this.pathStyle) {
+      case PathStyle.CROSS: {
+        return `${startX},0 ${startX + halfWidth},${edgeHeight}`
+      }
+      case PathStyle.ANGLE: {
+        return `${startX},0 `
+          + `${startX},${halfHeight} `
+          + `${startX + halfWidth},${halfHeight} `
+          + `${startX + halfWidth},${edgeHeight} `
+      }
+    }
   }
   public get markerStart () {
     return this.marker === Marker.START
@@ -52,6 +66,9 @@ export default class FlowterEdge extends Vue {
   public get markerEnd () {
     return this.marker === Marker.END
       ? 'url(#arrow)' : undefined
+  }
+  public get viewBox () {
+    return `-${this.minSize} 0 ${this.renderedWidth} ${this.renderedHeight}`
   }
     // Since SVG viewboxes are counted in 'units',
   // it would only get multiplied by the container's ratio
@@ -74,8 +91,5 @@ export default class FlowterEdge extends Vue {
   }
   private get renderedHeight () {
     return Math.max(Math.abs(this.relativeHeight), this.minSize)
-  }
-  private get viewBox () {
-    return `-${this.minSize} 0 ${this.renderedWidth} ${this.renderedHeight}`
   }
 }
