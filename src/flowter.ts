@@ -5,6 +5,16 @@ import FlowterNode from '@/components/flowter-node/index.vue'
 // TODO:
 // - Use x/y for all points related
 
+enum Marker {
+  START = 'start',
+  END = 'end'
+}
+
+enum Direction {
+  FORWARD = 'forward',
+  BACKWARD = 'backward'
+}
+
 interface GraphNode {
   text: string
 }
@@ -26,6 +36,8 @@ interface GraphEdge {
 interface RenderedGraphEdge extends GraphEdge {
   startPoint: number[]
   endPoint: number[]
+  marker: Marker
+  direction: Direction
 }
 
 interface EdgeDict {
@@ -58,9 +70,6 @@ export default class Flowter extends Vue {
 
   // Computed
   public get containerStyle () {
-    const minWidth = Math.max(this.width, this.containerWidth)
-    const minHeight = Math.max(this.height, this.containerHeight)
-
     const styleDict: Record<string, string> = {
       width: `${this.width || this.containerWidth}px`,
       height: `${this.height || this.containerHeight}px`,
@@ -68,11 +77,11 @@ export default class Flowter extends Vue {
     }
 
     if (this.width) {
-      styleDict.minWidth = `${minWidth}px`
+      styleDict.minWidth = `${this.minWidth}px`
     }
 
     if (this.height) {
-      styleDict.minHeight = `${minHeight}px`
+      styleDict.minHeight = `${this.minHeight}px`
     }
 
     return styleDict
@@ -146,6 +155,7 @@ export default class Flowter extends Vue {
     // the maximum width can only now be determined.
     const maxRowLength = (maxColSize * this.defaultNodeWidth)
       + ((maxColSize - 1) * this.defaultNodeColSpacing)
+      + (this.defaultWidthMargin * 2)
     const minWidth = Math.max(this.width, maxRowLength)
 
     nodes.forEach((row, rowIdx) => {
@@ -155,7 +165,8 @@ export default class Flowter extends Vue {
       row.forEach((node, colIdx) => {
         // TODO: This needs no change when
         // the horizontal mode is implemented
-        node.top = rowIdx * (this.defaultNodeHeight + this.defaultNodeRowSpacing)
+        node.top = (rowIdx * (this.defaultNodeHeight + this.defaultNodeRowSpacing))
+         + (this.defaultHeightMargin)
 
         node.left =
           // Get the leftmost position
@@ -168,6 +179,9 @@ export default class Flowter extends Vue {
 
     return nodes
   }
+  public get centerPoint () {
+    return [this.minWidth / 2, this.minHeight / 2]
+  }
   private get containerWidth () {
     const maxColSize = this.renderedNodes.reduce((colSize, row) => {
       return Math.max(colSize, row.length)
@@ -175,10 +189,18 @@ export default class Flowter extends Vue {
 
     return maxColSize * this.defaultNodeWidth
       + ((maxColSize - 1) * this.defaultNodeColSpacing)
+      + (this.defaultWidthMargin * 2)
   }
   private get containerHeight () {
     return this.renderedNodes.length * this.defaultNodeHeight
       + ((this.renderedNodes.length - 1) * this.defaultNodeRowSpacing)
+      + (this.defaultHeightMargin * 2)
+  }
+  private get minWidth () {
+    return Math.max(this.width, this.containerWidth)
+  }
+  private get minHeight () {
+    return Math.max(this.width, this.containerWidth)
   }
   // Map all nodes into a dictionary for easier access
   private get renderedNodesDict () {
@@ -223,27 +245,23 @@ export default class Flowter extends Vue {
   private get defaultNodeColSpacing () {
     return 50
   }
+  private get defaultWidthMargin () {
+    return this.width ? 0 : 25
+  }
+  private get defaultHeightMargin () {
+    return this.height ? 0 : 25
+  }
 
   // Methods
   public getEdges (node: RenderedGraphNode): RenderedGraphEdge[] {
-    const foo = this.edges.reduce<RenderedGraphEdge[]>((edges, edge) => {
+    return this.edges.reduce<RenderedGraphEdge[]>((edges, edge) => {
       if (edge.from !== node.id) {
         return edges
       }
 
-      const { start, end } = this.getStartEndPoints(node, edge)
-      edges.push({
-        from: edge.from,
-        to: edge.to,
-        option: edge.option,
-        startPoint: start,
-        endPoint: end
-      })
-
+      edges.push(this.shapeEdge(node, edge))
       return edges
     }, [])
-
-    return foo
   }
   private getOrientPoints (node: RenderedGraphNode) {
     return {
@@ -253,61 +271,75 @@ export default class Flowter extends Vue {
       s: [node.width / 2, node.height]
     }
   }
-  private getStartEndPoints (originNode: RenderedGraphNode, edge: GraphEdge) {
+  private shapeEdge (originNode: RenderedGraphNode, edge: GraphEdge) {
     const originPoints = this.getOrientPoints(originNode)
     const fromIndex = this.getNodeRowIndex(originNode)
     const targetNode = this.renderedNodesDict[edge.to]
     const targetPoints = this.getOrientPoints(targetNode)
     const toIndex = this.getNodeRowIndex(targetNode)
 
-    const points: Record<string, number[]> = {
-      start: [0, 0],
-      end: [0, 0]
+    const shapedEdge: RenderedGraphEdge = {
+      from: edge.from,
+      to: edge.to,
+      startPoint: [0, 0],
+      endPoint: [0, 0],
+      marker: Marker.END,
+      direction: Direction.FORWARD
     }
 
     switch (this.mode) {
       case Mode.VERTICAL: {
-        if (toIndex >= fromIndex) {
-          points.start = [
+        if (toIndex > fromIndex) {
+          shapedEdge.startPoint = [
             originPoints.s[0] + originNode.left,
             originPoints.s[1] + originNode.top
           ]
-          points.end = [
+          shapedEdge.endPoint = [
             targetPoints.n[0] + targetNode.left,
             targetPoints.n[1] + targetNode.top
           ]
-        } else {
-          // TODO: check if it's better to go left or right
-          // For now, it will always go right
-          points.start = [
-            originPoints.e[0] + originNode.left,
-            originPoints.e[1] + originNode.top
+        } else if (toIndex < fromIndex) {
+          // For backward edge, to simplify the calc,
+          // make the marker go from the target node
+          // to the origin node, then swap the marker
+          // Also, the entry point will always be either
+          // west or east depending on the distance between
+          // target and origin
+          const originNodeCenterPoint = (originNode.left + (originNode.width / 2))
+          const direction = originNodeCenterPoint > (this.minWidth / 2)
+            ? 'e' : 'w'
+
+          shapedEdge.startPoint = [
+            originPoints[direction][0] + targetNode.left,
+            originPoints[direction][1] + targetNode.top
           ]
-          points.end = [
-            targetPoints.w[0] + targetNode.left,
-            targetPoints.w[1] + targetNode.top
+          shapedEdge.endPoint = [
+            targetPoints[direction][0] + originNode.left,
+            targetPoints[direction][1] + originNode.top
           ]
+          shapedEdge.marker = Marker.START
+          shapedEdge.direction = Direction.BACKWARD
         }
         break
       }
       case Mode.HORIZONTAL: {
         if (toIndex >= fromIndex) {
-          points.start = [
+          shapedEdge.startPoint = [
             originPoints.e[0] + originNode.left,
             originPoints.e[1] + originNode.top
           ]
-          points.end = [
+          shapedEdge.endPoint = [
             targetPoints.w[0] + targetNode.left,
             targetPoints.w[1] + targetNode.top
           ]
         } else {
           // TODO: check if it's better to go left or right
           // For now, it will always go right
-          points.start = [
+          shapedEdge.startPoint = [
             originPoints.s[0] + originNode.left,
             originPoints.s[1] + originNode.top
           ]
-          points.end = [
+          shapedEdge.endPoint = [
             targetPoints.n[0] + targetNode.left,
             targetPoints.n[1] + targetNode.top
           ]
@@ -319,7 +351,7 @@ export default class Flowter extends Vue {
       }
     }
 
-    return points
+    return shapedEdge
   }
   private getNodeRowIndex (targetNode: RenderedGraphNode) {
     return this.renderedNodes.findIndex((row) => {
