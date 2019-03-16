@@ -5,16 +5,22 @@
       :style="containerStyle"
       class="flowter-container">
       <div
-        v-for="(row, rowIdx) in shapedNodes"
+        v-for="(row, rowIdx) in renderedNodes"
         :key="rowIdx">
-        <flowter-node
+        <div
           v-for="node in row"
-          :key="node.id"
-          :id="node.id"
-          :text="node.text"
-          :top="node.top"
-          :left="node.left">
-        </flowter-node>
+          :key="node.id">
+          <flowter-node
+            :id="node.id"
+            :text="node.text"
+            :top="node.top"
+            :left="node.left" />
+          <flowter-edge
+            v-for="edge in getEdges(node)"
+            :key="`edge-${edge.from}-${edge.to}`"
+            :start-point="getStartPoint(node)"
+            :end-point="getEndPoint(edge)" />
+        </div>
       </div>
     </div>
   </div>
@@ -35,6 +41,6 @@
 }
 
 .flowter-container {
-  zoom: 2;
+  position: relative;
 }
 </style>

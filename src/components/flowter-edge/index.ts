@@ -7,10 +7,6 @@ enum Marker {
 
 @Component
 export default class FlowterEdge extends Vue {
-  @Prop({ type: Number, required: true })
-  public from!: number
-  @Prop({ type: Number, required: true })
-  public to!: number
   @Prop({ type: Array, required: true })
   public startPoint!: [number, number]
   @Prop({ type: Array, required: true })
@@ -19,41 +15,9 @@ export default class FlowterEdge extends Vue {
   public marker!: Marker
 
   // Computed
-  // Since SVG viewboxes are counted in 'units',
-  // it would only get multiplied by the container's ratio
-  // (it is intended this way). So now, all calculations to the DOM
-  // is multiplied by this ratio, but NOT on the SVG itself.
-  public get ratio () {
-    return 2
-  }
-
-  public get minSize () {
-    return 10
-  }
-
-  public get relativeWidth () {
-    return this.endPoint[0] - this.startPoint[0]
-  }
-
-  public get relativeHeight () {
-    return this.endPoint[1] - this.startPoint[1]
-  }
-
-  public get renderedWidth () {
-    return Math.max(Math.abs(this.relativeWidth), this.minSize) + this.minSize
-  }
-
-  public get renderedHeight () {
-    return Math.max(Math.abs(this.relativeHeight), this.minSize)
-  }
-
-  public get viewBox () {
-    return `-${this.minSize} 0 ${this.renderedWidth} ${this.renderedHeight}`
-  }
-
   public get edgeStyle () {
-    const width = this.renderedWidth * this.ratio
-    const height = this.renderedHeight * this.ratio
+    const width = this.renderedWidth
+    const height = this.renderedHeight
 
     return {
       width: `${width}px`,
@@ -63,7 +27,6 @@ export default class FlowterEdge extends Vue {
       left: `${this.startPoint[0] - (width / 2)}px`
     }
   }
-
   public get polylinePoints () {
     // Let's make a really naive approach on the edge.
     // For now, all edges move downwards.
@@ -82,14 +45,37 @@ export default class FlowterEdge extends Vue {
       + `${startX + halfWidth},${halfHeight} `
       + `${startX + halfWidth},${edgeHeight} `
   }
-
   public get markerStart () {
     return this.marker === Marker.START
       ? 'url(#arrow)' : undefined
   }
-
   public get markerEnd () {
     return this.marker === Marker.END
       ? 'url(#arrow)' : undefined
+  }
+    // Since SVG viewboxes are counted in 'units',
+  // it would only get multiplied by the container's ratio
+  // (it is intended this way). So now, all calculations to the DOM
+  // is multiplied by this ratio, but NOT on the SVG itself.
+  private get minSize () {
+    return 10
+  }
+  private get relativeWidth () {
+    // Multiply by two because the edge starts
+    // from the middle of the node. It should take up
+    // two times the difference.
+    return (this.endPoint[0] - this.startPoint[0]) * 2
+  }
+  private get relativeHeight () {
+    return this.endPoint[1] - this.startPoint[1]
+  }
+  private get renderedWidth () {
+    return Math.max(Math.abs(this.relativeWidth), this.minSize) + this.minSize
+  }
+  private get renderedHeight () {
+    return Math.max(Math.abs(this.relativeHeight), this.minSize)
+  }
+  private get viewBox () {
+    return `-${this.minSize} 0 ${this.renderedWidth} ${this.renderedHeight}`
   }
 }
