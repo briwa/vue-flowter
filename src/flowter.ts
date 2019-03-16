@@ -9,9 +9,8 @@ interface GraphNode {
   text: string
 }
 
-interface RenderedGraphNode {
+interface RenderedGraphNode extends GraphNode {
   id: string
-  text: string
   top: number
   left: number
   width: number
@@ -24,9 +23,19 @@ interface GraphEdge {
   option?: string
 }
 
+interface RenderedGraphEdge extends GraphEdge {
+  startPoint: number[]
+  endPoint: number[]
+}
+
 interface EdgeDict {
   toIds: Record<string, GraphEdge['to'][]>
   fromIds: Record<string, GraphEdge['from'][]>
+}
+
+enum Mode {
+  VERTICAL = 'vertical', // Top-bottom
+  HORIZONTAL = 'horizontal' // Left-right
 }
 
 @Component({
@@ -44,19 +53,29 @@ export default class Flowter extends Vue {
   public width!: number
   @Prop({ type: Number, default: null })
   public height!: number
+  @Prop({ type: String, default: Mode.VERTICAL })
+  public mode!: Mode
 
   // Computed
   public get containerStyle () {
     const minWidth = Math.max(this.width, this.containerWidth)
     const minHeight = Math.max(this.height, this.containerHeight)
 
-    return {
+    const styleDict: Record<string, string> = {
       width: `${this.width || this.containerWidth}px`,
       height: `${this.height || this.containerHeight}px`,
-      minWidth: `${minWidth}px`,
-      minHeight: `${minHeight}px`,
       overflow: 'hidden'
     }
+
+    if (this.width) {
+      styleDict.minWidth = `${minWidth}px`
+    }
+
+    if (this.height) {
+      styleDict.minHeight = `${minHeight}px`
+    }
+
+    return styleDict
   }
   public get renderedNodes () {
     const { toIds, fromIds } = this.edgesDict
@@ -206,36 +225,105 @@ export default class Flowter extends Vue {
   }
 
   // Methods
-  public getEdges (node: RenderedGraphNode) {
-    return this.edges.filter((edge) => edge.from === node.id)
+  public getEdges (node: RenderedGraphNode): RenderedGraphEdge[] {
+    const foo = this.edges.reduce<RenderedGraphEdge[]>((edges, edge) => {
+      if (edge.from !== node.id) {
+        return edges
+      }
+
+      const { start, end } = this.getStartEndPoints(node, edge)
+      edges.push({
+        from: edge.from,
+        to: edge.to,
+        option: edge.option,
+        startPoint: start,
+        endPoint: end
+      })
+
+      return edges
+    }, [])
+
+    return foo
   }
-  public getOrientPoints (node: RenderedGraphNode) {
+  private getOrientPoints (node: RenderedGraphNode) {
     return {
       n: [node.width / 2, 0],
-      w: [node.width / 2, node.height / 2],
+      w: [0, node.height / 2],
       e: [node.width, node.height / 2],
       s: [node.width / 2, node.height]
     }
   }
-  public getStartPoint (originNode: RenderedGraphNode) {
-    const points = this.getOrientPoints(originNode)
-    // TODO: for now, orient is always from the south
-    const point = points.s
-
-    return [
-      point[0] + originNode.left,
-      point[1] + originNode.top
-    ]
-  }
-  public getEndPoint (edge: GraphEdge) {
+  private getStartEndPoints (originNode: RenderedGraphNode, edge: GraphEdge) {
+    const originPoints = this.getOrientPoints(originNode)
+    const fromIndex = this.getNodeRowIndex(originNode)
     const targetNode = this.renderedNodesDict[edge.to]
-    const points = this.getOrientPoints(targetNode)
-    // TODO: for now, orient is always from the north
-    const point = points.n
+    const targetPoints = this.getOrientPoints(targetNode)
+    const toIndex = this.getNodeRowIndex(targetNode)
 
-    return [
-      point[0] + targetNode.left,
-      point[1] + targetNode.top
-    ]
+    const points: Record<string, number[]> = {
+      start: [0, 0],
+      end: [0, 0]
+    }
+
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        if (toIndex >= fromIndex) {
+          points.start = [
+            originPoints.s[0] + originNode.left,
+            originPoints.s[1] + originNode.top
+          ]
+          points.end = [
+            targetPoints.n[0] + targetNode.left,
+            targetPoints.n[1] + targetNode.top
+          ]
+        } else {
+          // TODO: check if it's better to go left or right
+          // For now, it will always go right
+          points.start = [
+            originPoints.e[0] + originNode.left,
+            originPoints.e[1] + originNode.top
+          ]
+          points.end = [
+            targetPoints.w[0] + targetNode.left,
+            targetPoints.w[1] + targetNode.top
+          ]
+        }
+        break
+      }
+      case Mode.HORIZONTAL: {
+        if (toIndex >= fromIndex) {
+          points.start = [
+            originPoints.e[0] + originNode.left,
+            originPoints.e[1] + originNode.top
+          ]
+          points.end = [
+            targetPoints.w[0] + targetNode.left,
+            targetPoints.w[1] + targetNode.top
+          ]
+        } else {
+          // TODO: check if it's better to go left or right
+          // For now, it will always go right
+          points.start = [
+            originPoints.s[0] + originNode.left,
+            originPoints.s[1] + originNode.top
+          ]
+          points.end = [
+            targetPoints.n[0] + targetNode.left,
+            targetPoints.n[1] + targetNode.top
+          ]
+        }
+        break
+      }
+      default: {
+        throw new Error(`Unknown mode: ${this.mode}`)
+      }
+    }
+
+    return points
+  }
+  private getNodeRowIndex (targetNode: RenderedGraphNode) {
+    return this.renderedNodes.findIndex((row) => {
+      return !!row.find((node) => node.id === targetNode.id)
+    })
   }
 }
