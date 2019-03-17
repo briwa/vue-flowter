@@ -6,10 +6,12 @@ Vue.config.productionTip = false
 // This is an example of the props
 // that can be supplied. Only used in development.
 const nodes = {
+  z: { text: 'Before first' },
   a: { text: 'First A' },
   b: { text: 'First B' },
   c: { text: 'First C' },
-  cc: { text: 'Second' },
+  cca: { text: 'Second A' },
+  ccb: { text: 'Second B' },
   ccc: { text: 'After second 2' },
   cccc: { text: 'After second 3' },
   ccccc: { text: 'After second 4' },
@@ -22,13 +24,19 @@ const nodes = {
 }
 
 const edges = [
-  { from: 'a', to: 'cc' },
-  { from: 'b', to: 'cc' },
-  { from: 'c', to: 'cc' },
-  { from: 'cc', to: 'ccc' },
-  { from: 'cc', to: 'cccc' },
-  { from: 'cc', to: 'ccccc' },
-  { from: 'cc', to: 'cccccc' },
+  { from: 'z', to: 'a'},
+  { from: 'z', to: 'b'},
+  { from: 'z', to: 'c'},
+  { from: 'a', to: 'cca' },
+  { from: 'b', to: 'cca' },
+  { from: 'c', to: 'cca' },
+  { from: 'a', to: 'ccb' },
+  { from: 'b', to: 'ccb' },
+  { from: 'c', to: 'ccb' },
+  { from: 'cca', to: 'ccc' },
+  { from: 'cca', to: 'cccc' },
+  { from: 'ccb', to: 'ccccc' },
+  { from: 'ccb', to: 'cccccc' },
   { from: 'ccc', to: 'da' },
   { from: 'cccc', to: 'da' },
   { from: 'ccccc', to: 'db' },
@@ -37,10 +45,11 @@ const edges = [
   { from: 'da', to: 'f', option: 'Yes' },
   { from: 'db', to: 'e', option: 'No' },
   { from: 'db', to: 'f', option: 'Yes' },
-  { from: 'db', to: 'cc' },
   { from: 'db', to: 'cccccc' },
-  { from: 'da', to: 'cc' },
   { from: 'da', to: 'ccc' },
+  // TODO: figure out how to do these two properly
+  // { from: 'db', to: 'ccb' },
+  // { from: 'da', to: 'cca' },
   { from: 'e', to: 'i' },
   { from: 'f', to: 'i' }
 ]
