@@ -40,7 +40,7 @@ interface RenderedGraphEdge extends GraphEdge {
   direction: Direction
 }
 
-interface EdgeDict {
+interface EdgesDict {
   toIds: Record<string, GraphEdge['to'][]>
   fromIds: Record<string, GraphEdge['from'][]>
 }
@@ -87,7 +87,7 @@ export default class Flowter extends Vue {
     return styleDict
   }
   public get renderedNodes () {
-    const { toIds, fromIds } = this.edgesDict
+    const { fromIds } = this.edgesDict
     const nodes: RenderedGraphNode[][] = []
     let maxColSize = 0
 
@@ -97,10 +97,6 @@ export default class Flowter extends Vue {
       if (this.nodes.hasOwnProperty(nodeId)) {
         const node = this.nodes[nodeId]
 
-        // First and last node wouldn't have this info
-        const currToId = toIds[nodeId] ? toIds[nodeId][0] : null
-        const currFromId = fromIds[nodeId] ? fromIds[nodeId][0] : null
-
         // The first node in the loop has to be pushed
         // as the new node in the new row
         let pushAsNewRow = nodes.length === 0
@@ -108,15 +104,12 @@ export default class Flowter extends Vue {
         // Subsequent nodes should use
         // the previous node as the reference
         if (!pushAsNewRow) {
+          const currFromIds = fromIds[nodeId]
           const lastRow = nodes[nodes.length - 1]
-          const lastNode = lastRow[lastRow.length - 1]
-          const prevToId = toIds[lastNode.id] ? toIds[lastNode.id][0] : null
-          const prevFromId = fromIds[lastNode.id] ? fromIds[lastNode.id][0] : null
+          const lastRowIds = lastRow.map((n) => n.id)
 
-          // Only push the layer when previous node's to/from
-          // is different than the current node's to/from!
-          pushAsNewRow = prevToId !== currToId
-            && prevFromId !== currFromId
+          // If the node comes from the previous row, it is in the same row
+          pushAsNewRow = currFromIds.some((id) => lastRowIds.indexOf(id) >= 0)
         }
 
         // New layer with the new node
@@ -153,8 +146,12 @@ export default class Flowter extends Vue {
 
     // Since the full rows and cols of the nodes is there,
     // the maximum width can only now be determined.
-    const maxRowLength = (maxColSize * this.defaultNodeWidth)
+    const maxRowLength =
+      // The width of all nodes
+      (maxColSize * this.defaultNodeWidth)
+      // With the spacing except for the first and last one
       + ((maxColSize - 1) * this.defaultNodeColSpacing)
+      // With the default width margin left and right
       + (this.defaultWidthMargin * 2)
     const minWidth = Math.max(this.width, maxRowLength)
 
@@ -165,14 +162,19 @@ export default class Flowter extends Vue {
       row.forEach((node, colIdx) => {
         // TODO: This needs no change when
         // the horizontal mode is implemented
-        node.top = (rowIdx * (this.defaultNodeHeight + this.defaultNodeRowSpacing))
-         + (this.defaultHeightMargin)
+        node.top =
+          // For every row, add height plus the margin
+          (rowIdx * (this.defaultNodeHeight + this.defaultNodeRowSpacing))
+          // Only need to add the top margin since
+          // the bottom one is being taken care of by
+          // the row spacing
+          + (this.defaultHeightMargin)
 
         node.left =
           // Get the leftmost position
           (minWidth / 2) - (currRowLength / 2)
           // Plus each of the nodes' width
-          // Plus the spacing for each of the node (except the first one)
+          // Plus the spacing for each of the node (except the first and teh last one one)
           + (colIdx * (this.defaultNodeWidth + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
       })
     })
@@ -216,7 +218,7 @@ export default class Flowter extends Vue {
   }
   // Map all edges into to/from ids also for easier access
   private get edgesDict () {
-    return this.edges.reduce<EdgeDict>((dict, edge) => {
+    return this.edges.reduce<EdgesDict>((dict, edge) => {
       if (!dict.toIds[edge.from]) {
         dict.toIds[edge.from] = []
       }
@@ -274,7 +276,14 @@ export default class Flowter extends Vue {
   private shapeEdge (originNode: RenderedGraphNode, edge: GraphEdge) {
     const originPoints = this.getOrientPoints(originNode)
     const fromIndex = this.getNodeRowIndex(originNode)
+
+    // Get the target node
+    // Chances are, this node isn't properly linked
     const targetNode = this.renderedNodesDict[edge.to]
+    if (!targetNode) {
+      throw new Error(`Unable to find a target node with id: ${edge.to}`)
+    }
+
     const targetPoints = this.getOrientPoints(targetNode)
     const toIndex = this.getNodeRowIndex(targetNode)
 
