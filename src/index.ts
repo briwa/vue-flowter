@@ -87,8 +87,9 @@ export default class Flowter extends Vue {
     return styleDict
   }
   public get renderedNodes () {
-    const { fromIds } = this.edgesDict
+    const { toIds, fromIds } = this.edgesDict
     const nodes: RenderedGraphNode[][] = []
+    const loneNodes: RenderedGraphNode[] = []
     let maxColSize = 0
 
     // Loop through the nodes dictionary
@@ -96,6 +97,25 @@ export default class Flowter extends Vue {
     for (const nodeId in this.nodes) {
       if (this.nodes.hasOwnProperty(nodeId)) {
         const node = this.nodes[nodeId]
+        const renderedNode = {
+          id: nodeId,
+          text: node.text,
+          top: 0,
+          left: 0,
+          width: this.defaultNodeWidth,
+          height: this.defaultNodeHeight
+        }
+
+        const currFromIds = fromIds[nodeId]
+        const currToIds = toIds[nodeId]
+
+        // If for some reason there's a node that
+        // has no both from and to, it's a lone node...
+        // Don't bother doing anything else
+        if (!currFromIds && !currToIds) {
+          loneNodes.push(renderedNode)
+          continue
+        }
 
         // The first node in the loop has to be pushed
         // as the new node in the new row
@@ -104,7 +124,6 @@ export default class Flowter extends Vue {
         // Subsequent nodes should use
         // the previous node as the reference
         if (!pushAsNewRow) {
-          const currFromIds = fromIds[nodeId]
           const lastRow = nodes[nodes.length - 1]
           const lastRowIds = lastRow.map((n) => n.id)
 
@@ -118,14 +137,7 @@ export default class Flowter extends Vue {
           // let's see if it's bigger than the current one
           maxColSize = Math.max(1, maxColSize)
 
-          nodes.push([{
-            id: nodeId,
-            text: node.text,
-            top: 0,
-            left: 0,
-            width: this.defaultNodeWidth,
-            height: this.defaultNodeHeight
-          }])
+          nodes.push([renderedNode])
 
         } else { // Another node in the layer
           const row = nodes[nodes.length - 1]
@@ -174,23 +186,30 @@ export default class Flowter extends Vue {
           // Get the leftmost position
           (minWidth / 2) - (currRowLength / 2)
           // Plus each of the nodes' width
-          // Plus the spacing for each of the node (except the first and teh last one one)
+          // Plus the spacing for each of the node (except the first and the last one)
           + (colIdx * (this.defaultNodeWidth + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
       })
     })
+
+    // Render lone nodes too,
+    // and it will always be at the top left corner
+    if (loneNodes.length) {
+      nodes.push(loneNodes)
+    }
 
     return nodes
   }
   public get centerPoint () {
     return [this.minWidth / 2, this.minHeight / 2]
   }
-  private get containerWidth () {
-    const maxColSize = this.renderedNodes.reduce((colSize, row) => {
+  public get maxColSize () {
+    return this.renderedNodes.reduce((colSize, row) => {
       return Math.max(colSize, row.length)
     }, 0)
-
-    return maxColSize * this.defaultNodeWidth
-      + ((maxColSize - 1) * this.defaultNodeColSpacing)
+  }
+  private get containerWidth () {
+    return this.maxColSize * this.defaultNodeWidth
+      + ((this.maxColSize - 1) * this.defaultNodeColSpacing)
       + (this.defaultWidthMargin * 2)
   }
   private get containerHeight () {
@@ -235,6 +254,8 @@ export default class Flowter extends Vue {
       fromIds: {}
     })
   }
+  // TODO: These constants will be overidden
+  // by props since it's supposed to be configurable
   private get defaultNodeWidth () {
     return 100
   }
@@ -278,7 +299,7 @@ export default class Flowter extends Vue {
     const fromIndex = this.getNodeRowIndex(originNode)
 
     // Get the target node
-    // Chances are, this node isn't properly linked
+    // Chances are this node isn't properly linked
     const targetNode = this.renderedNodesDict[edge.to]
     if (!targetNode) {
       throw new Error(`Unable to find a target node with id: ${edge.to}`)
