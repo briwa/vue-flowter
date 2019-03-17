@@ -7,9 +7,10 @@
       :key="rowIdx">
       <div
         v-for="node in row"
-        :key="node.id">
+        :key="`container-${node.id}`">
         <flowter-node
           :id="node.id"
+          :key="`node-${node.id}`"
           :text="node.text"
           :top="node.top"
           :left="node.left" />

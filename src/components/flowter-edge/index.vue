@@ -20,7 +20,7 @@
       <polyline
         fill="none"
         stroke="black"
-        stroke-width="2"
+        stroke-width="1.5"
         :points="polylinePoints"
         :marker-start="markerStart"
         :marker-end="markerEnd" />

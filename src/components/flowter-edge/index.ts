@@ -7,7 +7,7 @@ enum Marker {
 
 enum PathStyle {
   CROSS = 'cross',
-  ANGLE = 'angle'
+  BENT = 'bent'
 }
 
 enum Direction {
@@ -25,83 +25,50 @@ export default class FlowterEdge extends Vue {
   public centerPoint!: [number, number]
   @Prop({ type: String, default: Marker.END })
   public marker!: Marker
-  @Prop({ type: String, default: PathStyle.ANGLE })
+  @Prop({ type: String, default: PathStyle.BENT })
   public pathStyle!: PathStyle
   @Prop({ type: String, default: Direction.FORWARD })
   public direction!: Direction
 
   // Computed
   public get edgeStyle () {
-    const width = this.renderedWidth
-    const height = this.renderedHeight
-
     return {
-      width: `${width}px`,
-      height: `${height}px`,
-      top: `${this.startPoint[1]}px`,
-      // The edge should be positioned at the middle of the starting point
-      left: `${this.startPoint[0] - (width / 2)}px`
+      width: `${this.renderedWidth}px`,
+      height: `${this.renderedHeight}px`,
+      top: `${this.startPoint[1] - this.paddingSize}px`,
+      left: `${this.startPoint[0] - this.relativeStartX}px`
     }
   }
   public get polylinePoints () {
-    // Let's make a really naive approach on the edge.
-    // For now, all edges move downwards.
-    // Magic number -2 is so that the tip of the arrow
-    // won't touch the next node, because it's ugly.
-    const magicNumber = -2
-    const edgeHeight = this.renderedHeight - 2
+    const edgeHeight = this.renderedHeight
     const halfHeight = this.renderedHeight / 2
-
-    // Straight arrows don't need no customizations
-    if (this.relativeWidth === 0) {
-      return `0,0 0,${edgeHeight} `
-    }
-
-    const halfWidth = this.relativeWidth / 2
-    const startX = Math.abs(halfWidth) - (this.minSize / 2)
-
-    // When the arrows are crossing at the end,
-    // they're all stacked together, which makes it hard to see.
-    // Move it slightly to either direction so that it's better.
-    const arrowOffset = halfWidth > 0 ? 6 : -6
 
     switch (this.pathStyle) {
       case PathStyle.CROSS: {
-        return `${startX},0 ${startX + halfWidth - arrowOffset},${edgeHeight}`
+        return `${this.relativeStartX},${this.paddingSize} `
+          + `${this.renderedWidth - this.relativeStartX},${edgeHeight - this.relativeStartY}`
       }
-      case PathStyle.ANGLE: {
+      case PathStyle.BENT: {
         switch (this.direction) {
           case Direction.FORWARD: {
-            return `${startX},0 `
-              + `${startX},${halfHeight} `
-              + `${startX + halfWidth},${halfHeight} `
-              + `${startX + halfWidth},${edgeHeight} `
+            return `${this.relativeStartX},${this.relativeStartY} `
+              + `${this.relativeStartX},${halfHeight} `
+              + `${this.renderedWidth - this.relativeStartX},${halfHeight} `
+              + `${this.renderedWidth - this.relativeStartX},${edgeHeight - this.relativeStartY} `
           }
           case Direction.BACKWARD: {
-            // There are two types of backward edge:
-            // 1. The one that goes vertical then horizontal
-            // 2. The one that goes horizontal then vertical
-            // We should determine the type by the size of width and height
-            // Also, the detour direction matters depending on whether
-            // the target x and the origin x is placed
-            // TODO: improve this ever-complicated algorithm
-            const direction = this.startPoint[0] > this.centerPoint[0] ? 1 : -1
-            const detourOffset = this.startPoint[0] > this.centerPoint[0]
-              ? (this.detourSize * 2) + magicNumber : 0
+            // Depending on whether the edge goes rtl or ltr
+            // (relative to the center of the flowchart, not the target)
+            // the detour direction should follow the edge direction.
+            // Also, since the startX has already taken minSize into account,
+            // the detour size should only contain the value
+            const relativeDetourSize = this.startPoint[0] > this.centerPoint[0]
+              ? this.detourSize : -this.detourSize
 
-            // (1)
-            if (this.renderedHeight >= this.renderedWidth) {
-              return `${startX + this.detourSize - (magicNumber * direction)},${arrowOffset * direction} `
-                + `${startX + halfWidth + detourOffset},${arrowOffset * direction} `
-                + `${startX + halfWidth + detourOffset},${edgeHeight} `
-                + `${startX + halfWidth + this.detourSize},${edgeHeight} `
-            }
-
-            // (2)
-            return `${startX + this.detourSize - magicNumber},${-arrowOffset * direction} `
-              + `${startX + detourOffset },${-arrowOffset * direction} `
-              + `${startX + detourOffset },${edgeHeight} `
-              + `${startX + this.detourSize + halfWidth },${edgeHeight} `
+            return `${this.relativeStartX},${this.relativeStartY} `
+              + `${this.relativeStartX + relativeDetourSize},${this.relativeStartY} `
+              + `${this.relativeStartX + relativeDetourSize},${edgeHeight - this.relativeStartY} `
+              + `${this.renderedWidth - this.relativeStartX},${edgeHeight - this.relativeStartY} `
           }
         }
       }
@@ -116,7 +83,7 @@ export default class FlowterEdge extends Vue {
       ? 'url(#arrow)' : undefined
   }
   public get viewBox () {
-    return `-${this.minSize} 0 ${this.renderedWidth} ${this.renderedHeight}`
+    return `0 0 ${this.renderedWidth} ${this.renderedHeight}`
   }
   // Minimum size of the edge, both width and height
   private get minSize () {
@@ -127,23 +94,41 @@ export default class FlowterEdge extends Vue {
     return 10
   }
   private get relativeWidth () {
-    // Multiply by two because the edge starts
-    // from the middle of the SVG. The size should be
-    // at least twice the difference
-    return (this.endPoint[0] - this.startPoint[0]) * 2
+    return this.endPoint[0] - this.startPoint[0]
   }
   private get relativeHeight () {
     return this.endPoint[1] - this.startPoint[1]
   }
-  private get renderedWidth () {
-    const naturalSize = Math.max(Math.abs(this.relativeWidth), this.minSize) + this.minSize
-    if (this.direction === Direction.FORWARD) {
-      return naturalSize
+  private get relativeStartX () {
+    // For edges going rtl,
+    // it should start at the top right corner of the svg
+    if (this.relativeWidth < 0) {
+      return this.renderedWidth - this.paddingSize
     }
 
-    return naturalSize + (this.detourSize * 2)
+    // For edges going ltr,
+    // it should start at the top left corner of the svg
+    if (this.relativeWidth > 0) {
+      return this.paddingSize
+    }
+
+    // For edges going straight,
+    // it should just start at the middle of the svg
+    return this.renderedWidth / 2
+  }
+  private get relativeStartY () {
+    return this.paddingSize
+  }
+  private get paddingSize () {
+    return this.direction === Direction.FORWARD
+      ? this.minSize : (this.minSize + this.detourSize)
+  }
+  private get renderedWidth () {
+    return (Math.max(Math.abs(this.relativeWidth), this.minSize))
+      + (this.paddingSize * 2)
   }
   private get renderedHeight () {
-    return Math.max(Math.abs(this.relativeHeight), this.minSize)
+    return (Math.max(Math.abs(this.relativeHeight), this.minSize))
+      + (this.paddingSize * 2)
   }
 }
