@@ -1,10 +1,9 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
-import FlowterEdge from '@/components/flowter-edge/index.vue'
-import FlowterNode from '@/components/flowter-node/index.vue'
+import FlowterEdge from './components/flowter-edge/index.vue'
+import FlowterNode from './components/flowter-node/index.vue'
 
 // TODO:
 // - Use x/y for all points related
-
 enum Marker {
   START = 'start',
   END = 'end'
@@ -59,7 +58,7 @@ enum Mode {
 export default class Flowter extends Vue {
   @Prop({ type: Object, required: true })
   public nodes!: Record<string, GraphNode>
-  @Prop({ type: Array, default: () => [] })
+  @Prop({ type: Array, required: true })
   public edges!: GraphEdge[]
   @Prop({ type: Number, default: null })
   public width!: number
@@ -90,7 +89,7 @@ export default class Flowter extends Vue {
     const { toIds, fromIds } = this.edgesDict
     const nodes: RenderedGraphNode[][] = []
     const loneNodes: RenderedGraphNode[] = []
-    let maxColSize = 0
+    let maxColSize = 1
 
     // Loop through the nodes dictionary
     // to shape it into rows of nodes
@@ -133,63 +132,31 @@ export default class Flowter extends Vue {
 
         // New layer with the new node
         if (pushAsNewRow) {
-          // The new column size would at least be 1,
-          // let's see if it's bigger than the current one
-          maxColSize = Math.max(1, maxColSize)
-
           nodes.push([renderedNode])
-
         } else { // Another node in the layer
           const row = nodes[nodes.length - 1]
 
-          row.push({
-            id: nodeId,
-            text: node.text,
-            top: 0,
-            left: 0,
-            width: this.defaultNodeWidth,
-            height: this.defaultNodeHeight
-          })
-
+          row.push(renderedNode)
           maxColSize = Math.max(row.length, maxColSize)
         }
       }
     }
 
-    // Since the full rows and cols of the nodes is there,
-    // the maximum width can only now be determined.
-    const maxRowLength =
-      // The width of all nodes
-      (maxColSize * this.defaultNodeWidth)
-      // With the spacing except for the first and last one
-      + ((maxColSize - 1) * this.defaultNodeColSpacing)
-      // With the default width margin left and right
-      + (this.defaultWidthMargin * 2)
-    const minWidth = Math.max(this.width, maxRowLength)
-
-    nodes.forEach((row, rowIdx) => {
-      const currRowLength = (row.length * this.defaultNodeWidth)
-          + ((row.length - 1) * this.defaultNodeColSpacing)
-
-      row.forEach((node, colIdx) => {
-        // TODO: This needs no change when
-        // the horizontal mode is implemented
-        node.top =
-          // For every row, add height plus the margin
-          (rowIdx * (this.defaultNodeHeight + this.defaultNodeRowSpacing))
-          // Only need to add the top margin since
-          // the bottom one is being taken care of by
-          // the row spacing
-          + (this.defaultHeightMargin)
-
-        node.left =
-          // Get the leftmost position
-          (minWidth / 2) - (currRowLength / 2)
-          // Plus each of the nodes' width
-          // Plus the spacing for each of the node (except the first and the last one)
-          + (colIdx * (this.defaultNodeWidth + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
-      })
-    })
+    // Shape the nodes to assign
+    // positions depending on the mode
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        this.shapeNodesVertically(nodes, maxColSize)
+        break
+      }
+      case Mode.HORIZONTAL: {
+        this.shapeNodesHorizontally(nodes, maxColSize)
+        break
+      }
+      default: {
+        throw new Error(`Unknown mode :${this.mode}`)
+      }
+    }
 
     // Render lone nodes too,
     // and it will always be at the top left corner
@@ -208,20 +175,38 @@ export default class Flowter extends Vue {
     }, 0)
   }
   private get containerWidth () {
-    return this.maxColSize * this.defaultNodeWidth
-      + ((this.maxColSize - 1) * this.defaultNodeColSpacing)
-      + (this.defaultWidthMargin * 2)
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        return this.maxColSize * this.defaultNodeWidth
+          + ((this.maxColSize - 1) * this.defaultNodeColSpacing)
+          + (this.defaultWidthMargin * 2)
+      }
+      case Mode.HORIZONTAL: {
+        return this.renderedNodes.length * this.defaultNodeWidth
+          + ((this.renderedNodes.length - 1) * this.defaultNodeRowSpacing)
+          + (this.defaultWidthMargin * 2)
+      }
+    }
   }
   private get containerHeight () {
-    return this.renderedNodes.length * this.defaultNodeHeight
-      + ((this.renderedNodes.length - 1) * this.defaultNodeRowSpacing)
-      + (this.defaultHeightMargin * 2)
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        return this.renderedNodes.length * this.defaultNodeHeight
+          + ((this.renderedNodes.length - 1) * this.defaultNodeRowSpacing)
+          + (this.defaultHeightMargin * 2)
+      }
+      case Mode.HORIZONTAL: {
+        return this.maxColSize * this.defaultNodeHeight
+          + ((this.maxColSize - 1) * this.defaultNodeColSpacing)
+          + (this.defaultHeightMargin * 2)
+      }
+    }
   }
   private get minWidth () {
     return Math.max(this.width, this.containerWidth)
   }
   private get minHeight () {
-    return Math.max(this.width, this.containerWidth)
+    return Math.max(this.width, this.containerHeight)
   }
   // Map all nodes into a dictionary for easier access
   private get renderedNodesDict () {
@@ -362,17 +347,27 @@ export default class Flowter extends Vue {
             targetPoints.w[0] + targetNode.left,
             targetPoints.w[1] + targetNode.top
           ]
-        } else {
-          // TODO: check if it's better to go left or right
-          // For now, it will always go right
+        } else if (toIndex < fromIndex) {
+          // For backward edge, to simplify the calc,
+          // make the marker go from the target node
+          // to the origin node, then swap the marker
+          // Also, the entry point will always be either
+          // south or north depending on the distance between
+          // target and origin
+          const originNodeCenterPoint = (originNode.top + (originNode.height / 2))
+          const direction = originNodeCenterPoint > (this.minHeight / 2)
+            ? 's' : 'n'
+
           shapedEdge.startPoint = [
-            originPoints.s[0] + originNode.left,
-            originPoints.s[1] + originNode.top
+            originPoints[direction][0] + targetNode.left,
+            originPoints[direction][1] + targetNode.top
           ]
           shapedEdge.endPoint = [
-            targetPoints.n[0] + targetNode.left,
-            targetPoints.n[1] + targetNode.top
+            targetPoints[direction][0] + originNode.left,
+            targetPoints[direction][1] + originNode.top
           ]
+          shapedEdge.marker = Marker.START
+          shapedEdge.direction = Direction.BACKWARD
         }
         break
       }
@@ -386,6 +381,74 @@ export default class Flowter extends Vue {
   private getNodeRowIndex (targetNode: RenderedGraphNode) {
     return this.renderedNodes.findIndex((row) => {
       return !!row.find((node) => node.id === targetNode.id)
+    })
+  }
+  private shapeNodesVertically (nodes: RenderedGraphNode[][], maxColSize: number) {
+    // Since the full rows and cols of the nodes is there,
+    // the maximum width can only now be determined.
+    const maxRowLength =
+      // The width of all nodes
+      (maxColSize * this.defaultNodeWidth)
+      // With the spacing except for the first and last one
+      + ((maxColSize - 1) * this.defaultNodeColSpacing)
+      // With the default width margin left and right
+      + (this.defaultWidthMargin * 2)
+    const minWidth = Math.max(this.width, maxRowLength)
+
+    nodes.forEach((row, rowIdx) => {
+      const currRowLength = (row.length * this.defaultNodeWidth)
+          + ((row.length - 1) * this.defaultNodeColSpacing)
+
+      row.forEach((node, colIdx) => {
+        node.top =
+          // For every row, add height plus the margin
+          (rowIdx * (this.defaultNodeHeight + this.defaultNodeRowSpacing))
+          // Only need to add the top margin since
+          // the bottom one is being taken care of by
+          // the row spacing
+          + (this.defaultHeightMargin)
+
+        node.left =
+          // Get the leftmost position
+          (minWidth / 2) - (currRowLength / 2)
+          // Plus each of the nodes' width
+          // Plus the spacing for each of the node (except the first and the last one)
+          + (colIdx * (this.defaultNodeWidth + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
+      })
+    })
+  }
+  private shapeNodesHorizontally (nodes: RenderedGraphNode[][], maxColSize: number) {
+    // Since the full rows and cols of the nodes is there,
+    // the maximum width can only now be determined.
+    const maxColLength =
+      // The width of all nodes
+      (maxColSize * this.defaultNodeHeight)
+      // With the spacing except for the first and last one
+      + ((maxColSize - 1) * this.defaultNodeColSpacing)
+      // With the default width margin left and right
+      + (this.defaultHeightMargin * 2)
+    const minHeight = Math.max(this.height, maxColLength)
+
+    nodes.forEach((row, rowIdx) => {
+      const currRowLength = (row.length * this.defaultNodeHeight)
+          + ((row.length - 1) * this.defaultNodeColSpacing)
+
+      row.forEach((node, colIdx) => {
+        node.left =
+          // For every row, add height plus the margin
+          (rowIdx * (this.defaultNodeWidth + this.defaultNodeRowSpacing))
+          // Only need to add the top margin since
+          // the bottom one is being taken care of by
+          // the row spacing
+          + (this.defaultWidthMargin)
+
+        node.top =
+          // Get the topmost position
+          (minHeight / 2) - (currRowLength / 2)
+          // Plus each of the nodes' width
+          // Plus the spacing for each of the node (except the first and the last one)
+          + (colIdx * (this.defaultNodeHeight + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
+      })
     })
   }
 }

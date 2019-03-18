@@ -4,16 +4,16 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 export default class FlowterNode extends Vue {
   @Prop({ type: String, required: true })
   public id!: string
+  @Prop({ type: Number, required: true })
+  public top!: number
+  @Prop({ type: Number, required: true })
+  public left!: number
+  @Prop({ type: Number, required: true })
+  public width!: number
+  @Prop({ type: Number, required: true })
+  public height!: number
   @Prop({ type: String, default: '' })
   public text!: string
-  @Prop({ type: Number, default: 0 })
-  public top!: number
-  @Prop({ type: Number, default: 0 })
-  public left!: number
-  @Prop({ type: Number, default: 100 })
-  public width!: number
-  @Prop({ type: Number, default: 50 })
-  public height!: number
   @Prop({ type: Number, default: 12 })
   public fontSize!: number
 

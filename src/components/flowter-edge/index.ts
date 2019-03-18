@@ -15,6 +15,11 @@ enum Direction {
   BACKWARD = 'backward'
 }
 
+enum Mode {
+  VERTICAL = 'vertical', // Top-bottom
+  HORIZONTAL = 'horizontal' // Left-right
+}
+
 @Component
 export default class FlowterEdge extends Vue {
   @Prop({ type: Array, required: true })
@@ -29,32 +34,39 @@ export default class FlowterEdge extends Vue {
   public pathStyle!: PathStyle
   @Prop({ type: String, default: Direction.FORWARD })
   public direction!: Direction
+  @Prop({ type: String, default: Mode.VERTICAL })
+  public mode!: Mode
 
   // Computed
   public get edgeStyle () {
     return {
       width: `${this.renderedWidth}px`,
       height: `${this.renderedHeight}px`,
-      top: `${this.startPoint[1] - this.paddingSize}px`,
+      top: `${this.startPoint[1] - this.relativeStartY}px`,
       left: `${this.startPoint[0] - this.relativeStartX}px`
     }
   }
   public get polylinePoints () {
-    const edgeHeight = this.renderedHeight
-    const halfHeight = this.renderedHeight / 2
-
+    switch (this.mode) {
+      case Mode.VERTICAL: return this.verticalPolylinePoints
+      case Mode.HORIZONTAL: return this.horizontalPolylinePoints
+    }
+  }
+  public get verticalPolylinePoints () {
     switch (this.pathStyle) {
       case PathStyle.CROSS: {
         return `${this.relativeStartX},${this.paddingSize} `
-          + `${this.renderedWidth - this.relativeStartX},${edgeHeight - this.relativeStartY}`
+          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY}`
       }
       case PathStyle.BENT: {
         switch (this.direction) {
           case Direction.FORWARD: {
+            const halfLength = this.renderedHeight / 2
+
             return `${this.relativeStartX},${this.relativeStartY} `
-              + `${this.relativeStartX},${halfHeight} `
-              + `${this.renderedWidth - this.relativeStartX},${halfHeight} `
-              + `${this.renderedWidth - this.relativeStartX},${edgeHeight - this.relativeStartY} `
+              + `${this.relativeStartX},${halfLength} `
+              + `${this.renderedWidth - this.relativeStartX},${halfLength} `
+              + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
           }
           case Direction.BACKWARD: {
             // Depending on whether the edge goes rtl or ltr
@@ -67,8 +79,42 @@ export default class FlowterEdge extends Vue {
 
             return `${this.relativeStartX},${this.relativeStartY} `
               + `${this.relativeStartX + relativeDetourSize},${this.relativeStartY} `
-              + `${this.relativeStartX + relativeDetourSize},${edgeHeight - this.relativeStartY} `
-              + `${this.renderedWidth - this.relativeStartX},${edgeHeight - this.relativeStartY} `
+              + `${this.relativeStartX + relativeDetourSize},${this.renderedHeight - this.relativeStartY} `
+              + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
+          }
+        }
+      }
+    }
+  }
+  public get horizontalPolylinePoints () {
+    switch (this.pathStyle) {
+      case PathStyle.CROSS: {
+        return `${this.relativeStartX},${this.paddingSize} `
+          + `${this.renderedWidth - this.relativeStartX},${this.renderedWidth - this.relativeStartY}`
+      }
+      case PathStyle.BENT: {
+        switch (this.direction) {
+          case Direction.FORWARD: {
+            const halfLength = this.renderedWidth / 2
+
+            return `${this.relativeStartX},${this.relativeStartY} `
+              + `${this.relativeStartX + halfLength},${this.relativeStartY} `
+              + `${this.relativeStartX + halfLength},${this.renderedHeight - this.relativeStartY} `
+              + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
+          }
+          case Direction.BACKWARD: {
+            // Depending on whether the edge goes ttb or btt
+            // (relative to the center of the flowchart, not the target)
+            // the detour direction should follow the edge direction.
+            // Also, since the startY has already taken minSize into account,
+            // the detour size should only contain the value
+            const relativeDetourSize = this.startPoint[1] > this.centerPoint[1]
+              ? this.detourSize : -this.detourSize
+
+            return `${this.relativeStartX},${this.relativeStartY} `
+              + `${this.relativeStartX },${this.relativeStartY + relativeDetourSize} `
+              + `${this.renderedWidth - this.relativeStartX},${this.relativeStartY + relativeDetourSize} `
+              + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
           }
         }
       }
@@ -100,24 +146,52 @@ export default class FlowterEdge extends Vue {
     return this.endPoint[1] - this.startPoint[1]
   }
   private get relativeStartX () {
-    // For edges going rtl,
-    // it should start at the top right corner of the svg
-    if (this.relativeWidth < 0) {
-      return this.renderedWidth - this.paddingSize
-    }
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        // For edges going rtl,
+        // it should start at the top right corner of the svg
+        if (this.relativeWidth < 0) {
+          return this.renderedWidth - this.paddingSize
+        }
 
-    // For edges going ltr,
-    // it should start at the top left corner of the svg
-    if (this.relativeWidth > 0) {
-      return this.paddingSize
-    }
+        // For edges going ltr,
+        // it should start at the top left corner of the svg
+        if (this.relativeWidth > 0) {
+          return this.paddingSize
+        }
 
-    // For edges going straight,
-    // it should just start at the middle of the svg
-    return this.renderedWidth / 2
+        // For edges going straight,
+        // it should just start at the middle of the svg
+        return this.renderedWidth / 2
+      }
+      case Mode.HORIZONTAL: {
+        return this.paddingSize
+      }
+    }
   }
   private get relativeStartY () {
-    return this.paddingSize
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        return this.paddingSize
+      }
+      case Mode.HORIZONTAL: {
+        // For edges going rtl,
+        // it should start at the top right corner of the svg
+        if (this.relativeHeight < 0) {
+          return this.renderedHeight - this.paddingSize
+        }
+
+        // For edges going ltr,
+        // it should start at the top left corner of the svg
+        if (this.relativeHeight > 0) {
+          return this.paddingSize
+        }
+
+        // For edges going straight,
+        // it should just start at the middle of the svg
+        return this.renderedHeight / 2
+      }
+    }
   }
   private get paddingSize () {
     return this.direction === Direction.FORWARD
