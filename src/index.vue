@@ -13,7 +13,9 @@
           :key="`node-${node.id}`"
           :text="node.text"
           :top="node.top"
-          :left="node.left" />
+          :left="node.left"
+          :width="node.width"
+          :height="node.height" />
         <flowter-edge
           v-for="edge in getEdges(node)"
           :key="`edge-${edge.from}-${edge.to}`"
@@ -21,7 +23,8 @@
           :end-point="edge.endPoint"
           :marker="edge.marker"
           :direction="edge.direction"
-          :center-point="centerPoint" />
+          :center-point="centerPoint"
+          :mode="mode" />
       </div>
     </div>
   </div>
