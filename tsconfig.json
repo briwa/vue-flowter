@@ -32,7 +32,7 @@
     "src/**/*.ts",
     "src/**/*.vue",
     "__tests__/**/*.ts",
-    "fixtures/**/*.json",
+    "fixtures/**/*.json"
   ],
   "exclude": [
     "node_modules"

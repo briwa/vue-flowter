@@ -5,9 +5,9 @@ export default class FlowterNode extends Vue {
   @Prop({ type: String, required: true })
   public id!: string
   @Prop({ type: Number, required: true })
-  public top!: number
+  public x!: number
   @Prop({ type: Number, required: true })
-  public left!: number
+  public y!: number
   @Prop({ type: Number, required: true })
   public width!: number
   @Prop({ type: Number, required: true })
@@ -28,8 +28,8 @@ export default class FlowterNode extends Vue {
   }
   public get containerStyle () {
     return {
-      top: `${this.top}px`,
-      left: `${this.left}px`
+      top: `${this.y}px`,
+      left: `${this.x}px`
     }
   }
 }

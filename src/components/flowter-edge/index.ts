@@ -1,39 +1,23 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
-enum Marker {
-  START = 'start',
-  END = 'end'
-}
-
-enum PathStyle {
-  CROSS = 'cross',
-  BENT = 'bent'
-}
-
-enum Direction {
-  FORWARD = 'forward',
-  BACKWARD = 'backward'
-}
-
-enum Mode {
-  VERTICAL = 'vertical', // Top-bottom
-  HORIZONTAL = 'horizontal' // Left-right
-}
+import {
+  Point, EdgeMarker, EdgeDirection, Mode, EdgeType
+} from '@/types'
 
 @Component
 export default class FlowterEdge extends Vue {
-  @Prop({ type: Array, required: true })
-  public startPoint!: [number, number]
-  @Prop({ type: Array, required: true })
-  public endPoint!: [number, number]
-  @Prop({ type: Array, required: true })
-  public centerPoint!: [number, number]
-  @Prop({ type: String, default: Marker.END })
-  public marker!: Marker
-  @Prop({ type: String, default: PathStyle.BENT })
-  public pathStyle!: PathStyle
-  @Prop({ type: String, default: Direction.FORWARD })
-  public direction!: Direction
+  @Prop({ type: Object, required: true })
+  public startPoint!: Point
+  @Prop({ type: Object, required: true })
+  public endPoint!: Point
+  @Prop({ type: Object, required: true })
+  public centerPoint!: Point
+  @Prop({ type: String, default: EdgeMarker.END })
+  public marker!: EdgeMarker
+  @Prop({ type: String, default: EdgeType.BENT })
+  public edgeType!: EdgeType
+  @Prop({ type: String, default: EdgeDirection.FORWARD })
+  public direction!: EdgeDirection
   @Prop({ type: String, default: Mode.VERTICAL })
   public mode!: Mode
 
@@ -42,90 +26,82 @@ export default class FlowterEdge extends Vue {
     return {
       width: `${this.renderedWidth}px`,
       height: `${this.renderedHeight}px`,
-      top: `${this.startPoint[1] - this.relativeStartY}px`,
-      left: `${this.startPoint[0] - this.relativeStartX}px`
+      top: `${this.startPoint.y - this.relativeStartY}px`,
+      left: `${this.startPoint.x - this.relativeStartX}px`
     }
   }
   public get polylinePoints () {
-    switch (this.mode) {
-      case Mode.VERTICAL: return this.verticalPolylinePoints
-      case Mode.HORIZONTAL: return this.horizontalPolylinePoints
+    switch (this.edgeType) {
+      case EdgeType.CROSS: {
+        return `${this.relativeStartX},${this.relativeStartY} `
+          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY}`
+      }
+      case EdgeType.BENT: {
+        switch (this.mode) {
+          case Mode.VERTICAL: return this.verticalPolylinePoints
+          case Mode.HORIZONTAL: return this.horizontalPolylinePoints
+        }
+      }
     }
   }
   public get verticalPolylinePoints () {
-    switch (this.pathStyle) {
-      case PathStyle.CROSS: {
-        return `${this.relativeStartX},${this.paddingSize} `
-          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY}`
+    switch (this.direction) {
+      case EdgeDirection.FORWARD: {
+        const halfLength = this.renderedHeight / 2
+
+        return `${this.relativeStartX},${this.relativeStartY} `
+          + `${this.relativeStartX},${halfLength} `
+          + `${this.renderedWidth - this.relativeStartX},${halfLength} `
+          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
       }
-      case PathStyle.BENT: {
-        switch (this.direction) {
-          case Direction.FORWARD: {
-            const halfLength = this.renderedHeight / 2
+      case EdgeDirection.BACKWARD: {
+        // Depending on whether the edge goes rtl or ltr
+        // (relative to the center of the flowchart, not the target)
+        // the detour direction should follow the edge direction.
+        // Also, since the startX has already taken minSize into account,
+        // the detour size should only contain the value
+        const relativeDetourSize = this.startPoint.x > this.centerPoint.x
+          ? this.detourSize : -this.detourSize
 
-            return `${this.relativeStartX},${this.relativeStartY} `
-              + `${this.relativeStartX},${halfLength} `
-              + `${this.renderedWidth - this.relativeStartX},${halfLength} `
-              + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
-          }
-          case Direction.BACKWARD: {
-            // Depending on whether the edge goes rtl or ltr
-            // (relative to the center of the flowchart, not the target)
-            // the detour direction should follow the edge direction.
-            // Also, since the startX has already taken minSize into account,
-            // the detour size should only contain the value
-            const relativeDetourSize = this.startPoint[0] > this.centerPoint[0]
-              ? this.detourSize : -this.detourSize
-
-            return `${this.relativeStartX},${this.relativeStartY} `
-              + `${this.relativeStartX + relativeDetourSize},${this.relativeStartY} `
-              + `${this.relativeStartX + relativeDetourSize},${this.renderedHeight - this.relativeStartY} `
-              + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
-          }
-        }
+        return `${this.relativeStartX},${this.relativeStartY} `
+          + `${this.relativeStartX + relativeDetourSize},${this.relativeStartY} `
+          + `${this.relativeStartX + relativeDetourSize},${this.renderedHeight - this.relativeStartY} `
+          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
       }
     }
   }
   public get horizontalPolylinePoints () {
-    switch (this.pathStyle) {
-      case PathStyle.CROSS: {
-        return `${this.relativeStartX},${this.paddingSize} `
-          + `${this.renderedWidth - this.relativeStartX},${this.renderedWidth - this.relativeStartY}`
+    switch (this.direction) {
+      case EdgeDirection.FORWARD: {
+        const halfLength = this.renderedWidth / 2
+
+        return `${this.relativeStartX},${this.relativeStartY} `
+          + `${this.relativeStartX + halfLength},${this.relativeStartY} `
+          + `${this.relativeStartX + halfLength},${this.renderedHeight - this.relativeStartY} `
+          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
       }
-      case PathStyle.BENT: {
-        switch (this.direction) {
-          case Direction.FORWARD: {
-            const halfLength = this.renderedWidth / 2
+      case EdgeDirection.BACKWARD: {
+        // Depending on whether the edge goes ttb or btt
+        // (relative to the center of the flowchart, not the target)
+        // the detour direction should follow the edge direction.
+        // Also, since the startY has already taken minSize into account,
+        // the detour size should only contain the value
+        const relativeDetourSize = this.startPoint.y > this.centerPoint.y
+          ? this.detourSize : -this.detourSize
 
-            return `${this.relativeStartX},${this.relativeStartY} `
-              + `${this.relativeStartX + halfLength},${this.relativeStartY} `
-              + `${this.relativeStartX + halfLength},${this.renderedHeight - this.relativeStartY} `
-              + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
-          }
-          case Direction.BACKWARD: {
-            // Depending on whether the edge goes ttb or btt
-            // (relative to the center of the flowchart, not the target)
-            // the detour direction should follow the edge direction.
-            // Also, since the startY has already taken minSize into account,
-            // the detour size should only contain the value
-            const relativeDetourSize = this.startPoint[1] > this.centerPoint[1]
-              ? this.detourSize : -this.detourSize
-
-            return `${this.relativeStartX},${this.relativeStartY} `
-              + `${this.relativeStartX },${this.relativeStartY + relativeDetourSize} `
-              + `${this.renderedWidth - this.relativeStartX},${this.relativeStartY + relativeDetourSize} `
-              + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
-          }
-        }
+        return `${this.relativeStartX},${this.relativeStartY} `
+          + `${this.relativeStartX },${this.relativeStartY + relativeDetourSize} `
+          + `${this.renderedWidth - this.relativeStartX},${this.relativeStartY + relativeDetourSize} `
+          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
       }
     }
   }
   public get markerStart () {
-    return this.marker === Marker.START
+    return this.marker === EdgeMarker.START
       ? 'url(#arrow)' : undefined
   }
   public get markerEnd () {
-    return this.marker === Marker.END
+    return this.marker === EdgeMarker.END
       ? 'url(#arrow)' : undefined
   }
   public get viewBox () {
@@ -140,10 +116,10 @@ export default class FlowterEdge extends Vue {
     return 10
   }
   private get relativeWidth () {
-    return this.endPoint[0] - this.startPoint[0]
+    return this.endPoint.x - this.startPoint.x
   }
   private get relativeHeight () {
-    return this.endPoint[1] - this.startPoint[1]
+    return this.endPoint.y - this.startPoint.y
   }
   private get relativeStartX () {
     switch (this.mode) {
@@ -175,13 +151,13 @@ export default class FlowterEdge extends Vue {
         return this.paddingSize
       }
       case Mode.HORIZONTAL: {
-        // For edges going rtl,
+        // For edges going ttb,
         // it should start at the top right corner of the svg
         if (this.relativeHeight < 0) {
           return this.renderedHeight - this.paddingSize
         }
 
-        // For edges going ltr,
+        // For edges going btt,
         // it should start at the top left corner of the svg
         if (this.relativeHeight > 0) {
           return this.paddingSize
@@ -194,7 +170,7 @@ export default class FlowterEdge extends Vue {
     }
   }
   private get paddingSize () {
-    return this.direction === Direction.FORWARD
+    return this.direction === EdgeDirection.FORWARD
       ? this.minSize : (this.minSize + this.detourSize)
   }
   private get renderedWidth () {
