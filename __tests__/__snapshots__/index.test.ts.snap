@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Flowter When rendering in default mode (vertical) Should render all nodes and edges vertically 1`] = `
+exports[`Flowter When rendering in default mode (vertical) And rendering with the default edge type (bent) Should render all nodes and edges vertically with edge type bent 1`] = `
 <div class="flowter-parent" style="width: 600px; height: 800px; overflow: hidden;">
   <div>
     <div>
@@ -317,7 +317,324 @@ exports[`Flowter When rendering in default mode (vertical) Should render all nod
 </div>
 `;
 
-exports[`Flowter When rendering in horizontal mode Should render all nodes and edges horizontally 1`] = `
+exports[`Flowter When rendering in default mode (vertical) And rendering with the edge type cross Should render all nodes and edges vertically with edge type cross 1`] = `
+<div class="flowter-parent" style="width: 600px; height: 800px; overflow: hidden;">
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 25px; left: 250px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Before first</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 65px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="85,10 10,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 65px; left: 290px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 85,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 125px; left: 175px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First A</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 165px; left: 140px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="85,10 10,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 165px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 85,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 125px; left: 325px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First B</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 165px; left: 365px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 85,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 225px; left: 100px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second A</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 170px; height: 70px; top: 265px; left: 140px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 160,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 225px; left: 250px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second B</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 30px; height: 70px; top: 265px; left: 285px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="15,10 15,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 225px; left: 400px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second C</span></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 325px; left: 250px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>In between second</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 245px; height: 70px; top: 365px; left: 65px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="235,10 10,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 365px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="85,10 10,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 365px; left: 290px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 85,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 245px; height: 70px; top: 365px; left: 290px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 235,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 425px; left: 25px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 1</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 170px; height: 70px; top: 465px; left: 65px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 160,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 425px; left: 175px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 2</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 30px; height: 70px; top: 465px; left: 210px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="15,10 15,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 425px; left: 325px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 3</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 30px; height: 70px; top: 465px; left: 360px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="15,10 15,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 425px; left: 475px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 4</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 170px; height: 70px; top: 465px; left: 365px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="160,10 10,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 525px; left: 175px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth A?</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 30px; height: 70px; top: 565px; left: 210px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="15,10 15,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 170px; height: 70px; top: 565px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 160,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 190px; height: 140px; top: 430px; left: 5px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="20,20 170,120" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 115px; height: 340px; top: 230px; left: 80px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 340">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="20,20 95,320" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 50px; height: 140px; top: 430px; left: 150px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 140">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="25,20 25,120" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 525px; left: 325px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth B?</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 170px; height: 70px; top: 565px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="160,10 10,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 30px; height: 70px; top: 565px; left: 360px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="15,10 15,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 50px; height: 140px; top: 430px; left: 400px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 140">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="25,20 25,120" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 190px; height: 140px; top: 430px; left: 405px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="170,20 20,120" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 115px; height: 340px; top: 230px; left: 405px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 340">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="95,20 20,320" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 625px; left: 175px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said No</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 665px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 85,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 625px; left: 325px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said Yes</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 95px; height: 70px; top: 665px; left: 290px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="85,10 10,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 725px; left: 250px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>That's it!</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Flowter When rendering in horizontal mode And rendering with the default edge type (bent) Should render all nodes and edges horizontally with edge type bent 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 400px; overflow: hidden;">
   <div>
     <div>
@@ -621,6 +938,323 @@ exports[`Flowter When rendering in horizontal mode Should render all nodes and e
             </marker>
           </defs>
           <polyline fill="none" stroke="black" stroke-width="1.5" points="10,60 45,60 45,10 60,10 " marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 175px; left: 1075px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>That's it!</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Flowter When rendering in horizontal mode And rendering with the edge type cross Should render all nodes and edges horizontally with edge type cross 1`] = `
+<div class="flowter-parent" style="width: 1200px; height: 400px; overflow: hidden;">
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 175px; left: 25px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Before first</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 140px; left: 115px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,10" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 190px; left: 115px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 125px; left: 175px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First A</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 90px; left: 265px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,10" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 140px; left: 265px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 225px; left: 175px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First B</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 240px; left: 265px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 75px; left: 325px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second A</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 120px; top: 90px; left: 415px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 175px; left: 325px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second B</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 30px; top: 185px; left: 415px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,55" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 275px; left: 325px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second C</span></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 175px; left: 475px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>In between second</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 170px; top: 40px; left: 565px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 170">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,-90" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 140px; left: 565px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,10" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 190px; left: 565px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 70px; height: 170px; top: 190px; left: 565px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 170">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 25px; left: 625px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 1</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 120px; top: 40px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 125px; left: 625px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 2</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 30px; top: 135px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,55" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 225px; left: 625px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 3</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 30px; top: 235px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,55" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 325px; left: 625px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 4</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 120px; top: 240px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,-40" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 125px; left: 775px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth A?</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 30px; top: 135px; left: 865px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,55" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 70px; height: 120px; top: 140px; left: 865px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 190px; height: 140px; top: 5px; left: 655px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="20,20 170,170" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 490px; height: 90px; top: 55px; left: 355px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 90">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="20,20 470,470" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 190px; height: 50px; top: 100px; left: 655px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 50">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="20,20 170,165" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 225px; left: 775px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth B?</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 120px; top: 140px; left: 865px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,-40" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 70px; height: 30px; top: 235px; left: 865px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,55" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 190px; height: 50px; top: 250px; left: 655px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 50">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="20,20 170,165" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 190px; height: 140px; top: 255px; left: 655px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="20,20 170,70" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+      <div class="flowter-edge" style="width: 490px; height: 90px; top: 255px; left: 355px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 90">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="20,20 470,420" marker-start="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="flowter-node-parent" style="top: 125px; left: 925px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said No</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 140px; left: 1015px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,60" marker-end="url(#arrow)"></polyline>
+        </svg></div>
+    </div>
+    <div>
+      <div class="flowter-node-parent" style="top: 225px; left: 925px;">
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said Yes</span></div>
+      </div>
+      <div class="flowter-edge" style="width: 70px; height: 70px; top: 190px; left: 1015px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <polyline fill="none" stroke="black" stroke-width="1.5" points="10,10 60,10" marker-end="url(#arrow)"></polyline>
         </svg></div>
     </div>
   </div>

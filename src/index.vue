@@ -12,8 +12,8 @@
           :id="node.id"
           :key="`node-${node.id}`"
           :text="node.text"
-          :top="node.top"
-          :left="node.left"
+          :x="node.x"
+          :y="node.y"
           :width="node.width"
           :height="node.height" />
         <flowter-edge
@@ -24,7 +24,8 @@
           :marker="edge.marker"
           :direction="edge.direction"
           :center-point="centerPoint"
-          :mode="mode" />
+          :mode="mode"
+          :edge-type="edgeType" />
       </div>
     </div>
   </div>
