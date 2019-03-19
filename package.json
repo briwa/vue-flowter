@@ -15,7 +15,7 @@
     "build:library": "vue-cli-service build --target lib --name flowter src/index.vue",
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit",
-    "test:ci": "vue-cli-service test:unit -- --ci --coverage && cat ./coverage/lcov.info | coveralls",
+    "test:ci": "vue-cli-service test:unit -- --ci",
     "preversion": "npm run lint && npm run test",
     "version": "npm run build:library",
     "postversion": "git push && git push --tags"
@@ -39,7 +39,6 @@
     "@vue/cli-service": "3.5.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
-    "coveralls": "3.0.3",
     "ts-jest": "23.10.0",
     "typescript": "3.2.1",
     "vue-template-compiler": "2.6.6"

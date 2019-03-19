@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the default edge type (bent) Should render all nodes and edges vertically with edge type bent 1`] = `
-<div class="flowter-parent" style="width: 600px; height: 800px; overflow: hidden;">
+<div class="flowter-parent" style="width: 600px; height: 800px;">
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 25px; left: 250px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Before first</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 65px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -28,7 +28,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First A</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 165px; left: 140px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -49,7 +49,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First B</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 165px; left: 365px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -64,7 +64,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 100px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second A</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
       </div>
       <div class="flowter-edge" style="width: 170px; height: 70px; top: 265px; left: 140px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
@@ -77,7 +77,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 250px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second B</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
       </div>
       <div class="flowter-edge" style="width: 30px; height: 70px; top: 265px; left: 285px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
           <defs>
@@ -90,14 +90,14 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 400px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second C</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
       </div>
     </div>
   </div>
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 325px; left: 250px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>In between second</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
       </div>
       <div class="flowter-edge" style="width: 245px; height: 70px; top: 365px; left: 65px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 70">
           <defs>
@@ -136,7 +136,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 425px; left: 25px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 1</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
       </div>
       <div class="flowter-edge" style="width: 170px; height: 70px; top: 465px; left: 65px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
@@ -149,7 +149,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 425px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 2</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
       </div>
       <div class="flowter-edge" style="width: 30px; height: 70px; top: 465px; left: 210px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
           <defs>
@@ -162,7 +162,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 425px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 3</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
       </div>
       <div class="flowter-edge" style="width: 30px; height: 70px; top: 465px; left: 360px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
           <defs>
@@ -175,7 +175,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 425px; left: 475px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 4</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
       </div>
       <div class="flowter-edge" style="width: 170px; height: 70px; top: 465px; left: 365px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
@@ -190,7 +190,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 525px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth A?</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
       </div>
       <div class="flowter-edge" style="width: 30px; height: 70px; top: 565px; left: 210px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
           <defs>
@@ -235,7 +235,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 525px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth B?</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
       </div>
       <div class="flowter-edge" style="width: 170px; height: 70px; top: 565px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
@@ -282,7 +282,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 625px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said No</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 665px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -295,7 +295,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 625px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said Yes</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 665px; left: 290px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -310,7 +310,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 725px; left: 250px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>That's it!</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
       </div>
     </div>
   </div>
@@ -318,11 +318,11 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 `;
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the edge type cross Should render all nodes and edges vertically with edge type cross 1`] = `
-<div class="flowter-parent" style="width: 600px; height: 800px; overflow: hidden;">
+<div class="flowter-parent" style="width: 600px; height: 800px;">
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 25px; left: 250px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Before first</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 65px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -345,7 +345,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First A</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 165px; left: 140px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -366,7 +366,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First B</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 165px; left: 365px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -381,7 +381,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 100px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second A</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
       </div>
       <div class="flowter-edge" style="width: 170px; height: 70px; top: 265px; left: 140px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
@@ -394,7 +394,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 250px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second B</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
       </div>
       <div class="flowter-edge" style="width: 30px; height: 70px; top: 265px; left: 285px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
           <defs>
@@ -407,14 +407,14 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 400px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second C</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
       </div>
     </div>
   </div>
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 325px; left: 250px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>In between second</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
       </div>
       <div class="flowter-edge" style="width: 245px; height: 70px; top: 365px; left: 65px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 70">
           <defs>
@@ -453,7 +453,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 425px; left: 25px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 1</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
       </div>
       <div class="flowter-edge" style="width: 170px; height: 70px; top: 465px; left: 65px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
@@ -466,7 +466,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 425px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 2</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
       </div>
       <div class="flowter-edge" style="width: 30px; height: 70px; top: 465px; left: 210px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
           <defs>
@@ -479,7 +479,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 425px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 3</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
       </div>
       <div class="flowter-edge" style="width: 30px; height: 70px; top: 465px; left: 360px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
           <defs>
@@ -492,7 +492,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 425px; left: 475px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 4</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
       </div>
       <div class="flowter-edge" style="width: 170px; height: 70px; top: 465px; left: 365px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
@@ -507,7 +507,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 525px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth A?</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
       </div>
       <div class="flowter-edge" style="width: 30px; height: 70px; top: 565px; left: 210px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 70">
           <defs>
@@ -552,7 +552,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 525px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth B?</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
       </div>
       <div class="flowter-edge" style="width: 170px; height: 70px; top: 565px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
@@ -599,7 +599,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 625px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said No</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 665px; left: 215px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -612,7 +612,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 625px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said Yes</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
       </div>
       <div class="flowter-edge" style="width: 95px; height: 70px; top: 665px; left: 290px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
@@ -627,7 +627,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 725px; left: 250px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>That's it!</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
       </div>
     </div>
   </div>
@@ -635,11 +635,11 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 `;
 
 exports[`Flowter When rendering in horizontal mode And rendering with the default edge type (bent) Should render all nodes and edges horizontally with edge type bent 1`] = `
-<div class="flowter-parent" style="width: 1200px; height: 400px; overflow: hidden;">
+<div class="flowter-parent" style="width: 1200px; height: 400px;">
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 175px; left: 25px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Before first</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 140px; left: 115px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -662,7 +662,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First A</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 90px; left: 265px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -683,7 +683,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First B</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 240px; left: 265px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -698,7 +698,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 75px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second A</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 120px; top: 90px; left: 415px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
@@ -711,7 +711,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 175px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second B</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 30px; top: 185px; left: 415px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
           <defs>
@@ -724,14 +724,14 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 275px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second C</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
       </div>
     </div>
   </div>
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 175px; left: 475px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>In between second</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 170px; top: 40px; left: 565px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 170">
           <defs>
@@ -770,7 +770,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 25px; left: 625px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 1</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 120px; top: 40px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
@@ -783,7 +783,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 625px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 2</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 30px; top: 135px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
           <defs>
@@ -796,7 +796,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 625px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 3</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 30px; top: 235px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
           <defs>
@@ -809,7 +809,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 325px; left: 625px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 4</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 120px; top: 240px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
@@ -824,7 +824,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 775px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth A?</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 30px; top: 135px; left: 865px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
           <defs>
@@ -869,7 +869,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 775px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth B?</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 120px; top: 140px; left: 865px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
@@ -916,7 +916,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 925px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said No</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 140px; left: 1015px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -929,7 +929,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 925px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said Yes</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 190px; left: 1015px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -944,7 +944,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 175px; left: 1075px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>That's it!</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
       </div>
     </div>
   </div>
@@ -952,11 +952,11 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
 `;
 
 exports[`Flowter When rendering in horizontal mode And rendering with the edge type cross Should render all nodes and edges horizontally with edge type cross 1`] = `
-<div class="flowter-parent" style="width: 1200px; height: 400px; overflow: hidden;">
+<div class="flowter-parent" style="width: 1200px; height: 400px;">
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 175px; left: 25px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Before first</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 140px; left: 115px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -979,7 +979,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First A</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 90px; left: 265px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -1000,7 +1000,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 175px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>First B</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 240px; left: 265px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -1015,7 +1015,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 75px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second A</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 120px; top: 90px; left: 415px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
@@ -1028,7 +1028,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 175px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second B</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 30px; top: 185px; left: 415px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
           <defs>
@@ -1041,14 +1041,14 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 275px; left: 325px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Second C</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
       </div>
     </div>
   </div>
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 175px; left: 475px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>In between second</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 170px; top: 40px; left: 565px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 170">
           <defs>
@@ -1087,7 +1087,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 25px; left: 625px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 1</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 120px; top: 40px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
@@ -1100,7 +1100,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 625px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 2</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 30px; top: 135px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
           <defs>
@@ -1113,7 +1113,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 625px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 3</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 30px; top: 235px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
           <defs>
@@ -1126,7 +1126,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 325px; left: 625px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Third 4</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 120px; top: 240px; left: 715px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
@@ -1141,7 +1141,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 775px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth A?</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 30px; top: 135px; left: 865px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 30">
           <defs>
@@ -1186,7 +1186,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 775px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>Fourth B?</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 120px; top: 140px; left: 865px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
@@ -1233,7 +1233,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 125px; left: 925px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said No</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 140px; left: 1015px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -1246,7 +1246,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
     </div>
     <div>
       <div class="flowter-node-parent" style="top: 225px; left: 925px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>You said Yes</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
       </div>
       <div class="flowter-edge" style="width: 70px; height: 70px; top: 190px; left: 1015px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
@@ -1261,7 +1261,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
   <div>
     <div>
       <div class="flowter-node-parent" style="top: 175px; left: 1075px;">
-        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; overflow: hidden;"><span>That's it!</span></div>
+        <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
       </div>
     </div>
   </div>
