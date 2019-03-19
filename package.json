@@ -15,7 +15,7 @@
     "build:library": "vue-cli-service build --target lib --name flowter src/index.vue",
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit",
-    "test:ci": "vue-cli-service test:unit -- --ci",
+    "test:ci": "vue-cli-service test:unit --ci",
     "preversion": "npm run lint && npm run test",
     "version": "npm run build:library",
     "postversion": "git push && git push --tags"
