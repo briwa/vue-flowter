@@ -1,7 +1,6 @@
 # Vue Flowter
 [![npm](https://img.shields.io/npm/v/vue-flowter.svg)](https://www.npmjs.com/package/vue-flowter)
 [![Build Status](https://travis-ci.com/briwa/vue-flowter.svg?branch=master)](https://travis-ci.com/briwa/vue-flowter)
-[![Coverage Status](https://coveralls.io/repos/github/briwa/vue-flowter/badge.svg?branch=master)](https://coveralls.io/github/briwa/vue-flowter?branch=master)
 
 A simple flowchart component made with Vue. Requires a graph-like data structure as an input and renders it as a flowchart.
 
