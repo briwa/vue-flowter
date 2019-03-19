@@ -22,8 +22,7 @@ export default class FlowterNode extends Vue {
       width: `${this.width}px`,
       height: `${this.height}px`,
       fontSize: `${this.fontSize}px`,
-      lineHeight: `${this.height - (this.fontSize / 2)}px`,
-      overflow: 'hidden'
+      lineHeight: `${this.height - (this.fontSize / 2)}px`
     }
   }
   public get containerStyle () {

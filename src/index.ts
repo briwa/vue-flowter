@@ -35,8 +35,7 @@ export default class Flowter extends Vue {
   public get containerStyle () {
     const styleDict: Record<string, string> = {
       width: `${this.width || this.containerWidth}px`,
-      height: `${this.height || this.containerHeight}px`,
-      overflow: 'hidden'
+      height: `${this.height || this.containerHeight}px`
     }
 
     if (this.width) {
