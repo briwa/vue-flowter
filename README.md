@@ -24,10 +24,12 @@ export default {
     return {
       nodes: {
         a: { text: 'Node A' },
-        b: { text: 'Node B' }
+        b: { text: 'Node B' },
+        c: { text: 'Node C' }
       },
       edges: [
-        { from: 'a', to: 'b' }
+        { from: 'a', to: 'b' },
+        { from: 'a', to: 'c' }
       ]
     }
   }
