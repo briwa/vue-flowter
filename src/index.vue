@@ -40,5 +40,6 @@
 
 .flowter-parent {
   position: relative;
+  overflow: hidden;
 }
 </style>

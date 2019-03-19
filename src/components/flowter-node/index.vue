@@ -20,11 +20,11 @@
   border: 2px solid #000000;
   position: relative;
   text-align: center;
+  overflow: hidden;
 }
 
 .flowter-node span {
   display: inline-block;
   vertical-align: middle;
-  line-height: normal;
 }
 </style>
