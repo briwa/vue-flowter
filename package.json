@@ -6,7 +6,10 @@
     "flowchart",
     "typescript",
     "vue",
-    "component"
+    "vuejs",
+    "diagram",
+    "component",
+    "vue-component"
   ],
   "author": "https://github.com/briwa",
   "scripts": {

@@ -20,6 +20,7 @@
             :key="edge.id"
             :start-point="edge.startPoint"
             :end-point="edge.endPoint"
+            :text="edge.text"
             :marker="edge.marker"
             :direction="edge.direction"
             :center-point="centerPoint"

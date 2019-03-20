@@ -291,7 +291,7 @@ export default class Flowter extends Vue {
       id: `${edge.from}-${edge.to}-${idx}`,
       from: edge.from,
       to: edge.to,
-      option: edge.option,
+      text: edge.text,
       startPoint: { x: 0, y: 0 },
       endPoint: { x: 0, y: 0 },
       marker: EdgeMarker.END,

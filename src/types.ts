@@ -33,7 +33,7 @@ export interface RenderedGraphNode extends GraphNode {
 export interface GraphEdge {
   from: string
   to: string
-  option?: string
+  text?: string
 }
 
 export interface RenderedGraphEdge extends GraphEdge {

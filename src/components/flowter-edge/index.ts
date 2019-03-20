@@ -12,6 +12,8 @@ export default class FlowterEdge extends Vue {
   public endPoint!: Point
   @Prop({ type: Object, required: true })
   public centerPoint!: Point
+  @Prop({ type: String, default: '' })
+  public text!: string
   @Prop({ type: String, default: EdgeMarker.END })
   public marker!: EdgeMarker
   @Prop({ type: String, default: EdgeType.BENT })
@@ -28,6 +30,62 @@ export default class FlowterEdge extends Vue {
       height: `${this.renderedHeight}px`,
       top: `${this.startPoint.y - this.relativeStartY}px`,
       left: `${this.startPoint.x - this.relativeStartX}px`
+    }
+  }
+  public get textStyle () {
+    switch (this.mode) {
+      case Mode.VERTICAL: return this.verticalTextStyle
+      case Mode.HORIZONTAL: return this.horizontalTextStyle
+    }
+  }
+  public get verticalTextStyle () {
+    const style: Record<string, string> = {
+      top: `${(this.renderedHeight / 2) - (this.textFontSize * 1.5)}px`,
+      fontSize: `${this.textFontSize}px`
+    }
+
+    switch (this.direction) {
+      case EdgeDirection.FORWARD: {
+        const delimiter = this.endPoint.x > this.startPoint.x
+          ? 'right' : 'left'
+
+        style[delimiter] = `${this.paddingSize * 2}px`
+
+        return style
+      }
+      case EdgeDirection.BACKWARD: {
+        const delimiter = this.startPoint.x > this.centerPoint.x
+          ? 'right' : 'left'
+
+        style[delimiter] = `${this.detourSize * 2}px`
+
+        return style
+      }
+    }
+  }
+  public get horizontalTextStyle () {
+    const style: Record<string, string> = {
+      left: `${(this.renderedWidth / 2) - (this.textFontSize * 1.5)}px`,
+      fontSize: `${this.textFontSize}px`
+    }
+
+    switch (this.direction) {
+      case EdgeDirection.FORWARD: {
+        const delimiter = this.endPoint.y > this.startPoint.y
+          ? 'bottom' : 'top'
+
+        style[delimiter] = `${this.paddingSize * 2}px`
+
+        return style
+      }
+      case EdgeDirection.BACKWARD: {
+        const delimiter = this.startPoint.y > this.centerPoint.y
+          ? 'bottom' : 'top'
+
+        style[delimiter] = `${this.detourSize * 2}px`
+
+        return style
+      }
     }
   }
   public get polylinePoints () {
@@ -107,14 +165,6 @@ export default class FlowterEdge extends Vue {
   public get viewBox () {
     return `0 0 ${this.renderedWidth} ${this.renderedHeight}`
   }
-  // Minimum size of the edge, both width and height
-  private get minSize () {
-    return 10
-  }
-  // For backward edge, there should be a space to 'detour'
-  private get detourSize () {
-    return 10
-  }
   private get relativeWidth () {
     return this.endPoint.x - this.startPoint.x
   }
@@ -180,5 +230,16 @@ export default class FlowterEdge extends Vue {
   private get renderedHeight () {
     return (Math.max(Math.abs(this.relativeHeight), this.minSize))
       + (this.paddingSize * 2)
+  }
+  // Minimum size of the edge, both width and height
+  private get minSize () {
+    return 10
+  }
+  // For backward edge, there should be a space to 'detour'
+  private get detourSize () {
+    return 10
+  }
+  private get textFontSize () {
+    return 12
   }
 }
