@@ -19,7 +19,7 @@
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit",
     "test:ci": "vue-cli-service test:unit --ci",
-    "preversion": "npm run lint && npm run test",
+    "preversion": "npm run lint && npm run test -- --no-cache",
     "version": "npm run build:library",
     "postversion": "git push && git push --tags"
   },

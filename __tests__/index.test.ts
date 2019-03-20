@@ -93,4 +93,46 @@ describe('Flowter', () => {
       })
     })
   })
+
+  describe('When rendering using custom node sizes', () => {
+    describe('In vertical mode', () => {
+      test('Should render the flowchart with the custom node size', () => {
+        // Make a copy of it since it would be mutating the node
+        const alteredNodes = {
+          ...nodes,
+          'in-between-second': {
+            ...nodes['in-between-second'],
+            width: 200,
+            height: 200
+          }
+        }
+
+        const wrapper = mount(Flowter, {
+          propsData: { nodes: alteredNodes, edges, mode: Mode.VERTICAL }
+        })
+
+        expect(wrapper.html()).toMatchSnapshot()
+      })
+    })
+
+    describe('In horizontal mode', () => {
+      test('Should render the flowchart with the custom node size', () => {
+        // Make a copy of it since it would be mutating the node
+        const alteredNodes = {
+          ...nodes,
+          'in-between-second': {
+            ...nodes['in-between-second'],
+            width: 200,
+            height: 200
+          }
+        }
+
+        const wrapper = mount(Flowter, {
+          propsData: { nodes: alteredNodes, edges, mode: Mode.HORIZONTAL }
+        })
+
+        expect(wrapper.html()).toMatchSnapshot()
+      })
+    })
+  })
 })

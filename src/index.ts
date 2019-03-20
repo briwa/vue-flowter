@@ -80,7 +80,12 @@ export default class Flowter extends Vue {
     const { toIds, fromIds } = this.edgesDict
     const nodes: RenderedGraphNode[][] = []
     const loneNodes: RenderedGraphNode[] = []
-    let maxColSize = 1
+
+    // Find out maximum width/height possible
+    let maxWidth = 0
+    let maxHeight = 0
+    let currRowHeight = 0
+    let currRowWidth = 0
 
     // Loop through the nodes dictionary
     // to shape it into rows of nodes
@@ -92,8 +97,8 @@ export default class Flowter extends Vue {
           text: node.text,
           x: 0,
           y: 0,
-          width: this.defaultNodeWidth,
-          height: this.defaultNodeHeight
+          width: node.width || this.defaultNodeWidth,
+          height: node.height || this.defaultNodeHeight
         }
 
         const currFromIds = fromIds[nodeId]
@@ -110,11 +115,11 @@ export default class Flowter extends Vue {
         // The first node in the loop has to be pushed
         // as the new node in the new row
         let pushAsNewRow = nodes.length === 0
+        const lastRow = nodes[nodes.length - 1]
 
         // Subsequent nodes should use
         // the previous node as the reference
         if (!pushAsNewRow) {
-          const lastRow = nodes[nodes.length - 1]
           const lastRowIds = lastRow.map((n) => n.id)
 
           // If the node comes from the previous row, it is in the same row
@@ -124,12 +129,22 @@ export default class Flowter extends Vue {
         // New layer with the new node
         if (pushAsNewRow) {
           nodes.push([renderedNode])
-        } else { // Another node in the layer
-          const row = nodes[nodes.length - 1]
 
-          row.push(renderedNode)
-          maxColSize = Math.max(row.length, maxColSize)
+          // Reset the current row height/width calculation
+          currRowWidth = renderedNode.width + this.defaultNodeColSpacing
+          currRowHeight = renderedNode.height + this.defaultNodeRowSpacing
+        } else {
+          // Another node in the layer
+          lastRow.push(renderedNode)
+
+          // Accumulate both current row width and height
+          currRowWidth = currRowWidth + renderedNode.width + this.defaultNodeColSpacing
+          currRowHeight = currRowHeight + renderedNode.height + this.defaultNodeRowSpacing
         }
+
+        // Always check whether this is the row that has the most width/height
+        maxWidth = Math.max(maxWidth, currRowWidth)
+        maxHeight = Math.max(maxHeight, currRowHeight)
       }
     }
 
@@ -137,11 +152,11 @@ export default class Flowter extends Vue {
     // positions depending on the mode
     switch (this.mode) {
       case Mode.VERTICAL: {
-        this.shapeNodesVertically(nodes, maxColSize)
+        this.shapeNodesVertically(nodes, maxWidth)
         break
       }
       case Mode.HORIZONTAL: {
-        this.shapeNodesHorizontally(nodes, maxColSize)
+        this.shapeNodesHorizontally(nodes, maxHeight)
         break
       }
       default: {
@@ -163,36 +178,53 @@ export default class Flowter extends Vue {
       y: this.containerHeight / 2
     }
   }
-  public get maxColSize () {
-    return this.renderedNodes.reduce((colSize, row) => {
-      return Math.max(colSize, row.length)
-    }, 0)
-  }
   private get containerWidth () {
     switch (this.mode) {
       case Mode.VERTICAL: {
-        return this.maxColSize * this.defaultNodeWidth
-          + ((this.maxColSize - 1) * this.defaultNodeColSpacing)
-          + (this.defaultWidthMargin * 2)
+        return this.renderedNodes.reduce((size, row) => {
+          const rowWidth = row.reduce((total, node, idx) => {
+            const spacing = idx === row.length - 1
+              ? 0 : this.defaultNodeColSpacing
+
+            return total + node.width + spacing
+          }, this.defaultWidthMargin * 2)
+
+          return Math.max(rowWidth, size)
+        }, 0)
       }
       case Mode.HORIZONTAL: {
-        return this.renderedNodes.length * this.defaultNodeWidth
-          + ((this.renderedNodes.length - 1) * this.defaultNodeRowSpacing)
-          + (this.defaultWidthMargin * 2)
+        return this.renderedNodes.reduce((size, row) => {
+          const maxWidth = row.reduce((width, node) => {
+            return Math.max(width, node.width)
+          }, 0)
+
+          return size + maxWidth + this.defaultNodeColSpacing
+        }, 0)
       }
     }
   }
   private get containerHeight () {
     switch (this.mode) {
       case Mode.VERTICAL: {
-        return this.renderedNodes.length * this.defaultNodeHeight
-          + ((this.renderedNodes.length - 1) * this.defaultNodeRowSpacing)
-          + (this.defaultHeightMargin * 2)
+        return this.renderedNodes.reduce((size, row) => {
+          const maxHeight = row.reduce((height, node) => {
+            return Math.max(height, node.height)
+          }, 0)
+
+          return size + maxHeight + this.defaultNodeRowSpacing
+        }, 0)
       }
       case Mode.HORIZONTAL: {
-        return this.maxColSize * this.defaultNodeHeight
-          + ((this.maxColSize - 1) * this.defaultNodeColSpacing)
-          + (this.defaultHeightMargin * 2)
+        return this.renderedNodes.reduce((size, row) => {
+          const rowHeight = row.reduce((total, node, idx) => {
+            const spacing = idx === row.length - 1
+              ? 0 : this.defaultNodeRowSpacing
+
+            return total + node.height + spacing
+          }, this.defaultHeightMargin * 2)
+
+          return Math.max(rowHeight, size)
+        }, 0)
       }
     }
   }
@@ -369,70 +401,46 @@ export default class Flowter extends Vue {
       return !!row.find((node) => node.id === targetNode.id)
     })
   }
-  private shapeNodesVertically (nodes: RenderedGraphNode[][], maxColSize: number) {
-    // Since the full rows and cols of the nodes is there,
-    // the maximum width can only now be determined.
-    const maxRowLength =
-      // The width of all nodes
-      (maxColSize * this.defaultNodeWidth)
-      // With the spacing except for the first and last one
-      + ((maxColSize - 1) * this.defaultNodeColSpacing)
-      // With the default width margin left and right
-      + (this.defaultWidthMargin * 2)
+  private shapeNodesVertically (nodes: RenderedGraphNode[][], maxLength: number) {
+    let cumulativeY = this.defaultHeightMargin
+    nodes.forEach((row) => {
+      const currRowMargin = (row.length - 1) * this.defaultNodeColSpacing
+      const currRowLength = row
+        .reduce((size, node) => size + node.width, currRowMargin)
 
-    nodes.forEach((row, rowIdx) => {
-      const currRowLength = (row.length * this.defaultNodeWidth)
-          + ((row.length - 1) * this.defaultNodeColSpacing)
+      let cumulativeX = (maxLength / 2) - (currRowLength / 2)
+      let maxHeight = 0
 
-      row.forEach((node, colIdx) => {
-        node.x =
-          // Get the leftmost position
-          (maxRowLength / 2) - (currRowLength / 2)
-          // Plus each of the nodes' width
-          // Plus the spacing for each of the node (except the first and the last one)
-          + (colIdx * (this.defaultNodeWidth + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
+      row.forEach((node) => {
+        node.x = cumulativeX
+        node.y = cumulativeY
+        maxHeight = Math.max(maxHeight, node.height)
 
-        node.y =
-          // For every row, add height plus the margin
-          (rowIdx * (this.defaultNodeHeight + this.defaultNodeRowSpacing))
-          // Only need to add the top margin since
-          // the bottom one is being taken care of by
-          // the row spacing
-          + (this.defaultHeightMargin)
+        cumulativeX = cumulativeX + node.width + this.defaultNodeColSpacing
       })
+
+      cumulativeY = cumulativeY + maxHeight + this.defaultNodeRowSpacing
     })
   }
-  private shapeNodesHorizontally (nodes: RenderedGraphNode[][], maxColSize: number) {
-    // Since the full rows and cols of the nodes is there,
-    // the maximum width can only now be determined.
-    const maxColLength =
-      // The width of all nodes
-      (maxColSize * this.defaultNodeHeight)
-      // With the spacing except for the first and last one
-      + ((maxColSize - 1) * this.defaultNodeColSpacing)
-      // With the default width margin left and right
-      + (this.defaultHeightMargin * 2)
+  private shapeNodesHorizontally (nodes: RenderedGraphNode[][], maxLength: number) {
+    let cumulativeX = this.defaultWidthMargin
+    nodes.forEach((row) => {
+      const currRowMargin = (row.length - 1) * this.defaultNodeRowSpacing
+      const currRowLength = row
+        .reduce((size, node) => size + node.height, currRowMargin)
 
-    nodes.forEach((row, rowIdx) => {
-      const currRowLength = (row.length * this.defaultNodeHeight)
-          + ((row.length - 1) * this.defaultNodeColSpacing)
+      let cumulativeY = (maxLength / 2) - (currRowLength / 2)
+      let maxWidth = 0
 
-      row.forEach((node, colIdx) => {
-        node.x =
-          // For every row, add height plus the margin
-          (rowIdx * (this.defaultNodeWidth + this.defaultNodeRowSpacing))
-          // Only need to add the top margin since
-          // the bottom one is being taken care of by
-          // the row spacing
-          + (this.defaultWidthMargin)
+      row.forEach((node) => {
+        node.x = cumulativeX
+        node.y = cumulativeY
+        maxWidth = Math.max(maxWidth, node.width)
 
-        node.y =
-          // Get the topmost position
-          (maxColLength / 2) - (currRowLength / 2)
-          // Plus each of the nodes' width
-          // Plus the spacing for each of the node (except the first and the last one)
-          + (colIdx * (this.defaultNodeHeight + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
+        cumulativeY = cumulativeY + node.height + this.defaultNodeRowSpacing
       })
+
+      cumulativeX = cumulativeX + maxWidth + this.defaultNodeColSpacing
     })
   }
 }

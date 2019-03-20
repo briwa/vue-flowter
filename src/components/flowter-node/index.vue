@@ -27,5 +27,6 @@
 .flowter-node span {
   display: inline-block;
   vertical-align: middle;
+  line-height: normal;
 }
 </style>
