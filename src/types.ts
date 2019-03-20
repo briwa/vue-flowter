@@ -37,6 +37,7 @@ export interface GraphEdge {
 }
 
 export interface RenderedGraphEdge extends GraphEdge {
+  id: string
   startPoint: Point
   endPoint: Point
   marker: EdgeMarker

@@ -21,6 +21,7 @@
   position: relative;
   text-align: center;
   overflow: hidden;
+  background-color: #ffffff;
 }
 
 .flowter-node span {

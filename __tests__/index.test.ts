@@ -47,4 +47,50 @@ describe('Flowter', () => {
       })
     })
   })
+
+  describe('When rendering using custom size', () => {
+    describe('Using custom width', () => {
+      describe('Using vertical mode', () => {
+        test('Should render the flowchart with the custom width', () => {
+          const wrapper = mount(Flowter, {
+            propsData: { nodes, edges, mode: Mode.VERTICAL, width: 800 }
+          })
+
+          expect(wrapper.html()).toMatchSnapshot()
+        })
+      })
+
+      describe('Using horizontal mode', () => {
+        test('Should ignore the width', () => {
+          const wrapper = mount(Flowter, {
+            propsData: { nodes, edges, mode: Mode.HORIZONTAL, width: 800 }
+          })
+
+          expect(wrapper.html()).toMatchSnapshot()
+        })
+      })
+    })
+
+    describe('Using custom height', () => {
+      describe('Using horizontal mode', () => {
+        test('Should render the flowchart with the custom height', () => {
+          const wrapper = mount(Flowter, {
+            propsData: { nodes, edges, mode: Mode.HORIZONTAL, height: 800 }
+          })
+
+          expect(wrapper.html()).toMatchSnapshot()
+        })
+      })
+
+      describe('Using vertical mode', () => {
+        test('Should ignore the height', () => {
+          const wrapper = mount(Flowter, {
+            propsData: { nodes, edges, mode: Mode.VERTICAL, height: 800 }
+          })
+
+          expect(wrapper.html()).toMatchSnapshot()
+        })
+      })
+    })
+  })
 })

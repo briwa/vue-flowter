@@ -3,30 +3,30 @@
     :style="containerStyle"
     class="flowter-parent">
     <div
-      v-for="(row, rowIdx) in renderedNodes"
-      :key="rowIdx">
-      <div
-        v-for="node in row"
-        :key="`container-${node.id}`">
-        <flowter-node
-          :id="node.id"
-          :key="`node-${node.id}`"
-          :text="node.text"
-          :x="node.x"
-          :y="node.y"
-          :width="node.width"
-          :height="node.height" />
-        <flowter-edge
-          v-for="edge in getEdges(node)"
-          :key="`edge-${edge.from}-${edge.to}`"
-          :start-point="edge.startPoint"
-          :end-point="edge.endPoint"
-          :marker="edge.marker"
-          :direction="edge.direction"
-          :center-point="centerPoint"
-          :mode="mode"
-          :edge-type="edgeType" />
-      </div>
+      class="flowter-scale"
+      :style="scaleStyle">
+      <template v-for="row in renderedNodes">
+        <template v-for="node in row">
+          <flowter-node
+            :id="node.id"
+            :key="`node-${node.id}`"
+            :text="node.text"
+            :x="node.x"
+            :y="node.y"
+            :width="node.width"
+            :height="node.height" />
+          <flowter-edge
+            v-for="edge in getEdges(node)"
+            :key="edge.id"
+            :start-point="edge.startPoint"
+            :end-point="edge.endPoint"
+            :marker="edge.marker"
+            :direction="edge.direction"
+            :center-point="centerPoint"
+            :mode="mode"
+            :edge-type="edgeType" />
+        </template>
+      </template>
     </div>
   </div>
 </template>

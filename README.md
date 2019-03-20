@@ -65,13 +65,11 @@ And you're pretty much set! Of course, you can add additional CSS and the likes.
 - `width`
   - Type: Number
   - Default: `null`
-  - If specified, the flowchart's width container will be rendered to the size specified. Not responsize for now,
-    otherwise the width will follow the maximum width of the flowchart.
+  - If specified, the flowchart will be rendered to the width size if it's rendering in vertical mode. Custom height will be ignored since the calculation is solely by the width.
 - `height`
   - Type: Number
   - Default: `null`
-  - If specified, the flowchart's height container will be rendered to the size specified. Not responsize for now,
-    otherwise the width will follow the maximum height of the flowchart.
+  - If specified, the flowchart will be rendered to the height size if it's rendering in horizontal mode. Custom width will be ignored since the calculation is solely by the height.
 - `edgeType`
   - Type: String (`'cross', 'bent'`)
   - Default: `'bent'`
