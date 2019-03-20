@@ -18,6 +18,9 @@ Vue.component('Flowter', Flowter)
 ```
 
 ```html
+<template>
+  <flowter :nodes="nodes" :edges="edges">
+</template>
 <script>
 export default {
   data () {
@@ -28,23 +31,20 @@ export default {
         c: { text: 'Node C' }
       },
       edges: [
-        { from: 'a', to: 'b' },
-        { from: 'a', to: 'c' }
+        { from: 'a', to: 'b', text: 'To B' },
+        { from: 'a', to: 'c', text: 'To C' }
       ]
     }
   }
 }
 </script>
-<template>
-  <flowter :nodes="nodes" :edges="edges">
-</template>
 ```
 
 It would render something like this:
 
-![flowchart](https://user-images.githubusercontent.com/8046636/54611144-619e7a00-4a91-11e9-8efe-11932f6727d4.png)
+![flowchart](https://user-images.githubusercontent.com/8046636/54693874-4bacba00-4b62-11e9-8ff1-a3d6fc192dfc.png)
 
-And you're pretty much set! Of course, you can add additional CSS and the likes.
+And you're pretty much set! Of course, you can add your own to style and customize it.
 
 ## Properties
 - `nodes`
@@ -89,11 +89,11 @@ This will run all the tests using Jest.
 
 ## TODO
 This component is not complete. Several things before the first major release:
-- [ ] Ability to edit the nodes and the edges (and export the edited )
+- [ ] Ability to edit the nodes and the edges (and export the edited flowchart to JSON)
 - [ ] Multiple types of the nodes
 - [ ] Ability to customize the color of the nodes/edges/texts
 - [ ] Nodes' text should fit the container
-- [ ] Ability to add label to an edge
+- [x] Ability to add text to an edge
 - [ ] Ability to point a node to an edge
 - [ ] Ability to connet a node to itself
 
