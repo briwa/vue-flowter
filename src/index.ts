@@ -33,20 +33,48 @@ export default class Flowter extends Vue {
 
   // Computed
   public get containerStyle () {
-    const styleDict: Record<string, string> = {
-      width: `${this.width || this.containerWidth}px`,
-      height: `${this.height || this.containerHeight}px`
+    // Scale the flowchart if width is specified
+    // It will ignore the custom height though
+    // since the scale is solely by the width
+    if (this.width && this.mode === Mode.VERTICAL) {
+      return {
+        width: `${this.width}px`,
+        height: `${this.containerHeight * this.widthRatio}px`
+      }
     }
 
-    if (this.width) {
-      styleDict.minWidth = `${this.minWidth}px`
+    // Same thing for height in horizontal mode
+    if (this.height && this.mode === Mode.HORIZONTAL) {
+      return {
+        height: `${this.height}px`,
+        width: `${this.containerWidth * this.heightRatio}px`
+      }
     }
 
-    if (this.height) {
-      styleDict.minHeight = `${this.minHeight}px`
+    return {
+      width: `${this.containerWidth}px`,
+      height: `${this.containerHeight}px`
+    }
+  }
+  public get scaleStyle () {
+    let ratio
+    if (this.width && this.mode === Mode.VERTICAL) {
+      ratio = this.widthRatio
     }
 
-    return styleDict
+    // Same thing for height in horizontal mode
+    if (this.height && this.mode === Mode.HORIZONTAL) {
+      ratio = this.heightRatio
+    }
+
+    if (!ratio) {
+      return null
+    }
+
+    return {
+      transform: `scale(${ratio})`,
+      transformOrigin: '0% 0%'
+    }
   }
   public get renderedNodes () {
     const { toIds, fromIds } = this.edgesDict
@@ -131,8 +159,8 @@ export default class Flowter extends Vue {
   }
   public get centerPoint () {
     return {
-      x: this.minWidth / 2,
-      y: this.minHeight / 2
+      x: this.containerWidth / 2,
+      y: this.containerHeight / 2
     }
   }
   public get maxColSize () {
@@ -168,11 +196,11 @@ export default class Flowter extends Vue {
       }
     }
   }
-  private get minWidth () {
-    return Math.max(this.width, this.containerWidth)
+  private get widthRatio () {
+    return this.width ? this.width / this.containerWidth : 1
   }
-  private get minHeight () {
-    return Math.max(this.width, this.containerHeight)
+  private get heightRatio () {
+    return this.height ? this.height / this.containerHeight : 1
   }
   // Map all nodes into a dictionary for easier access
   private get renderedNodesDict () {
@@ -220,20 +248,20 @@ export default class Flowter extends Vue {
     return 50
   }
   private get defaultWidthMargin () {
-    return this.width ? 0 : 25
+    return 25
   }
   private get defaultHeightMargin () {
-    return this.height ? 0 : 25
+    return 25
   }
 
   // Methods
   public getEdges (node: RenderedGraphNode): RenderedGraphEdge[] {
-    return this.edges.reduce<RenderedGraphEdge[]>((edges, edge) => {
+    return this.edges.reduce<RenderedGraphEdge[]>((edges, edge, idx) => {
       if (edge.from !== node.id) {
         return edges
       }
 
-      edges.push(this.shapeEdge(node, edge))
+      edges.push(this.shapeEdge(node, edge, idx))
       return edges
     }, [])
   }
@@ -245,7 +273,7 @@ export default class Flowter extends Vue {
       s: { x: node.width / 2, y: node.height }
     }
   }
-  private shapeEdge (originNode: RenderedGraphNode, edge: GraphEdge) {
+  private shapeEdge (originNode: RenderedGraphNode, edge: GraphEdge, idx: number) {
     const originPoints = this.getOrientPoints(originNode)
     const fromIndex = this.getNodeRowIndex(originNode)
 
@@ -260,8 +288,10 @@ export default class Flowter extends Vue {
     const toIndex = this.getNodeRowIndex(targetNode)
 
     const shapedEdge: RenderedGraphEdge = {
+      id: `${edge.from}-${edge.to}-${idx}`,
       from: edge.from,
       to: edge.to,
+      option: edge.option,
       startPoint: { x: 0, y: 0 },
       endPoint: { x: 0, y: 0 },
       marker: EdgeMarker.END,
@@ -284,7 +314,7 @@ export default class Flowter extends Vue {
           // west or east depending on the distance between
           // target and origin
           const originNodeCenterPoint = (originNode.x + (originNode.width / 2))
-          const direction = originNodeCenterPoint > (this.minWidth / 2)
+          const direction = originNodeCenterPoint > this.containerWidth / 2
             ? 'e' : 'w'
 
           shapedEdge.startPoint.x = originPoints[direction].x + targetNode.x
@@ -313,7 +343,7 @@ export default class Flowter extends Vue {
           // south or north depending on the distance between
           // target and origin
           const originNodeCenterPoint = (originNode.y + (originNode.height / 2))
-          const direction = originNodeCenterPoint > (this.minHeight / 2)
+          const direction = originNodeCenterPoint > this.containerHeight / 2
             ? 's' : 'n'
 
           shapedEdge.startPoint.x = originPoints[direction].x + targetNode.x
@@ -349,7 +379,6 @@ export default class Flowter extends Vue {
       + ((maxColSize - 1) * this.defaultNodeColSpacing)
       // With the default width margin left and right
       + (this.defaultWidthMargin * 2)
-    const minWidth = Math.max(this.width, maxRowLength)
 
     nodes.forEach((row, rowIdx) => {
       const currRowLength = (row.length * this.defaultNodeWidth)
@@ -358,7 +387,7 @@ export default class Flowter extends Vue {
       row.forEach((node, colIdx) => {
         node.x =
           // Get the leftmost position
-          (minWidth / 2) - (currRowLength / 2)
+          (maxRowLength / 2) - (currRowLength / 2)
           // Plus each of the nodes' width
           // Plus the spacing for each of the node (except the first and the last one)
           + (colIdx * (this.defaultNodeWidth + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
@@ -383,7 +412,6 @@ export default class Flowter extends Vue {
       + ((maxColSize - 1) * this.defaultNodeColSpacing)
       // With the default width margin left and right
       + (this.defaultHeightMargin * 2)
-    const minHeight = Math.max(this.height, maxColLength)
 
     nodes.forEach((row, rowIdx) => {
       const currRowLength = (row.length * this.defaultNodeHeight)
@@ -400,7 +428,7 @@ export default class Flowter extends Vue {
 
         node.y =
           // Get the topmost position
-          (minHeight / 2) - (currRowLength / 2)
+          (maxColLength / 2) - (currRowLength / 2)
           // Plus each of the nodes' width
           // Plus the spacing for each of the node (except the first and the last one)
           + (colIdx * (this.defaultNodeHeight + (colIdx !== 0 ? this.defaultNodeColSpacing : 0)))
