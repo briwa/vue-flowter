@@ -20,6 +20,8 @@ export enum EdgeType {
 
 export interface GraphNode {
   text: string
+  width?: number
+  height?: number
 }
 
 export interface RenderedGraphNode extends GraphNode {
