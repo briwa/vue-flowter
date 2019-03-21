@@ -3,6 +3,7 @@ import { Prop, Component, Vue } from 'vue-property-decorator'
 // Components
 import FlowterEdge from '@/components/flowter-edge/index.vue'
 import FlowterNode from '@/components/flowter-node/index.vue'
+import FlowterNodeSelection from '@/components/flowter-node-selection/index.vue'
 
 // Types
 import {
@@ -14,7 +15,8 @@ import {
 @Component({
   components: {
     FlowterEdge,
-    FlowterNode
+    FlowterNode,
+    FlowterNodeSelection
   }
 })
 export default class Flowter extends Vue {
@@ -31,30 +33,36 @@ export default class Flowter extends Vue {
   @Prop({ type: String, default: EdgeType.BENT })
   public edgeType!: EdgeType
 
+  // Data
+  private editingNodeId: string = ''
+
   // Computed
   public get containerStyle () {
+    const style: Record<string, string | null> = {
+      userSelect: this.editingNodeId ? 'none' : null,
+      width: `${this.containerWidth}px`,
+      height: `${this.containerHeight}px`
+    }
+
     // Scale the flowchart if width is specified
     // It will ignore the custom height though
     // since the scale is solely by the width
     if (this.width && this.mode === Mode.VERTICAL) {
-      return {
-        width: `${this.width}px`,
-        height: `${this.containerHeight * this.widthRatio}px`
-      }
+      style.width = `${this.width}px`
+      style.height = `${this.containerHeight * this.widthRatio}px`
+
+      return style
     }
 
     // Same thing for height in horizontal mode
     if (this.height && this.mode === Mode.HORIZONTAL) {
-      return {
-        height: `${this.height}px`,
-        width: `${this.containerWidth * this.heightRatio}px`
-      }
+      style.height = `${this.height}px`
+      style.width = `${this.containerWidth * this.heightRatio}px`
+
+      return style
     }
 
-    return {
-      width: `${this.containerWidth}px`,
-      height: `${this.containerHeight}px`
-    }
+    return style
   }
   public get scaleStyle () {
     let ratio
@@ -178,6 +186,10 @@ export default class Flowter extends Vue {
       y: this.containerHeight / 2
     }
   }
+  public get editingNode () {
+    return this.editingNodeId
+      ? this.renderedNodesDict[this.editingNodeId] : null
+  }
   private get containerWidth () {
     switch (this.mode) {
       case Mode.VERTICAL: {
@@ -297,6 +309,15 @@ export default class Flowter extends Vue {
       return edges
     }, [])
   }
+  public onEditingNode (id: string) {
+    this.editingNodeId = id
+  }
+  public onExitEditingNode () {
+    this.editingNodeId = ''
+  }
+  public onResizeNode (event: { id: string, width: number, height: number }) {
+    this.$emit('resize', event)
+  }
   private getOrientPoints (node: RenderedGraphNode) {
     return {
       n: { x: node.width / 2, y: 0 },
@@ -320,7 +341,7 @@ export default class Flowter extends Vue {
     const toIndex = this.getNodeRowIndex(targetNode)
 
     const shapedEdge: RenderedGraphEdge = {
-      id: `${edge.from}-${edge.to}-${idx}`,
+      id: `edge-${edge.from}-${edge.to}-${idx}`,
       from: edge.from,
       to: edge.to,
       text: edge.text,
@@ -346,14 +367,14 @@ export default class Flowter extends Vue {
           // west or east depending on the distance between
           // target and origin
           const originNodeCenterPoint = (originNode.x + (originNode.width / 2))
-          const direction = originNodeCenterPoint > this.containerWidth / 2
+          const orient = originNodeCenterPoint > this.containerWidth / 2
             ? 'e' : 'w'
 
-          shapedEdge.startPoint.x = originPoints[direction].x + targetNode.x
-          shapedEdge.startPoint.y = originPoints[direction].y + targetNode.y
+          shapedEdge.startPoint.x = targetPoints[orient].x + targetNode.x
+          shapedEdge.startPoint.y = targetPoints[orient].y + targetNode.y
 
-          shapedEdge.endPoint.x = targetPoints[direction].x + originNode.x
-          shapedEdge.endPoint.y = targetPoints[direction].y + originNode.y
+          shapedEdge.endPoint.x = originPoints[orient].x + originNode.x
+          shapedEdge.endPoint.y = originPoints[orient].y + originNode.y
 
           shapedEdge.marker = EdgeMarker.START
           shapedEdge.direction = EdgeDirection.BACKWARD
@@ -375,14 +396,14 @@ export default class Flowter extends Vue {
           // south or north depending on the distance between
           // target and origin
           const originNodeCenterPoint = (originNode.y + (originNode.height / 2))
-          const direction = originNodeCenterPoint > this.containerHeight / 2
+          const orient = originNodeCenterPoint > this.containerHeight / 2
             ? 's' : 'n'
 
-          shapedEdge.startPoint.x = originPoints[direction].x + targetNode.x
-          shapedEdge.startPoint.y = originPoints[direction].y + targetNode.y
+          shapedEdge.startPoint.x = targetPoints[orient].x + targetNode.x
+          shapedEdge.startPoint.y = targetPoints[orient].y + targetNode.y
 
-          shapedEdge.endPoint.x = targetPoints[direction].x + originNode.x
-          shapedEdge.endPoint.y = targetPoints[direction].y + originNode.y
+          shapedEdge.endPoint.x = originPoints[orient].x + originNode.x
+          shapedEdge.endPoint.y = originPoints[orient].y + originNode.y
 
           shapedEdge.marker = EdgeMarker.START
           shapedEdge.direction = EdgeDirection.BACKWARD

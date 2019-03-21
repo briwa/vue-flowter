@@ -6,6 +6,8 @@ import {
 
 @Component
 export default class FlowterEdge extends Vue {
+  @Prop({ type: String, required: true })
+  public id!: string
   @Prop({ type: Object, required: true })
   public startPoint!: Point
   @Prop({ type: Object, required: true })
@@ -113,18 +115,44 @@ export default class FlowterEdge extends Vue {
           + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
       }
       case EdgeDirection.BACKWARD: {
-        // Depending on whether the edge goes rtl or ltr
-        // (relative to the center of the flowchart, not the target)
-        // the detour direction should follow the edge direction.
-        // Also, since the startX has already taken minSize into account,
-        // the detour size should only contain the value
-        const relativeDetourSize = this.startPoint.x > this.centerPoint.x
-          ? this.detourSize : -this.detourSize
+        // To simplify the calc, always assume
+        // that the edges go from left to right.
+        // For edges that go right to left, we'll just inverse it.
+        const isEdgeRightSide = this.startPoint.x > this.centerPoint.x
+        const edgeXDirection = isEdgeRightSide ? 1 : -1
 
-        return `${this.relativeStartX},${this.relativeStartY} `
-          + `${this.relativeStartX + relativeDetourSize},${this.relativeStartY} `
-          + `${this.relativeStartX + relativeDetourSize},${this.renderedHeight - this.relativeStartY} `
-          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
+        // Both the detour and the direction of the width depending
+        // On whether they go ltr or rtl
+        const relativeDetourSize = this.detourSize * edgeXDirection
+        const absoluteWidth = Math.abs(this.relativeWidth) * edgeXDirection
+
+        // Two types of backward edge;
+        // - they move horizontally then vertically (because the target is at ne)
+        // - they move vertically then horizontally (because the target is at sw)
+        // Inverse the start/end for nodes going right to left
+        const isEdgeGoingHV = isEdgeRightSide
+          ? this.startPoint.x > this.endPoint.x : this.endPoint.x > this.startPoint.x
+
+        // Starting point is always the same
+        const startPointX = this.relativeStartX
+
+        // If they go HV, they just need to make a little detour before going vertical
+        // Otherwise, go all the way till the edge of the horizontal space
+        const middlePointX = isEdgeGoingHV
+          ? this.relativeStartX + relativeDetourSize : this.relativeStartX + absoluteWidth + relativeDetourSize
+
+        // Go to the opposite side of their starting point
+        const endPointX = isEdgeGoingHV
+          ? this.relativeStartX - absoluteWidth : this.relativeStartX + absoluteWidth
+
+        // For backward edges going vertically, no changes on the vertical point
+        const startPointY = this.relativeStartY
+        const endPointY = this.renderedHeight - this.relativeStartY
+
+        return `${startPointX},${startPointY} `
+          + `${middlePointX},${startPointY} `
+          + `${middlePointX},${endPointY} `
+          + `${endPointX},${endPointY} `
       }
     }
   }
@@ -139,18 +167,44 @@ export default class FlowterEdge extends Vue {
           + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
       }
       case EdgeDirection.BACKWARD: {
-        // Depending on whether the edge goes ttb or btt
-        // (relative to the center of the flowchart, not the target)
-        // the detour direction should follow the edge direction.
-        // Also, since the startY has already taken minSize into account,
-        // the detour size should only contain the value
-        const relativeDetourSize = this.startPoint.y > this.centerPoint.y
-          ? this.detourSize : -this.detourSize
+        // To simplify the calc, always assume
+        // that the edges go from top to bottom.
+        // For edges that go bottom to top, we'll just inverse it.
+        const isEdgeTopSide = this.startPoint.y > this.centerPoint.y
+        const edgeYDirection = isEdgeTopSide ? 1 : -1
 
-        return `${this.relativeStartX},${this.relativeStartY} `
-          + `${this.relativeStartX },${this.relativeStartY + relativeDetourSize} `
-          + `${this.renderedWidth - this.relativeStartX},${this.relativeStartY + relativeDetourSize} `
-          + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
+        // Both the detour and the direction of the width depending
+        // On whether they go ltr or rtl
+        const relativeDetourSize = this.detourSize * edgeYDirection
+        const absoluteHeight = Math.abs(this.relativeHeight) * edgeYDirection
+
+        // Two types of backward edge;
+        // - they move vertically then horizontally (because the target is at se)
+        // - they move horizontally then vertically (because the target is at nw)
+        // Inverse the start/end for nodes going right to left
+        const isEdgeGoingVH = isEdgeTopSide
+          ? this.startPoint.y > this.endPoint.y : this.endPoint.y > this.startPoint.y
+
+        // Starting point is always the same
+        const startPointY = this.relativeStartY
+
+        // If they go HV, they just need to make a little detour before going vertical
+        // Otherwise, go all the way till the edge of the horizontal space
+        const middlePointY = isEdgeGoingVH
+          ? this.relativeStartY + relativeDetourSize : this.relativeStartY + absoluteHeight + relativeDetourSize
+
+        // Go to the opposite side of their starting point
+        const endPointY = isEdgeGoingVH
+          ? this.relativeStartY - absoluteHeight : this.relativeStartY + absoluteHeight
+
+        // For backward edges going horizontallyly, no changes on the horizontally point
+        const startPointX = this.relativeStartX
+        const endPointX = this.renderedWidth - this.relativeStartX
+
+        return `${startPointX},${startPointY} `
+          + `${startPointX},${middlePointY} `
+          + `${endPointX},${middlePointY} `
+          + `${endPointX},${endPointY} `
       }
     }
   }
@@ -161,6 +215,16 @@ export default class FlowterEdge extends Vue {
   public get markerEnd () {
     return this.marker === EdgeMarker.END
       ? 'url(#arrow)' : undefined
+  }
+  public get shapeRendering () {
+    switch (this.edgeType) {
+      case EdgeType.CROSS: {
+        return null
+      }
+      case EdgeType.BENT: {
+        return 'crispEdges'
+      }
+    }
   }
   public get viewBox () {
     return `0 0 ${this.renderedWidth} ${this.renderedHeight}`
@@ -224,11 +288,11 @@ export default class FlowterEdge extends Vue {
       ? this.minSize : (this.minSize + this.detourSize)
   }
   private get renderedWidth () {
-    return (Math.max(Math.abs(this.relativeWidth), this.minSize))
+    return Math.abs(this.relativeWidth)
       + (this.paddingSize * 2)
   }
   private get renderedHeight () {
-    return (Math.max(Math.abs(this.relativeHeight), this.minSize))
+    return Math.abs(this.relativeHeight)
       + (this.paddingSize * 2)
   }
   // Minimum size of the edge, both width and height

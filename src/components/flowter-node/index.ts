@@ -31,4 +31,8 @@ export default class FlowterNode extends Vue {
       left: `${this.x}px`
     }
   }
+
+  public onClick () {
+    this.$emit('edit', this.id)
+  }
 }
