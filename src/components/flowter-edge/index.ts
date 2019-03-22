@@ -120,7 +120,8 @@ export default class FlowterEdge extends Vue {
         // To simplify the calc, always assume
         // that the edges go from left to right.
         // For edges that go right to left, we'll just inverse it.
-        const isEdgeRightSide = this.startPoint.x > this.centerPoint.x
+        // This is determined from where the endpoint is in the flowchart.
+        const isEdgeRightSide = this.endPoint.x > this.centerPoint.x
         const edgeXDirection = isEdgeRightSide ? 1 : -1
 
         // Both the detour and the direction of the width depending
@@ -172,7 +173,8 @@ export default class FlowterEdge extends Vue {
         // To simplify the calc, always assume
         // that the edges go from top to bottom.
         // For edges that go bottom to top, we'll just inverse it.
-        const isEdgeTopSide = this.startPoint.y > this.centerPoint.y
+        // This is determined from where the endpoint is in the flowchart.
+        const isEdgeTopSide = this.endPoint.y > this.centerPoint.y
         const edgeYDirection = isEdgeTopSide ? 1 : -1
 
         // Both the detour and the direction of the width depending

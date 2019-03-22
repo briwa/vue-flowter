@@ -38,11 +38,10 @@
 <style>
 .flowter-edge-parent {
   position: absolute;
-  pointer-events: none;
+  z-index: 1;
 }
 
 .flowter-edge-child svg polyline {
-  pointer-events: all;
   cursor: pointer;
 }
 

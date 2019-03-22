@@ -2,7 +2,7 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Types
-import { RenderedGraphNode } from '@/types'
+import { RenderedGraphNode, Mode } from '@/types'
 
 enum SelectionType {
   RESIZE_N = 'resize-n',
@@ -17,12 +17,16 @@ enum SelectionType {
 export default class FlowterNodeSelection extends Vue {
   @Prop({ type: Object, default: null })
   public node!: RenderedGraphNode
+  @Prop({ type: String, default: Mode.VERTICAL })
+  public mode!: Mode
 
   // Data
   private mouseDownX: number = 0
   private mouseDownY: number = 0
   private scaleX: number = 1
   private scaleY: number = 1
+  private translateX: number = 0
+  private translateY: number = 0
   private selectionType: SelectionType = SelectionType.DEFAULT
 
   // Getters
@@ -45,6 +49,7 @@ export default class FlowterNodeSelection extends Vue {
       width: `${this.node.width}px`,
       height: `${this.node.height}px`,
       transform: `scaleX(${this.scaleX}) scaleY(${this.scaleY})`
+        + `translateX(${this.translateX}px) translateY(${this.translateY}px)`
     }
   }
   private get deltaDirection () {
@@ -92,21 +97,70 @@ export default class FlowterNodeSelection extends Vue {
         this.scaleX = (this.node.width + deltaX) / this.node.width
         break
       }
+      case SelectionType.MOVE: {
+        switch (this.mode) {
+          case Mode.VERTICAL: {
+            this.translateX = e.pageX - this.mouseDownX
+            break
+          }
+          case Mode.HORIZONTAL: {
+            this.translateY = e.pageY - this.mouseDownY
+            break
+          }
+        }
+        break
+      }
+      default: {
+        throw new Error(`Unknown selection type: ${this.selectionType}`)
+      }
     }
   }
   private onMouseUp () {
     this.detachMouseEvents()
 
-    if (this.scaleX !== 1 || this.scaleY !== 1) {
-      this.$emit('resize', {
-        id: this.node.id,
-        width: Math.abs(this.node.width * this.scaleX),
-        height: Math.abs(this.node.height * this.scaleY)
-      })
+    switch (this.selectionType) {
+      case SelectionType.RESIZE_N:
+      case SelectionType.RESIZE_S:
+      case SelectionType.RESIZE_E:
+      case SelectionType.RESIZE_W: {
+        const payload: { id: string, width?: number, height?: number } = {
+          id: this.node.id
+        }
+
+        if (this.scaleX !== 1) {
+          payload.width = Math.abs(this.node.width * this.scaleX)
+        } else if (this.scaleY !== 1) {
+          payload.height = Math.abs(this.node.height * this.scaleY)
+        }
+
+        this.$emit('resize', payload)
+
+        // Reset both scales to the default value
+        this.scaleX = 1
+        this.scaleY = 1
+        break
+      }
+      case SelectionType.MOVE: {
+        const payload: { id: string, x?: number, y?: number } = {
+          id: this.node.id
+        }
+
+        if (this.translateX !== 0) {
+          payload.x = this.node.x + this.translateX
+        } else if (this.translateY !== 0) {
+          payload.y = this.node.y + this.translateY
+        }
+
+        this.$emit('move', payload)
+
+        // Reset both translations to the default value
+        this.translateX = 0
+        this.translateY = 0
+        break
+      }
     }
 
-    this.scaleX = 1
-    this.scaleY = 1
+    // Also reset the selection type
     this.selectionType = SelectionType.DEFAULT
   }
 }

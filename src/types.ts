@@ -22,6 +22,8 @@ export interface GraphNode {
   text: string
   width?: number
   height?: number
+  x?: number
+  y?: number
 }
 
 export interface RenderedGraphNode extends GraphNode {

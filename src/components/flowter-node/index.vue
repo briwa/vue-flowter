@@ -18,6 +18,7 @@
 <style>
 .flowter-node-parent {
   position: absolute;
+  z-index: 2;
 }
 
 .flowter-overlay {
