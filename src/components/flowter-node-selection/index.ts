@@ -1,5 +1,7 @@
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+// Libraries
+import { Prop, Component, Vue } from 'vue-property-decorator'
 
+// Types
 import { RenderedGraphNode } from '@/types'
 
 enum SelectionType {
