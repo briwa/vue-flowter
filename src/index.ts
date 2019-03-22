@@ -104,8 +104,8 @@ export default class Flowter extends Vue {
         const renderedNode = {
           id: nodeId,
           text: node.text,
-          x: 0,
-          y: 0,
+          x: node.x || 0,
+          y: node.y || 0,
           width: node.width || this.defaultNodeWidth,
           height: node.height || this.defaultNodeHeight
         }
@@ -132,7 +132,7 @@ export default class Flowter extends Vue {
           const lastRowIds = lastRow.map((n) => n.id)
 
           // If the node comes from the previous row, it is in the same row
-          pushAsNewRow = currFromIds.some((id) => lastRowIds.indexOf(id) >= 0)
+          pushAsNewRow = currFromIds.some((id) => lastRowIds.includes(id))
         }
 
         // New layer with the new node
@@ -195,13 +195,8 @@ export default class Flowter extends Vue {
     switch (this.mode) {
       case Mode.VERTICAL: {
         return this.renderedNodes.reduce((size, row) => {
-          const rowWidth = row.reduce((total, node, idx) => {
-            const spacing = idx === row.length - 1
-              ? 0 : this.defaultNodeColSpacing
-
-            return total + node.width + spacing
-          }, this.defaultWidthMargin * 2)
-
+          const lastNode = row[row.length - 1]
+          const rowWidth = lastNode.x + lastNode.width + this.defaultWidthMargin
           return Math.max(rowWidth, size)
         }, 0)
       }
@@ -229,14 +224,9 @@ export default class Flowter extends Vue {
       }
       case Mode.HORIZONTAL: {
         return this.renderedNodes.reduce((size, row) => {
-          const rowHeight = row.reduce((total, node, idx) => {
-            const spacing = idx === row.length - 1
-              ? 0 : this.defaultNodeRowSpacing
-
-            return total + node.height + spacing
-          }, this.defaultHeightMargin * 2)
-
-          return Math.max(rowHeight, size)
+          const lastNode = row[row.length - 1]
+          const rowWidth = lastNode.y + lastNode.height + this.defaultHeightMargin
+          return Math.max(rowWidth, size)
         }, 0)
       }
     }
@@ -318,6 +308,9 @@ export default class Flowter extends Vue {
   }
   public onResizeNode (event: { id: string, width: number, height: number }) {
     this.$emit('resize', event)
+  }
+  public onMoveNode (event: { id: string, x?: number, y?: number }) {
+    this.$emit('move', event)
   }
   private getOrientPoints (node: RenderedGraphNode) {
     return {
@@ -434,11 +427,11 @@ export default class Flowter extends Vue {
       let maxHeight = 0
 
       row.forEach((node) => {
-        node.x = cumulativeX
+        node.x = node.x || cumulativeX
         node.y = cumulativeY
         maxHeight = Math.max(maxHeight, node.height)
 
-        cumulativeX = cumulativeX + node.width + this.defaultNodeColSpacing
+        cumulativeX = node.x + node.width + this.defaultNodeColSpacing
       })
 
       cumulativeY = cumulativeY + maxHeight + this.defaultNodeRowSpacing
@@ -456,10 +449,10 @@ export default class Flowter extends Vue {
 
       row.forEach((node) => {
         node.x = cumulativeX
-        node.y = cumulativeY
+        node.y = node.y || cumulativeY
         maxWidth = Math.max(maxWidth, node.width)
 
-        cumulativeY = cumulativeY + node.height + this.defaultNodeRowSpacing
+        cumulativeY = node.y + node.height + this.defaultNodeRowSpacing
       })
 
       cumulativeX = cumulativeX + maxWidth + this.defaultNodeColSpacing

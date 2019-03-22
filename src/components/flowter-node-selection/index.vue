@@ -7,7 +7,7 @@
       :style="overlayStyle">
       <div
         class="flowter-resize-n"
-        @mousedown="onMouseDown($event, 'resize-n')"/>
+        @mousedown="onMouseDown($event, 'resize-n')" />
       <div
         class="flowter-resize-s"
         @mousedown="onMouseDown($event, 'resize-s')" />
@@ -16,8 +16,10 @@
         @mousedown="onMouseDown($event, 'resize-w')" />
       <div
         class="flowter-resize-e"
-        @mousedown="onMouseDown($event, 'resize-e')"/>
-      <div class="flowter-resize-move" />
+        @mousedown="onMouseDown($event, 'resize-e')" />
+      <div
+        class="flowter-resize-move"
+        @mousedown="onMouseDown($event, 'move')" />
     </div>
     <span
       class="flowter-exit-edit-span"

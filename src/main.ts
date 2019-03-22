@@ -30,15 +30,26 @@ const instance = new Vue({
     const inst = this as any
 
     return h(Flowter, {
-      props: { nodes: inst.nodes, edges: inst.edges }
+      props: { nodes: inst.nodes, edges: inst.edges, width: 800 }
     })
   },
   mounted () {
     const inst = this as any
 
-    inst.$children[0].$on('resize', ({ id, width, height }: { id: string, width: number, height: number }) => {
-      instance.$set(instance.$data.nodes[id], 'width', width)
-      instance.$set(instance.$data.nodes[id], 'height', height)
+    inst.$children[0].$on('resize', ({ id, width, height }: { id: string, width?: number, height?: number }) => {
+      if (width) {
+        instance.$set(instance.$data.nodes[id], 'width', width)
+      } else if (height) {
+        instance.$set(instance.$data.nodes[id], 'height', height)
+      }
+    })
+
+    inst.$children[0].$on('move', ({ id, x, y }: { id: string, x?: number, y?: number }) => {
+      if (x) {
+        instance.$set(instance.$data.nodes[id], 'x', x)
+      } else if (y) {
+        instance.$set(instance.$data.nodes[id], 'y', y)
+      }
     })
   }
 })

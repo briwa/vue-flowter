@@ -33,7 +33,9 @@
       <flowter-node-selection
         v-show="editingNode"
         :node="editingNode"
+        :mode="mode"
         @resize="onResizeNode"
+        @move="onMoveNode"
         @exit-editing="onExitEditingNode" />
     </div>
   </div>
@@ -48,6 +50,5 @@
 
 .flowter-parent {
   position: relative;
-  overflow: hidden;
 }
 </style>
