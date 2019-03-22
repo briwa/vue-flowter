@@ -1,4 +1,5 @@
-import { Component, Vue, Prop } from 'vue-property-decorator'
+// Libraries
+import { Prop, Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class FlowterNode extends Vue {

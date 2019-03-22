@@ -1,5 +1,7 @@
-import { Component, Vue, Prop } from 'vue-property-decorator'
+// Libraries
+import { Prop, Component, Vue } from 'vue-property-decorator'
 
+// Types
 import {
   Point, EdgeMarker, EdgeDirection, Mode, EdgeType
 } from '@/types'

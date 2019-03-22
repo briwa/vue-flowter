@@ -6,7 +6,7 @@
   "linterOptions": {
     "exclude": [
       "node_modules/**",
-      "fixtures/**"
+      "__fixtures__/**"
     ]
   },
   "rules": {

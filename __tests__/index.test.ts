@@ -1,6 +1,13 @@
+// Libraries
 import { mount } from '@vue/test-utils'
-import Flowter from '../src/index.vue'
-import { nodes, edges } from '../fixtures/graph.json'
+
+// Component to test
+import Flowter from '@/index.vue'
+
+// Mocked data
+import { nodes, edges } from '../__fixtures__/graph.json'
+
+// Types
 import { EdgeType, Mode } from '@/types'
 
 describe('Flowter', () => {
