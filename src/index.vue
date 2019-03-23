@@ -8,34 +8,22 @@
       <template v-for="(row, rowIdx) in renderedNodes">
         <template v-for="(node, colIdx) in row">
           <flowter-node
+            v-bind="node"
             :key="`node-${node.id}`"
-            :id="node.id"
-            :text="node.text"
-            :x="node.x"
-            :y="node.y"
-            :width="node.width"
-            :height="node.height"
             :font-size="fontSize"
             @edit="onEditingNode" />
           <flowter-edge
             v-for="edge in getEdges(node, rowIdx, colIdx, row.length)"
+            v-bind="edge"
             :key="edge.id"
-            :id="edge.id"
-            :start-point="edge.startPoint"
-            :start-orient="edge.startOrient"
-            :end-point="edge.endPoint"
-            :end-orient="edge.endOrient"
-            :text="edge.text"
             :font-size="fontSize"
-            :marker="edge.marker"
-            :direction="edge.direction"
             :mode="mode"
             :edge-type="edgeType" />
         </template>
       </template>
       <flowter-node-selection
-        v-show="editingNode"
-        :node="editingNode"
+        v-show="editingNodeId"
+        v-bind="editingNodeDetails"
         :mode="mode"
         @resize="onResizeNode"
         @move="onMoveNode"
@@ -45,12 +33,6 @@
 </template>
 <script lang="ts" src="./index.ts"></script>
 <style>
-.flowter-container {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .flowter-parent {
   position: relative;
 }

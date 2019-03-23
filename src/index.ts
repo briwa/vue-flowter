@@ -21,7 +21,7 @@ import {
 import {
   EdgeMarker, EdgeDirection, EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge, RenderedGraphEdge,
-  EdgesDict
+  EdgesDict, GraphNodeDetails, EditingNodeDetails
 } from '@/types'
 
 @Component({
@@ -146,10 +146,10 @@ export default class Flowter extends Vue {
         const renderedNode = {
           id: nodeId,
           text: node.text,
-          x: node.x || 0,
-          y: node.y || 0,
-          width: node.width || this.nodeWidth,
-          height: node.height || this.nodeHeight
+          x: typeof node.x !== 'undefined' ? node.x : -Infinity,
+          y: typeof node.y !== 'undefined' ? node.y : -Infinity,
+          width: typeof node.width !== 'undefined' ? node.width : this.nodeWidth,
+          height: typeof node.height !== 'undefined' ? node.height : this.nodeHeight
         }
 
         const currFromIds = fromIds[nodeId]
@@ -223,9 +223,36 @@ export default class Flowter extends Vue {
 
     return nodes
   }
-  public get editingNode () {
-    return this.editingNodeId
-      ? this.renderedNodesDict[this.editingNodeId].node : null
+  public get editingNodeDetails () {
+    const details: EditingNodeDetails = {
+      minX: -Infinity,
+      maxX: Infinity,
+      minY: -Infinity,
+      maxY: Infinity
+    }
+
+    if (!this.editingNodeId) {
+      return details
+    }
+
+    const nodeDetails = this.renderedNodesDict[this.editingNodeId]
+    const nodeRow = this.renderedNodes[nodeDetails.rowIdx]
+
+    details.node = nodeDetails.node
+    const prevNode = nodeRow[nodeDetails.colIdx - 1]
+    const nextNode = nodeRow[nodeDetails.colIdx + 1]
+
+    if (prevNode) {
+      details.minX = prevNode.x + prevNode.width
+      details.minY = prevNode.y + prevNode.height
+    }
+
+    if (nextNode) {
+      details.maxX = nextNode.x
+      details.maxY = nextNode.y
+    }
+
+    return details
   }
   private get containerWidth () {
     switch (this.mode) {
@@ -261,8 +288,8 @@ export default class Flowter extends Vue {
       case Mode.HORIZONTAL: {
         return this.renderedNodes.reduce((size, row) => {
           const lastNode = row[row.length - 1]
-          const rowWidth = lastNode.y + lastNode.height + this.heightMargin
-          return Math.max(rowWidth, size)
+          const rowHeight = lastNode.y + lastNode.height + this.heightMargin
+          return Math.max(rowHeight, size)
         }, 0)
       }
     }
@@ -275,14 +302,7 @@ export default class Flowter extends Vue {
   }
   // Map all nodes into a dictionary for easier access
   private get renderedNodesDict () {
-    interface NodeDetails {
-      rowLength: number
-      rowIdx: number
-      colIdx: number
-      node: RenderedGraphNode
-    }
-
-    const dict: Record<string, NodeDetails> = {}
+    const dict: Record<string, GraphNodeDetails> = {}
 
     this.renderedNodes.forEach((row, rowIdx) => {
       row.forEach((node, colIdx) => {
@@ -370,8 +390,6 @@ export default class Flowter extends Vue {
 
     const shapedEdge: RenderedGraphEdge = {
       id: `edge-${edge.from}-${edge.to}`,
-      from: edge.from,
-      to: edge.to,
       text: edge.text,
       startPoint: { x: 0, y: 0 },
       startOrient: 'n',
@@ -403,8 +421,8 @@ export default class Flowter extends Vue {
     } else {
       // Positive total index indicates that the nodes are on
       // one side of the flowchart, while negative indicates otherwise.
-      // This is to indicate whether they should start and end
-      // from on side of the node or the other
+      // This is used to tell whether they should start and end
+      // from on side of the node or the other.
       const startSide = endColIdx - Math.floor(endRowLength / 2)
       const endSide = startColIdx - Math.floor(startRowLength / 2)
       const totalIdxSide = startSide + endSide >= 0
@@ -443,21 +461,45 @@ export default class Flowter extends Vue {
     let cumulativeY = this.heightMargin
 
     nodes.forEach((row) => {
+      // Get the current row's length to
+      // map out each node's x position
       const currRowMargin = (row.length - 1) * this.nodeColSpacing
       const currRowLength = row
         .reduce((size, node) => size + node.width, currRowMargin)
 
+      // Nodes should start from the far left of the row
       let cumulativeX = (maxLength / 2) - (currRowLength / 2)
+
+      // Start with zero because the padding has been accounted for
+      // when accumulating each node's y
       let maxHeight = 0
 
       row.forEach((node) => {
-        node.x = node.x || cumulativeX
+        const hasCustomX = node.x !== -Infinity
+
+        // Use the x value provided from the props,
+        // otherwise accumulate from the previous node
+        node.x = hasCustomX ? node.x : cumulativeX
+
+        // For now, we can't change the y position in vertical mode
+        // So, accumulate them based on the height only
         node.y = cumulativeY
+
+        // The y position depends on the node with the highest height
         maxHeight = Math.max(maxHeight, node.height)
 
-        cumulativeX = node.x + node.width + this.nodeColSpacing
+        // The current node's column spacing is determined
+        // by whether the previous node has custom x. This is because
+        // if the x has been tampered, it means it doesn't need the spacing
+        // from the previous node
+        const colSpacing = hasCustomX
+          ? this.nodeColSpacing - (node.x - cumulativeX) : this.nodeColSpacing
+
+        // Accumulate the x for each node
+        cumulativeX = node.x + node.width + colSpacing
       })
 
+      // Accumulate the y for each row
       cumulativeY = cumulativeY + maxHeight + this.nodeRowSpacing
     })
   }
@@ -465,21 +507,45 @@ export default class Flowter extends Vue {
     let cumulativeX = this.widthMargin
 
     nodes.forEach((row) => {
+      // Get the current row's length to
+      // map out each node's y position
       const currRowMargin = (row.length - 1) * this.nodeRowSpacing
       const currRowLength = row
         .reduce((size, node) => size + node.height, currRowMargin)
 
+      // Nodes should start from the far top of the row
       let cumulativeY = (maxLength / 2) - (currRowLength / 2)
+
+      // Start with zero because the padding has been accounted for
+      // when accumulating each node's x
       let maxWidth = 0
 
       row.forEach((node) => {
+        const hasCustomY = node.y !== -Infinity
+
+        // For now, we can't change the x position in horizontal mode
+        // So, accumulate them based on the width only
         node.x = cumulativeX
-        node.y = node.y || cumulativeY
+
+        // Use the y value provided from the props,
+        // otherwise accumulate from the previous node
+        node.y = hasCustomY ? node.y : cumulativeY
+
+        // The x position depends on the node with the highest width
         maxWidth = Math.max(maxWidth, node.width)
 
-        cumulativeY = node.y + node.height + this.nodeRowSpacing
+        // The current node's column spacing is determined
+        // by whether the previous node has custom x. This is because
+        // if the x has been tampered, it means it doesn't need the spacing
+        // from the previous node
+        const rowSpacing = hasCustomY
+          ? this.nodeRowSpacing - (node.y - cumulativeY) : this.nodeRowSpacing
+
+        // Accumulate the y for each node
+        cumulativeY = node.y + node.height + rowSpacing
       })
 
+      // Accumulate the x for each row
       cumulativeX = cumulativeX + maxWidth + this.nodeColSpacing
     })
   }

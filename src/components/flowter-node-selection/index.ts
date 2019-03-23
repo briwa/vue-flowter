@@ -19,6 +19,14 @@ export default class FlowterNodeSelection extends Vue {
   public node!: RenderedGraphNode
   @Prop({ type: String, default: Mode.VERTICAL })
   public mode!: Mode
+  @Prop({ type: Number, default: -Infinity })
+  public minX!: number
+  @Prop({ type: Number, default: Infinity })
+  public maxX!: number
+  @Prop({ type: Number, default: -Infinity })
+  public minY!: number
+  @Prop({ type: Number, default: Infinity })
+  public maxY!: number
 
   // Data
   private mouseDownX: number = 0
@@ -100,11 +108,31 @@ export default class FlowterNodeSelection extends Vue {
       case SelectionType.MOVE: {
         switch (this.mode) {
           case Mode.VERTICAL: {
-            this.translateX = e.pageX - this.mouseDownX
+            const deltaX = e.pageX - this.mouseDownX
+            const isWithinRange =
+              // Whether the left side of the node is after the minX
+              (this.node.x + deltaX >= this.minX)
+              // And the right side of the node is before the maxY
+              && (this.node.x + this.node.width + deltaX <= this.maxX)
+
+            if (isWithinRange) {
+              this.translateX = deltaX
+            }
+
             break
           }
           case Mode.HORIZONTAL: {
-            this.translateY = e.pageY - this.mouseDownY
+            const deltaY = e.pageY - this.mouseDownY
+            const isWithinRange =
+              // Whether the left side of the node is after the minY
+              (this.node.y + deltaY >= this.minY)
+              // And the right side of the node is before the maxY
+              && (this.node.y + this.node.height + deltaY <= this.maxY)
+
+            if (isWithinRange) {
+              this.translateY = deltaY
+            }
+
             break
           }
         }

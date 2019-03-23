@@ -36,14 +36,30 @@ export interface RenderedGraphNode extends GraphNode {
   height: number
 }
 
+export interface GraphNodeDetails {
+  rowLength: number
+  rowIdx: number
+  colIdx: number
+  node: RenderedGraphNode
+}
+
+export interface EditingNodeDetails {
+  node?: RenderedGraphNode,
+  minX: number,
+  maxX: number,
+  minY: number,
+  maxY: number
+}
+
 export interface GraphEdge {
   from: string
   to: string
   text?: string
 }
 
-export interface RenderedGraphEdge extends GraphEdge {
+export interface RenderedGraphEdge {
   id: string
+  text?: string
   startPoint: Point
   startOrient: Orients
   endPoint: Point
