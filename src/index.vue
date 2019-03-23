@@ -27,7 +27,6 @@
             :text="edge.text"
             :marker="edge.marker"
             :direction="edge.direction"
-            :center-point="centerPoint"
             :mode="mode"
             :edge-type="edgeType" />
         </template>

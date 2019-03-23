@@ -182,12 +182,6 @@ export default class Flowter extends Vue {
 
     return nodes
   }
-  public get centerPoint () {
-    return {
-      x: this.containerWidth / 2,
-      y: this.containerHeight / 2
-    }
-  }
   public get editingNode () {
     return this.editingNodeId
       ? this.renderedNodesDict[this.editingNodeId].node : null
