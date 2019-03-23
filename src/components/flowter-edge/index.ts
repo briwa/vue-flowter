@@ -18,8 +18,6 @@ export default class FlowterEdge extends Vue {
   public endPoint!: Point
   @Prop({ type: String, required: true })
   public endOrient!: Orients
-  @Prop({ type: Object, required: true })
-  public centerPoint!: Point
   @Prop({ type: String, default: '' })
   public text!: string
   @Prop({ type: String, default: EdgeMarker.END })
@@ -54,7 +52,7 @@ export default class FlowterEdge extends Vue {
 
     switch (this.direction) {
       case EdgeDirection.FORWARD: {
-        const delimiter = this.endPoint.x > this.startPoint.x
+        const delimiter = this.relativeWidth > 0
           ? 'right' : 'left'
 
         style[delimiter] = `${this.paddingSize * 2}px`
@@ -62,7 +60,7 @@ export default class FlowterEdge extends Vue {
         return style
       }
       case EdgeDirection.BACKWARD: {
-        const delimiter = this.startPoint.x > this.centerPoint.x
+        const delimiter = this.startOrient === 'e'
           ? 'right' : 'left'
 
         style[delimiter] = `${this.detourSize * 2}px`
@@ -79,7 +77,7 @@ export default class FlowterEdge extends Vue {
 
     switch (this.direction) {
       case EdgeDirection.FORWARD: {
-        const delimiter = this.endPoint.y > this.startPoint.y
+        const delimiter = this.relativeHeight > 0
           ? 'bottom' : 'top'
 
         style[delimiter] = `${this.paddingSize * 2}px`
@@ -87,7 +85,7 @@ export default class FlowterEdge extends Vue {
         return style
       }
       case EdgeDirection.BACKWARD: {
-        const delimiter = this.startPoint.y > this.centerPoint.y
+        const delimiter = this.startOrient === 's'
           ? 'bottom' : 'top'
 
         style[delimiter] = `${this.detourSize * 2}px`
@@ -125,7 +123,7 @@ export default class FlowterEdge extends Vue {
         // that the edges go from left to right.
         // For edges that go right to left, we'll just inverse it.
         // This is determined from where the endpoint is in the flowchart.
-        const isEdgeRightSide = this.endPoint.x > this.centerPoint.x
+        const isEdgeRightSide = this.startOrient === 'e' && this.endOrient === 'e'
         const edgeXDirection = isEdgeRightSide ? 1 : -1
 
         // Both the detour and the direction of the width depending
