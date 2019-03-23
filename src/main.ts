@@ -30,7 +30,7 @@ const instance = new Vue({
     const inst = this as any
 
     return h(Flowter, {
-      props: { nodes: inst.nodes, edges: inst.edges, width: 800 }
+      props: { nodes: inst.nodes, edges: inst.edges }
     })
   },
   mounted () {

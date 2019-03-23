@@ -3,7 +3,7 @@ import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Types
 import {
-  Point, EdgeMarker, EdgeDirection, Mode, EdgeType
+  Point, EdgeMarker, EdgeDirection, Mode, EdgeType, Orients
 } from '@/types'
 
 @Component
@@ -12,8 +12,12 @@ export default class FlowterEdge extends Vue {
   public id!: string
   @Prop({ type: Object, required: true })
   public startPoint!: Point
+  @Prop({ type: String, required: true })
+  public startOrient!: Orients
   @Prop({ type: Object, required: true })
   public endPoint!: Point
+  @Prop({ type: String, required: true })
+  public endOrient!: Orients
   @Prop({ type: Object, required: true })
   public centerPoint!: Point
   @Prop({ type: String, default: '' })
@@ -174,8 +178,8 @@ export default class FlowterEdge extends Vue {
         // that the edges go from top to bottom.
         // For edges that go bottom to top, we'll just inverse it.
         // This is determined from where the endpoint is in the flowchart.
-        const isEdgeTopSide = this.endPoint.y > this.centerPoint.y
-        const edgeYDirection = isEdgeTopSide ? 1 : -1
+        const isEdgeBottomSide = this.startOrient === 's' && this.endOrient === 's'
+        const edgeYDirection = isEdgeBottomSide ? 1 : -1
 
         // Both the detour and the direction of the width depending
         // On whether they go ltr or rtl
@@ -186,7 +190,7 @@ export default class FlowterEdge extends Vue {
         // - they move vertically then horizontally (because the target is at se)
         // - they move horizontally then vertically (because the target is at nw)
         // Inverse the start/end for nodes going right to left
-        const isEdgeGoingVH = isEdgeTopSide
+        const isEdgeGoingVH = isEdgeBottomSide
           ? this.startPoint.y > this.endPoint.y : this.endPoint.y > this.startPoint.y
 
         // Starting point is always the same

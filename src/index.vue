@@ -5,8 +5,8 @@
     <div
       class="flowter-scale"
       :style="scaleStyle">
-      <template v-for="row in renderedNodes">
-        <template v-for="node in row">
+      <template v-for="(row, rowIdx) in renderedNodes">
+        <template v-for="(node, colIdx) in row">
           <flowter-node
             :key="`node-${node.id}`"
             :id="node.id"
@@ -17,11 +17,13 @@
             :height="node.height"
             @edit="onEditingNode" />
           <flowter-edge
-            v-for="edge in getEdges(node)"
+            v-for="edge in getEdges(node, rowIdx, colIdx, row.length)"
             :key="edge.id"
             :id="edge.id"
             :start-point="edge.startPoint"
+            :start-orient="edge.startOrient"
             :end-point="edge.endPoint"
+            :end-orient="edge.endOrient"
             :text="edge.text"
             :marker="edge.marker"
             :direction="edge.direction"

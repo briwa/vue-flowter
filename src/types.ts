@@ -1,3 +1,5 @@
+export type Orients = 'n' | 's' | 'e' | 'w'
+
 export interface Point {
   x: number
   y: number
@@ -43,7 +45,9 @@ export interface GraphEdge {
 export interface RenderedGraphEdge extends GraphEdge {
   id: string
   startPoint: Point
+  startOrient: Orients
   endPoint: Point
+  endOrient: Orients
   marker: EdgeMarker
   direction: EdgeDirection
 }
