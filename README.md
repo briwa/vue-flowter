@@ -57,7 +57,7 @@ If you need more visual customizations, of course you can add your own styling w
     A list of nodes to be rendered. Each node is determined by the key which serves as the node id.
     Nodes in general should be connected by the edges, otherwise it won't be positioned properly.
 
-    The bare minimum of a node is that it has the `text` property. The rest of the properties are optional.
+    The bare minimum of a node is that it has to have the `text` property. The rest of the properties are optional.
     Refer to the `types` folder for more details.
 - `edges`
   - Type: `Array`
@@ -78,12 +78,12 @@ If you need more visual customizations, of course you can add your own styling w
   - Type: `Number`
   - Default: `null`
 
-    If specified, the flowchart will be rendered to the width size if it's rendering in vertical mode. Custom height will be ignored since the calculation is solely by the width.
+    If specified, the flowchart will be rendered to the width size. If height is also specified, the container height will be rendered with the height value, but the flowchart will still respect the aspect ratio.
 - `height`
   - Type: `Number`
   - Default: `null`
 
-    If specified, the flowchart will be rendered to the height size if it's rendering in horizontal mode. Custom width will be ignored since the calculation is solely by the height.
+    If specified, the flowchart will be rendered to the height size. If width is also specified, the container width will be rendered to the width value, but the flowchart will still respect the aspect ratio.
 - `edgeType`
   - Type: `String` (`'cross', 'bent'`)
   - Default: `'bent'`

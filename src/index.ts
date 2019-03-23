@@ -73,17 +73,21 @@ export default class Flowter extends Vue {
     // Scale the flowchart if width is specified
     // It will ignore the custom height though
     // since the scale is solely by the width
-    if (this.width && this.mode === Mode.VERTICAL) {
+    if (this.width) {
       style.width = `${this.width}px`
-      style.height = `${this.containerHeight * this.widthRatio}px`
+
+      // The width should never be lower than the natural height
+      style.height = `${Math.max(this.height, this.containerHeight * this.widthRatio)}px`
 
       return style
     }
 
     // Same thing for height in horizontal mode
-    if (this.height && this.mode === Mode.HORIZONTAL) {
+    if (this.height) {
       style.height = `${this.height}px`
-      style.width = `${this.containerWidth * this.heightRatio}px`
+
+      // The height should never be lower than the natural width
+      style.width = `${Math.max(this.width, this.containerWidth * this.heightRatio)}px`
 
       return style
     }
@@ -91,24 +95,37 @@ export default class Flowter extends Vue {
     return style
   }
   public get scaleStyle () {
-    let ratio
-    if (this.width && this.mode === Mode.VERTICAL) {
-      ratio = this.widthRatio
+    if (this.width) {
+      const style: Record<string, string> = {
+        transform: `scale(${this.widthRatio})`,
+        transformOrigin: '0% 0%'
+      }
+
+      // Make sure that the flowchart is still at the middle of the container
+      const scaledHeight = this.containerHeight * this.widthRatio
+      if (this.height > scaledHeight) {
+        style.marginTop = `${(this.height - scaledHeight) / 2}px`
+      }
+
+      return style
     }
 
-    // Same thing for height in horizontal mode
-    if (this.height && this.mode === Mode.HORIZONTAL) {
-      ratio = this.heightRatio
+    if (this.height) {
+      const style: Record<string, string> = {
+        transform: `scale(${this.heightRatio})`,
+        transformOrigin: '0% 0%'
+      }
+
+      // Make sure that the flowchart is still at the middle of the container
+      const scaledWidth = this.containerWidth * this.heightRatio
+      if (this.width > scaledWidth) {
+        style.marginLeft = `${(this.width - scaledWidth) / 2}px`
+      }
+
+      return style
     }
 
-    if (!ratio) {
-      return null
-    }
-
-    return {
-      transform: `scale(${ratio})`,
-      transformOrigin: '0% 0%'
-    }
+    return null
   }
   public get renderedNodes () {
     const { toIds, fromIds } = this.edgesDict
@@ -424,6 +441,7 @@ export default class Flowter extends Vue {
   }
   private shapeNodesVertically (nodes: RenderedGraphNode[][], maxLength: number) {
     let cumulativeY = this.heightMargin
+
     nodes.forEach((row) => {
       const currRowMargin = (row.length - 1) * this.nodeColSpacing
       const currRowLength = row
@@ -445,6 +463,7 @@ export default class Flowter extends Vue {
   }
   private shapeNodesHorizontally (nodes: RenderedGraphNode[][], maxLength: number) {
     let cumulativeX = this.widthMargin
+
     nodes.forEach((row) => {
       const currRowMargin = (row.length - 1) * this.nodeRowSpacing
       const currRowLength = row
