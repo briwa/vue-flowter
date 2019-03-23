@@ -15,6 +15,7 @@
             :y="node.y"
             :width="node.width"
             :height="node.height"
+            :font-size="fontSize"
             @edit="onEditingNode" />
           <flowter-edge
             v-for="edge in getEdges(node, rowIdx, colIdx, row.length)"
@@ -25,6 +26,7 @@
             :end-point="edge.endPoint"
             :end-orient="edge.endOrient"
             :text="edge.text"
+            :font-size="fontSize"
             :marker="edge.marker"
             :direction="edge.direction"
             :mode="mode"

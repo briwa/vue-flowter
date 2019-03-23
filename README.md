@@ -88,7 +88,43 @@ If you need more visual customizations, of course you can add your own styling w
   - Type: `String` (`'cross', 'bent'`)
   - Default: `'bent'`
 
-    If specified, all of the edges will be rendered as specified.
+    If specified, this value will override the default edge type.
+- `nodeWidth`
+  - Type: `Number`
+  - Default: `DEFAULT_NODE_WIDTH`
+
+    If specified, this value will override the default node width value when the node has no width. See `src/constants.ts` to see all the default values.
+- `nodeHeight`
+  - Type: `Number`
+  - Default: `DEFAULT_NODE_HEIGHT`
+
+    If specified, this value will override the default node height value when the node has no height. See `src/constants.ts` to see all the default values.
+- `nodeRowSpacing`
+  - Type: `Number`
+  - Default: `DEFAULT_NODE_ROW_SPACING`
+
+    If specified, this value will override the default node row spacing value. See `src/constants.ts` to see all the default values.
+- `nodeColSpacing`
+  - Type: `Number`
+  - Default: `DEFAULT_NODE_COL_SPACING`
+
+    If specified, this value will override the default node column spacing value. See `src/constants.ts` to see all the default values.
+- `widthMargin`
+  - Type: `Number`
+  - Default: `DEFAULT_WIDTH_MARGIN`
+
+    If specified, this value will override the default node width margin value. See `src/constants.ts` to see all the default values.
+- `heightMargin`
+  - Type: `Number`
+  - Default: `DEFAULT_HEIGHT_MARGIN`
+
+    If specified, this value will override the default node height margin value. See `src/constants.ts` to see all the default values.
+- `fontSize`
+  - Type: `Number`
+  - Default: `DEFAULT_FONT_SIZE`
+
+    If specified, this value will override the default font size, applies to nodes' and edges' `text`. See `src/constants.ts` to see all the default values.
+
 
 ## Running in development
 ```
@@ -104,13 +140,14 @@ This will run all the tests using Jest.
 
 ## TODO
 This component is not complete. Several things before the first major release:
-- [ ] Ability to edit the nodes and the edges (and export the edited flowchart to JSON)
+- [ ] Ability to connect a node to itself
+- [ ] Ability to edit the nodes and the edges
 - [ ] Multiple types of the nodes
 - [ ] Ability to customize the color of the nodes/edges/texts
-- [ ] Nodes' text should fit the container
-- [x] Ability to add text to an edge
+- [x] Nodes' text should fit the container
+- [x] Ability to add a text to an edge
 - [ ] Ability to point a node to an edge
-- [ ] Ability to connect a node to itself
+- [ ] Annotate props/getters/methods, remove the ones on this README and move it to Typedoc
 
 ## Hats off
 - [Vue CLI](https://cli.vuejs.org/) for the quick, hassle-free setup.
