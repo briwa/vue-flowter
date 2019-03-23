@@ -10,7 +10,7 @@ import { GraphNode, GraphEdge } from './types'
 // To populate data during development,
 // use the test fixtures data by default
 // since those covers all the use cases.
-import graph from '../__fixtures__/graph.json'
+import graph from '../__fixtures__/all.json'
 const nodes: Record<string, GraphNode> = graph.nodes
 const edges: GraphEdge[] = graph.edges
 
