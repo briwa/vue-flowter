@@ -13,10 +13,10 @@ export default class FlowterNode extends Vue {
   public width!: number
   @Prop({ type: Number, required: true })
   public height!: number
-  @Prop({ type: String, default: '' })
-  public text!: string
-  @Prop({ type: Number, default: 12 })
+  @Prop({ type: Number, required: true })
   public fontSize!: number
+  @Prop({ type: String, required: true })
+  public text!: string
 
   public get nodeStyle () {
     return {

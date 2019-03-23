@@ -18,6 +18,8 @@ export default class FlowterEdge extends Vue {
   public endPoint!: Point
   @Prop({ type: String, required: true })
   public endOrient!: Orients
+  @Prop({ type: Number, required: true })
+  public fontSize!: number
   @Prop({ type: String, default: '' })
   public text!: string
   @Prop({ type: String, default: EdgeMarker.END })
@@ -46,8 +48,8 @@ export default class FlowterEdge extends Vue {
   }
   public get verticalTextStyle () {
     const style: Record<string, string> = {
-      top: `${(this.renderedHeight / 2) - (this.textFontSize * 1.5)}px`,
-      fontSize: `${this.textFontSize}px`
+      top: `${(this.renderedHeight / 2) - (this.fontSize * 1.5)}px`,
+      fontSize: `${this.fontSize}px`
     }
 
     switch (this.direction) {
@@ -71,8 +73,8 @@ export default class FlowterEdge extends Vue {
   }
   public get horizontalTextStyle () {
     const style: Record<string, string> = {
-      left: `${(this.renderedWidth / 2) - (this.textFontSize * 1.5)}px`,
-      fontSize: `${this.textFontSize}px`
+      left: `${(this.renderedWidth / 2) - (this.fontSize * 1.5)}px`,
+      fontSize: `${this.fontSize}px`
     }
 
     switch (this.direction) {
@@ -308,8 +310,5 @@ export default class FlowterEdge extends Vue {
   // For backward edge, there should be a space to 'detour'
   private get detourSize () {
     return 10
-  }
-  private get textFontSize () {
-    return 12
   }
 }

@@ -6,12 +6,22 @@ import FlowterEdge from '@/components/flowter-edge/index.vue'
 import FlowterNode from '@/components/flowter-node/index.vue'
 import FlowterNodeSelection from '@/components/flowter-node-selection/index.vue'
 
+// Constants
+import {
+  DEFAULT_NODE_WIDTH,
+  DEFAULT_NODE_HEIGHT,
+  DEFAULT_NODE_ROW_SPACING,
+  DEFAULT_NODE_COL_SPACING,
+  DEFAULT_WIDTH_MARGIN,
+  DEFAULT_HEIGHT_MARGIN,
+  DEFAULT_FONT_SIZE
+} from '@/constants'
+
 // Types
 import {
   EdgeMarker, EdgeDirection, EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge, RenderedGraphEdge,
-  EdgesDict,
-  Orients
+  EdgesDict
 } from '@/types'
 
 @Component({
@@ -34,6 +44,20 @@ export default class Flowter extends Vue {
   public mode!: Mode
   @Prop({ type: String, default: EdgeType.BENT })
   public edgeType!: EdgeType
+  @Prop({ type: Number, default: DEFAULT_NODE_WIDTH })
+  public nodeWidth!: number
+  @Prop({ type: Number, default: DEFAULT_NODE_HEIGHT })
+  public nodeHeight!: number
+  @Prop({ type: Number, default: DEFAULT_NODE_ROW_SPACING })
+  public nodeRowSpacing!: number
+  @Prop({ type: Number, default: DEFAULT_NODE_COL_SPACING })
+  public nodeColSpacing!: number
+  @Prop({ type: Number, default: DEFAULT_WIDTH_MARGIN })
+  public widthMargin!: number
+  @Prop({ type: Number, default: DEFAULT_HEIGHT_MARGIN })
+  public heightMargin!: number
+  @Prop({ type: Number, default: DEFAULT_FONT_SIZE })
+  public fontSize!: number
 
   // Data
   private editingNodeId: string = ''
@@ -107,8 +131,8 @@ export default class Flowter extends Vue {
           text: node.text,
           x: node.x || 0,
           y: node.y || 0,
-          width: node.width || this.defaultNodeWidth,
-          height: node.height || this.defaultNodeHeight
+          width: node.width || this.nodeWidth,
+          height: node.height || this.nodeHeight
         }
 
         const currFromIds = fromIds[nodeId]
@@ -141,15 +165,15 @@ export default class Flowter extends Vue {
           nodes.push([renderedNode])
 
           // Reset the current row height/width calculation
-          currRowWidth = renderedNode.width + this.defaultNodeColSpacing
-          currRowHeight = renderedNode.height + this.defaultNodeRowSpacing
+          currRowWidth = renderedNode.width + this.nodeColSpacing
+          currRowHeight = renderedNode.height + this.nodeRowSpacing
         } else {
           // Another node in the layer
           lastRow.push(renderedNode)
 
           // Accumulate both current row width and height
-          currRowWidth = currRowWidth + renderedNode.width + this.defaultNodeColSpacing
-          currRowHeight = currRowHeight + renderedNode.height + this.defaultNodeRowSpacing
+          currRowWidth = currRowWidth + renderedNode.width + this.nodeColSpacing
+          currRowHeight = currRowHeight + renderedNode.height + this.nodeRowSpacing
         }
 
         // Always check whether this is the row that has the most width/height
@@ -191,7 +215,7 @@ export default class Flowter extends Vue {
       case Mode.VERTICAL: {
         return this.renderedNodes.reduce((size, row) => {
           const lastNode = row[row.length - 1]
-          const rowWidth = lastNode.x + lastNode.width + this.defaultWidthMargin
+          const rowWidth = lastNode.x + lastNode.width + this.widthMargin
           return Math.max(rowWidth, size)
         }, 0)
       }
@@ -201,7 +225,7 @@ export default class Flowter extends Vue {
             return Math.max(width, node.width)
           }, 0)
 
-          return size + maxWidth + this.defaultNodeColSpacing
+          return size + maxWidth + this.nodeColSpacing
         }, 0)
       }
     }
@@ -214,13 +238,13 @@ export default class Flowter extends Vue {
             return Math.max(height, node.height)
           }, 0)
 
-          return size + maxHeight + this.defaultNodeRowSpacing
+          return size + maxHeight + this.nodeRowSpacing
         }, 0)
       }
       case Mode.HORIZONTAL: {
         return this.renderedNodes.reduce((size, row) => {
           const lastNode = row[row.length - 1]
-          const rowWidth = lastNode.y + lastNode.height + this.defaultHeightMargin
+          const rowWidth = lastNode.y + lastNode.height + this.heightMargin
           return Math.max(rowWidth, size)
         }, 0)
       }
@@ -269,26 +293,6 @@ export default class Flowter extends Vue {
       toIds: {},
       fromIds: {}
     })
-  }
-  // TODO: These constants will be overidden
-  // by props since it's supposed to be configurable
-  private get defaultNodeWidth () {
-    return 100
-  }
-  private get defaultNodeHeight () {
-    return 50
-  }
-  private get defaultNodeRowSpacing () {
-    return 50
-  }
-  private get defaultNodeColSpacing () {
-    return 50
-  }
-  private get defaultWidthMargin () {
-    return 25
-  }
-  private get defaultHeightMargin () {
-    return 25
   }
 
   // Methods
@@ -419,9 +423,9 @@ export default class Flowter extends Vue {
     return shapedEdge
   }
   private shapeNodesVertically (nodes: RenderedGraphNode[][], maxLength: number) {
-    let cumulativeY = this.defaultHeightMargin
+    let cumulativeY = this.heightMargin
     nodes.forEach((row) => {
-      const currRowMargin = (row.length - 1) * this.defaultNodeColSpacing
+      const currRowMargin = (row.length - 1) * this.nodeColSpacing
       const currRowLength = row
         .reduce((size, node) => size + node.width, currRowMargin)
 
@@ -433,16 +437,16 @@ export default class Flowter extends Vue {
         node.y = cumulativeY
         maxHeight = Math.max(maxHeight, node.height)
 
-        cumulativeX = node.x + node.width + this.defaultNodeColSpacing
+        cumulativeX = node.x + node.width + this.nodeColSpacing
       })
 
-      cumulativeY = cumulativeY + maxHeight + this.defaultNodeRowSpacing
+      cumulativeY = cumulativeY + maxHeight + this.nodeRowSpacing
     })
   }
   private shapeNodesHorizontally (nodes: RenderedGraphNode[][], maxLength: number) {
-    let cumulativeX = this.defaultWidthMargin
+    let cumulativeX = this.widthMargin
     nodes.forEach((row) => {
-      const currRowMargin = (row.length - 1) * this.defaultNodeRowSpacing
+      const currRowMargin = (row.length - 1) * this.nodeRowSpacing
       const currRowLength = row
         .reduce((size, node) => size + node.height, currRowMargin)
 
@@ -454,10 +458,10 @@ export default class Flowter extends Vue {
         node.y = node.y || cumulativeY
         maxWidth = Math.max(maxWidth, node.width)
 
-        cumulativeY = node.y + node.height + this.defaultNodeRowSpacing
+        cumulativeY = node.y + node.height + this.nodeRowSpacing
       })
 
-      cumulativeX = cumulativeX + maxWidth + this.defaultNodeColSpacing
+      cumulativeX = cumulativeX + maxWidth + this.nodeColSpacing
     })
   }
 }

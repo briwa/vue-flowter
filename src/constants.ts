@@ -1,0 +1,7 @@
+export const DEFAULT_NODE_WIDTH = 100
+export const DEFAULT_NODE_HEIGHT = 50
+export const DEFAULT_NODE_ROW_SPACING = 50
+export const DEFAULT_NODE_COL_SPACING = 50
+export const DEFAULT_WIDTH_MARGIN = 25
+export const DEFAULT_HEIGHT_MARGIN = 25
+export const DEFAULT_FONT_SIZE = 12
