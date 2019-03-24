@@ -2,7 +2,7 @@
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the default edge type (bent) Should render all nodes and edges vertically with edge type bent 1`] = `
 <div class="flowter-parent" style="width: 600px; height: 800px;">
-  <div class="flowter-scale">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 25px; left: 250px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div> <span class="flowter-edit-span">
     Edit
@@ -496,7 +496,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the edge type cross Should render all nodes and edges vertically with edge type cross 1`] = `
 <div class="flowter-parent" style="width: 600px; height: 800px;">
-  <div class="flowter-scale">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 25px; left: 250px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div> <span class="flowter-edit-span">
     Edit
@@ -990,7 +990,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 
 exports[`Flowter When rendering in horizontal mode And rendering with the default edge type (bent) Should render all nodes and edges horizontally with edge type bent 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 400px;">
-  <div class="flowter-scale">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 175px; left: 25px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div> <span class="flowter-edit-span">
     Edit
@@ -1484,7 +1484,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
 
 exports[`Flowter When rendering in horizontal mode And rendering with the edge type cross Should render all nodes and edges horizontally with edge type cross 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 400px;">
-  <div class="flowter-scale">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 175px; left: 25px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div> <span class="flowter-edit-span">
     Edit
@@ -1978,7 +1978,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
 
 exports[`Flowter When rendering using custom node sizes In horizontal mode Should render the flowchart with the custom node size 1`] = `
 <div class="flowter-parent" style="width: 400px; height: 350px;">
-  <div class="flowter-scale">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 150px; left: 25px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div> <span class="flowter-edit-span">
     Edit
@@ -2035,7 +2035,7 @@ exports[`Flowter When rendering using custom node sizes In horizontal mode Shoul
 
 exports[`Flowter When rendering using custom node sizes In vertical mode Should render the flowchart with the custom node size 1`] = `
 <div class="flowter-parent" style="width: 400px; height: 350px;">
-  <div class="flowter-scale">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 25px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div> <span class="flowter-edit-span">
     Edit
@@ -2092,7 +2092,7 @@ exports[`Flowter When rendering using custom node sizes In vertical mode Should 
 
 exports[`Flowter When rendering using custom size Using custom height Using only the height Should render the flowchart with the custom height 1`] = `
 <div class="flowter-parent" style="width: 1500px; height: 1000px;">
-  <div class="flowter-scale" style="transform: scale(5); transform-origin: 0% 0%;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 75px; left: 25px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div> <span class="flowter-edit-span">
     Edit
@@ -2149,7 +2149,7 @@ exports[`Flowter When rendering using custom size Using custom height Using only
 
 exports[`Flowter When rendering using custom size Using custom height Using the height and the width And the width is higher than its natural width Should render using the custom width and the custom width 1`] = `
 <div class="flowter-parent" style="width: 1500px; height: 1000px;">
-  <div class="flowter-scale" style="transform: scale(5); transform-origin: 0% 0%;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 75px; left: 25px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div> <span class="flowter-edit-span">
     Edit
@@ -2206,7 +2206,7 @@ exports[`Flowter When rendering using custom size Using custom height Using the 
 
 exports[`Flowter When rendering using custom size Using custom height Using the height and the width And the width is lower than its natural width Should render using the custom width and the natural width 1`] = `
 <div class="flowter-parent" style="width: 300px; height: 1000px;">
-  <div class="flowter-scale" style="transform: scale(1); transform-origin: 0% 0%; margin-top: 400px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(400px);">
     <div class="flowter-node-parent" style="top: 75px; left: 25px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div> <span class="flowter-edit-span">
     Edit
@@ -2263,7 +2263,7 @@ exports[`Flowter When rendering using custom size Using custom height Using the 
 
 exports[`Flowter When rendering using custom size Using custom width Using only the width Should render the flowchart with the custom width 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 800px;">
-  <div class="flowter-scale" style="transform: scale(4); transform-origin: 0% 0%;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 25px; left: 100px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div> <span class="flowter-edit-span">
     Edit
@@ -2320,7 +2320,7 @@ exports[`Flowter When rendering using custom size Using custom width Using only 
 
 exports[`Flowter When rendering using custom size Using custom width Using the width and the height And the height is higher than its natural height Should render using the custom width and the custom height with margin 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 2000px;">
-  <div class="flowter-scale" style="transform: scale(4); transform-origin: 0% 0%; margin-top: 600px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(0px) translateY(600px);">
     <div class="flowter-node-parent" style="top: 25px; left: 100px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div> <span class="flowter-edit-span">
     Edit
@@ -2377,7 +2377,7 @@ exports[`Flowter When rendering using custom size Using custom width Using the w
 
 exports[`Flowter When rendering using custom size Using custom width Using the width and the height And the height is lower than its natural height Should render using the custom width and the natural height 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 800px;">
-  <div class="flowter-scale" style="transform: scale(4); transform-origin: 0% 0%;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(0px) translateY(0px);">
     <div class="flowter-node-parent" style="top: 25px; left: 100px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div> <span class="flowter-edit-span">
     Edit
