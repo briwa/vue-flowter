@@ -95,37 +95,41 @@ export default class Flowter extends Vue {
     return style
   }
   public get scaleStyle () {
+    // To keep the flowchart at the center,
+    // translate them accordingly
+    const translateX = -this.leftMostX * this.widthRatio
+    const translateY = -this.topMostY * this.heightRatio
+    let scaleRatio = 1
+    let widthDiff = 0
+    let heightDiff = 0
+
+    const style: Record<string, string> = {
+      transformOrigin: '0% 0%'
+    }
+
     if (this.width) {
-      const style: Record<string, string> = {
-        transform: `scale(${this.widthRatio})`,
-        transformOrigin: '0% 0%'
-      }
+      scaleRatio = this.widthRatio
 
       // Make sure that the flowchart is still at the middle of the container
       const scaledHeight = this.containerHeight * this.widthRatio
       if (this.height > scaledHeight) {
-        style.marginTop = `${(this.height - scaledHeight) / 2}px`
+        heightDiff = (this.height - scaledHeight) / 2
       }
-
-      return style
-    }
-
-    if (this.height) {
-      const style: Record<string, string> = {
-        transform: `scale(${this.heightRatio})`,
-        transformOrigin: '0% 0%'
-      }
+    } else if (this.height) {
+      scaleRatio = this.heightRatio
 
       // Make sure that the flowchart is still at the middle of the container
       const scaledWidth = this.containerWidth * this.heightRatio
       if (this.width > scaledWidth) {
-        style.marginLeft = `${(this.width - scaledWidth) / 2}px`
+        widthDiff = (this.width - scaledWidth) / 2
       }
-
-      return style
     }
 
-    return null
+    style.transform = `scale(${scaleRatio})`
+      + ` translateX(${translateX + widthDiff}px)`
+      + ` translateY(${translateY + heightDiff}px)`
+
+    return style
   }
   public get renderedNodes () {
     const { toIds, fromIds } = this.edgesDict
@@ -257,11 +261,7 @@ export default class Flowter extends Vue {
   private get containerWidth () {
     switch (this.mode) {
       case Mode.VERTICAL: {
-        return this.renderedNodes.reduce((size, row) => {
-          const lastNode = row[row.length - 1]
-          const rowWidth = lastNode.x + lastNode.width + this.widthMargin
-          return Math.max(rowWidth, size)
-        }, 0)
+        return this.rightMostX - this.leftMostX
       }
       case Mode.HORIZONTAL: {
         return this.renderedNodes.reduce((size, row) => {
@@ -286,13 +286,53 @@ export default class Flowter extends Vue {
         }, 0)
       }
       case Mode.HORIZONTAL: {
-        return this.renderedNodes.reduce((size, row) => {
-          const lastNode = row[row.length - 1]
-          const rowHeight = lastNode.y + lastNode.height + this.heightMargin
-          return Math.max(rowHeight, size)
-        }, 0)
+        return this.bottomMostY - this.topMostY
       }
     }
+  }
+  private get leftMostX () {
+    const leftMostNode = this.renderedNodes.reduce((node, row) => {
+      const leftMostNodeRow = row.reduce((n, currNode) => {
+        return currNode.x < n.x ? currNode : n
+      }, row[0])
+
+      return leftMostNodeRow.x < node.x ? leftMostNodeRow : node
+    }, this.renderedNodes[0][0])
+
+    return leftMostNode.x - this.widthMargin
+  }
+  private get rightMostX () {
+    const rightMostNode = this.renderedNodes.reduce((node, row) => {
+      const rightMostNodeRow = row.reduce((n, currNode) => {
+        return currNode.x > n.x ? currNode : n
+      }, row[0])
+
+      return rightMostNodeRow.x > node.x ? rightMostNodeRow : node
+    }, this.renderedNodes[0][0])
+
+    return rightMostNode.x + rightMostNode.width + this.widthMargin
+  }
+  private get topMostY () {
+    const topMostNode = this.renderedNodes.reduce((node, row) => {
+      const topMostNodeRow = row.reduce((n, currNode) => {
+        return currNode.y < n.y ? currNode : n
+      }, row[0])
+
+      return topMostNodeRow.y < node.y ? topMostNodeRow : node
+    }, this.renderedNodes[0][0])
+
+    return topMostNode.y - this.heightMargin
+  }
+  private get bottomMostY () {
+    const bottomMostNode = this.renderedNodes.reduce((node, row) => {
+      const bottomMostNodeRow = row.reduce((n, currNode) => {
+        return currNode.y > n.y ? currNode : n
+      }, row[0])
+
+      return bottomMostNodeRow.y > node.y ? bottomMostNodeRow : node
+    }, this.renderedNodes[0][0])
+
+    return bottomMostNode.y + bottomMostNode.height + this.heightMargin
   }
   private get widthRatio () {
     return this.width ? this.width / this.containerWidth : 1
