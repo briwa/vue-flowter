@@ -5,7 +5,7 @@ import Vue from 'vue'
 import Flowter from './index.vue'
 
 // Types
-import { GraphNode, GraphEdge } from './types'
+import { GraphNode, GraphEdge } from './shared/types'
 
 // To populate data during development,
 // use the test fixtures data by default
@@ -47,7 +47,9 @@ const instance = new Vue({
     inst.$children[0].$on('move', ({ id, x, y }: { id: string, x?: number, y?: number }) => {
       if (x) {
         instance.$set(instance.$data.nodes[id], 'x', x)
-      } else if (y) {
+      }
+
+      if (y) {
         instance.$set(instance.$data.nodes[id], 'y', y)
       }
     })

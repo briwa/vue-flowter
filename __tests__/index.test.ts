@@ -33,7 +33,7 @@ function getSimpleWrapper (props = {}) {
 }
 
 // Types
-import { EdgeType, Mode } from '@/types'
+import { EdgeType, Mode } from '@/shared/types'
 
 describe('Flowter', () => {
   describe('When rendering in default mode (vertical)', () => {

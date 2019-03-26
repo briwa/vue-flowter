@@ -1,6 +1,7 @@
 <template>
-  <div class="flowter-edge-parent"
-  :style="edgeStyle">
+  <div
+    class="flowter-edge-parent"
+    :style="edgeStyle">
     <div class="flowter-edge-child">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -13,18 +14,20 @@
             refY="5"
             markerWidth="5"
             markerHeight="5"
-            orient="auto-start-reverse">
+            orient="auto-start-reverse"
+            :fill="color">
             <path d="M 0 0 L 9 5 L 0 10 z" />
           </marker>
         </defs>
         <polyline
           fill="none"
-          stroke="black"
           stroke-width="2"
+          :stroke="color"
           :shape-rendering="shapeRendering"
           :points="polylinePoints"
           :marker-start="markerStart"
-          :marker-end="markerEnd" />
+          :marker-end="markerEnd"
+          @click="onClick" />
       </svg>
       <span
         v-if="text"

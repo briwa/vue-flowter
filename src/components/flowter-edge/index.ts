@@ -1,10 +1,13 @@
 // Libraries
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
+// Constants
+import { MIN_EDGE_SIZE, MIN_DETOUR_SIZE } from '@/shared/constants'
+
 // Types
 import {
   Point, EdgeMarker, EdgeDirection, Mode, EdgeType, Orients
-} from '@/types'
+} from '@/shared/types'
 
 @Component
 export default class FlowterEdge extends Vue {
@@ -20,6 +23,8 @@ export default class FlowterEdge extends Vue {
   public endOrient!: Orients
   @Prop({ type: Number, required: true })
   public fontSize!: number
+  @Prop({ type: String, required: true })
+  public color!: string
   @Prop({ type: String, default: '' })
   public text!: string
   @Prop({ type: String, default: EdgeMarker.END })
@@ -44,6 +49,7 @@ export default class FlowterEdge extends Vue {
     switch (this.mode) {
       case Mode.VERTICAL: return this.verticalTextStyle
       case Mode.HORIZONTAL: return this.horizontalTextStyle
+      default: throw new Error(`Unknown mode: ${this.mode}`)
     }
   }
   public get verticalTextStyle () {
@@ -68,6 +74,9 @@ export default class FlowterEdge extends Vue {
         style[delimiter] = `${this.detourSize * 2}px`
 
         return style
+      }
+      default: {
+        throw new Error(`Unknown direction: ${this.direction}`)
       }
     }
   }
@@ -94,6 +103,9 @@ export default class FlowterEdge extends Vue {
 
         return style
       }
+      default: {
+        throw new Error(`Unknown direction: ${this.direction}`)
+      }
     }
   }
   public get polylinePoints () {
@@ -107,6 +119,9 @@ export default class FlowterEdge extends Vue {
           case Mode.VERTICAL: return this.verticalPolylinePoints
           case Mode.HORIZONTAL: return this.horizontalPolylinePoints
         }
+      }
+      default: {
+        throw new Error(`Unknown edge type: ${this.edgeType}`)
       }
     }
   }
@@ -161,6 +176,9 @@ export default class FlowterEdge extends Vue {
           + `${middlePointX},${endPointY} `
           + `${endPointX},${endPointY} `
       }
+      default: {
+        throw new Error(`Unknown direction: ${this.direction}`)
+      }
     }
   }
   public get horizontalPolylinePoints () {
@@ -214,15 +232,24 @@ export default class FlowterEdge extends Vue {
           + `${endPointX},${middlePointY} `
           + `${endPointX},${endPointY} `
       }
+      default: {
+        throw new Error(`Unknown direction: ${this.direction}`)
+      }
     }
   }
   public get markerStart () {
-    return this.marker === EdgeMarker.START
-      ? 'url(#arrow)' : undefined
+    switch (this.marker) {
+      case EdgeMarker.START: return 'url(#arrow)'
+      case EdgeMarker.END: return null
+      default: throw new Error(`Unknown marker: ${this.marker}`)
+    }
   }
   public get markerEnd () {
-    return this.marker === EdgeMarker.END
-      ? 'url(#arrow)' : undefined
+    switch (this.marker) {
+      case EdgeMarker.START: return null
+      case EdgeMarker.END: return 'url(#arrow)'
+      default: throw new Error(`Unknown marker: ${this.marker}`)
+    }
   }
   public get shapeRendering () {
     switch (this.edgeType) {
@@ -231,6 +258,9 @@ export default class FlowterEdge extends Vue {
       }
       case EdgeType.BENT: {
         return 'crispEdges'
+      }
+      default: {
+        throw new Error(`Unknown edge type: ${this.edgeType}`)
       }
     }
   }
@@ -265,6 +295,9 @@ export default class FlowterEdge extends Vue {
       case Mode.HORIZONTAL: {
         return this.paddingSize
       }
+      default: {
+        throw new Error(`Unknown mode: ${this.mode}`)
+      }
     }
   }
   private get relativeStartY () {
@@ -289,11 +322,17 @@ export default class FlowterEdge extends Vue {
         // it should just start at the middle of the svg
         return this.renderedHeight / 2
       }
+      default: {
+        throw new Error(`Unknown mode: ${this.mode}`)
+      }
     }
   }
   private get paddingSize () {
-    return this.direction === EdgeDirection.FORWARD
-      ? this.minSize : (this.minSize + this.detourSize)
+    switch (this.direction) {
+      case EdgeDirection.FORWARD: return this.minSize
+      case EdgeDirection.BACKWARD: return (this.minSize + this.detourSize)
+      default: throw new Error(`Unknown direction: ${this.direction}`)
+    }
   }
   private get renderedWidth () {
     return Math.abs(this.relativeWidth)
@@ -305,10 +344,15 @@ export default class FlowterEdge extends Vue {
   }
   // Minimum size of the edge, both width and height
   private get minSize () {
-    return 10
+    return MIN_EDGE_SIZE
   }
   // For backward edge, there should be a space to 'detour'
   private get detourSize () {
-    return 10
+    return MIN_DETOUR_SIZE
+  }
+
+  // Methods
+  public onClick () {
+    this.$emit('click', this.id)
   }
 }

@@ -55,20 +55,22 @@ export interface GraphEdge {
   from: string
   to: string
   text?: string
+  color?: string
 }
 
-export interface RenderedGraphEdge {
+export interface RenderedGraphEdge extends GraphEdge {
   id: string
-  text?: string
+  text: string
   startPoint: Point
   startOrient: Orients
   endPoint: Point
   endOrient: Orients
   marker: EdgeMarker
   direction: EdgeDirection
+  color: string
 }
 
-export interface EdgesDict {
+export interface EdgesIdsDict {
   toIds: Record<string, GraphEdge['to'][]>
   fromIds: Record<string, GraphEdge['from'][]>
 }

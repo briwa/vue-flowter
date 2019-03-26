@@ -2,7 +2,7 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Types
-import { RenderedGraphNode, Mode } from '@/types'
+import { RenderedGraphNode, Mode } from '@/shared/types'
 
 enum SelectionType {
   RESIZE_N = 'resize-n',
@@ -106,35 +106,26 @@ export default class FlowterNodeSelection extends Vue {
         break
       }
       case SelectionType.MOVE: {
-        switch (this.mode) {
-          case Mode.VERTICAL: {
-            const deltaX = e.pageX - this.mouseDownX
-            const isWithinRange =
-              // Whether the left side of the node is after the minX
-              (this.node.x + deltaX >= this.minX)
-              // And the right side of the node is before the maxY
-              && (this.node.x + this.node.width + deltaX <= this.maxX)
+        const deltaX = e.pageX - this.mouseDownX
+        const isWithinRangeX =
+          // Whether the left side of the node is after the minX
+          (this.node.x + deltaX >= this.minX)
+          // And the right side of the node is before the maxY
+          && (this.node.x + this.node.width + deltaX <= this.maxX)
 
-            if (isWithinRange) {
-              this.translateX = deltaX
-            }
+        if (isWithinRangeX) {
+          this.translateX = deltaX
+        }
 
-            break
-          }
-          case Mode.HORIZONTAL: {
-            const deltaY = e.pageY - this.mouseDownY
-            const isWithinRange =
-              // Whether the left side of the node is after the minY
-              (this.node.y + deltaY >= this.minY)
-              // And the right side of the node is before the maxY
-              && (this.node.y + this.node.height + deltaY <= this.maxY)
+        const deltaY = e.pageY - this.mouseDownY
+        const isWithinRangeY =
+          // Whether the left side of the node is after the minY
+          (this.node.y + deltaY >= this.minY)
+          // And the right side of the node is before the maxY
+          && (this.node.y + this.node.height + deltaY <= this.maxY)
 
-            if (isWithinRange) {
-              this.translateY = deltaY
-            }
-
-            break
-          }
+        if (isWithinRangeY) {
+          this.translateY = deltaY
         }
         break
       }
@@ -175,7 +166,9 @@ export default class FlowterNodeSelection extends Vue {
 
         if (this.translateX !== 0) {
           payload.x = this.node.x + this.translateX
-        } else if (this.translateY !== 0) {
+        }
+
+        if (this.translateY !== 0) {
           payload.y = this.node.y + this.translateY
         }
 
@@ -186,10 +179,12 @@ export default class FlowterNodeSelection extends Vue {
         this.translateY = 0
         break
       }
+      default: {
+        throw new Error(`Unknown selection type: ${this.selectionType}`)
+      }
     }
 
     // Also reset the selection type
     this.selectionType = SelectionType.DEFAULT
   }
 }
-

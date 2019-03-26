@@ -5,21 +5,20 @@
     <div
       class="flowter-scale"
       :style="scaleStyle">
-      <template v-for="(row, rowIdx) in renderedNodes">
-        <template v-for="(node, colIdx) in row">
-          <flowter-node
-            v-bind="node"
-            :key="`node-${node.id}`"
-            :font-size="fontSize"
-            @edit="onEditingNode" />
-          <flowter-edge
-            v-for="edge in getEdges(node, rowIdx, colIdx, row.length)"
-            v-bind="edge"
-            :key="edge.id"
-            :font-size="fontSize"
-            :mode="mode"
-            :edge-type="edgeType" />
-        </template>
+      <template v-for="{ node } in renderedNodesDict">
+        <flowter-node
+          v-bind="node"
+          :key="`node-${node.id}`"
+          :font-size="fontSize"
+          @click="onEditingNode" />
+      </template>
+      <template v-for="edge in renderedEdgesDict">
+        <flowter-edge
+          v-bind="edge"
+          :key="edge.id"
+          :font-size="fontSize"
+          :mode="mode"
+          :edge-type="edgeType" />
       </template>
       <flowter-node-selection
         v-show="editingNodeId"

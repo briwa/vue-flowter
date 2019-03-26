@@ -18,6 +18,7 @@ export default class FlowterNode extends Vue {
   @Prop({ type: String, required: true })
   public text!: string
 
+  // Getters
   public get nodeStyle () {
     return {
       width: `${this.width}px`,
@@ -33,7 +34,11 @@ export default class FlowterNode extends Vue {
     }
   }
 
+  // Methods
   public onClick () {
-    this.$emit('edit', this.id)
+    this.$emit('click', this.id)
+  }
+  public onMouseOver () {
+    this.$emit('mouseover', this.id)
   }
 }
