@@ -1,18 +1,9 @@
-export type Orients = 'n' | 's' | 'e' | 'w'
-
-export interface Point {
-  x: number
-  y: number
-}
+export type Direction = 'n' | 's' | 'e' | 'w' | 'm'
 
 export enum EdgeMarker {
   START = 'start',
-  END = 'end'
-}
-
-export enum EdgeDirection {
-  FORWARD = 'forward',
-  BACKWARD = 'backward'
+  END = 'end',
+  BOTH = 'both'
 }
 
 export enum EdgeType {
@@ -58,16 +49,10 @@ export interface GraphEdge {
   color?: string
 }
 
-export interface RenderedGraphEdge extends GraphEdge {
-  id: string
-  text: string
-  startPoint: Point
-  startOrient: Orients
-  endPoint: Point
-  endOrient: Orients
-  marker: EdgeMarker
-  direction: EdgeDirection
-  color: string
+export interface ShapedEdge {
+  x: number
+  y: number
+  nodeDirection: Direction
 }
 
 export interface EdgesIdsDict {

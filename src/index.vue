@@ -12,12 +12,14 @@
           :font-size="fontSize"
           @click="onEditingNode" />
       </template>
-      <template v-for="edge in renderedEdgesDict">
+      <template v-for="edge in edges">
         <flowter-edge
           v-bind="edge"
-          :key="edge.id"
-          :font-size="fontSize"
+          :key="`edge-${edge.from}-${edge.to}`"
+          :from="renderedNodesDict[edge.from]"
+          :to="renderedNodesDict[edge.to]"
           :mode="mode"
+          :font-size="fontSize"
           :edge-type="edgeType" />
       </template>
       <flowter-node-selection

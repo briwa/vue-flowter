@@ -19,9 +19,9 @@ import {
 
 // Types
 import {
-  EdgeMarker, EdgeDirection, EdgeType, Mode,
-  GraphNode, RenderedGraphNode, GraphEdge, RenderedGraphEdge,
-  EdgesIdsDict, GraphNodeDetails, EditingNodeDetails, Orients
+  EdgeType, Mode,
+  GraphNode, RenderedGraphNode, GraphEdge,
+  EdgesIdsDict, GraphNodeDetails, EditingNodeDetails
 } from '@/shared/types'
 
 @Component({
@@ -131,23 +131,13 @@ export default class Flowter extends Vue {
 
     return style
   }
-  // Map all nodes into a dictionary for easier access
   public get renderedNodesDict () {
     const dict: Record<string, GraphNodeDetails> = {}
 
-    this.renderedNodes.forEach((row, rowIdx) => {
+    this.nodeLists.forEach((row, rowIdx) => {
       row.forEach((node, colIdx) => {
         dict[node.id] = { rowIdx, colIdx, rowLength: row.length, node }
       })
-    })
-
-    return dict
-  }
-  public get renderedEdgesDict () {
-    const dict: Record<string, RenderedGraphEdge> = {}
-    this.edges.forEach((edge) => {
-      const shapedEdge = this.shapeEdge(edge.from, edge.to, edge.text, edge.color)
-      dict[shapedEdge.id] = shapedEdge
     })
 
     return dict
@@ -165,11 +155,11 @@ export default class Flowter extends Vue {
     }
 
     const nodeDetails = this.renderedNodesDict[this.editingNodeId]
-    const nodeRow = this.renderedNodes[nodeDetails.rowIdx]
+    const nodeRow = this.nodeLists[nodeDetails.rowIdx]
 
     details.node = nodeDetails.node
-    const prevRow = this.renderedNodes[nodeDetails.rowIdx - 1]
-    const nextRow = this.renderedNodes[nodeDetails.rowIdx + 1]
+    const prevRow = this.nodeLists[nodeDetails.rowIdx - 1]
+    const nextRow = this.nodeLists[nodeDetails.rowIdx + 1]
     const prevNode = nodeRow[nodeDetails.colIdx - 1]
     const nextNode = nodeRow[nodeDetails.colIdx + 1]
 
@@ -246,46 +236,46 @@ export default class Flowter extends Vue {
     return this.bottomMostY - this.topMostY
   }
   private get leftMostX () {
-    const leftMostNode = this.renderedNodes.reduce((node, row) => {
+    const leftMostNode = this.nodeLists.reduce((node, row) => {
       const leftMostNodeRow = row.reduce((n, currNode) => {
         return currNode.x < n.x ? currNode : n
       }, row[0])
 
       return leftMostNodeRow.x < node.x ? leftMostNodeRow : node
-    }, this.renderedNodes[0][0])
+    }, this.nodeLists[0][0])
 
     return leftMostNode.x - this.widthMargin
   }
   private get rightMostX () {
-    const rightMostNode = this.renderedNodes.reduce((node, row) => {
+    const rightMostNode = this.nodeLists.reduce((node, row) => {
       const rightMostNodeRow = row.reduce((n, currNode) => {
         return currNode.x > n.x ? currNode : n
       }, row[0])
 
       return rightMostNodeRow.x > node.x ? rightMostNodeRow : node
-    }, this.renderedNodes[0][0])
+    }, this.nodeLists[0][0])
 
     return rightMostNode.x + rightMostNode.width + this.widthMargin
   }
   private get topMostY () {
-    const topMostNode = this.renderedNodes.reduce((node, row) => {
+    const topMostNode = this.nodeLists.reduce((node, row) => {
       const topMostNodeRow = row.reduce((n, currNode) => {
         return currNode.y < n.y ? currNode : n
       }, row[0])
 
       return topMostNodeRow.y < node.y ? topMostNodeRow : node
-    }, this.renderedNodes[0][0])
+    }, this.nodeLists[0][0])
 
     return topMostNode.y - this.heightMargin
   }
   private get bottomMostY () {
-    const bottomMostNode = this.renderedNodes.reduce((node, row) => {
+    const bottomMostNode = this.nodeLists.reduce((node, row) => {
       const bottomMostNodeRow = row.reduce((n, currNode) => {
         return currNode.y > n.y ? currNode : n
       }, row[0])
 
       return bottomMostNodeRow.y > node.y ? bottomMostNodeRow : node
-    }, this.renderedNodes[0][0])
+    }, this.nodeLists[0][0])
 
     return bottomMostNode.y + bottomMostNode.height + this.heightMargin
   }
@@ -295,8 +285,7 @@ export default class Flowter extends Vue {
   private get heightRatio () {
     return this.height ? this.height / this.containerHeight : 1
   }
-  // Break down nodes into an array of node rows
-  private get renderedNodes () {
+  private get nodeLists () {
     const { toIds, fromIds } = this.edgesIdsDict
     const nodes: RenderedGraphNode[][] = []
     const loneNodes: RenderedGraphNode[] = []
@@ -392,7 +381,6 @@ export default class Flowter extends Vue {
 
     return nodes
   }
-  // Map all edges into to/from ids also for easier access
   private get edgesIdsDict () {
     return this.edges.reduce<EdgesIdsDict>((dict, edge) => {
       if (!dict.toIds[edge.from]) {
@@ -424,125 +412,6 @@ export default class Flowter extends Vue {
   }
   public onMoveNode (event: { id: string, x?: number, y?: number }) {
     this.$emit('move', event)
-  }
-  private getOrientPoints (node: RenderedGraphNode) {
-    return {
-      n: { x: node.width / 2, y: 0 },
-      w: { x: 0, y: node.height / 2 },
-      e: { x: node.width, y: node.height / 2 },
-      s: { x: node.width / 2, y: node.height }
-    }
-  }
-  private shapeEdge (from: string, to: string, text?: string, color?: string) {
-    const {
-      node: startNode,
-      colIdx: startColIdx,
-      rowIdx: startRowIdx,
-      rowLength: startRowLength
-    } = this.renderedNodesDict[from]
-    const startOrients = this.getOrientPoints(startNode)
-    const endNodeDetails = this.renderedNodesDict[to]
-
-    // Get the end node
-    // Chances are this node isn't properly linked
-    if (!endNodeDetails) {
-      throw new Error(`Unable to find a end node with id: ${to}`)
-    }
-
-    const {
-      node: endNode,
-      colIdx: endColIdx,
-      rowIdx: endRowIdx,
-      rowLength: endRowLength
-    } = endNodeDetails
-
-    const endOrients = this.getOrientPoints(endNode)
-
-    const shapedEdge: RenderedGraphEdge = {
-      id: `edge-${from}-${to}`,
-      from,
-      to,
-      text: typeof text !== 'undefined' ? text : '',
-      startPoint: { x: 0, y: 0 },
-      startOrient: 'n',
-      endPoint: { x: 0, y: 0 },
-      endOrient: 'n',
-      marker: EdgeMarker.END,
-      direction: EdgeDirection.FORWARD,
-      color: typeof color !== 'undefined' ? color : '#000000'
-    }
-
-    if (endRowIdx >= startRowIdx) {
-      // When the edges go forward,
-      // it is always going from top to bottom (vertically)
-      // or left to right (horizontally).
-      switch (this.mode) {
-        case Mode.VERTICAL: {
-          shapedEdge.startOrient = 's'
-          shapedEdge.endOrient = 'n'
-          break
-        }
-        case Mode.HORIZONTAL: {
-          shapedEdge.startOrient = 'e'
-          shapedEdge.endOrient = 'w'
-          break
-        }
-        default: {
-          throw new Error(`Unknown mode: ${this.mode}`)
-        }
-      }
-
-      shapedEdge.startPoint.x = startOrients[shapedEdge.startOrient].x + startNode.x
-      shapedEdge.startPoint.y = startOrients[shapedEdge.startOrient].y + startNode.y
-
-      shapedEdge.endPoint.x = endOrients[shapedEdge.endOrient].x + endNode.x
-      shapedEdge.endPoint.y = endOrients[shapedEdge.endOrient].y + endNode.y
-    } else {
-      // When the edges go backward,
-      // it is always going from the same side of the node.
-      // This depends on where the node is located on the flowchart.
-      // Positive total index indicates that the nodes are on
-      // one side of the flowchart, while negative indicates otherwise.
-      // This is used to tell whether they should start and end
-      // from on side of the node or the other.
-      const startSide = endColIdx - Math.floor(endRowLength / 2)
-      const endSide = startColIdx - Math.floor(startRowLength / 2)
-      const isNodeIdxPositive = startSide + endSide >= 0
-
-      switch (this.mode) {
-        case Mode.VERTICAL: {
-          const orient = isNodeIdxPositive ? 'e' : 'w'
-          shapedEdge.startOrient = orient
-          shapedEdge.endOrient = orient
-          break
-        }
-        case Mode.HORIZONTAL: {
-          const orient = isNodeIdxPositive ? 's' : 'n'
-          shapedEdge.startOrient = orient
-          shapedEdge.endOrient = orient
-          break
-        }
-        default: {
-          throw new Error(`Unknown mode: ${this.mode}`)
-        }
-      }
-
-      // To simplify the calculation,
-      // backward edges are simply forward edges with
-      // the origin and the target point swapped.
-      // TODO: maybe it doesn't need to be swapped
-      // since we have the EdgeDirection already?
-      shapedEdge.startPoint.x = endOrients[shapedEdge.endOrient].x + endNode.x
-      shapedEdge.startPoint.y = endOrients[shapedEdge.endOrient].y + endNode.y
-
-      shapedEdge.endPoint.x = startOrients[shapedEdge.startOrient].x + startNode.x
-      shapedEdge.endPoint.y = startOrients[shapedEdge.startOrient].y + startNode.y
-
-      shapedEdge.marker = EdgeMarker.START
-      shapedEdge.direction = EdgeDirection.BACKWARD
-    }
-
-    return shapedEdge
   }
   private shapeNodesVertically (nodes: RenderedGraphNode[][], maxLength: number) {
     let cumulativeY = this.heightMargin
