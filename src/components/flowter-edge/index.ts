@@ -62,11 +62,11 @@ export default class FlowterEdge extends Vue {
   public get markerStart () {
     switch (this.edgeDirection) {
       case 's':
-      case 'w': {
+      case 'e': {
         return null
       }
       case 'n':
-      case 'e': {
+      case 'w': {
         return 'url(#arrow)'
       }
       default: {
@@ -77,11 +77,11 @@ export default class FlowterEdge extends Vue {
   public get markerEnd () {
     switch (this.edgeDirection) {
       case 's':
-      case 'w': {
+      case 'e': {
         return 'url(#arrow)'
       }
       case 'n':
-      case 'e': {
+      case 'w': {
         return null
       }
       default: {
@@ -113,7 +113,7 @@ export default class FlowterEdge extends Vue {
 
     switch (this.edgeDirection) {
       case 's':
-      case 'w': {
+      case 'e': {
         const delimiter = this.relativeWidth > 0
           ? 'right' : 'left'
 
@@ -122,7 +122,7 @@ export default class FlowterEdge extends Vue {
         return style
       }
       case 'n':
-      case 'e': {
+      case 'w': {
         const delimiter = this.start.nodeDirection === 'e'
           ? 'right' : 'left'
 
@@ -143,7 +143,7 @@ export default class FlowterEdge extends Vue {
 
     switch (this.edgeDirection) {
       case 's':
-      case 'w': {
+      case 'e': {
         const delimiter = this.relativeHeight > 0
           ? 'bottom' : 'top'
 
@@ -152,7 +152,7 @@ export default class FlowterEdge extends Vue {
         return style
       }
       case 'n':
-      case 'e': {
+      case 'w': {
         const delimiter = this.start.nodeDirection === 's'
           ? 'bottom' : 'top'
 
@@ -168,7 +168,7 @@ export default class FlowterEdge extends Vue {
   private get verticalPolylinePoints () {
     switch (this.edgeDirection) {
       case 's':
-      case 'w': {
+      case 'e': {
         const halfLength = this.renderedHeight / 2
 
         return `${this.relativeStartX},${this.relativeStartY} `
@@ -177,7 +177,7 @@ export default class FlowterEdge extends Vue {
           + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
       }
       case 'n':
-      case 'e': {
+      case 'w': {
         // To simplify the calc, always assume
         // that the edges go from left to right.
         // For edges that go right to left, we'll just inverse it.
@@ -226,7 +226,7 @@ export default class FlowterEdge extends Vue {
   private get horizontalPolylinePoints () {
     switch (this.edgeDirection) {
       case 's':
-      case 'w': {
+      case 'e': {
         const halfLength = this.renderedWidth / 2
 
         return `${this.relativeStartX},${this.relativeStartY} `
@@ -235,7 +235,7 @@ export default class FlowterEdge extends Vue {
           + `${this.renderedWidth - this.relativeStartX},${this.renderedHeight - this.relativeStartY} `
       }
       case 'n':
-      case 'e': {
+      case 'w': {
         // To simplify the calc, always assume
         // that the edges go from top to bottom.
         // For edges that go bottom to top, we'll just inverse it.
@@ -344,11 +344,11 @@ export default class FlowterEdge extends Vue {
   private get paddingSize () {
     switch (this.edgeDirection) {
       case 's':
-      case 'w': {
+      case 'e': {
         return this.minSize
       }
       case 'n':
-      case 'e': {
+      case 'w': {
         return (this.minSize + this.detourSize)
       }
       default: throw new Error(`Unknown direction: ${this.edgeDirection}`)
@@ -373,10 +373,10 @@ export default class FlowterEdge extends Vue {
       }
       case Mode.HORIZONTAL: {
         if (this.to.rowIdx >= this.from.rowIdx) {
-          return 'w'
+          return 'e'
         }
 
-        return 'e'
+        return 'w'
       }
     }
   }
