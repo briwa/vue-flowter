@@ -24,7 +24,7 @@
           stroke-width="2"
           :stroke="color"
           :shape-rendering="shapeRendering"
-          :points="polylinePoints"
+          :points="edgePoints"
           :marker-start="markerStart"
           :marker-end="markerEnd"
           @click="onClick" />
