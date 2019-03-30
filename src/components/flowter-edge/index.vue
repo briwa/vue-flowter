@@ -19,12 +19,12 @@
             <path d="M 0 0 L 9 5 L 0 10 z" />
           </marker>
         </defs>
-        <polyline
+        <path
           fill="none"
           stroke-width="2"
           :stroke="color"
           :shape-rendering="shapeRendering"
-          :points="edgePoints"
+          :d="edgePoints"
           :marker-start="markerStart"
           :marker-end="markerEnd"
           @click="onClick" />

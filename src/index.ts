@@ -324,15 +324,17 @@ export default class Flowter extends Vue {
         // The first node in the loop has to be pushed
         // as the new node in the new row
         let pushAsNewRow = nodes.length === 0
-        const lastRow = nodes[nodes.length - 1]
+        const currentRow = nodes[nodes.length - 1]
 
         // Subsequent nodes should use
         // the previous node as the reference
         if (!pushAsNewRow) {
-          const lastRowIds = lastRow.map((n) => n.id)
+          const currentRowIds = currentRow.map((n) => n.id)
+          const hasEdgeFromCurrentRow = currFromIds.some((fromId) => currentRowIds.includes(fromId))
 
-          // If the node comes from the previous row, it is in the same row
-          pushAsNewRow = currFromIds.some((id) => lastRowIds.includes(id))
+          // This node goes to the next row if it has only
+          // connections from the current row
+          pushAsNewRow = hasEdgeFromCurrentRow
         }
 
         // New layer with the new node
@@ -344,7 +346,7 @@ export default class Flowter extends Vue {
           currRowHeight = renderedNode.height + this.nodeRowSpacing
         } else {
           // Another node in the layer
-          lastRow.push(renderedNode)
+          currentRow.push(renderedNode)
 
           // Accumulate both current row width and height
           currRowWidth = currRowWidth + renderedNode.width + this.nodeColSpacing
