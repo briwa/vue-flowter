@@ -66,97 +66,94 @@ export default class FlowterEdge extends Vue {
       y: this.end.y - this.domPosition.y + this.paddingSize
     }
 
-    switch (this.edgeType) {
-      case EdgeType.CROSS: {
-        return `${start.x},${start.y} `
-          + `${end.x},${end.y}`
+    const isStraightEdge = this.edgeType === EdgeType.CROSS
+      || this.from.rowIdx === this.to.rowIdx
+
+    if (isStraightEdge) {
+      return `M ${start.x} ${start.y} `
+        + `L ${end.x} ${end.y}`
+    }
+
+    switch (this.edgeDirection) {
+      case 's': {
+        const halfLength = (end.y + this.paddingSize) / 2
+
+        return `M ${start.x} ${start.y} `
+          + `V ${halfLength} `
+          + `H ${end.x} `
+          + `V ${end.y} `
       }
-      case EdgeType.BENT: {
-        switch (this.edgeDirection) {
-          case 's': {
-            const halfLength = (end.y + this.paddingSize) / 2
+      case 'e': {
+        const halfLength = (end.x + this.paddingSize) / 2
 
-            return `M ${start.x} ${start.y} `
-              + `V ${halfLength} `
-              + `H ${end.x} `
-              + `V ${end.y} `
-          }
-          case 'e': {
-            const halfLength = (end.x + this.paddingSize) / 2
+        return `M ${start.x} ${start.y} `
+          + `H ${halfLength} `
+          + `V ${end.y} `
+          + `H ${end.x} `
+      }
+      case 'n': {
+        // To simplify the calc, always assume
+        // that the edges go from left to right.
+        // For edges that go right to left, we'll just inverse it.
+        // This is determined from where the endpoint is in the flowchart.
+        const isEdgeRightSide = this.start.nodeDirection === 'e'
+          && this.end.nodeDirection === 'e'
 
-            return `M ${start.x} ${start.y} `
-              + `H ${halfLength} `
-              + `V ${end.y} `
-              + `H ${end.x} `
-          }
-          case 'n': {
-            // To simplify the calc, always assume
-            // that the edges go from left to right.
-            // For edges that go right to left, we'll just inverse it.
-            // This is determined from where the endpoint is in the flowchart.
-            const isEdgeRightSide = this.start.nodeDirection === 'e'
-              && this.end.nodeDirection === 'e'
+        // The detour value depends on whether
+        // the node is going right to left or left to right
+        const relativeDetourSize = isEdgeRightSide
+          ? this.detourSize : -this.detourSize
 
-            // The detour value depends on whether
-            // the node is going right to left or left to right
-            const relativeDetourSize = isEdgeRightSide
-              ? this.detourSize : -this.detourSize
+        // Two types of backward edge;
+        // - they move horizontally then vertically (because the target is at ne)
+        // - they move vertically then horizontally (because the target is at sw)
+        // Inverse the start/end for nodes going right to left
+        const isEdgeGoingHV = isEdgeRightSide
+          ? this.start.x > this.end.x : this.end.x > this.start.x
 
-            // Two types of backward edge;
-            // - they move horizontally then vertically (because the target is at ne)
-            // - they move vertically then horizontally (because the target is at sw)
-            // Inverse the start/end for nodes going right to left
-            const isEdgeGoingHV = isEdgeRightSide
-              ? this.start.x > this.end.x : this.end.x > this.start.x
+        // If they go horizontally then vertically (HV),
+        // they just need to make a little detour before going vertical
+        // Otherwise, go all the way till the end point
+        const middlePointX = isEdgeGoingHV
+          ? start.x + relativeDetourSize : end.x + relativeDetourSize
 
-            // If they go horizontally then vertically (HV),
-            // they just need to make a little detour before going vertical
-            // Otherwise, go all the way till the end point
-            const middlePointX = isEdgeGoingHV
-              ? start.x + relativeDetourSize : end.x + relativeDetourSize
+        return `M ${start.x} ${start.y} `
+          + `H ${middlePointX} `
+          + `V ${end.y} `
+          + `H ${end.x}`
+      }
+      case 'w': {
+        // To simplify the calc, always assume
+        // that the edges go from top to bottom.
+        // For edges that go bottom to top, we'll just inverse it.
+        // This is determined from where the endpoint is in the flowchart.
+        const isEdgeBottomSide = this.start.nodeDirection === 's'
+          && this.end.nodeDirection === 's'
 
-            return `M ${start.x} ${start.y} `
-              + `H ${middlePointX} `
-              + `V ${end.y} `
-              + `H ${end.x} `
-          }
-          case 'w': {
-            // To simplify the calc, always assume
-            // that the edges go from top to bottom.
-            // For edges that go bottom to top, we'll just inverse it.
-            // This is determined from where the endpoint is in the flowchart.
-            const isEdgeBottomSide = this.start.nodeDirection === 's'
-              && this.end.nodeDirection === 's'
+        // The detour value depends on whether
+        // the node is going bottom to top or top to bottom
+        const relativeDetourSize = isEdgeBottomSide
+          ? this.detourSize : -this.detourSize
 
-            // The detour value depends on whether
-            // the node is going bottom to top or top to bottom
-            const relativeDetourSize = isEdgeBottomSide
-              ? this.detourSize : -this.detourSize
+        // Two types of backward edge;
+        // - they move vertically then horizontally (because the target is at se)
+        // - they move horizontally then vertically (because the target is at nw)
+        const isEdgeGoingVH = isEdgeBottomSide
+          ? this.start.y > this.end.y : this.end.y > this.start.y
 
-            // Two types of backward edge;
-            // - they move vertically then horizontally (because the target is at se)
-            // - they move horizontally then vertically (because the target is at nw)
-            const isEdgeGoingVH = isEdgeBottomSide
-              ? this.start.y > this.end.y : this.end.y > this.start.y
+        // If they go horizontally then vertically (HV),
+        // they just need to make a little detour before going vertical
+        // Otherwise, go all the way till the end point
+        const middlePointY = isEdgeGoingVH
+          ? start.y + relativeDetourSize : end.y + relativeDetourSize
 
-            // If they go horizontally then vertically (HV),
-            // they just need to make a little detour before going vertical
-            // Otherwise, go all the way till the end point
-            const middlePointY = isEdgeGoingVH
-              ? start.y + relativeDetourSize : end.y + relativeDetourSize
-
-            return `M ${start.x} ${start.y} `
-              + `V ${middlePointY} `
-              + `H ${end.x} `
-              + `V ${end.y} `
-          }
-          default: {
-            throw new Error(`Unknown direction: ${this.edgeDirection}`)
-          }
-        }
+        return `M ${start.x} ${start.y} `
+          + `V ${middlePointY} `
+          + `H ${end.x} `
+          + `V ${end.y}`
       }
       default: {
-        throw new Error(`Unknown edge type: ${this.edgeType}`)
+        throw new Error(`Unknown direction: ${this.edgeDirection}`)
       }
     }
   }

@@ -237,8 +237,8 @@ export default class Flowter extends Vue {
   }
   private get leftMostX () {
     const leftMostNode = this.nodeLists.reduce((node, row) => {
-      const leftMostNodeRow = row.reduce((n, currNode) => {
-        return currNode.x < n.x ? currNode : n
+      const leftMostNodeRow = row.reduce((n, currentNode) => {
+        return currentNode.x < n.x ? currentNode : n
       }, row[0])
 
       return leftMostNodeRow.x < node.x ? leftMostNodeRow : node
@@ -248,8 +248,8 @@ export default class Flowter extends Vue {
   }
   private get rightMostX () {
     const rightMostNode = this.nodeLists.reduce((node, row) => {
-      const rightMostNodeRow = row.reduce((n, currNode) => {
-        return currNode.x > n.x ? currNode : n
+      const rightMostNodeRow = row.reduce((n, currentNode) => {
+        return currentNode.x > n.x ? currentNode : n
       }, row[0])
 
       return rightMostNodeRow.x > node.x ? rightMostNodeRow : node
@@ -259,8 +259,8 @@ export default class Flowter extends Vue {
   }
   private get topMostY () {
     const topMostNode = this.nodeLists.reduce((node, row) => {
-      const topMostNodeRow = row.reduce((n, currNode) => {
-        return currNode.y < n.y ? currNode : n
+      const topMostNodeRow = row.reduce((n, currentNode) => {
+        return currentNode.y < n.y ? currentNode : n
       }, row[0])
 
       return topMostNodeRow.y < node.y ? topMostNodeRow : node
@@ -270,8 +270,8 @@ export default class Flowter extends Vue {
   }
   private get bottomMostY () {
     const bottomMostNode = this.nodeLists.reduce((node, row) => {
-      const bottomMostNodeRow = row.reduce((n, currNode) => {
-        return currNode.y > n.y ? currNode : n
+      const bottomMostNodeRow = row.reduce((n, currentNode) => {
+        return currentNode.y > n.y ? currentNode : n
       }, row[0])
 
       return bottomMostNodeRow.y > node.y ? bottomMostNodeRow : node
@@ -286,76 +286,51 @@ export default class Flowter extends Vue {
     return this.height ? this.height / this.containerHeight : 1
   }
   private get nodeLists () {
-    const { toIds, fromIds } = this.edgesIdsDict
+    const { fromIds } = this.edgesIdsDict
     const nodes: RenderedGraphNode[][] = []
-    const loneNodes: RenderedGraphNode[] = []
 
     // Find out maximum width/height possible
     let maxWidth = 0
     let maxHeight = 0
-    let currRowHeight = 0
-    let currRowWidth = 0
+    let currentRowHeight = 0
+    let currentRowWidth = 0
 
     // Loop through the nodes dictionary
     // to shape it into rows of nodes
     for (const nodeId in this.nodes) {
       if (this.nodes.hasOwnProperty(nodeId)) {
         const node = this.nodes[nodeId]
-        const renderedNode = {
-          id: nodeId,
-          text: node.text,
-          x: typeof node.x !== 'undefined' ? node.x : -Infinity,
-          y: typeof node.y !== 'undefined' ? node.y : -Infinity,
-          width: typeof node.width !== 'undefined' ? node.width : this.nodeWidth,
-          height: typeof node.height !== 'undefined' ? node.height : this.nodeHeight
-        }
+        const renderedNode = this.shapeNode(nodeId, node)
+        const currentFromIds = fromIds[nodeId] || []
 
-        const currFromIds = fromIds[nodeId]
-        const currToIds = toIds[nodeId]
-
-        // If for some reason there's a node that
-        // has no both from and to, it's a lone node...
-        // Don't bother doing anything else
-        if (!currFromIds && !currToIds) {
-          loneNodes.push(renderedNode)
-          continue
-        }
-
-        // The first node in the loop has to be pushed
-        // as the new node in the new row
-        let pushAsNewRow = nodes.length === 0
         const currentRow = nodes[nodes.length - 1]
+        const currentRowIds = currentRow ? currentRow.map((n) => n.id) : []
 
-        // Subsequent nodes should use
-        // the previous node as the reference
-        if (!pushAsNewRow) {
-          const currentRowIds = currentRow.map((n) => n.id)
-          const hasEdgeFromCurrentRow = currFromIds.some((fromId) => currentRowIds.includes(fromId))
+        const hasEdgeFromCurrentRow = currentRow && currentFromIds
+          && currentFromIds.some((fromId) => currentRowIds.includes(fromId))
 
-          // This node goes to the next row if it has only
-          // connections from the current row
-          pushAsNewRow = hasEdgeFromCurrentRow
-        }
+        const pushAsNewRow = !currentRow
+          || hasEdgeFromCurrentRow
 
-        // New layer with the new node
+        // New row with the new node
         if (pushAsNewRow) {
           nodes.push([renderedNode])
 
           // Reset the current row height/width calculation
-          currRowWidth = renderedNode.width + this.nodeColSpacing
-          currRowHeight = renderedNode.height + this.nodeRowSpacing
+          currentRowWidth = renderedNode.width + this.nodeColSpacing
+          currentRowHeight = renderedNode.height + this.nodeRowSpacing
         } else {
-          // Another node in the layer
+          // Another node in the row
           currentRow.push(renderedNode)
 
           // Accumulate both current row width and height
-          currRowWidth = currRowWidth + renderedNode.width + this.nodeColSpacing
-          currRowHeight = currRowHeight + renderedNode.height + this.nodeRowSpacing
+          currentRowWidth = currentRowWidth + renderedNode.width + this.nodeColSpacing
+          currentRowHeight = currentRowHeight + renderedNode.height + this.nodeRowSpacing
         }
 
         // Always check whether this is the row that has the most width/height
-        maxWidth = Math.max(maxWidth, currRowWidth)
-        maxHeight = Math.max(maxHeight, currRowHeight)
+        maxWidth = Math.max(maxWidth, currentRowWidth)
+        maxHeight = Math.max(maxHeight, currentRowHeight)
       }
     }
 
@@ -373,12 +348,6 @@ export default class Flowter extends Vue {
       default: {
         throw new Error(`Unknown mode :${this.mode}`)
       }
-    }
-
-    // Render lone nodes too,
-    // and it will always be at the top left corner
-    if (loneNodes.length) {
-      nodes.push(loneNodes)
     }
 
     return nodes
@@ -415,18 +384,28 @@ export default class Flowter extends Vue {
   public onMoveNode (event: { id: string, x?: number, y?: number }) {
     this.$emit('move', event)
   }
+  private shapeNode (id: string, node: GraphNode): RenderedGraphNode {
+    return {
+      id,
+      text: node.text,
+      x: typeof node.x !== 'undefined' ? node.x : -Infinity,
+      y: typeof node.y !== 'undefined' ? node.y : -Infinity,
+      width: typeof node.width !== 'undefined' ? node.width : this.nodeWidth,
+      height: typeof node.height !== 'undefined' ? node.height : this.nodeHeight
+    }
+  }
   private shapeNodesVertically (nodes: RenderedGraphNode[][], maxLength: number) {
     let cumulativeY = this.heightMargin
 
     nodes.forEach((row) => {
       // Get the current row's length to
       // map out each node's x position
-      const currRowMargin = (row.length - 1) * this.nodeColSpacing
-      const currRowLength = row
-        .reduce((size, node) => size + node.width, currRowMargin)
+      const currentRowMargin = (row.length - 1) * this.nodeColSpacing
+      const currentRowLength = row
+        .reduce((size, node) => size + node.width, currentRowMargin)
 
       // Nodes should start from the far left of the row
-      let cumulativeX = (maxLength / 2) - (currRowLength / 2)
+      let cumulativeX = (maxLength / 2) - (currentRowLength / 2)
 
       // Start with zero because the padding has been accounted for
       // when accumulating each node's y
@@ -465,12 +444,12 @@ export default class Flowter extends Vue {
     nodes.forEach((row) => {
       // Get the current row's length to
       // map out each node's y position
-      const currRowMargin = (row.length - 1) * this.nodeRowSpacing
-      const currRowLength = row
-        .reduce((size, node) => size + node.height, currRowMargin)
+      const currentRowMargin = (row.length - 1) * this.nodeRowSpacing
+      const currentRowLength = row
+        .reduce((size, node) => size + node.height, currentRowMargin)
 
       // Nodes should start from the far top of the row
-      let cumulativeY = (maxLength / 2) - (currRowLength / 2)
+      let cumulativeY = (maxLength / 2) - (currentRowLength / 2)
 
       // Start with zero because the padding has been accounted for
       // when accumulating each node's x
