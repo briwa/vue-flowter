@@ -76,7 +76,9 @@ export default class FlowterEdge extends Vue {
 
     switch (this.edgeDirection) {
       case 's': {
-        const halfLength = (end.y + this.paddingSize) / 2
+        const distance = this.to.rowIdx - this.from.rowIdx + 1
+        const halfLength = (end.y + this.paddingSize)
+          / distance * (distance === 2 ? 1 : distance - 0.8)
 
         return `M ${start.x} ${start.y} `
           + `V ${halfLength} `
@@ -84,7 +86,9 @@ export default class FlowterEdge extends Vue {
           + `V ${end.y} `
       }
       case 'e': {
-        const halfLength = (end.x + this.paddingSize) / 2
+        const distance = this.to.rowIdx - this.from.rowIdx + 1
+        const halfLength = (end.x + this.paddingSize)
+          / distance * (distance === 2 ? 1 : distance - 0.8)
 
         return `M ${start.x} ${start.y} `
           + `H ${halfLength} `

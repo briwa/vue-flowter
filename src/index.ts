@@ -21,7 +21,7 @@ import {
 import {
   EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge,
-  EdgesIdsDict, GraphNodeDetails, EditingNodeDetails
+  GraphNodeDetails, EditingNodeDetails, OrderedNode, NodeRow
 } from '@/shared/types'
 
 @Component({
@@ -71,8 +71,6 @@ export default class Flowter extends Vue {
     }
 
     // Scale the flowchart if width is specified
-    // It will ignore the custom height though
-    // since the scale is solely by the width
     if (this.width) {
       style.width = `${this.width}px`
 
@@ -135,8 +133,8 @@ export default class Flowter extends Vue {
     const dict: Record<string, GraphNodeDetails> = {}
 
     this.nodeLists.forEach((row, rowIdx) => {
-      row.forEach((node, colIdx) => {
-        dict[node.id] = { rowIdx, colIdx, rowLength: row.length, node }
+      row.nodes.forEach((node, colIdx) => {
+        dict[node.id] = { rowIdx, colIdx, rowLength: row.nodes.length, node }
       })
     })
 
@@ -155,7 +153,7 @@ export default class Flowter extends Vue {
     }
 
     const nodeDetails = this.renderedNodesDict[this.editingNodeId]
-    const nodeRow = this.nodeLists[nodeDetails.rowIdx]
+    const nodeRow = this.nodeLists[nodeDetails.rowIdx].nodes
 
     details.node = nodeDetails.node
     const prevRow = this.nodeLists[nodeDetails.rowIdx - 1]
@@ -174,7 +172,7 @@ export default class Flowter extends Vue {
         }
 
         if (prevRow) {
-          const prevMaxY = prevRow.reduce((maxY, node) => {
+          const prevMaxY = prevRow.nodes.reduce((maxY, node) => {
             return Math.max(node.y + node.height, maxY)
           }, 0)
 
@@ -184,7 +182,7 @@ export default class Flowter extends Vue {
         }
 
         if (nextRow) {
-          const nextMinY = nextRow.reduce((minY, node) => {
+          const nextMinY = nextRow.nodes.reduce((minY, node) => {
             return Math.max(node.y, minY)
           }, 0)
 
@@ -203,7 +201,7 @@ export default class Flowter extends Vue {
         }
 
         if (prevRow) {
-          const prevMaxX = prevRow.reduce((maxX, node) => {
+          const prevMaxX = prevRow.nodes.reduce((maxX, node) => {
             return Math.max(node.x + node.width, maxX)
           }, 0)
 
@@ -213,7 +211,7 @@ export default class Flowter extends Vue {
         }
 
         if (nextRow) {
-          const nextMinX = nextRow.reduce((minX, node) => {
+          const nextMinX = nextRow.nodes.reduce((minX, node) => {
             return Math.max(node.x, minX)
           }, 0)
 
@@ -237,45 +235,45 @@ export default class Flowter extends Vue {
   }
   private get leftMostX () {
     const leftMostNode = this.nodeLists.reduce((node, row) => {
-      const leftMostNodeRow = row.reduce((n, currentNode) => {
+      const leftMostNodeRow = row.nodes.reduce((n, currentNode) => {
         return currentNode.x < n.x ? currentNode : n
-      }, row[0])
+      }, row.nodes[0])
 
       return leftMostNodeRow.x < node.x ? leftMostNodeRow : node
-    }, this.nodeLists[0][0])
+    }, this.nodeLists[0].nodes[0])
 
     return leftMostNode.x - this.widthMargin
   }
   private get rightMostX () {
     const rightMostNode = this.nodeLists.reduce((node, row) => {
-      const rightMostNodeRow = row.reduce((n, currentNode) => {
+      const rightMostNodeRow = row.nodes.reduce((n, currentNode) => {
         return currentNode.x > n.x ? currentNode : n
-      }, row[0])
+      }, row.nodes[0])
 
       return rightMostNodeRow.x > node.x ? rightMostNodeRow : node
-    }, this.nodeLists[0][0])
+    }, this.nodeLists[0].nodes[0])
 
     return rightMostNode.x + rightMostNode.width + this.widthMargin
   }
   private get topMostY () {
     const topMostNode = this.nodeLists.reduce((node, row) => {
-      const topMostNodeRow = row.reduce((n, currentNode) => {
+      const topMostNodeRow = row.nodes.reduce((n, currentNode) => {
         return currentNode.y < n.y ? currentNode : n
-      }, row[0])
+      }, row.nodes[0])
 
       return topMostNodeRow.y < node.y ? topMostNodeRow : node
-    }, this.nodeLists[0][0])
+    }, this.nodeLists[0].nodes[0])
 
     return topMostNode.y - this.heightMargin
   }
   private get bottomMostY () {
     const bottomMostNode = this.nodeLists.reduce((node, row) => {
-      const bottomMostNodeRow = row.reduce((n, currentNode) => {
+      const bottomMostNodeRow = row.nodes.reduce((n, currentNode) => {
         return currentNode.y > n.y ? currentNode : n
-      }, row[0])
+      }, row.nodes[0])
 
       return bottomMostNodeRow.y > node.y ? bottomMostNodeRow : node
-    }, this.nodeLists[0][0])
+    }, this.nodeLists[0].nodes[0])
 
     return bottomMostNode.y + bottomMostNode.height + this.heightMargin
   }
@@ -286,51 +284,32 @@ export default class Flowter extends Vue {
     return this.height ? this.height / this.containerHeight : 1
   }
   private get nodeLists () {
-    const { fromIds } = this.edgesIdsDict
-    const nodes: RenderedGraphNode[][] = []
+    const { maxIndex, dict } = this.orderedNodes
+    const nodeList: NodeRow[] = Array.from({ length: maxIndex + 1 }, () => ({
+      nodes: [],
+      width: 0,
+      height: 0
+    }))
 
     // Find out maximum width/height possible
     let maxWidth = 0
     let maxHeight = 0
-    let currentRowHeight = 0
-    let currentRowWidth = 0
 
     // Loop through the nodes dictionary
     // to shape it into rows of nodes
-    for (const nodeId in this.nodes) {
-      if (this.nodes.hasOwnProperty(nodeId)) {
+    for (const nodeId in dict) {
+      if (dict.hasOwnProperty(nodeId)) {
+        const { index } = dict[nodeId]
         const node = this.nodes[nodeId]
         const renderedNode = this.shapeNode(nodeId, node)
-        const currentFromIds = fromIds[nodeId] || []
 
-        const currentRow = nodes[nodes.length - 1]
-        const currentRowIds = currentRow ? currentRow.map((n) => n.id) : []
-
-        const hasEdgeFromCurrentRow = currentRow && currentFromIds
-          && currentFromIds.some((fromId) => currentRowIds.includes(fromId))
-
-        const pushAsNewRow = !currentRow
-          || hasEdgeFromCurrentRow
-
-        // New row with the new node
-        if (pushAsNewRow) {
-          nodes.push([renderedNode])
-
-          // Reset the current row height/width calculation
-          currentRowWidth = renderedNode.width + this.nodeColSpacing
-          currentRowHeight = renderedNode.height + this.nodeRowSpacing
-        } else {
-          // Another node in the row
-          currentRow.push(renderedNode)
-
-          // Accumulate both current row width and height
-          currentRowWidth = currentRowWidth + renderedNode.width + this.nodeColSpacing
-          currentRowHeight = currentRowHeight + renderedNode.height + this.nodeRowSpacing
-        }
+        nodeList[index].nodes.push(renderedNode)
+        nodeList[index].width = nodeList[index].width + renderedNode.width + this.nodeColSpacing
+        nodeList[index].height = nodeList[index].height + renderedNode.height + this.nodeRowSpacing
 
         // Always check whether this is the row that has the most width/height
-        maxWidth = Math.max(maxWidth, currentRowWidth)
-        maxHeight = Math.max(maxHeight, currentRowHeight)
+        maxWidth = Math.max(maxWidth, nodeList[index].width)
+        maxHeight = Math.max(maxHeight, nodeList[index].height)
       }
     }
 
@@ -338,11 +317,11 @@ export default class Flowter extends Vue {
     // positions depending on the mode
     switch (this.mode) {
       case Mode.VERTICAL: {
-        this.shapeNodesVertically(nodes, maxWidth)
+        this.shapeNodesVertically(nodeList, maxWidth)
         break
       }
       case Mode.HORIZONTAL: {
-        this.shapeNodesHorizontally(nodes, maxHeight)
+        this.shapeNodesHorizontally(nodeList, maxHeight)
         break
       }
       default: {
@@ -350,25 +329,58 @@ export default class Flowter extends Vue {
       }
     }
 
-    return nodes
+    return nodeList
   }
-  private get edgesIdsDict () {
-    return this.edges.reduce<EdgesIdsDict>((dict, edge) => {
-      if (!dict.toIds[edge.from]) {
-        dict.toIds[edge.from] = []
+  private get orderedNodes () {
+    return this.edges.reduce<{ dict: Record<string, OrderedNode>, maxIndex: number }>((result, edge) => {
+      const { dict } = result
+
+      if (!dict[edge.from]) {
+        dict[edge.from] = {
+          from: {},
+          to: {},
+          index: 0
+        }
       }
 
-      if (!dict.fromIds[edge.to]) {
-        dict.fromIds[edge.to] = []
+      const fromNode = dict[edge.from]
+      const newToIndex = fromNode.index + 1
+
+      // A valid node index difference is when
+      // two nodes connect, which is why the to-node
+      // has only one index higher than the from-node
+      if (!dict[edge.to]) {
+        dict[edge.to] = {
+          from: {},
+          to: {},
+          index: newToIndex
+        }
       }
 
-      dict.toIds[edge.from].push(edge.to)
-      dict.fromIds[edge.to].push(edge.from)
-      return dict
-    }, {
-      toIds: {},
-      fromIds: {}
-    })
+      const toNode = dict[edge.to]
+
+      // Establish the reference between two nodes
+      fromNode.to[edge.to] = toNode
+      toNode.from[edge.from] = fromNode
+
+      // Do not assign the new index to the to-node
+      // if it's just a connection within the row
+      const inSameRow = fromNode.index === toNode.index
+
+      // The index difference that matters is when two nodes
+      // connect between two adjacent rows, so the current to-node
+      // index is exactly one index lower than the intended index
+      const isNextRow = toNode.index === newToIndex
+
+      if (!inSameRow && isNextRow) {
+        toNode.index = newToIndex
+
+        // Update the maximum row for future usage
+        result.maxIndex = Math.max(result.maxIndex, newToIndex)
+      }
+
+      return result
+    }, { dict: {}, maxIndex: 0 })
   }
 
   // Methods
@@ -394,15 +406,11 @@ export default class Flowter extends Vue {
       height: typeof node.height !== 'undefined' ? node.height : this.nodeHeight
     }
   }
-  private shapeNodesVertically (nodes: RenderedGraphNode[][], maxLength: number) {
+  private shapeNodesVertically (nodeList: NodeRow[], maxLength: number) {
     let cumulativeY = this.heightMargin
 
-    nodes.forEach((row) => {
-      // Get the current row's length to
-      // map out each node's x position
-      const currentRowMargin = (row.length - 1) * this.nodeColSpacing
-      const currentRowLength = row
-        .reduce((size, node) => size + node.width, currentRowMargin)
+    nodeList.forEach((row) => {
+      const currentRowLength = row.width
 
       // Nodes should start from the far left of the row
       let cumulativeX = (maxLength / 2) - (currentRowLength / 2)
@@ -411,7 +419,7 @@ export default class Flowter extends Vue {
       // when accumulating each node's y
       let maxHeight = 0
 
-      row.forEach((node) => {
+      row.nodes.forEach((node) => {
         const hasCustomX = node.x !== -Infinity
         const hasCustomY = node.y !== -Infinity
 
@@ -438,15 +446,11 @@ export default class Flowter extends Vue {
       cumulativeY = cumulativeY + maxHeight + this.nodeRowSpacing
     })
   }
-  private shapeNodesHorizontally (nodes: RenderedGraphNode[][], maxLength: number) {
+  private shapeNodesHorizontally (nodeList: NodeRow[], maxLength: number) {
     let cumulativeX = this.widthMargin
 
-    nodes.forEach((row) => {
-      // Get the current row's length to
-      // map out each node's y position
-      const currentRowMargin = (row.length - 1) * this.nodeRowSpacing
-      const currentRowLength = row
-        .reduce((size, node) => size + node.height, currentRowMargin)
+    nodeList.forEach((row) => {
+      const currentRowLength = row.height
 
       // Nodes should start from the far top of the row
       let cumulativeY = (maxLength / 2) - (currentRowLength / 2)
@@ -455,7 +459,7 @@ export default class Flowter extends Vue {
       // when accumulating each node's x
       let maxWidth = 0
 
-      row.forEach((node) => {
+      row.nodes.forEach((node) => {
         const hasCustomX = node.x !== -Infinity
         const hasCustomY = node.y !== -Infinity
 

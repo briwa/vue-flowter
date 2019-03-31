@@ -19,10 +19,22 @@ export interface GraphNode {
   y?: number
 }
 
+export interface OrderedNode {
+  from: Record<string, OrderedNode>
+  to: Record<string, OrderedNode>
+  index: number
+}
+
 export interface RenderedGraphNode extends GraphNode {
   id: string
   x: number
   y: number
+  width: number
+  height: number
+}
+
+export interface NodeRow {
+  nodes: RenderedGraphNode[]
   width: number
   height: number
 }
@@ -53,11 +65,6 @@ export interface ShapedEdge {
   x: number
   y: number
   nodeDirection: Direction
-}
-
-export interface EdgesIdsDict {
-  toIds: Record<string, GraphEdge['to'][]>
-  fromIds: Record<string, GraphEdge['from'][]>
 }
 
 export enum Mode {
