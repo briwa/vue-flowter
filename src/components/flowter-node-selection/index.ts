@@ -101,25 +101,22 @@ export default class FlowterNodeSelection extends Vue {
         break
       }
       case SelectionType.MOVE: {
+        // Check if the mouse is within the X/Y range
+        // Also, allow translating when
+        // the boundaries itself is 0 (i.e. at the edge or unset)
         const deltaX = e.pageX - this.mouseDownX
-        const isWithinRangeX =
-          // Whether the left side of the node is after the bounds.x.min
-          (this.node.x + deltaX >= this.bounds.x.min)
-          // And the right side of the node is before the bounds.x.max
-          && (this.node.x + this.node.width + deltaX <= this.bounds.x.max)
+        const isWithinXMin = !this.bounds.x.min || this.node.x + deltaX >= this.bounds.x.min
+        const isWithinXMax = !this.bounds.x.max || this.node.x + this.node.width + deltaX <= this.bounds.x.max
 
-        if (isWithinRangeX) {
+        if (isWithinXMin && isWithinXMax) {
           this.translateX = deltaX
         }
 
         const deltaY = e.pageY - this.mouseDownY
-        const isWithinRangeY =
-          // Whether the left side of the node is after the bounds.y.min
-          (this.node.y + deltaY >= this.bounds.y.min)
-          // And the right side of the node is before the bounds.y.max
-          && (this.node.y + this.node.height + deltaY <= this.bounds.y.max)
+        const isWithinYMin = !this.bounds.y.min || this.node.y + deltaY >= this.bounds.y.min
+        const isWithinYMax = !this.bounds.y.max || this.node.y + this.node.height + deltaY <= this.bounds.y.max
 
-        if (isWithinRangeY) {
+        if (isWithinYMin && isWithinYMax) {
           this.translateY = deltaY
         }
         break
