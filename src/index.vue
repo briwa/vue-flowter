@@ -24,7 +24,8 @@
       </template>
       <flowter-node-selection
         v-show="editingNodeId"
-        v-bind="editingNodeDetails"
+        :node="editingNodeDetails.node"
+        :bounds="editingNodeDetails.bounds"
         :mode="mode"
         @resize="onResizeNode"
         @move="onMoveNode"

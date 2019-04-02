@@ -2,308 +2,308 @@
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the default edge type (bent) Should render all nodes and edges vertically with edge type bent 1`] = `
 <div class="flowter-parent" style="width: 600px; height: 800px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(0px);">
-    <div class="flowter-node-parent" style="top: 25px; left: 225px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
+    <div class="flowter-node-parent" style="top: 0px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 300px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 225px; left: 75px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 75px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 225px; left: 225px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 225px; left: 375px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 375px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 325px; left: 225px;">
+    <div class="flowter-node-parent" style="top: 300px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 425px; left: 0px;">
+    <div class="flowter-node-parent" style="top: 400px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 425px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 400px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 425px; left: 300px;">
+    <div class="flowter-node-parent" style="top: 400px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 425px; left: 450px;">
+    <div class="flowter-node-parent" style="top: 400px; left: 450px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 525px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 500px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 525px; left: 300px;">
+    <div class="flowter-node-parent" style="top: 500px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 625px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 600px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 625px; left: 300px;">
+    <div class="flowter-node-parent" style="top: 600px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 725px; left: 225px;">
+    <div class="flowter-node-parent" style="top: 700px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 165px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 140px; left: 115px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 165px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 140px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
       No
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 165px; left: 340px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 140px; left: 340px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 265px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 240px; left: 115px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 160 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 160 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 265px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 240px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
       Go straight
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 245px; height: 70px; top: 365px; left: 40px;">
+    <div class="flowter-edge-parent" style="width: 245px; height: 70px; top: 340px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 235 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 235 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 365px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 340px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 365px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 340px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 245px; height: 70px; top: 365px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 245px; height: 70px; top: 340px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 235 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 235 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 465px; left: 40px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 440px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 160 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 160 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 465px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 440px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 465px; left: 340px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 440px; left: 340px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 465px; left: 340px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 440px; left: 340px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 160 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 160 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 565px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 540px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 565px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 540px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 160 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 160 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 565px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 540px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 160 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 160 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 565px; left: 340px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 540px; left: 340px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 665px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 640px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 665px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 640px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 30px; left: 130px;">
+    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 5px; left: 130px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -315,7 +315,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 30px; left: 305px;">
+    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 5px; left: 305px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -327,7 +327,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 265px; height: 140px; top: 330px; left: 305px;">
+    <div class="flowter-edge-parent" style="width: 265px; height: 140px; top: 305px; left: 305px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -339,7 +339,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 265px; height: 140px; top: 330px; left: -20px;">
+    <div class="flowter-edge-parent" style="width: 265px; height: 140px; top: 305px; left: -20px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -351,31 +351,31 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 270px; top: 165px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 270px; top: 140px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 270">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 216 H 160 V 260 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 216 H 160 V 260" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 270px; top: 165px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 270px; top: 140px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 270">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 160 10 V 216 H 10 V 260 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 160 10 V 216 H 10 V 260" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 40px; height: 140px; top: 430px; left: 380px;">
+    <div class="flowter-edge-parent" style="width: 40px; height: 140px; top: 405px; left: 380px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -387,7 +387,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Go back
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 430px; left: 380px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 405px; left: 380px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -399,7 +399,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Detour
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 115px; height: 340px; top: 230px; left: 55px;">
+    <div class="flowter-edge-parent" style="width: 115px; height: 340px; top: 205px; left: 55px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 340">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -411,7 +411,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Go back
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 40px; height: 140px; top: 430px; left: 130px;">
+    <div class="flowter-edge-parent" style="width: 40px; height: 140px; top: 405px; left: 130px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -423,7 +423,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Turn around
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 430px; left: -20px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 405px; left: -20px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -435,7 +435,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 115px; height: 340px; top: 230px; left: 380px;">
+    <div class="flowter-edge-parent" style="width: 115px; height: 340px; top: 205px; left: 380px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 340">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -464,56 +464,56 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the edge type cross Should render all nodes and edges vertically with edge type cross 1`] = `
 <div class="flowter-parent" style="width: 600px; height: 800px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(0px);">
-    <div class="flowter-node-parent" style="top: 25px; left: 225px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
+    <div class="flowter-node-parent" style="top: 0px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 300px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 225px; left: 75px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 75px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 225px; left: 225px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 225px; left: 375px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 375px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 325px; left: 225px;">
+    <div class="flowter-node-parent" style="top: 300px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 425px; left: 0px;">
+    <div class="flowter-node-parent" style="top: 400px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 425px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 400px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 425px; left: 300px;">
+    <div class="flowter-node-parent" style="top: 400px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 425px; left: 450px;">
+    <div class="flowter-node-parent" style="top: 400px; left: 450px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 525px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 500px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 525px; left: 300px;">
+    <div class="flowter-node-parent" style="top: 500px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 625px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 600px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 625px; left: 300px;">
+    <div class="flowter-node-parent" style="top: 600px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 725px; left: 225px;">
+    <div class="flowter-node-parent" style="top: 700px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -525,7 +525,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -537,7 +537,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 165px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 140px; left: 115px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -549,7 +549,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 165px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 140px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -561,7 +561,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       No
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 165px; left: 340px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 140px; left: 340px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -573,7 +573,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 265px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 240px; left: 115px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -585,7 +585,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 265px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 240px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -597,7 +597,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Go straight
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 245px; height: 70px; top: 365px; left: 40px;">
+    <div class="flowter-edge-parent" style="width: 245px; height: 70px; top: 340px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -609,7 +609,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 365px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 340px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -621,7 +621,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 365px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 340px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -633,7 +633,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 245px; height: 70px; top: 365px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 245px; height: 70px; top: 340px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -645,7 +645,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 465px; left: 40px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 440px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -657,7 +657,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 465px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 440px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -669,7 +669,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 465px; left: 340px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 440px; left: 340px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -681,7 +681,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 465px; left: 340px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 440px; left: 340px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -693,7 +693,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 565px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 540px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -705,7 +705,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 565px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 540px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -717,7 +717,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 565px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 540px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -729,7 +729,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 565px; left: 340px;">
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 540px; left: 340px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -741,7 +741,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 665px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 640px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -753,7 +753,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 665px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 640px; left: 265px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -765,7 +765,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 30px; left: 130px;">
+    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 5px; left: 130px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -777,7 +777,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 30px; left: 305px;">
+    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 5px; left: 305px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -789,7 +789,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 265px; height: 140px; top: 330px; left: 305px;">
+    <div class="flowter-edge-parent" style="width: 265px; height: 140px; top: 305px; left: 305px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -801,7 +801,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 265px; height: 140px; top: 330px; left: -20px;">
+    <div class="flowter-edge-parent" style="width: 265px; height: 140px; top: 305px; left: -20px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -813,7 +813,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 270px; top: 165px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 270px; top: 140px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 270">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -825,7 +825,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 170px; height: 270px; top: 165px; left: 190px;">
+    <div class="flowter-edge-parent" style="width: 170px; height: 270px; top: 140px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 270">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -837,7 +837,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 40px; height: 140px; top: 430px; left: 380px;">
+    <div class="flowter-edge-parent" style="width: 40px; height: 140px; top: 405px; left: 380px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -849,7 +849,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Go back
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 430px; left: 380px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 405px; left: 380px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -861,7 +861,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Detour
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 115px; height: 340px; top: 230px; left: 55px;">
+    <div class="flowter-edge-parent" style="width: 115px; height: 340px; top: 205px; left: 55px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 340">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -873,7 +873,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Go back
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 40px; height: 140px; top: 430px; left: 130px;">
+    <div class="flowter-edge-parent" style="width: 40px; height: 140px; top: 405px; left: 130px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -885,7 +885,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
       Turn around
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 430px; left: -20px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 405px; left: -20px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -897,7 +897,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 115px; height: 340px; top: 230px; left: 380px;">
+    <div class="flowter-edge-parent" style="width: 115px; height: 340px; top: 205px; left: 380px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 340">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -926,308 +926,308 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 
 exports[`Flowter When rendering in horizontal mode And rendering with the default edge type (bent) Should render all nodes and edges horizontally with edge type bent 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 400px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 150px; left: 25px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
+    <div class="flowter-node-parent" style="top: 150px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 50px; left: 325px;">
+    <div class="flowter-node-parent" style="top: 50px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 325px;">
+    <div class="flowter-node-parent" style="top: 150px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 250px; left: 325px;">
+    <div class="flowter-node-parent" style="top: 250px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 475px;">
+    <div class="flowter-node-parent" style="top: 150px; left: 450px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 625px;">
+    <div class="flowter-node-parent" style="top: 0px; left: 600px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 625px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 600px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 625px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 600px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 300px; left: 625px;">
+    <div class="flowter-node-parent" style="top: 300px; left: 600px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 775px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 750px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 775px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 750px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 925px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 900px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 925px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 900px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 1075px;">
+    <div class="flowter-node-parent" style="top: 150px; left: 1050px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; top: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; bottom: 20px;">
       No
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 215px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 215px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 65px; left: 415px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 65px; left: 390px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 110 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 110 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 165px; left: 415px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 165px; left: 390px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; top: 20px;">
       Go straight
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 170px; top: 15px; left: 565px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 170px; top: 15px; left: 540px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 170">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 160 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 160 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 565px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 540px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 565px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 540px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 170px; top: 165px; left: 565px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 170px; top: 165px; left: 540px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 170">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 160 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 160 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 15px; left: 715px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 15px; left: 690px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 110 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 110 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 115px; left: 715px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 115px; left: 690px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 215px; left: 715px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 215px; left: 690px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 215px; left: 715px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 215px; left: 690px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 110 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 110 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 115px; left: 865px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 115px; left: 840px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 115px; left: 865px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 115px; left: 840px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 110 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 110 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 115px; left: 865px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 115px; left: 840px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 110 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 110 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 215px; left: 865px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 215px; left: 840px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 1015px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 990px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 1015px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 990px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 90px; top: 80px; left: 55px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 90px; top: 80px; left: 30px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 90">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1239,7 +1239,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 90px; top: 180px; left: 55px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 90px; top: 180px; left: 30px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 90">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1251,7 +1251,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 190px; top: 180px; left: 505px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 190px; top: 180px; left: 480px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 190">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1263,7 +1263,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 190px; top: -20px; left: 505px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 190px; top: -20px; left: 480px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 190">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1275,31 +1275,31 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 370px; height: 120px; top: 115px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 370px; height: 120px; top: 115px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 296 V 110 H 360 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 296 V 110 H 360" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 370px; height: 120px; top: 115px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 370px; height: 120px; top: 115px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 110 H 296 V 10 H 360 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 110 H 296 V 10 H 360" marker-end="url(#arrow)"></path>
         </svg>
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 230px; left: 655px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 230px; left: 630px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1311,7 +1311,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
       Go back
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 230px; left: 655px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 230px; left: 630px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1323,7 +1323,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
       Detour
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 490px; height: 90px; top: 30px; left: 355px;">
+    <div class="flowter-edge-parent" style="width: 490px; height: 90px; top: 30px; left: 330px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 90">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1335,7 +1335,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
       Go back
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 80px; left: 655px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 80px; left: 630px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1347,7 +1347,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
       Turn around
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: -20px; left: 655px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: -20px; left: 630px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1359,7 +1359,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 490px; height: 90px; top: 230px; left: 355px;">
+    <div class="flowter-edge-parent" style="width: 490px; height: 90px; top: 230px; left: 330px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 90">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1388,56 +1388,56 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
 
 exports[`Flowter When rendering in horizontal mode And rendering with the edge type cross Should render all nodes and edges horizontally with edge type cross 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 400px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 150px; left: 25px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
+    <div class="flowter-node-parent" style="top: 150px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 50px; left: 325px;">
+    <div class="flowter-node-parent" style="top: 50px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 325px;">
+    <div class="flowter-node-parent" style="top: 150px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 250px; left: 325px;">
+    <div class="flowter-node-parent" style="top: 250px; left: 300px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 475px;">
+    <div class="flowter-node-parent" style="top: 150px; left: 450px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 625px;">
+    <div class="flowter-node-parent" style="top: 0px; left: 600px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 625px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 600px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 625px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 600px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 300px; left: 625px;">
+    <div class="flowter-node-parent" style="top: 300px; left: 600px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 775px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 750px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 775px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 750px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 925px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 900px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 925px;">
+    <div class="flowter-node-parent" style="top: 200px; left: 900px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 1075px;">
+    <div class="flowter-node-parent" style="top: 150px; left: 1050px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1449,7 +1449,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1461,7 +1461,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1473,7 +1473,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1485,7 +1485,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
       No
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 215px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 215px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1497,7 +1497,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 65px; left: 415px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 65px; left: 390px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1509,7 +1509,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 165px; left: 415px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 165px; left: 390px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1521,7 +1521,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
       Go straight
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 170px; top: 15px; left: 565px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 170px; top: 15px; left: 540px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 170">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1533,7 +1533,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 565px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 540px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1545,7 +1545,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 565px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 540px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1557,7 +1557,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 170px; top: 165px; left: 565px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 170px; top: 165px; left: 540px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 170">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1569,7 +1569,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 15px; left: 715px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 15px; left: 690px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1581,7 +1581,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 115px; left: 715px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 115px; left: 690px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1593,7 +1593,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 215px; left: 715px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 215px; left: 690px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1605,7 +1605,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 215px; left: 715px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 215px; left: 690px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1617,7 +1617,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 115px; left: 865px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 115px; left: 840px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1629,7 +1629,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 115px; left: 865px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 115px; left: 840px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1641,7 +1641,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 115px; left: 865px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 120px; top: 115px; left: 840px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1653,7 +1653,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 215px; left: 865px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 215px; left: 840px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 20">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1665,7 +1665,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 1015px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 990px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1677,7 +1677,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 1015px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 165px; left: 990px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1689,7 +1689,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 90px; top: 80px; left: 55px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 90px; top: 80px; left: 30px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 90">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1701,7 +1701,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 90px; top: 180px; left: 55px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 90px; top: 180px; left: 30px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 90">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1713,7 +1713,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 190px; top: 180px; left: 505px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 190px; top: 180px; left: 480px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 190">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1725,7 +1725,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 190px; top: -20px; left: 505px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 190px; top: -20px; left: 480px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 190">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1737,7 +1737,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 370px; height: 120px; top: 115px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 370px; height: 120px; top: 115px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1749,7 +1749,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 370px; height: 120px; top: 115px; left: 265px;">
+    <div class="flowter-edge-parent" style="width: 370px; height: 120px; top: 115px; left: 240px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 120">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1761,7 +1761,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 230px; left: 655px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 230px; left: 630px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1773,7 +1773,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
       Go back
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 230px; left: 655px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: 230px; left: 630px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1785,7 +1785,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
       Detour
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 490px; height: 90px; top: 30px; left: 355px;">
+    <div class="flowter-edge-parent" style="width: 490px; height: 90px; top: 30px; left: 330px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 90">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1797,7 +1797,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
       Go back
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 80px; left: 655px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 80px; left: 630px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1809,7 +1809,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
       Turn around
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: -20px; left: 655px;">
+    <div class="flowter-edge-parent" style="width: 190px; height: 140px; top: -20px; left: 630px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1821,7 +1821,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
-    <div class="flowter-edge-parent" style="width: 490px; height: 90px; top: 230px; left: 355px;">
+    <div class="flowter-edge-parent" style="width: 490px; height: 90px; top: 230px; left: 330px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 90">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
@@ -1850,36 +1850,36 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
 
 exports[`Flowter When rendering using custom node sizes In horizontal mode Should render the flowchart with the custom node size 1`] = `
 <div class="flowter-parent" style="width: 400px; height: 350px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 125px; left: 25px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
+    <div class="flowter-node-parent" style="top: 125px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 0px; left: 150px;">
       <div class="flowter-node" style="width: 200px; height: 200px; font-size: 12px; line-height: 194px;"><span>Second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 250px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 250px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 90px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 90px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; top: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 145px; top: 140px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 145px; top: 140px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 145">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 135 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 135 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; bottom: 20px;">
       No
     </span></div>
@@ -1901,36 +1901,36 @@ exports[`Flowter When rendering using custom node sizes In horizontal mode Shoul
 
 exports[`Flowter When rendering using custom node sizes In vertical mode Should render the flowchart with the custom node size 1`] = `
 <div class="flowter-parent" style="width: 400px; height: 350px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(0px);">
-    <div class="flowter-node-parent" style="top: 25px; left: 125px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
+    <div class="flowter-node-parent" style="top: 0px; left: 125px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 0px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 0px;">
       <div class="flowter-node" style="width: 200px; height: 200px; font-size: 12px; line-height: 194px;"><span>Second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 250px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 250px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 90px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 145px; height: 70px; top: 65px; left: 165px;">
+    <div class="flowter-edge-parent" style="width: 145px; height: 70px; top: 40px; left: 165px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 135 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 135 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
       No
     </span></div>
@@ -1952,36 +1952,36 @@ exports[`Flowter When rendering using custom node sizes In vertical mode Should 
 
 exports[`Flowter When rendering using custom size Using custom height Using only the height Should render the flowchart with the custom height 1`] = `
 <div class="flowter-parent" style="width: 1500px; height: 1000px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(0px) translateY(125px);">
-    <div class="flowter-node-parent" style="top: 50px; left: 25px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(25px) translateY(125px);">
+    <div class="flowter-node-parent" style="top: 50px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 0px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; top: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; bottom: 20px;">
       No
     </span></div>
@@ -2003,36 +2003,36 @@ exports[`Flowter When rendering using custom size Using custom height Using only
 
 exports[`Flowter When rendering using custom size Using custom height Using the height and the width And the width is higher than its natural width Should render using the custom width and the custom width 1`] = `
 <div class="flowter-parent" style="width: 1500px; height: 1000px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(0px) translateY(125px);">
-    <div class="flowter-node-parent" style="top: 50px; left: 25px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(125px) translateY(125px);">
+    <div class="flowter-node-parent" style="top: 50px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 0px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; top: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; bottom: 20px;">
       No
     </span></div>
@@ -2054,36 +2054,36 @@ exports[`Flowter When rendering using custom size Using custom height Using the 
 
 exports[`Flowter When rendering using custom size Using custom height Using the height and the width And the width is lower than its natural width Should render using the custom width and the natural width 1`] = `
 <div class="flowter-parent" style="width: 300px; height: 1000px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(0px) translateY(525px);">
-    <div class="flowter-node-parent" style="top: 50px; left: 25px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(525px);">
+    <div class="flowter-node-parent" style="top: 50px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 0px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 175px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 60 H 35 V 10 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; top: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 65px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 H 35 V 60 H 60" marker-end="url(#arrow)"></path>
         </svg> <span style="left: 17px; font-size: 12px; bottom: 20px;">
       No
     </span></div>
@@ -2105,36 +2105,36 @@ exports[`Flowter When rendering using custom size Using custom height Using the 
 
 exports[`Flowter When rendering using custom size Using custom width Using only the width Should render the flowchart with the custom width 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 800px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(0px);">
-    <div class="flowter-node-parent" style="top: 25px; left: 75px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(25px);">
+    <div class="flowter-node-parent" style="top: 0px; left: 75px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 0px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 40px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 115px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
       No
     </span></div>
@@ -2156,36 +2156,36 @@ exports[`Flowter When rendering using custom size Using custom width Using only 
 
 exports[`Flowter When rendering using custom size Using custom width Using the width and the height And the height is higher than its natural height Should render using the custom width and the custom height with margin 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 2000px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(600px);">
-    <div class="flowter-node-parent" style="top: 25px; left: 75px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(850px);">
+    <div class="flowter-node-parent" style="top: 0px; left: 75px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 0px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 40px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 115px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
       No
     </span></div>
@@ -2207,36 +2207,36 @@ exports[`Flowter When rendering using custom size Using custom width Using the w
 
 exports[`Flowter When rendering using custom size Using custom width Using the width and the height And the height is lower than its natural height Should render using the custom width and the natural height 1`] = `
 <div class="flowter-parent" style="width: 1200px; height: 800px;">
-  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(0px);">
-    <div class="flowter-node-parent" style="top: 25px; left: 75px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(37.5px);">
+    <div class="flowter-node-parent" style="top: 0px; left: 75px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 0px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
     </div>
-    <div class="flowter-node-parent" style="top: 125px; left: 150px;">
+    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 40px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
       Yes
     </span></div>
     </div>
-    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 65px; left: 115px;">
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 115px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
               <path d="M 0 0 L 9 5 L 0 10 z"></path>
             </marker>
           </defs>
-          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60 " marker-end="url(#arrow)"></path>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
         </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
       No
     </span></div>

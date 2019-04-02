@@ -11,9 +11,9 @@ import {
 
 @Component
 export default class FlowterEdge extends Vue {
-  @Prop({ type: Object, default: null })
+  @Prop({ type: Object, required: true })
   public from!: GraphNodeDetails
-  @Prop({ type: Object, default: null })
+  @Prop({ type: Object, required: true })
   public to!: GraphNodeDetails
   @Prop({ type: String, default: '#000000' })
   public color!: string
@@ -76,24 +76,20 @@ export default class FlowterEdge extends Vue {
 
     switch (this.edgeDirection) {
       case 's': {
-        const distance = this.to.rowIdx - this.from.rowIdx + 1
-        const halfLength = (end.y + this.paddingSize)
-          / distance * (distance === 2 ? 1 : distance - 0.8)
+        const halfLength = (end.y + this.paddingSize) * this.edgeMidPointRatio
 
         return `M ${start.x} ${start.y} `
           + `V ${halfLength} `
           + `H ${end.x} `
-          + `V ${end.y} `
+          + `V ${end.y}`
       }
       case 'e': {
-        const distance = this.to.rowIdx - this.from.rowIdx + 1
-        const halfLength = (end.x + this.paddingSize)
-          / distance * (distance === 2 ? 1 : distance - 0.8)
+        const halfLength = (end.x + this.paddingSize) * this.edgeMidPointRatio
 
         return `M ${start.x} ${start.y} `
           + `H ${halfLength} `
           + `V ${end.y} `
-          + `H ${end.x} `
+          + `H ${end.x}`
       }
       case 'n': {
         // To simplify the calc, always assume
@@ -434,6 +430,10 @@ export default class FlowterEdge extends Vue {
   }
   private get end () {
     return this.shapedEdge.end
+  }
+  private get edgeMidPointRatio () {
+    const distance = this.to.rowIdx - this.from.rowIdx + 1
+    return 1 / distance * (distance === 2 ? 1 : distance - 0.8)
   }
   private get minSize () {
     return MIN_EDGE_SIZE

@@ -2,7 +2,8 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Types
-import { RenderedGraphNode, Mode } from '@/shared/types'
+import { RenderedGraphNode, Mode, AllBounds } from '@/shared/types'
+import { DEFAULT_BOUNDS } from '@/shared/constants'
 
 enum SelectionType {
   RESIZE_N = 'resize-n',
@@ -19,14 +20,8 @@ export default class FlowterNodeSelection extends Vue {
   public node!: RenderedGraphNode
   @Prop({ type: String, default: Mode.VERTICAL })
   public mode!: Mode
-  @Prop({ type: Number, default: -Infinity })
-  public minX!: number
-  @Prop({ type: Number, default: Infinity })
-  public maxX!: number
-  @Prop({ type: Number, default: -Infinity })
-  public minY!: number
-  @Prop({ type: Number, default: Infinity })
-  public maxY!: number
+  @Prop({ type: Object, default: DEFAULT_BOUNDS() })
+  public bounds!: AllBounds
 
   // Data
   private mouseDownX: number = 0
@@ -108,10 +103,10 @@ export default class FlowterNodeSelection extends Vue {
       case SelectionType.MOVE: {
         const deltaX = e.pageX - this.mouseDownX
         const isWithinRangeX =
-          // Whether the left side of the node is after the minX
-          (this.node.x + deltaX >= this.minX)
-          // And the right side of the node is before the maxY
-          && (this.node.x + this.node.width + deltaX <= this.maxX)
+          // Whether the left side of the node is after the bounds.x.min
+          (this.node.x + deltaX >= this.bounds.x.min)
+          // And the right side of the node is before the bounds.x.max
+          && (this.node.x + this.node.width + deltaX <= this.bounds.x.max)
 
         if (isWithinRangeX) {
           this.translateX = deltaX
@@ -119,10 +114,10 @@ export default class FlowterNodeSelection extends Vue {
 
         const deltaY = e.pageY - this.mouseDownY
         const isWithinRangeY =
-          // Whether the left side of the node is after the minY
-          (this.node.y + deltaY >= this.minY)
-          // And the right side of the node is before the maxY
-          && (this.node.y + this.node.height + deltaY <= this.maxY)
+          // Whether the left side of the node is after the bounds.y.min
+          (this.node.y + deltaY >= this.bounds.y.min)
+          // And the right side of the node is before the bounds.y.max
+          && (this.node.y + this.node.height + deltaY <= this.bounds.y.max)
 
         if (isWithinRangeY) {
           this.translateY = deltaY

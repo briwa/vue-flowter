@@ -46,14 +46,6 @@ export interface GraphNodeDetails {
   node: RenderedGraphNode
 }
 
-export interface EditingNodeDetails {
-  node?: RenderedGraphNode,
-  minX: number,
-  maxX: number,
-  minY: number,
-  maxY: number
-}
-
 export interface GraphEdge {
   from: string
   to: string
@@ -70,4 +62,13 @@ export interface ShapedEdge {
 export enum Mode {
   VERTICAL = 'vertical', // Top-bottom
   HORIZONTAL = 'horizontal' // Left-right
+}
+
+export interface Bounds {
+  x: { min: number, max: number }
+  y: { min: number, max: number }
+}
+
+export interface AllBounds extends Bounds {
+  length: number
 }

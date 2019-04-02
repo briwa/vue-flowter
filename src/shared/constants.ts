@@ -8,3 +8,14 @@ export const DEFAULT_FONT_SIZE = 12
 export const MIN_EDGE_SIZE = 10
 export const MIN_DETOUR_SIZE = 10
 export const MIN_NODE_SIZE = 50
+export const DEFAULT_BOUNDS = () => ({
+  x: {
+    min: 0,
+    max: 0
+  },
+  y: {
+    min: 0,
+    max: 0
+  },
+  length: 0
+})

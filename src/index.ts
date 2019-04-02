@@ -14,14 +14,15 @@ import {
   DEFAULT_NODE_COL_SPACING,
   DEFAULT_WIDTH_MARGIN,
   DEFAULT_HEIGHT_MARGIN,
-  DEFAULT_FONT_SIZE
+  DEFAULT_FONT_SIZE,
+  DEFAULT_BOUNDS
 } from '@/shared/constants'
 
 // Types
 import {
   EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge,
-  GraphNodeDetails, EditingNodeDetails, OrderedNode, NodeRow
+  GraphNodeDetails, OrderedNode, NodeRow, AllBounds
 } from '@/shared/types'
 
 @Component({
@@ -95,8 +96,8 @@ export default class Flowter extends Vue {
   public get scaleStyle () {
     // To keep the flowchart at the center,
     // translate them accordingly
-    const translateX = -this.leftMostX * this.widthRatio
-    const translateY = -this.topMostY * this.heightRatio
+    const translateX = -this.allBounds.x.min * this.widthRatio
+    const translateY = -this.allBounds.y.min * this.heightRatio
     let scaleRatio = 1
     let widthDiff = 0
     let heightDiff = 0
@@ -134,88 +135,93 @@ export default class Flowter extends Vue {
 
     this.nodeLists.forEach((row, rowIdx) => {
       row.nodes.forEach((node, colIdx) => {
-        dict[node.id] = { rowIdx, colIdx, rowLength: row.nodes.length, node }
+        dict[node.id] = {
+          rowIdx,
+          colIdx,
+          rowLength: row.nodes.length,
+          node
+        }
       })
     })
 
     return dict
   }
   public get editingNodeDetails () {
-    const details: EditingNodeDetails = {
-      minX: -Infinity,
-      maxX: Infinity,
-      minY: -Infinity,
-      maxY: Infinity
-    }
+    const bounds = DEFAULT_BOUNDS()
 
     if (!this.editingNodeId) {
-      return details
+      return { bounds, node: null }
     }
 
-    const nodeDetails = this.renderedNodesDict[this.editingNodeId]
-    const nodeRow = this.nodeLists[nodeDetails.rowIdx].nodes
+    const {
+      rowIdx,
+      colIdx,
+      node
+    } = this.renderedNodesDict[this.editingNodeId]
 
-    details.node = nodeDetails.node
-    const prevRow = this.nodeLists[nodeDetails.rowIdx - 1]
-    const nextRow = this.nodeLists[nodeDetails.rowIdx + 1]
-    const prevNode = nodeRow[nodeDetails.colIdx - 1]
-    const nextNode = nodeRow[nodeDetails.colIdx + 1]
+    const nodeRow = this.nodeLists[rowIdx].nodes
+    bounds.length = nodeRow.length
+
+    const prevRow = this.nodeLists[rowIdx - 1]
+    const nextRow = this.nodeLists[rowIdx + 1]
+    const prevNode = nodeRow[colIdx - 1]
+    const nextNode = nodeRow[colIdx + 1]
 
     switch (this.mode) {
       case Mode.VERTICAL: {
         if (prevNode) {
-          details.minX = prevNode.x + prevNode.width
+          bounds.x.min = prevNode.x + prevNode.width
         }
 
         if (nextNode) {
-          details.maxX = nextNode.x
+          bounds.x.max = nextNode.x
         }
 
         if (prevRow) {
-          const prevMaxY = prevRow.nodes.reduce((maxY, node) => {
-            return Math.max(node.y + node.height, maxY)
+          const prevYMax = prevRow.nodes.reduce((yMax, n) => {
+            return Math.max(n.y + n.height, yMax)
           }, 0)
 
-          details.minY = prevMaxY
+          bounds.y.min = prevYMax
         } else {
-          details.minY = this.heightMargin
+          bounds.y.min = 0
         }
 
         if (nextRow) {
-          const nextMinY = nextRow.nodes.reduce((minY, node) => {
-            return Math.max(node.y, minY)
+          const nexYMin = nextRow.nodes.reduce((yMin, n) => {
+            return Math.max(n.y, yMin)
           }, 0)
 
-          details.maxY = nextMinY
+          bounds.y.max = nexYMin
         }
 
         break
       }
       case Mode.HORIZONTAL: {
         if (prevNode) {
-          details.minY = prevNode.y + prevNode.height
+          bounds.y.min = prevNode.y + prevNode.height
         }
 
         if (nextNode) {
-          details.maxY = nextNode.y
+          bounds.y.max = nextNode.y
         }
 
         if (prevRow) {
-          const prevMaxX = prevRow.nodes.reduce((maxX, node) => {
-            return Math.max(node.x + node.width, maxX)
+          const prevXMax = prevRow.nodes.reduce((xMax, n) => {
+            return Math.max(n.x + n.width, xMax)
           }, 0)
 
-          details.minX = prevMaxX
+          bounds.x.min = prevXMax
         } else {
-          details.minX = this.widthMargin
+          bounds.x.min = 0
         }
 
         if (nextRow) {
-          const nextMinX = nextRow.nodes.reduce((minX, node) => {
-            return Math.max(node.x, minX)
+          const prevXMin = nextRow.nodes.reduce((xMin, n) => {
+            return Math.max(n.x, xMin)
           }, 0)
 
-          details.maxX = nextMinX
+          bounds.x.max = prevXMin
         }
 
         break
@@ -225,57 +231,34 @@ export default class Flowter extends Vue {
       }
     }
 
-    return details
+    return { bounds, node }
   }
   private get containerWidth () {
-    return this.rightMostX - this.leftMostX
+    return this.allBounds.x.max - this.allBounds.x.min
   }
   private get containerHeight () {
-    return this.bottomMostY - this.topMostY
+    return this.allBounds.y.max - this.allBounds.y.min
   }
-  private get leftMostX () {
-    const leftMostNode = this.nodeLists.reduce((node, row) => {
-      const leftMostNodeRow = row.nodes.reduce((n, currentNode) => {
-        return currentNode.x < n.x ? currentNode : n
-      }, row.nodes[0])
+  private get allBounds (): AllBounds {
+    const { x, y, length } = this.nodeLists.reduce<AllBounds>((bounds, row) => {
+      const totalBounds = row.nodes.reduce(this.getBounds, bounds)
+      totalBounds.length = Math.max(row.nodes.length, totalBounds.length)
 
-      return leftMostNodeRow.x < node.x ? leftMostNodeRow : node
-    }, this.nodeLists[0].nodes[0])
+      return totalBounds
+    }, DEFAULT_BOUNDS())
 
-    return leftMostNode.x - this.widthMargin
-  }
-  private get rightMostX () {
-    const rightMostNode = this.nodeLists.reduce((node, row) => {
-      const rightMostNodeRow = row.nodes.reduce((n, currentNode) => {
-        return currentNode.x > n.x ? currentNode : n
-      }, row.nodes[0])
-
-      return rightMostNodeRow.x > node.x ? rightMostNodeRow : node
-    }, this.nodeLists[0].nodes[0])
-
-    return rightMostNode.x + rightMostNode.width + this.widthMargin
-  }
-  private get topMostY () {
-    const topMostNode = this.nodeLists.reduce((node, row) => {
-      const topMostNodeRow = row.nodes.reduce((n, currentNode) => {
-        return currentNode.y < n.y ? currentNode : n
-      }, row.nodes[0])
-
-      return topMostNodeRow.y < node.y ? topMostNodeRow : node
-    }, this.nodeLists[0].nodes[0])
-
-    return topMostNode.y - this.heightMargin
-  }
-  private get bottomMostY () {
-    const bottomMostNode = this.nodeLists.reduce((node, row) => {
-      const bottomMostNodeRow = row.nodes.reduce((n, currentNode) => {
-        return currentNode.y > n.y ? currentNode : n
-      }, row.nodes[0])
-
-      return bottomMostNodeRow.y > node.y ? bottomMostNodeRow : node
-    }, this.nodeLists[0].nodes[0])
-
-    return bottomMostNode.y + bottomMostNode.height + this.heightMargin
+    // All bounds should take the margin into account
+    return {
+      x: {
+        min: x.min - this.widthMargin,
+        max: x.max + this.widthMargin
+      },
+      y: {
+        min: y.min - this.heightMargin,
+        max: y.max + this.widthMargin
+      },
+      length
+    }
   }
   private get widthRatio () {
     return this.width ? this.width / this.containerWidth : 1
@@ -406,14 +389,12 @@ export default class Flowter extends Vue {
       height: typeof node.height !== 'undefined' ? node.height : this.nodeHeight
     }
   }
-  private shapeNodesVertically (nodeList: NodeRow[], maxLength: number) {
-    let cumulativeY = this.heightMargin
+  private shapeNodesVertically (nodeList: NodeRow[], maxWidth: number) {
+    let cumulativeY = 0
 
     nodeList.forEach((row) => {
-      const currentRowLength = row.width
-
       // Nodes should start from the far left of the row
-      let cumulativeX = (maxLength / 2) - (currentRowLength / 2)
+      let cumulativeX = (maxWidth / 2) - (row.width / 2)
 
       // Start with zero because the padding has been accounted for
       // when accumulating each node's y
@@ -446,14 +427,12 @@ export default class Flowter extends Vue {
       cumulativeY = cumulativeY + maxHeight + this.nodeRowSpacing
     })
   }
-  private shapeNodesHorizontally (nodeList: NodeRow[], maxLength: number) {
-    let cumulativeX = this.widthMargin
+  private shapeNodesHorizontally (nodeList: NodeRow[], maxHeight: number) {
+    let cumulativeX = 0
 
     nodeList.forEach((row) => {
-      const currentRowLength = row.height
-
       // Nodes should start from the far top of the row
-      let cumulativeY = (maxLength / 2) - (currentRowLength / 2)
+      let cumulativeY = (maxHeight / 2) - (row.height / 2)
 
       // Start with zero because the padding has been accounted for
       // when accumulating each node's x
@@ -485,5 +464,20 @@ export default class Flowter extends Vue {
       // Accumulate the x for each row
       cumulativeX = cumulativeX + maxWidth + this.nodeColSpacing
     })
+  }
+  private getBounds (bounds: AllBounds, node: RenderedGraphNode) {
+    if (node.x <= bounds.x.min) {
+      bounds.x.min = node.x
+    } else if (node.x + node.width > bounds.x.max) {
+      bounds.x.max = node.x + node.width
+    }
+
+    if (node.y <= bounds.y.min) {
+      bounds.y.min = node.y
+    } else if (node.y + node.height > bounds.y.max) {
+      bounds.y.max = node.y + node.height
+    }
+
+    return bounds
   }
 }
