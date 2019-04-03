@@ -22,7 +22,7 @@ import {
 import {
   EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge,
-  GraphNodeDetails, OrderedNode, NodeRow, AllBounds
+  GraphNodeDetails, OrderedNode, NodeRow, Bounds
 } from '@/shared/types'
 
 @Component({
@@ -65,8 +65,8 @@ export default class Flowter extends Vue {
 
   // Computed
   public get containerStyle () {
-    const style: Record<string, string | null> = {
-      userSelect: this.editingNodeId ? 'none' : null,
+    const style: Record<string, string> = {
+      userSelect: this.editingNodeId ? 'none' : 'all',
       width: `${this.containerWidth}px`,
       height: `${this.containerHeight}px`
     }
@@ -239,12 +239,9 @@ export default class Flowter extends Vue {
   private get containerHeight () {
     return this.allBounds.y.max - this.allBounds.y.min
   }
-  private get allBounds (): AllBounds {
-    const { x, y, length } = this.nodeLists.reduce<AllBounds>((bounds, row) => {
-      const totalBounds = row.nodes.reduce(this.getBounds, bounds)
-      totalBounds.length = Math.max(row.nodes.length, totalBounds.length)
-
-      return totalBounds
+  private get allBounds (): Bounds {
+    const { x, y } = this.nodeLists.reduce<Bounds>((bounds, row) => {
+      return row.nodes.reduce(this.getBounds, bounds)
     }, DEFAULT_BOUNDS())
 
     // All bounds should take the margin into account
@@ -256,8 +253,7 @@ export default class Flowter extends Vue {
       y: {
         min: y.min - this.heightMargin,
         max: y.max + this.widthMargin
-      },
-      length
+      }
     }
   }
   private get widthRatio () {
@@ -465,7 +461,7 @@ export default class Flowter extends Vue {
       cumulativeX = cumulativeX + maxWidth + this.nodeColSpacing
     })
   }
-  private getBounds (bounds: AllBounds, node: RenderedGraphNode) {
+  private getBounds (bounds: Bounds, node: RenderedGraphNode) {
     if (node.x <= bounds.x.min) {
       bounds.x.min = node.x
     } else if (node.x + node.width > bounds.x.max) {

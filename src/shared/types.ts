@@ -1,4 +1,4 @@
-export type Direction = 'n' | 's' | 'e' | 'w' | 'm'
+export type Direction = 'n' | 's' | 'e' | 'w'
 
 export enum EdgeMarker {
   START = 'start',
@@ -67,8 +67,4 @@ export enum Mode {
 export interface Bounds {
   x: { min: number, max: number }
   y: { min: number, max: number }
-}
-
-export interface AllBounds extends Bounds {
-  length: number
 }

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the default edge type (bent) Should render all nodes and edges vertically with edge type bent 1`] = `
-<div class="flowter-parent" style="width: 600px; height: 800px;">
+<div class="flowter-parent" style="user-select: all; width: 600px; height: 800px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
     <div class="flowter-node-parent" style="top: 0px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
@@ -447,6 +447,30 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
+    <div class="flowter-edge-parent" style="width: 160px; height: 90px; top: 180px; left: -15px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" d="M 140 20 A 72 40 0 1 0 140 70" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 160px; height: 90px; top: 180px; left: 405px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 A 72 40 0 1 1 20 70" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
     <div class="flowter-edit" style="display: none;">
       <div class="flowter-edit-overlay">
         <div class="flowter-resize-n"></div>
@@ -463,7 +487,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 `;
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the edge type cross Should render all nodes and edges vertically with edge type cross 1`] = `
-<div class="flowter-parent" style="width: 600px; height: 800px;">
+<div class="flowter-parent" style="user-select: all; width: 600px; height: 800px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
     <div class="flowter-node-parent" style="top: 0px; left: 225px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
@@ -909,6 +933,30 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
         <!---->
       </div>
     </div>
+    <div class="flowter-edge-parent" style="width: 160px; height: 90px; top: 180px; left: -15px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" d="M 140 20 A 72 40 0 1 0 140 70" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 160px; height: 90px; top: 180px; left: 405px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 A 72 40 0 1 1 20 70" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
     <div class="flowter-edit" style="display: none;">
       <div class="flowter-edit-overlay">
         <div class="flowter-resize-n"></div>
@@ -925,7 +973,7 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 `;
 
 exports[`Flowter When rendering in horizontal mode And rendering with the default edge type (bent) Should render all nodes and edges horizontally with edge type bent 1`] = `
-<div class="flowter-parent" style="width: 1200px; height: 400px;">
+<div class="flowter-parent" style="user-select: all; width: 1200px; height: 400px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
     <div class="flowter-node-parent" style="top: 150px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
@@ -1371,6 +1419,30 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
         <!---->
       </div>
     </div>
+    <div class="flowter-edge-parent" style="width: 140px; height: 100px; top: -5px; left: 280px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 100">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" d="M 20 80 A 63 45 0 1 1 120 80" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 140px; height: 100px; top: 255px; left: 280px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 100">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 A 63 45 0 1 0 120 20" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
     <div class="flowter-edit" style="display: none;">
       <div class="flowter-edit-overlay">
         <div class="flowter-resize-n"></div>
@@ -1387,7 +1459,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
 `;
 
 exports[`Flowter When rendering in horizontal mode And rendering with the edge type cross Should render all nodes and edges horizontally with edge type cross 1`] = `
-<div class="flowter-parent" style="width: 1200px; height: 400px;">
+<div class="flowter-parent" style="user-select: all; width: 1200px; height: 400px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
     <div class="flowter-node-parent" style="top: 150px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
@@ -1833,6 +1905,30 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
         <!---->
       </div>
     </div>
+    <div class="flowter-edge-parent" style="width: 140px; height: 100px; top: -5px; left: 280px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 100">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" d="M 20 80 A 63 45 0 1 1 120 80" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 140px; height: 100px; top: 255px; left: 280px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 100">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 A 63 45 0 1 0 120 20" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
     <div class="flowter-edit" style="display: none;">
       <div class="flowter-edit-overlay">
         <div class="flowter-resize-n"></div>
@@ -1849,7 +1945,7 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
 `;
 
 exports[`Flowter When rendering using custom node sizes In horizontal mode Should render the flowchart with the custom node size 1`] = `
-<div class="flowter-parent" style="width: 400px; height: 350px;">
+<div class="flowter-parent" style="user-select: all; width: 400px; height: 350px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
     <div class="flowter-node-parent" style="top: 125px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
@@ -1900,7 +1996,7 @@ exports[`Flowter When rendering using custom node sizes In horizontal mode Shoul
 `;
 
 exports[`Flowter When rendering using custom node sizes In vertical mode Should render the flowchart with the custom node size 1`] = `
-<div class="flowter-parent" style="width: 400px; height: 350px;">
+<div class="flowter-parent" style="user-select: all; width: 400px; height: 350px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
     <div class="flowter-node-parent" style="top: 0px; left: 125px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
@@ -1951,7 +2047,7 @@ exports[`Flowter When rendering using custom node sizes In vertical mode Should 
 `;
 
 exports[`Flowter When rendering using custom size Using custom height Using only the height Should render the flowchart with the custom height 1`] = `
-<div class="flowter-parent" style="width: 1500px; height: 1000px;">
+<div class="flowter-parent" style="user-select: all; width: 1500px; height: 1000px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(25px) translateY(125px);">
     <div class="flowter-node-parent" style="top: 50px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
@@ -2002,7 +2098,7 @@ exports[`Flowter When rendering using custom size Using custom height Using only
 `;
 
 exports[`Flowter When rendering using custom size Using custom height Using the height and the width And the width is higher than its natural width Should render using the custom width and the custom width 1`] = `
-<div class="flowter-parent" style="width: 1500px; height: 1000px;">
+<div class="flowter-parent" style="user-select: all; width: 1500px; height: 1000px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(125px) translateY(125px);">
     <div class="flowter-node-parent" style="top: 50px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
@@ -2053,7 +2149,7 @@ exports[`Flowter When rendering using custom size Using custom height Using the 
 `;
 
 exports[`Flowter When rendering using custom size Using custom height Using the height and the width And the width is lower than its natural width Should render using the custom width and the natural width 1`] = `
-<div class="flowter-parent" style="width: 300px; height: 1000px;">
+<div class="flowter-parent" style="user-select: all; width: 300px; height: 1000px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(525px);">
     <div class="flowter-node-parent" style="top: 50px; left: 0px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
@@ -2104,7 +2200,7 @@ exports[`Flowter When rendering using custom size Using custom height Using the 
 `;
 
 exports[`Flowter When rendering using custom size Using custom width Using only the width Should render the flowchart with the custom width 1`] = `
-<div class="flowter-parent" style="width: 1200px; height: 800px;">
+<div class="flowter-parent" style="user-select: all; width: 1200px; height: 800px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(25px);">
     <div class="flowter-node-parent" style="top: 0px; left: 75px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
@@ -2155,7 +2251,7 @@ exports[`Flowter When rendering using custom size Using custom width Using only 
 `;
 
 exports[`Flowter When rendering using custom size Using custom width Using the width and the height And the height is higher than its natural height Should render using the custom width and the custom height with margin 1`] = `
-<div class="flowter-parent" style="width: 1200px; height: 2000px;">
+<div class="flowter-parent" style="user-select: all; width: 1200px; height: 2000px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(850px);">
     <div class="flowter-node-parent" style="top: 0px; left: 75px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
@@ -2206,7 +2302,7 @@ exports[`Flowter When rendering using custom size Using custom width Using the w
 `;
 
 exports[`Flowter When rendering using custom size Using custom width Using the width and the height And the height is lower than its natural height Should render using the custom width and the natural height 1`] = `
-<div class="flowter-parent" style="width: 1200px; height: 800px;">
+<div class="flowter-parent" style="user-select: all; width: 1200px; height: 800px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(37.5px);">
     <div class="flowter-node-parent" style="top: 0px; left: 75px;">
       <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>

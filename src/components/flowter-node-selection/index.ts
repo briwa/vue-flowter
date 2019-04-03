@@ -2,7 +2,7 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Types
-import { RenderedGraphNode, Mode, AllBounds } from '@/shared/types'
+import { RenderedGraphNode, Mode, Bounds } from '@/shared/types'
 import { DEFAULT_BOUNDS } from '@/shared/constants'
 
 enum SelectionType {
@@ -21,7 +21,7 @@ export default class FlowterNodeSelection extends Vue {
   @Prop({ type: String, default: Mode.VERTICAL })
   public mode!: Mode
   @Prop({ type: Object, default: DEFAULT_BOUNDS() })
-  public bounds!: AllBounds
+  public bounds!: Bounds
 
   // Data
   private mouseDownX: number = 0

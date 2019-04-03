@@ -2,7 +2,10 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Constants
-import { MIN_EDGE_SIZE, MIN_DETOUR_SIZE } from '@/shared/constants'
+import {
+  MIN_EDGE_SIZE, MIN_EDGE_DETOUR_SIZE,
+  EDGE_MIDPOINT_RATIO, EDGE_SR_SIZE_RATIO, EDGE_SR_ARC_SIZE_RATIO
+} from '@/shared/constants'
 
 // Types
 import {
@@ -15,18 +18,18 @@ export default class FlowterEdge extends Vue {
   public from!: GraphNodeDetails
   @Prop({ type: Object, required: true })
   public to!: GraphNodeDetails
+  @Prop({ type: String, required: true })
+  public edgeType!: EdgeType
+  @Prop({ type: String, required: true })
+  public mode!: Mode
+  @Prop({ type: Number, required: true })
+  public fontSize!: number
+  @Prop({ type: String, default: EdgeMarker.END })
+  public marker!: EdgeMarker
   @Prop({ type: String, default: '#000000' })
   public color!: string
   @Prop({ type: String, default: '' })
   public text!: string
-  @Prop({ type: String, default: EdgeMarker.END })
-  public marker!: EdgeMarker
-  @Prop({ type: String, default: EdgeType.BENT })
-  public edgeType!: EdgeType
-  @Prop({ type: Number, default: EdgeType.BENT })
-  public fontSize!: number
-  @Prop({ type: String, default: Mode.VERTICAL })
-  public mode!: Mode
 
   // Computed
   public get edgeStyle () {
@@ -66,10 +69,19 @@ export default class FlowterEdge extends Vue {
       y: this.end.y - this.domPosition.y + this.paddingSize
     }
 
-    const isStraightEdge = this.edgeType === EdgeType.CROSS
-      || this.from.rowIdx === this.to.rowIdx
+    if (this.isSelfReferential) {
+      const isSweeping = this.edgeSide === 'e' || this.edgeSide === 'n'
 
-    if (isStraightEdge) {
+      return `M ${start.x} ${start.y} `
+        + `A ${Math.floor(this.renderedWidth / EDGE_SR_ARC_SIZE_RATIO)} `
+        + `${Math.floor(this.renderedHeight / EDGE_SR_ARC_SIZE_RATIO)} `
+        + `0 1 ${Number(isSweeping)} ${end.x} ${end.y}`
+    }
+
+    const isCross = this.edgeType === EdgeType.CROSS
+    const isWithinRow = this.from.rowIdx === this.to.rowIdx
+
+    if (isCross || isWithinRow) {
       return `M ${start.x} ${start.y} `
         + `L ${end.x} ${end.y}`
     }
@@ -171,17 +183,11 @@ export default class FlowterEdge extends Vue {
     }
   }
   public get shapeRendering () {
-    switch (this.edgeType) {
-      case EdgeType.CROSS: {
-        return null
-      }
-      case EdgeType.BENT: {
-        return 'crispEdges'
-      }
-      default: {
-        throw new Error(`Unknown edge type: ${this.edgeType}`)
-      }
+    if (this.isSelfReferential || this.edgeType === EdgeType.CROSS) {
+      return null
     }
+
+    return 'crispEdges'
   }
   public get viewBox () {
     return `0 0 ${this.renderedWidth} ${this.renderedHeight}`
@@ -253,6 +259,37 @@ export default class FlowterEdge extends Vue {
     return this.end.y - this.start.y
   }
   private get domPosition () {
+    if (this.isSelfReferential) {
+      switch (this.edgeSide) {
+        case 'w': {
+          const xOffset = this.renderedWidth - (this.paddingSize * 2)
+
+          return {
+            x: this.start.x - xOffset,
+            y: this.start.y
+          }
+        }
+        case 'n': {
+          const yOffset = this.renderedHeight - (this.paddingSize * 2)
+
+          return {
+            x: this.start.x,
+            y: this.start.y - yOffset
+          }
+        }
+        case 's':
+        case 'e': {
+          return {
+            x: this.start.x,
+            y: this.start.y
+          }
+        }
+        default: {
+          throw new Error(`Unknown edge side: ${this.edgeSide}.`)
+        }
+      }
+    }
+
     return {
       x: Math.min(this.start.x, this.end.x),
       y: Math.min(this.start.y, this.end.y)
@@ -272,10 +309,18 @@ export default class FlowterEdge extends Vue {
     }
   }
   private get renderedWidth () {
+    if (this.isSelfReferential && this.mode === Mode.VERTICAL) {
+      return (this.from.node.width * EDGE_SR_SIZE_RATIO) + (this.paddingSize * 2)
+    }
+
     return Math.abs(this.relativeWidth)
       + (this.paddingSize * 2)
   }
   private get renderedHeight () {
+    if (this.isSelfReferential && this.mode === Mode.HORIZONTAL) {
+      return (this.from.node.height * EDGE_SR_SIZE_RATIO) + (this.paddingSize * 2)
+    }
+
     return Math.abs(this.relativeHeight)
       + (this.paddingSize * 2)
   }
@@ -301,20 +346,43 @@ export default class FlowterEdge extends Vue {
       }
     }
   }
+  private get edgeSide () {
+    const {
+      colIdx: startColIdx,
+      rowLength: startRowLength
+    } = this.from
+
+    const {
+      colIdx: endColIdx,
+      rowLength: endRowLength
+    } = this.to
+
+    const startSide = startColIdx - Math.floor(startRowLength / 2)
+    const endSide = endColIdx - Math.floor(endRowLength / 2)
+    const isNodeAtTheRightSide = startSide + endSide >= 0
+
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        return isNodeAtTheRightSide ? 'e' : 'w'
+      }
+      case Mode.HORIZONTAL: {
+        return isNodeAtTheRightSide ? 's' : 'n'
+      }
+      default: {
+        throw new Error(`Unknown mode: ${this.mode}.`)
+      }
+    }
+  }
   private get shapedEdge () {
     const {
       node: startNode,
-      colIdx: startColIdx,
-      rowIdx: startRowIdx,
-      rowLength: startRowLength
+      rowIdx: startRowIdx
     } = this.from
     const startDirections = this.getDirections(startNode)
 
     const {
       node: endNode,
-      colIdx: endColIdx,
-      rowIdx: endRowIdx,
-      rowLength: endRowLength
+      rowIdx: endRowIdx
     } = this.to
     const endDirections = this.getDirections(endNode)
 
@@ -345,30 +413,17 @@ export default class FlowterEdge extends Vue {
         }
       }
     } else if (endRowIdx < startRowIdx) {
-      // When the edges go backward,
-      // it is always going from the same side of the node.
-      // This depends on where the node is located on the flowchart.
-      // Positive total index indicates that the nodes are on
-      // one side of the flowchart, while negative indicates otherwise.
-      // This is used to tell whether they should start and end
-      // from on side of the node or the other.
-      const startSide = endColIdx - Math.floor(endRowLength / 2)
-      const endSide = startColIdx - Math.floor(startRowLength / 2)
-      const isNodeIdxPositive = startSide + endSide >= 0
-
       switch (this.edgeDirection) {
         case 'n':
         case 's': {
-          const direction = isNodeIdxPositive ? 'e' : 'w'
-          shapedEdge.start.nodeDirection = direction
-          shapedEdge.end.nodeDirection = direction
+          shapedEdge.start.nodeDirection = this.edgeSide
+          shapedEdge.end.nodeDirection = this.edgeSide
           break
         }
         case 'e':
         case 'w': {
-          const direction = isNodeIdxPositive ? 's' : 'n'
-          shapedEdge.start.nodeDirection = direction
-          shapedEdge.end.nodeDirection = direction
+          shapedEdge.start.nodeDirection = this.edgeSide
+          shapedEdge.end.nodeDirection = this.edgeSide
           break
         }
         default: {
@@ -402,13 +457,13 @@ export default class FlowterEdge extends Vue {
     } else {
       switch (this.mode) {
         case Mode.VERTICAL: {
-          shapedEdge.start.nodeDirection = 's'
-          shapedEdge.end.nodeDirection = 'n'
+          shapedEdge.start.nodeDirection = 'n'
+          shapedEdge.end.nodeDirection = 's'
           break
         }
         case Mode.HORIZONTAL: {
-          shapedEdge.start.nodeDirection = 'e'
-          shapedEdge.end.nodeDirection = 'w'
+          shapedEdge.start.nodeDirection = 'w'
+          shapedEdge.end.nodeDirection = 'e'
           break
         }
         default: {
@@ -433,13 +488,16 @@ export default class FlowterEdge extends Vue {
   }
   private get edgeMidPointRatio () {
     const distance = this.to.rowIdx - this.from.rowIdx + 1
-    return 1 / distance * (distance === 2 ? 1 : distance - 0.8)
+    return 1 / distance * (distance === 2 ? 1 : distance - EDGE_MIDPOINT_RATIO)
+  }
+  private get isSelfReferential () {
+    return this.from.node.id === this.to.node.id
   }
   private get minSize () {
     return MIN_EDGE_SIZE
   }
   private get detourSize () {
-    return MIN_DETOUR_SIZE
+    return MIN_EDGE_DETOUR_SIZE
   }
 
   // Methods
@@ -454,8 +512,7 @@ export default class FlowterEdge extends Vue {
       n: { x: node.width / 2, y: 0 },
       w: { x: 0, y: node.height / 2 },
       e: { x: node.width, y: node.height / 2 },
-      s: { x: node.width / 2, y: node.height },
-      m: { x: node.width / 2, y: node.height / 2 }
+      s: { x: node.width / 2, y: node.height }
     }
   }
 }
