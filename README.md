@@ -49,86 +49,11 @@ The goal is to make creating flowcharts as simple as possible.
 
 If you need more visual customizations, of course you can add your own styling with CSS.
 
-## Properties
-- `nodes`
-  - Type: `Object`
-  - Required
-
-    A list of nodes to be rendered. Each node is determined by the key which serves as the node id.
-    Nodes in general should be connected by the edges, otherwise it won't be positioned properly.
-
-    The bare minimum of a node is that it has to have the `text` property. The rest of the properties are optional.
-    Refer to the `types` folder for more details.
-- `edges`
-  - Type: `Array`
-  - Required
-
-    A list of edges that connects the nodes, determined by the `from` and `to` property
-    which points to the node ids. The direction of the node can be forward or backward, but not
-    to itself (for now...).
-
-    The bare minimum of a node is that it has to have both `from` and `to` property. The rest of the properties are optional.
-    Refer to the `types` folder for more details.
-- `mode`
-  - Type: `String` (`'horizontal', 'vertical'`)
-  - Default: `'vertical'`
-
-    Whether the flowchart is rendered vertically or horizontally.
-- `width`
-  - Type: `Number`
-  - Default: `null`
-
-    If specified, the flowchart will be rendered to the width size. If height is also specified, the container height will be rendered with the height value, but the flowchart will still respect the aspect ratio.
-- `height`
-  - Type: `Number`
-  - Default: `null`
-
-    If specified, the flowchart will be rendered to the height size. If width is also specified, the container width will be rendered to the width value, but the flowchart will still respect the aspect ratio.
-- `edgeType`
-  - Type: `String` (`'cross', 'bent'`)
-  - Default: `'bent'`
-
-    If specified, this value will override the default edge type.
-- `nodeWidth`
-  - Type: `Number`
-  - Default: `DEFAULT_NODE_WIDTH`
-
-    If specified, this value will override the default node width value when the node has no width. See `src/constants.ts` to see all the default values.
-- `nodeHeight`
-  - Type: `Number`
-  - Default: `DEFAULT_NODE_HEIGHT`
-
-    If specified, this value will override the default node height value when the node has no height. See `src/constants.ts` to see all the default values.
-- `nodeRowSpacing`
-  - Type: `Number`
-  - Default: `DEFAULT_NODE_ROW_SPACING`
-
-    If specified, this value will override the default node row spacing value. See `src/constants.ts` to see all the default values.
-- `nodeColSpacing`
-  - Type: `Number`
-  - Default: `DEFAULT_NODE_COL_SPACING`
-
-    If specified, this value will override the default node column spacing value. See `src/constants.ts` to see all the default values.
-- `widthMargin`
-  - Type: `Number`
-  - Default: `DEFAULT_WIDTH_MARGIN`
-
-    If specified, this value will override the default node width margin value. See `src/constants.ts` to see all the default values.
-- `heightMargin`
-  - Type: `Number`
-  - Default: `DEFAULT_HEIGHT_MARGIN`
-
-    If specified, this value will override the default node height margin value. See `src/constants.ts` to see all the default values.
-- `fontSize`
-  - Type: `Number`
-  - Default: `DEFAULT_FONT_SIZE`
-
-    If specified, this value will override the default font size, applies to nodes' and edges' `text`. See `src/constants.ts` to see all the default values.
-
+Please see the [docs](https://briwa.github.io/vue-flowter/docs) for more details on the props.
 
 ## Running in development
 ```
-npm run serve
+npm run install && npm run serve
 ```
 This will serve the component along with the example of the flowchart data.
 
@@ -140,14 +65,15 @@ This will run all the tests using Jest.
 
 ## TODO
 This component is not complete. Several things before the first major release:
-- [ ] Ability to connect a node to itself
-- [ ] Ability to edit the nodes and the edges
-- [ ] Multiple types of the nodes
-- [ ] Ability to customize the color of the nodes/edges/texts
 - [x] Nodes' text should fit the container
 - [x] Ability to add a text to an edge
+- [x] Annotate props/getters/methods
+- [x] Ability to connect a node to itself
+- [x] Ability to edit the nodes size and position
+- [ ] Ability to edit the edges position
+- [ ] Multiple types of the nodes
+- [ ] Ability to customize the color of the nodes/edges/texts
 - [ ] Ability to point a node to an edge
-- [ ] Annotate props/getters/methods, remove the ones on this README and move it to Typedoc
 
 ## Hats off
 - [Vue CLI](https://cli.vuejs.org/) for the quick, hassle-free setup.

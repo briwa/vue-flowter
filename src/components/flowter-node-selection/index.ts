@@ -2,37 +2,104 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Types
-import { RenderedGraphNode, Mode, Bounds } from '@/shared/types'
+import { RenderedGraphNode, Mode, Bounds, SelectionType } from '@/shared/types'
 import { DEFAULT_BOUNDS } from '@/shared/constants'
 
-enum SelectionType {
-  RESIZE_N = 'resize-n',
-  RESIZE_S = 'resize-s',
-  RESIZE_W = 'resize-w',
-  RESIZE_E = 'resize-e',
-  MOVE = 'move',
-  DEFAULT = 'default'
-}
-
+/**
+ * The Flowter node selection's Vue class component.
+ *
+ * This component acts as a representation of the currently
+ * edited node. It takes in the `node` as the [[Flowter.RenderedGraphNode]]
+ * and `bounds` to limit the movements of the edited node.
+ * It should be used alongside with [[Flowter]].
+ */
 @Component
 export default class FlowterNodeSelection extends Vue {
+  /**
+   * @hidden
+   * -------------------------------
+   * Props
+   * -------------------------------
+   */
+
+  /**
+   * The flowchart mode.
+   *
+   * This is used to detect the movements, since it is only
+   * allowed to resize certain directions on certain modes.
+   */
+  @Prop({ type: String, required: true })
+  public mode!: Mode
+
+  /**
+   * Node being edited.
+   *
+   * When no node is being edited, it is set to `null`
+   * so that it doesn't have to render/compute anything.
+   */
   @Prop({ type: Object, default: null })
   public node!: RenderedGraphNode
-  @Prop({ type: String, default: Mode.VERTICAL })
-  public mode!: Mode
+
+  /**
+   * The bounds allowed to edit node.
+   *
+   * When no node is being edited, it is set to [[DEFAULT_BOUNDS]].
+   */
   @Prop({ type: Object, default: DEFAULT_BOUNDS() })
   public bounds!: Bounds
 
-  // Data
+  /**
+   * @hidden
+   * -------------------------------
+   * Private data
+   * -------------------------------
+   */
+
+  /**
+   * The mousedown's X position recored for calculation purpose.
+   */
   private mouseDownX: number = 0
+
+  /**
+   * The mousedown's Y position recored for calculation purpose.
+   */
   private mouseDownY: number = 0
+
+  /**
+   * The node's scale X ratio as the new node size.
+   */
   private scaleX: number = 1
+
+  /**
+   * The node's scale Y ratio as the new node size.
+   */
   private scaleY: number = 1
+
+  /**
+   * The node's translate X value as the new node position.
+   */
   private translateX: number = 0
+
+  /**
+   * The node's translate Y value as the new node position.
+   */
   private translateY: number = 0
+
+  /**
+   * The edit selection type (either resizing or moving).
+   */
   private selectionType: SelectionType = SelectionType.DEFAULT
 
-  // Getters
+  /**
+   * @hidden
+   * -------------------------------
+   * Public accessor/computed
+   * -------------------------------
+   */
+
+  /**
+   * The edited node's CSS position style.
+   */
   public get containerStyle () {
     if (!this.node) {
       return null
@@ -43,6 +110,13 @@ export default class FlowterNodeSelection extends Vue {
       left: `${this.node.x}px`
     }
   }
+
+  /**
+   * The edited node's overlay style.
+   *
+   * This is rendered based on the currently edited properties,
+   * whether it is being moved or resized.
+   */
   public get overlayStyle () {
     if (!this.node) {
       return null
@@ -55,6 +129,18 @@ export default class FlowterNodeSelection extends Vue {
         + `translateX(${this.translateX}px) translateY(${this.translateY}px)`
     }
   }
+
+  /**
+   * @hidden
+   * -------------------------------
+   * Private accessor/computed
+   * -------------------------------
+   */
+
+  /**
+   * Depending on the selection, a factor is
+   * used to determine the direction of the selection.
+   */
   private get deltaDirection () {
     switch (this.selectionType) {
       case SelectionType.RESIZE_N:
@@ -67,7 +153,32 @@ export default class FlowterNodeSelection extends Vue {
     }
   }
 
-  // Methods
+  /**
+   * @hidden
+   * -------------------------------
+   * Public methods
+   * -------------------------------
+   */
+
+  /**
+   * When it is exiting the edited node, it should emit an event
+   * to its parent, let them handle it.
+   * @event
+   *
+   * @fires exit-editing
+   */
+  public onClickExit () {
+    this.$emit('exit-editing')
+  }
+
+  /**
+   * When the edited node is being clicked,
+   * this will record its original mouse position and the selection type.
+   *
+   * A side effect is being run, which is attaching events to the document,
+   * since user can simply drag even outside of the flowchart element and
+   * it should still be detected.
+   */
   public onMouseDown (e: MouseEvent, selectionType: SelectionType) {
     this.mouseDownX = e.pageX
     this.mouseDownY = e.pageY
@@ -75,17 +186,39 @@ export default class FlowterNodeSelection extends Vue {
 
     this.attachMouseEvents()
   }
-  public onClick () {
-    this.$emit('exit-editing')
-  }
+
+  /**
+   * @hidden
+   * -------------------------------
+   * Private methods
+   * -------------------------------
+   */
+
+  /**
+   * Attaching mousemove and mouseup events to the document.
+   */
   private attachMouseEvents () {
     document.addEventListener('mousemove', this.onMouseMove)
     document.addEventListener('mouseup', this.onMouseUp)
   }
+
+  /**
+   * Detaching mousemove and mouseup events to the document.
+   */
   private detachMouseEvents () {
     document.removeEventListener('mousemove', this.onMouseMove)
     document.removeEventListener('mouseup', this.onMouseUp)
   }
+
+  /**
+   * When the mouse is moved, this should handle them based on
+   * the [[SelectionType]].
+   *
+   * For resizing, it is only either resize horizontally or vertically.
+   * The node cannot be resized both at the same time (for now).
+   *
+   * For moving, it can be moved freely as long as it is within the [[bounds]].
+   */
   private onMouseMove (e: MouseEvent) {
     switch (this.selectionType) {
       case SelectionType.RESIZE_N:
@@ -126,6 +259,17 @@ export default class FlowterNodeSelection extends Vue {
       }
     }
   }
+
+  /**
+   * When the mouse is released, this should emit the event based on the
+   * interactions. It is up to the parent on what to do with the event.
+   *
+   * This should also detach all the events attached on [[onMouseDown]].
+   * @event
+   *
+   * @fires resize
+   * @fires move
+   */
   private onMouseUp () {
     this.detachMouseEvents()
 

@@ -23,7 +23,7 @@
     </div>
     <span
       class="flowter-exit-edit-span"
-      @click="onClick">
+      @click="onClickExit">
       Exit
     </span>
   </div>

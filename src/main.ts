@@ -1,20 +1,23 @@
 // Libraries
 import Vue from 'vue'
+Vue.config.productionTip = false
 
 // Components
 import Flowter from './index.vue'
 
 // Types
 import { GraphNode, GraphEdge } from './shared/types'
+interface Main extends Vue {
+  nodes: Record<string, GraphNode>
+  edges: GraphEdge[]
+}
 
 // To populate data during development,
 // use the test fixtures data by default
 // since those covers all the use cases.
 import graph from '../__fixtures__/all.json'
-const nodes: Record<string, GraphNode> = graph.nodes
-const edges: GraphEdge[] = graph.edges
-
-Vue.config.productionTip = false
+const nodes: Main['nodes'] = graph.nodes
+const edges: Main['edges'] = graph.edges
 
 const instance = new Vue({
   data () {
@@ -27,14 +30,14 @@ const instance = new Vue({
   // Ideally the parent should be passing this as data properly
   // tslint:disable-next-line
   render: function (h) {
-    const inst = this as any
+    const inst = this as Main
 
     return h(Flowter, {
       props: { nodes: inst.nodes, edges: inst.edges }
     })
   },
   mounted () {
-    const inst = this as any
+    const inst = this as Main
 
     inst.$children[0].$on('resize', ({ id, width, height }: { id: string, width?: number, height?: number }) => {
       if (width) {
