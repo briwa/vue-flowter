@@ -49,7 +49,7 @@ The goal is to make creating flowcharts as simple as possible.
 
 If you need more visual customizations, of course you can add your own styling with CSS.
 
-Please see the [docs](https://briwa.github.io/vue-flowter/docs) for more details on the props.
+Please see the [docs](https://briwa.github.io/vue-flowter) for more details on the props.
 
 ## Running in development
 ```
