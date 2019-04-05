@@ -16,8 +16,8 @@ interface Main extends Vue {
 // use the test fixtures data by default
 // since those covers all the use cases.
 import graph from '../__fixtures__/all.json'
-const nodes: Main['nodes'] = graph.nodes
-const edges: Main['edges'] = graph.edges
+const nodes = graph.nodes
+const edges = graph.edges
 
 const instance = new Vue({
   data () {

@@ -7,6 +7,7 @@ import Flowter from '@/index.vue'
 // Mocked data
 import allGraph from '../__fixtures__/all.json'
 import simpleGraph from '../__fixtures__/simple.json'
+import vueLifeCycleGraph from '../__fixtures__/vue-lifecycle.json'
 
 // This is to test all the possible edges and nodes
 // Using the complex wrapper from the fixtures
@@ -75,6 +76,19 @@ describe('Flowter', () => {
 
         expect(wrapper.html()).toMatchSnapshot()
       })
+    })
+  })
+
+  describe('When rendering using custom appearances', () => {
+    test('Should render all nodes and edges horizontally with edge type bent', () => {
+      const wrapper = mount(Flowter, {
+        propsData: {
+          nodes: vueLifeCycleGraph.nodes,
+          edges: vueLifeCycleGraph.edges
+        }
+      })
+
+      expect(wrapper.html()).toMatchSnapshot()
     })
   })
 

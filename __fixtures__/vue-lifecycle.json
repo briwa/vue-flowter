@@ -1,0 +1,34 @@
+{
+  "nodes": {
+    "new-vue": { "text": "new Vue()", "symbol": "ellipse" },
+    "events-lifecycle": { "text": "Init events & lifecycle", "symbol": "rectangle" },
+    "injections-reactivity": { "text": "Init injections & reactivity", "symbol": "rectangle" },
+    "has-el": { "text": "Has 'el' option?", "symbol": "rhombus" },
+    "when-mounted": { "text": "when vm.$mount(el) is called", "symbol": "rectangle" },
+    "has-template": { "text": "Has 'template'<br/> option?", "symbol": "rhombus" },
+    "compile-render": { "text": "Compile template into render function", "symbol": "rectangle" },
+    "compile-template": { "text": "Compile el's outerHTML as template", "symbol": "rectangle" },
+    "create-el": { "text": "Create vm.$el and replace el with it", "symbol": "rectangle" },
+    "mounted": { "text": "mounted", "symbol": "rectangle" },
+    "virtual-dom-rerender": { "text": "Virtual DOM re-render and patch", "symbol": "rectangle" },
+    "teardown": { "text": "Teardown watchers, child components and event listeners", "symbol": "rectangle" },
+    "destroyed": { "text": "Destroyed", "symbol": "ellipse" }
+  },
+  "edges": [
+    { "from": "new-vue", "to": "events-lifecycle" },
+    { "from": "events-lifecycle", "to": "injections-reactivity", "text": "beforeCreate" },
+    { "from": "injections-reactivity", "to": "has-el", "text": "created" },
+    { "from": "has-el", "to": "has-template", "text": "Yes" },
+    { "from": "has-el", "to": "when-mounted", "text": "No" },
+    { "from": "when-mounted", "to": "has-template" },
+    { "from": "has-template", "to": "compile-render", "text": "Yes" },
+    { "from": "has-template", "to": "compile-template", "text": "No" },
+    { "from": "compile-render", "to": "create-el", "text": "beforeMount" },
+    { "from": "compile-template", "to": "create-el", "text": "beforeMount" },
+    { "from": "create-el", "to": "mounted" },
+    { "from": "mounted", "to": "teardown" },
+    { "from": "mounted", "to": "virtual-dom-rerender", "text": "updated" },
+    { "from": "virtual-dom-rerender", "to": "mounted", "text": "beforeUpdate" },
+    { "from": "teardown", "to": "destroyed" }
+  ]
+}

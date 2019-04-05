@@ -1,22 +1,9 @@
 /**
- * Default node width if [[Flowter.nodeWidth]] is not specified.
+ * @hidden
+ * -------------------------------
+ * Flowchart constants
+ * -------------------------------
  */
-export const DEFAULT_NODE_WIDTH = 100
-
-/**
- * Default node height if [[Flowter.nodeWidth]] is not specified.
- */
-export const DEFAULT_NODE_HEIGHT = 50
-
-/**
- * Default node row spacing if [[Flowter.nodeRowSpacing]] is not specified.
- */
-export const DEFAULT_NODE_ROW_SPACING = 50
-
-/**
- * Default node column spacing if [[Flowter.nodeColSpacing]] is not specified.
- */
-export const DEFAULT_NODE_COL_SPACING = 50
 
 /**
  * Default width margin if [[Flowter.widthMargin]] is not specified.
@@ -32,6 +19,57 @@ export const DEFAULT_HEIGHT_MARGIN = 25
  * Default font size if [[Flowter.fontSize]] is not specified.
  */
 export const DEFAULT_FONT_SIZE = 12
+
+/**
+ * @hidden
+ * -------------------------------
+ * Node constants
+ * -------------------------------
+ */
+
+/**
+ * Default node width if [[Flowter.nodeWidth]] is not specified.
+ */
+export const DEFAULT_NODE_WIDTH = 100
+
+/**
+ * Default node height if [[Flowter.nodeHeight]] is not specified.
+ */
+export const DEFAULT_NODE_HEIGHT = 50
+
+/**
+ * Default node row spacing if [[Flowter.nodeRowSpacing]] is not specified.
+ */
+export const DEFAULT_NODE_ROW_SPACING = 50
+
+/**
+ * Default node column spacing if [[Flowter.nodeColSpacing]] is not specified.
+ */
+export const DEFAULT_NODE_COL_SPACING = 50
+
+/**
+ * Default node background color.
+ */
+export const DEFAULT_NODE_BGCOLOR = '#ffffff'
+
+/**
+ * Smaller node size for certain symbols.
+ */
+export const NODE_SMALLER_RATIO = .1
+
+/**
+ * Nodes with [[NodeSymbol.RHOMBUS]] would be rendered with too many
+ * whitespaces around it, due to the characteristics of the shape.
+ * It should be rendered larger than any other symbols.
+ */
+export const NODE_RHOMBUS_RATIO = 1.25
+
+/**
+ * @hidden
+ * -------------------------------
+ * Edge constants
+ * -------------------------------
+ */
 
 /**
  * The minimum edge size allowed.
@@ -58,6 +96,23 @@ export const EDGE_SR_SIZE_RATIO = 1.2
  * The self-referential edge arc ratio.
  */
 export const EDGE_SR_ARC_SIZE_RATIO = 2.2
+
+/**
+ * @hidden
+ * -------------------------------
+ * Shared constants
+ * -------------------------------
+ */
+
+/**
+ * Default stroke width for both nodes and edges.
+ */
+export const DEFAULT_STROKE_WIDTH = 2
+
+/**
+ * Default stroke color for both nodes and edges.
+ */
+export const DEFAULT_STROKE_COLOR = '#000000'
 
 /**
  * Default values for [[Flowter.allBounds]].

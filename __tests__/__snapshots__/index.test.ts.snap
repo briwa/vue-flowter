@@ -1,55 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the default edge type (bent) Should render all nodes and edges vertically with edge type bent 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 600px; height: 800px;">
+<div class="flowter-parent" style="user-select: initial; width: 600px; height: 800px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 0px; left: 225px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 225px;">
+      <div class="flowter-node-text"><span>Before first</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>First A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 300px;">
+      <div class="flowter-node-text"><span>First B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 75px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 75px;">
+      <div class="flowter-node-text"><span>Second A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 225px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 225px;">
+      <div class="flowter-node-text"><span>Second B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 375px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 375px;">
+      <div class="flowter-node-text"><span>Second C</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 300px; left: 225px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 300px; left: 225px;">
+      <div class="flowter-node-text"><span>In between second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 400px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 400px; left: 0px;">
+      <div class="flowter-node-text"><span>Third 1</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 400px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 400px; left: 150px;">
+      <div class="flowter-node-text"><span>Third 2</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 400px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 400px; left: 300px;">
+      <div class="flowter-node-text"><span>Third 3</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 400px; left: 450px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 400px; left: 450px;">
+      <div class="flowter-node-text"><span>Third 4</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 500px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 500px; left: 150px;">
+      <div class="flowter-node-text"><span>Fourth A?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 500px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 500px; left: 300px;">
+      <div class="flowter-node-text"><span>Fourth B?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 600px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 600px; left: 150px;">
+      <div class="flowter-node-text"><span>You said No</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 600px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 600px; left: 300px;">
+      <div class="flowter-node-text"><span>You said Yes</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 700px; left: 225px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 700px; left: 225px;">
+      <div class="flowter-node-text"><span>That's it!</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
@@ -487,55 +519,87 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 `;
 
 exports[`Flowter When rendering in default mode (vertical) And rendering with the edge type cross Should render all nodes and edges vertically with edge type cross 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 600px; height: 800px;">
+<div class="flowter-parent" style="user-select: initial; width: 600px; height: 800px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 0px; left: 225px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 225px;">
+      <div class="flowter-node-text"><span>Before first</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>First A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 300px;">
+      <div class="flowter-node-text"><span>First B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 75px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 75px;">
+      <div class="flowter-node-text"><span>Second A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 225px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 225px;">
+      <div class="flowter-node-text"><span>Second B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 375px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 375px;">
+      <div class="flowter-node-text"><span>Second C</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 300px; left: 225px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 300px; left: 225px;">
+      <div class="flowter-node-text"><span>In between second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 400px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 400px; left: 0px;">
+      <div class="flowter-node-text"><span>Third 1</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 400px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 400px; left: 150px;">
+      <div class="flowter-node-text"><span>Third 2</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 400px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 400px; left: 300px;">
+      <div class="flowter-node-text"><span>Third 3</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 400px; left: 450px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 400px; left: 450px;">
+      <div class="flowter-node-text"><span>Third 4</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 500px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 500px; left: 150px;">
+      <div class="flowter-node-text"><span>Fourth A?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 500px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 500px; left: 300px;">
+      <div class="flowter-node-text"><span>Fourth B?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 600px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 600px; left: 150px;">
+      <div class="flowter-node-text"><span>You said No</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 600px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 600px; left: 300px;">
+      <div class="flowter-node-text"><span>You said Yes</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 700px; left: 225px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 700px; left: 225px;">
+      <div class="flowter-node-text"><span>That's it!</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 190px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
@@ -973,55 +1037,87 @@ exports[`Flowter When rendering in default mode (vertical) And rendering with th
 `;
 
 exports[`Flowter When rendering in horizontal mode And rendering with the default edge type (bent) Should render all nodes and edges horizontally with edge type bent 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 1200px; height: 400px;">
+<div class="flowter-parent" style="user-select: initial; width: 1200px; height: 400px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 150px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 150px; left: 0px;">
+      <div class="flowter-node-text"><span>Before first</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>First A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 150px;">
+      <div class="flowter-node-text"><span>First B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 50px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 50px; left: 300px;">
+      <div class="flowter-node-text"><span>Second A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 150px; left: 300px;">
+      <div class="flowter-node-text"><span>Second B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 250px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 250px; left: 300px;">
+      <div class="flowter-node-text"><span>Second C</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 450px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 150px; left: 450px;">
+      <div class="flowter-node-text"><span>In between second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 600px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 600px;">
+      <div class="flowter-node-text"><span>Third 1</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 600px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 600px;">
+      <div class="flowter-node-text"><span>Third 2</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 600px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 600px;">
+      <div class="flowter-node-text"><span>Third 3</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 300px; left: 600px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 300px; left: 600px;">
+      <div class="flowter-node-text"><span>Third 4</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 750px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 750px;">
+      <div class="flowter-node-text"><span>Fourth A?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 750px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 750px;">
+      <div class="flowter-node-text"><span>Fourth B?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 900px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 900px;">
+      <div class="flowter-node-text"><span>You said No</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 900px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 900px;">
+      <div class="flowter-node-text"><span>You said Yes</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 1050px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 150px; left: 1050px;">
+      <div class="flowter-node-text"><span>That's it!</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
@@ -1459,55 +1555,87 @@ exports[`Flowter When rendering in horizontal mode And rendering with the defaul
 `;
 
 exports[`Flowter When rendering in horizontal mode And rendering with the edge type cross Should render all nodes and edges horizontally with edge type cross 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 1200px; height: 400px;">
+<div class="flowter-parent" style="user-select: initial; width: 1200px; height: 400px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 150px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Before first</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 150px; left: 0px;">
+      <div class="flowter-node-text"><span>Before first</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First A</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>First A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First B</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 150px;">
+      <div class="flowter-node-text"><span>First B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 50px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second A</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 50px; left: 300px;">
+      <div class="flowter-node-text"><span>Second A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second B</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 150px; left: 300px;">
+      <div class="flowter-node-text"><span>Second B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 250px; left: 300px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second C</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 250px; left: 300px;">
+      <div class="flowter-node-text"><span>Second C</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 450px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>In between second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 150px; left: 450px;">
+      <div class="flowter-node-text"><span>In between second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 600px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 1</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 600px;">
+      <div class="flowter-node-text"><span>Third 1</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 600px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 2</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 600px;">
+      <div class="flowter-node-text"><span>Third 2</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 600px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 3</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 600px;">
+      <div class="flowter-node-text"><span>Third 3</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 300px; left: 600px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third 4</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 300px; left: 600px;">
+      <div class="flowter-node-text"><span>Third 4</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 750px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth A?</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 750px;">
+      <div class="flowter-node-text"><span>Fourth A?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 750px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Fourth B?</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 750px;">
+      <div class="flowter-node-text"><span>Fourth B?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 900px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said No</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 900px;">
+      <div class="flowter-node-text"><span>You said No</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 200px; left: 900px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>You said Yes</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 900px;">
+      <div class="flowter-node-text"><span>You said Yes</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 150px; left: 1050px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>That's it!</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 150px; left: 1050px;">
+      <div class="flowter-node-text"><span>That's it!</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 115px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
@@ -1944,17 +2072,286 @@ exports[`Flowter When rendering in horizontal mode And rendering with the edge t
 </div>
 `;
 
-exports[`Flowter When rendering using custom node sizes In horizontal mode Should render the flowchart with the custom node size 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 400px; height: 350px;">
+exports[`Flowter When rendering using custom appearances Should render all nodes and edges horizontally with edge type bent 1`] = `
+<div class="flowter-parent" style="user-select: initial; width: 325px; height: 1025px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 125px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 87.5px;">
+      <div class="flowter-node-text"><span>new Vue()</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <ellipse stroke="#000000" stroke-width="2" fill="#ffffff" cx="50" cy="25" rx="49" ry="24"></ellipse>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 150px;">
-      <div class="flowter-node" style="width: 200px; height: 200px; font-size: 12px; line-height: 194px;"><span>Second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 87.5px;">
+      <div class="flowter-node-text"><span>Init events &amp; lifecycle</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 250px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 200px; left: 87.5px;">
+      <div class="flowter-node-text"><span>Init injections &amp; reactivity</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 125px; height: 62.5px; font-size: 12px; line-height: 56.5px; top: 300px; left: 75px;">
+      <div class="flowter-node-text"><span>Has 'el' option?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 62.5">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 62.5 1 L 124 31.25 L 62.5 61.5 L 1 31.25 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 125px; height: 62.5px; font-size: 12px; line-height: 56.5px; top: 412.5px; left: 0px;">
+      <div class="flowter-node-text"><span>Has 'template'<br> option?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 62.5">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 62.5 1 L 124 31.25 L 62.5 61.5 L 1 31.25 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 412.5px; left: 175px;">
+      <div class="flowter-node-text"><span>when vm.$mount(el) is called</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 525px; left: 12.5px;">
+      <div class="flowter-node-text"><span>Compile template into render function</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 525px; left: 162.5px;">
+      <div class="flowter-node-text"><span>Compile el's outerHTML as template</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 625px; left: 87.5px;">
+      <div class="flowter-node-text"><span>Create vm.$el and replace el with it</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 725px; left: 87.5px;">
+      <div class="flowter-node-text"><span>mounted</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 825px; left: 12.5px;">
+      <div class="flowter-node-text"><span>Teardown watchers, child components and event listeners</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 825px; left: 162.5px;">
+      <div class="flowter-node-text"><span>Virtual DOM re-render and patch</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 925px; left: 87.5px;">
+      <div class="flowter-node-text"><span>Destroyed</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <ellipse stroke="#000000" stroke-width="2" fill="#ffffff" cx="50" cy="25" rx="49" ry="24"></ellipse>
+      </svg>
+    </div>
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 40px; left: 127.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 140px; left: 127.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
+      beforeCreate
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 240px; left: 127.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
+      created
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 352.5px; left: 52.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
+      Yes
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 107.5px; height: 70px; top: 352.5px; left: 127.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.5 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 97.5 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
+      No
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 90px; height: 46.25px; top: 417.5px; left: 105px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 46.25">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 70 20 L 20 26.25" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 465px; left: 52.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
+      Yes
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 170px; height: 70px; top: 465px; left: 52.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 160 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
+      No
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 565px; left: 52.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
+      beforeMount
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 565px; left: 127.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; left: 20px;">
+      beforeMount
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 20px; height: 70px; top: 665px; left: 127.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 765px; left: 52.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 85 10 V 35 H 10 V 60" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 765px; left: 127.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 17px; font-size: 12px; right: 20px;">
+      updated
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 115px; height: 140px; top: 730px; left: 167.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 140">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 95 120 H 105 V 20 H 20" marker-end="url(#arrow)"></path>
+        </svg> <span style="top: 52px; font-size: 12px; right: 20px;">
+      beforeUpdate
+    </span></div>
+    </div>
+    <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 865px; left: 52.5px;">
+      <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" fill="#000000">
+              <path d="M 0 0 L 9 5 L 0 10 z"></path>
+            </marker>
+          </defs>
+          <path fill="none" stroke-width="2" stroke="#000000" shape-rendering="crispEdges" d="M 10 10 V 35 H 85 V 60" marker-end="url(#arrow)"></path>
+        </svg>
+        <!---->
+      </div>
+    </div>
+    <div class="flowter-edit" style="display: none;">
+      <div class="flowter-edit-overlay">
+        <div class="flowter-resize-n"></div>
+        <div class="flowter-resize-s"></div>
+        <div class="flowter-resize-w"></div>
+        <div class="flowter-resize-e"></div>
+        <div class="flowter-resize-move"></div>
+      </div> <span class="flowter-exit-edit-span">
+    Exit
+  </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Flowter When rendering using custom node sizes In horizontal mode Should render the flowchart with the custom node size 1`] = `
+<div class="flowter-parent" style="user-select: initial; width: 400px; height: 350px;">
+  <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 125px; left: 0px;">
+      <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 200px; height: 200px; font-size: 12px; line-height: 194px; top: 0px; left: 150px;">
+      <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 199 V 199 H 1 Z"></path>
+      </svg>
+    </div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 250px; left: 150px;">
+      <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 90px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
@@ -1996,16 +2393,22 @@ exports[`Flowter When rendering using custom node sizes In horizontal mode Shoul
 `;
 
 exports[`Flowter When rendering using custom node sizes In vertical mode Should render the flowchart with the custom node size 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 400px; height: 350px;">
+<div class="flowter-parent" style="user-select: initial; width: 400px; height: 350px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 0px; left: 125px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 125px;">
+      <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 0px;">
-      <div class="flowter-node" style="width: 200px; height: 200px; font-size: 12px; line-height: 194px;"><span>Second</span></div>
+    <div class="flowter-node-parent" style="width: 200px; height: 200px; font-size: 12px; line-height: 194px; top: 100px; left: 0px;">
+      <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 199 V 199 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 250px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 250px;">
+      <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
@@ -2047,16 +2450,22 @@ exports[`Flowter When rendering using custom node sizes In vertical mode Should 
 `;
 
 exports[`Flowter When rendering using custom size Using custom height Using only the height Should render the flowchart with the custom height 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 1500px; height: 1000px;">
+<div class="flowter-parent" style="user-select: initial; width: 1500px; height: 1000px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(25px) translateY(125px);">
-    <div class="flowter-node-parent" style="top: 50px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 50px; left: 0px;">
+      <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 150px;">
+      <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
@@ -2098,16 +2507,22 @@ exports[`Flowter When rendering using custom size Using custom height Using only
 `;
 
 exports[`Flowter When rendering using custom size Using custom height Using the height and the width And the width is higher than its natural width Should render using the custom width and the custom width 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 1500px; height: 1000px;">
+<div class="flowter-parent" style="user-select: initial; width: 1500px; height: 1000px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(5) translateX(125px) translateY(125px);">
-    <div class="flowter-node-parent" style="top: 50px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 50px; left: 0px;">
+      <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 150px;">
+      <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
@@ -2149,16 +2564,22 @@ exports[`Flowter When rendering using custom size Using custom height Using the 
 `;
 
 exports[`Flowter When rendering using custom size Using custom height Using the height and the width And the width is lower than its natural width Should render using the custom width and the natural width 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 300px; height: 1000px;">
+<div class="flowter-parent" style="user-select: initial; width: 300px; height: 1000px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(1) translateX(25px) translateY(525px);">
-    <div class="flowter-node-parent" style="top: 50px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 50px; left: 0px;">
+      <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 0px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 150px;">
+      <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 70px; height: 70px; top: 15px; left: 90px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
@@ -2200,16 +2621,22 @@ exports[`Flowter When rendering using custom size Using custom height Using the 
 `;
 
 exports[`Flowter When rendering using custom size Using custom width Using only the width Should render the flowchart with the custom width 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 1200px; height: 800px;">
+<div class="flowter-parent" style="user-select: initial; width: 1200px; height: 800px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(25px);">
-    <div class="flowter-node-parent" style="top: 0px; left: 75px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 75px;">
+      <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 0px;">
+      <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
@@ -2251,16 +2678,22 @@ exports[`Flowter When rendering using custom size Using custom width Using only 
 `;
 
 exports[`Flowter When rendering using custom size Using custom width Using the width and the height And the height is higher than its natural height Should render using the custom width and the custom height with margin 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 1200px; height: 2000px;">
+<div class="flowter-parent" style="user-select: initial; width: 1200px; height: 2000px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(850px);">
-    <div class="flowter-node-parent" style="top: 0px; left: 75px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 75px;">
+      <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 0px;">
+      <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">
@@ -2302,16 +2735,22 @@ exports[`Flowter When rendering using custom size Using custom width Using the w
 `;
 
 exports[`Flowter When rendering using custom size Using custom width Using the width and the height And the height is lower than its natural height Should render using the custom width and the natural height 1`] = `
-<div class="flowter-parent" style="user-select: all; width: 1200px; height: 800px;">
+<div class="flowter-parent" style="user-select: initial; width: 1200px; height: 800px;">
   <div class="flowter-scale" style="transform-origin: 0% 0%; transform: scale(4) translateX(100px) translateY(37.5px);">
-    <div class="flowter-node-parent" style="top: 0px; left: 75px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>First</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 0px; left: 75px;">
+      <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 0px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Second</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 0px;">
+      <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
-    <div class="flowter-node-parent" style="top: 100px; left: 150px;">
-      <div class="flowter-node" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px;"><span>Third</span></div>
+    <div class="flowter-node-parent" style="width: 100px; height: 50px; font-size: 12px; line-height: 44px; top: 100px; left: 150px;">
+      <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+        <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 99 V 49 H 1 Z"></path>
+      </svg>
     </div>
     <div class="flowter-edge-parent" style="width: 95px; height: 70px; top: 40px; left: 40px;">
       <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 70">

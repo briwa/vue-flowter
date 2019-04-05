@@ -15,14 +15,16 @@ import {
   DEFAULT_WIDTH_MARGIN,
   DEFAULT_HEIGHT_MARGIN,
   DEFAULT_FONT_SIZE,
-  DEFAULT_BOUNDS
+  DEFAULT_BOUNDS,
+  DEFAULT_NODE_BGCOLOR,
+  NODE_RHOMBUS_RATIO
 } from '@/shared/constants'
 
 // Types
 import {
   EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge,
-  GraphNodeDetails, OrderedNode, NodeRow, Bounds
+  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol
 } from '@/shared/types'
 
 /**
@@ -231,9 +233,9 @@ export default class Flowter extends Vue {
    */
   public get containerStyle (): Record<string, string> {
     const style: Record<string, string> = {
-      userSelect: this.editingNodeId ? 'none' : 'all',
-      width: `${this.naturalWidth}px`,
-      height: `${this.naturalHeight}px`
+      userSelect: this.editingNodeId ? 'none' : 'initial',
+      width: this.naturalWidth + 'px',
+      height: this.naturalHeight + 'px'
     }
 
     // Scale the flowchart if width is specified
@@ -705,18 +707,36 @@ export default class Flowter extends Vue {
    * This would conditionally set the values depending on whether it exists
    * or not, otherwise it is set to its default value.
    *
+   * For nodes with [[NodeSymbol.RHOMBUS]], it will be rendered slightly bigger
+   * than the rest. See [[NODE_RHOMBUS_RATIO]] for more details.
+   *
    * For `x` and `y`, values are set to `-Infinity` if not specified, since
    * there will be some logic to set the actual values. See [[shapeNodesVertically]]
    * or [[shapeNodesHorizontally]] for mode details.
    */
   private shapeNode (id: string, node: GraphNode): RenderedGraphNode {
+    const symbol = typeof node.symbol !== 'undefined' ? node.symbol : NodeSymbol.RECTANGLE
+    const text = typeof node.text !== 'undefined' ? node.text.toString() : ''
+    const bgcolor = typeof node.bgcolor !== 'undefined' ? node.bgcolor : DEFAULT_NODE_BGCOLOR
+    const x = typeof node.x !== 'undefined' ? node.x : -Infinity
+    const y = typeof node.y !== 'undefined' ? node.y : -Infinity
+
+    const defaultNodeWidth = symbol === NodeSymbol.RHOMBUS
+      ? this.nodeWidth * NODE_RHOMBUS_RATIO : this.nodeWidth
+    const defaultNodeHeight = symbol === NodeSymbol.RHOMBUS
+      ? this.nodeHeight * NODE_RHOMBUS_RATIO : this.nodeHeight
+    const width = typeof node.width !== 'undefined' ? node.width : defaultNodeWidth
+    const height = typeof node.height !== 'undefined' ? node.height : defaultNodeHeight
+
     return {
       id,
-      text: node.text,
-      x: typeof node.x !== 'undefined' ? node.x : -Infinity,
-      y: typeof node.y !== 'undefined' ? node.y : -Infinity,
-      width: typeof node.width !== 'undefined' ? node.width : this.nodeWidth,
-      height: typeof node.height !== 'undefined' ? node.height : this.nodeHeight
+      text,
+      x,
+      y,
+      width,
+      height,
+      symbol,
+      bgcolor
     }
   }
 

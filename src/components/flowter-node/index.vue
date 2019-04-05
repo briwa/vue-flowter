@@ -1,14 +1,32 @@
 <template>
   <div
     class="flowter-node-parent"
-    :style="containerStyle"
-    @click="onClick">
-    <div
-      class="flowter-node"
-      :style="nodeStyle"
-      @mouseover.self="onMouseOver">
-      <span>{{ text }}</span>
+    :style="nodeStyle"
+    @click="onClick"
+    @mouseover="onMouseOver">
+    <div class="flowter-node-text">
+      <span v-html="text" />
     </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      :view-box.camel="viewBox">
+      <ellipse
+        v-if="isNodeEllipse"
+        stroke="#000000"
+        :stroke-width="strokeWidth"
+        :fill="bgcolor"
+        :cx="halfWidth"
+        :cy="halfHeight"
+        :rx="nodeCenter.x"
+        :ry="nodeCenter.y"
+      />
+      <path
+        v-else
+        stroke="#000000"
+        :stroke-width="strokeWidth"
+        :fill="bgcolor"
+        :d="nodePoints" />
+    </svg>
   </div>
 </template>
 <script lang="ts" src="./index.ts"></script>
@@ -16,30 +34,23 @@
 .flowter-node-parent {
   position: absolute;
   z-index: 2;
-}
-
-.flowter-overlay {
-  display: none;
-  background-color: #00ff00;
-  opacity: .3;
+  overflow: hidden;
 }
 
 .flowter-node-parent:hover {
   cursor: pointer;
 }
 
-.flowter-node {
-  box-sizing: border-box;
-  border: 2px solid #000000;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  background-color: #ffffff;
-}
-
-.flowter-node span {
+.flowter-node-parent span {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+}
+
+.flowter-node-parent .flowter-node-text {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 </style>

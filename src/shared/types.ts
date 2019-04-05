@@ -1,31 +1,45 @@
 /**
- * Cardinal directions.
+ * @hidden
+ * -------------------------------
+ * Flowchart types
+ * -------------------------------
+ */
+
+/**
+ * The flowchart's rendering mode.
  *
- * Determines points/directions in nodes and edges.
+ * Vertical means the nodes go from top to bottom.
+ * Horizontal means the nodes go from left to right.
  */
-export type Direction = 'n' | 's' | 'e' | 'w'
-
-/**
- * Determines whether an edge has to have the marker
- * at the start, end of the edge, or both.
- */
-export enum EdgeMarker {
-  START = 'start',
-  END = 'end',
-  BOTH = 'both'
+export enum Mode {
+  VERTICAL = 'vertical',
+  HORIZONTAL = 'horizontal'
 }
 
 /**
- * Types of the edges.
+ * @hidden
+ * -------------------------------
+ * Node types
+ * -------------------------------
  */
-export enum EdgeType {
-  CROSS = 'cross',
-  BENT = 'bent'
-}
 
 /**
- * The node shape, retrieved as props in [[Flowter.nodes]].
+ * All of the node's possible symbols.
  */
+export enum NodeSymbol {
+  ROUNDED_RECTANGLE = 'rounded-rectangle',
+  ELLIPSE = 'ellipse',
+  RECTANGLE = 'rectangle',
+  PARALLELOGRAM = 'parallelogram',
+  RHOMBUS = 'rhombus'
+}
+
+ /**
+  * The node shape, retrieved as props in [[Flowter.nodes]].
+  *
+  * `Graph` prefix is used so that it won't be confused
+  * with the global `Node` type.
+  */
 export interface GraphNode {
   /**
    * The node's text.
@@ -66,6 +80,22 @@ export interface GraphNode {
    * the edges.
    */
   y?: number
+
+  /**
+   * The node's symbol.
+   *
+   * If specified, this will override the default shape, which is
+   * [[NodeSymbol.RECTANGLE]]
+   */
+  symbol?: NodeSymbol
+
+  /**
+   * The node's background color.
+   *
+   * If specified, this will override the default color, which is
+   * [[DEFAULT_NODE_BGCOLOR]]
+   */
+  bgcolor?: string
 }
 
 /**
@@ -97,6 +127,8 @@ export interface RenderedGraphNode extends GraphNode {
   y: number
   width: number
   height: number
+  symbol: NodeSymbol
+  bgcolor: string
 }
 
 /**
@@ -121,7 +153,35 @@ export interface GraphNodeDetails {
 }
 
 /**
+ * @hidden
+ * -------------------------------
+ * Edge types
+ * -------------------------------
+ */
+
+/**
+ * Determines whether an edge has to have the marker
+ * at the start, end of the edge, or both.
+ */
+export enum EdgeMarker {
+  START = 'start',
+  END = 'end',
+  BOTH = 'both'
+}
+
+/**
+ * Types of the edges.
+ */
+export enum EdgeType {
+  CROSS = 'cross',
+  BENT = 'bent'
+}
+
+/**
  * The edge shape, retrieved as props in [[Flowter.edges]].
+ *
+ * `Graph` prefix is used to make it consistent
+ * with [[GraphNode]].
  */
 export interface GraphEdge {
   /**
@@ -155,15 +215,18 @@ export interface ShapedEdge {
 }
 
 /**
- * The flowchart's rendering mode.
- *
- * Vertical means the nodes go from top to bottom.
- * Horizontal means the nodes go from left to right.
+ * @hidden
+ * -------------------------------
+ * Shared types
+ * -------------------------------
  */
-export enum Mode {
-  VERTICAL = 'vertical',
-  HORIZONTAL = 'horizontal'
-}
+
+/**
+ * Cardinal directions.
+ *
+ * Determines points/directions in nodes and edges.
+ */
+export type Direction = 'n' | 's' | 'e' | 'w'
 
 /**
  * The bounds, ranging from the vertical and horizontal bounds.
