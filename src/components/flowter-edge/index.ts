@@ -4,7 +4,7 @@ import { Prop, Component, Vue } from 'vue-property-decorator'
 // Constants
 import {
   MIN_EDGE_SIZE, MIN_EDGE_DETOUR_SIZE,
-  EDGE_MIDPOINT_RATIO, EDGE_SR_SIZE_RATIO, EDGE_SR_ARC_SIZE_RATIO
+  EDGE_MIDPOINT_RATIO, EDGE_SR_SIZE_RATIO, EDGE_SR_ARC_SIZE_RATIO, DEFAULT_STROKE_WIDTH
 } from '@/shared/constants'
 
 // Types
@@ -31,6 +31,14 @@ export default class FlowterEdge extends Vue {
    * Props
    * -------------------------------
    */
+
+  /**
+   * The id of an edge.
+   *
+   * This is needed so that we have a unique id for each edge.
+   */
+  @Prop({ type: String, required: true })
+  public id!: string
 
   /**
    * The node where the edge is connecting from.
@@ -282,7 +290,7 @@ export default class FlowterEdge extends Vue {
    */
   public get markerStart () {
     switch (this.marker) {
-      case EdgeMarker.BOTH: return 'url(#arrow)'
+      case EdgeMarker.BOTH: return `url(#${this.arrowId})`
       default: return null
     }
   }
@@ -293,7 +301,7 @@ export default class FlowterEdge extends Vue {
   public get markerEnd () {
     switch (this.marker) {
       case EdgeMarker.END:
-      case EdgeMarker.BOTH: return 'url(#arrow)'
+      case EdgeMarker.BOTH: return `url(#${this.arrowId})`
       default: return null
     }
   }
@@ -309,6 +317,22 @@ export default class FlowterEdge extends Vue {
     }
 
     return 'crispEdges'
+  }
+
+  /**
+   * Defines the unique arrow marker id.
+   */
+  public get arrowId () {
+    return `arrow-${this.id}`
+  }
+
+  /**
+   * Defines the `viewBox` property of the SVG.
+   *
+   * Based on the edge's container size itself.
+   */
+  public get strokeWidth () {
+    return DEFAULT_STROKE_WIDTH
   }
 
   /**
@@ -749,6 +773,39 @@ export default class FlowterEdge extends Vue {
    */
   public onClick () {
     this.$emit('click', {
+      from: this.from.node.id,
+      to: this.to.node.id
+    })
+  }
+
+  /**
+   * @todo This is currently unused, handle this event properly.
+   *
+   * When an edge is clicked, this emits an event.
+   * of the from and to's node id to the parent.
+   * @event
+   *
+   * @fires mouseenter
+   */
+  public onMouseEnter (event: MouseEvent) {
+    this.$emit('mouseenter', {
+      from: this.from.node.id,
+      to: this.to.node.id
+    })
+  }
+
+  /**
+   * @todo This is currently unused, handle this event properly.
+   * @todo Debounce this
+   *
+   * When an edge is clicked, this emits an event.
+   * of the from and to's node id to the parent.
+   * @event
+   *
+   * @fires mouseleave
+   */
+  public onMouseLeave (event: MouseEvent) {
+    this.$emit('mouseleave', {
       from: this.from.node.id,
       to: this.to.node.id
     })

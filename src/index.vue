@@ -14,13 +14,15 @@
       </template>
       <template v-for="edge in edges">
         <flowter-edge
-          v-bind="edge"
           :key="`edge-${edge.from}-${edge.to}`"
+          :id="`edge-${edge.from}-${edge.to}`"
           :from="renderedNodesDict[edge.from]"
           :to="renderedNodesDict[edge.to]"
           :mode="mode"
           :font-size="fontSize"
-          :edge-type="edgeType" />
+          :edge-type="edgeType"
+          @mouseenter="onEditEdgeEvents({ type: 'hover-start', details: $event })"
+          @click="onEditEdgeEvents({ type: 'edit-start', details: $event })" />
       </template>
       <flowter-node-selection
         v-show="editingNodeId"
@@ -29,7 +31,13 @@
         :mode="mode"
         @resize="onResizeNode"
         @move="onMoveNode"
-        @exit-editing="onExitEditingNode" />
+        @exit-editing="onEditingNode()" />
+      <flowter-edge-selection
+        v-bind="editingEdgeDetails"
+        :mode="mode"
+        :font-size="fontSize"
+        :edge-type="edgeType"
+        @edit="onEditEdgeEvents" />
     </div>
   </div>
 </template>

@@ -3,7 +3,8 @@
     class="flowter-node-parent"
     :style="nodeStyle"
     @click="onClick"
-    @mouseover="onMouseOver">
+    @mouseenter="$emit('mouseenter', id)"
+    @mouseleave="$emit('mouseleave', id)">
     <div class="flowter-node-text">
       <span v-html="text" />
     </div>

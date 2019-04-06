@@ -254,16 +254,4 @@ export default class FlowterNode extends Vue {
   public onClick () {
     this.$emit('click', this.id)
   }
-
-  /**
-   * @todo This is currently unused, handle this event properly.
-   *
-   * When a mouse is over the node, this emits the id.
-   * @event
-   *
-   * @fires mouseover
-   */
-  public onMouseOver () {
-    this.$emit('mouseover', this.id)
-  }
 }

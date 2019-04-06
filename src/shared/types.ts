@@ -215,6 +215,25 @@ export interface ShapedEdge {
 }
 
 /**
+ * The detailed info when editing an edge.
+ */
+export interface EditingEdgeDetails {
+  showing: boolean
+  editing: boolean
+  from: null | GraphNodeDetails,
+  to: null | GraphNodeDetails
+}
+
+/**
+ * The shape of the event when editing an edge.
+ */
+export interface EventEditingNode {
+  event: MouseEvent
+  type: string
+  details: { from: string, to: string }
+}
+
+/**
  * @hidden
  * -------------------------------
  * Shared types

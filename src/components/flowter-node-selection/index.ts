@@ -45,7 +45,7 @@ export default class FlowterNodeSelection extends Vue {
    *
    * When no node is being edited, it is set to [[DEFAULT_BOUNDS]].
    */
-  @Prop({ type: Object, default: DEFAULT_BOUNDS() })
+  @Prop({ type: Object, default: () => DEFAULT_BOUNDS() })
   public bounds!: Bounds
 
   /**

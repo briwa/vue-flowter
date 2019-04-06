@@ -8,44 +8,56 @@
         :view-box.camel="viewBox">
         <defs>
           <marker
-            id="arrow"
             viewBox="0 0 10 10"
             refX="5"
             refY="5"
             markerWidth="5"
             markerHeight="5"
             orient="auto-start-reverse"
-            :fill="color">
-            <path d="M 0 0 L 9 5 L 0 10 z" />
+            :id="arrowId">
+            <path
+              d="M 0 0 L 9 5 L 0 10 z"
+              :fill="color"
+              :stroke="color" />
           </marker>
         </defs>
         <path
+          class="editing-path"
           fill="none"
-          stroke-width="2"
+          :stroke-width="strokeWidth * 10"
           :stroke="color"
           :shape-rendering="shapeRendering"
           :d="edgePoints"
           :marker-start="markerStart"
           :marker-end="markerEnd"
-          @click="onClick" />
+          @click="onClick"
+          @mouseenter="onMouseEnter"
+          @mouseleave="onMouseLeave" />
+        <path
+          class="rendering-path"
+          fill="none"
+          :stroke-width="strokeWidth"
+          :stroke="color"
+          :shape-rendering="shapeRendering"
+          :d="edgePoints"
+          :marker-start="markerStart"
+          :marker-end="markerEnd" />
       </svg>
       <span
         v-if="text"
         :style="textStyle">
         {{ text }}
       </span>
+      <slot name="edit" />
     </div>
   </div>
 </template>
 <script lang="ts" src="./index.ts"></script>
 <style>
 .flowter-edge-parent {
+  pointer-events: none;
   position: absolute;
   z-index: 1;
-}
-
-.flowter-edge-child svg polyline {
-  cursor: pointer;
 }
 
 .flowter-edge-child {
@@ -54,5 +66,11 @@
 
 .flowter-edge-child span {
   position: absolute;
+}
+
+.flowter-edge-parent .editing-path {
+  opacity: 0;
+  pointer-events: initial;
+  cursor: pointer;
 }
 </style>

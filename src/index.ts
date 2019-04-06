@@ -5,6 +5,7 @@ import { Prop, Component, Vue } from 'vue-property-decorator'
 import FlowterEdge from '@/components/flowter-edge/index.vue'
 import FlowterNode from '@/components/flowter-node/index.vue'
 import FlowterNodeSelection from '@/components/flowter-node-selection/index.vue'
+import FlowterEdgeSelection from '@/components/flowter-edge-selection/index.vue'
 
 // Constants
 import {
@@ -24,7 +25,7 @@ import {
 import {
   EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge,
-  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol
+  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol, EditingEdgeDetails, EventEditingNode
 } from '@/shared/types'
 
 /**
@@ -41,7 +42,8 @@ import {
   components: {
     FlowterEdge,
     FlowterNode,
-    FlowterNodeSelection
+    FlowterNodeSelection,
+    FlowterEdgeSelection
   }
 })
 export default class Flowter extends Vue {
@@ -233,7 +235,7 @@ export default class Flowter extends Vue {
    */
   public get containerStyle (): Record<string, string> {
     const style: Record<string, string> = {
-      userSelect: this.editingNodeId ? 'none' : 'initial',
+      userSelect: this.editingNodeId || this.editingEdgeDetails.editing ? 'none' : 'initial',
       width: this.naturalWidth + 'px',
       height: this.naturalHeight + 'px'
     }
@@ -639,13 +641,33 @@ export default class Flowter extends Vue {
    */
 
   /**
+   * @todo Annotate
+   */
+  public editingEdgeDetails: EditingEdgeDetails = {
+    from: null,
+    to: null,
+    showing: false,
+    editing: false
+  }
+
+  /**
    * The currently edited node's id.
    *
    * This value will only be there when a node is
    * being edited. By default, the value is empty.
    * See [[onEditingNode]] for more details.
    */
-  private editingNodeId: string = ''
+  private editingNodeId: string | null = null
+
+  /**
+   * @todo Annotate
+   */
+  private editingEdgeFrom: GraphNodeDetails | null = null
+
+  /**
+   * @todo Annotate
+   */
+  private editingEdgeTo: GraphNodeDetails | null = null
 
   /**
    * @hidden
@@ -656,20 +678,63 @@ export default class Flowter extends Vue {
 
   /**
    * When editing a node, this will set [[editingNodeId]]
-   * with the node's id.
+   * with the node's id, or unset it.
    * @event
    */
-  public onEditingNode (id: string) {
-    this.editingNodeId = id
+  public onEditingNode (id?: string) {
+    this.editingNodeId = id || null
   }
 
   /**
-   * When exiting a node, this will set [[editingNodeId]]
-   * to its default value (empty string).
+   * When editing an edge, this will set [[editingEdgeFrom]]
+   * and [[editingEdgeTo]] to the node ids' or unset it.
    * @event
    */
-  public onExitEditingNode () {
-    this.editingNodeId = ''
+  public onEditingEdge (fromId?: string, toId?: string) {
+    this.editingEdgeFrom = fromId ? this.renderedNodesDict[fromId] : null
+    this.editingEdgeTo = toId ? this.renderedNodesDict[toId] : null
+  }
+
+  /**
+   * When mouse over an edge, this will set [[mouseoverEdgeFrom]]
+   * and [[mouseoverEdgeTo]] to the node ids' or unset it.
+   * @event
+   */
+  public onEditEdgeEvents ({ type, details }: EventEditingNode) {
+    switch (type) {
+      case 'hover-start': {
+        if (this.editingEdgeDetails.editing) {
+          return false
+        }
+
+        this.editingEdgeDetails.from = this.renderedNodesDict[details.from]
+        this.editingEdgeDetails.to = this.renderedNodesDict[details.to]
+        this.editingEdgeDetails.showing = true
+        break
+      }
+      case 'hover-end': {
+        if (this.editingEdgeDetails.editing) {
+          return false
+        }
+
+        this.editingEdgeDetails.showing = false
+        break
+      }
+      case 'edit-start': {
+        this.editingEdgeDetails.editing = true
+        this.editingEdgeDetails.from = this.renderedNodesDict[details.from]
+        this.editingEdgeDetails.to = this.renderedNodesDict[details.to]
+        break
+      }
+      case 'edit-end': {
+        this.editingEdgeDetails.editing = false
+        this.editingEdgeDetails.showing = false
+        break
+      }
+      default: {
+        throw new Error(`Unknown type: ${type}`)
+      }
+    }
   }
 
   /**

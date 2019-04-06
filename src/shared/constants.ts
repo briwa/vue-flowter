@@ -18,7 +18,7 @@ export const DEFAULT_HEIGHT_MARGIN = 25
 /**
  * Default font size if [[Flowter.fontSize]] is not specified.
  */
-export const DEFAULT_FONT_SIZE = 12
+export const DEFAULT_FONT_SIZE = 14
 
 /**
  * @hidden
@@ -30,17 +30,17 @@ export const DEFAULT_FONT_SIZE = 12
 /**
  * Default node width if [[Flowter.nodeWidth]] is not specified.
  */
-export const DEFAULT_NODE_WIDTH = 100
+export const DEFAULT_NODE_WIDTH = 150
 
 /**
  * Default node height if [[Flowter.nodeHeight]] is not specified.
  */
-export const DEFAULT_NODE_HEIGHT = 50
+export const DEFAULT_NODE_HEIGHT = 70
 
 /**
  * Default node row spacing if [[Flowter.nodeRowSpacing]] is not specified.
  */
-export const DEFAULT_NODE_ROW_SPACING = 50
+export const DEFAULT_NODE_ROW_SPACING = 70
 
 /**
  * Default node column spacing if [[Flowter.nodeColSpacing]] is not specified.
