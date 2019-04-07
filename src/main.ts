@@ -41,19 +41,28 @@ const instance = new Vue({
 
     inst.$children[0].$on('resize', ({ id, width, height }: { id: string, width?: number, height?: number }) => {
       if (width) {
-        instance.$set(instance.$data.nodes[id], 'width', width)
+        Vue.set(instance.$data.nodes[id], 'width', width)
       } else if (height) {
-        instance.$set(instance.$data.nodes[id], 'height', height)
+        Vue.set(instance.$data.nodes[id], 'height', height)
       }
     })
 
     inst.$children[0].$on('move', ({ id, x, y }: { id: string, x?: number, y?: number }) => {
       if (x) {
-        instance.$set(instance.$data.nodes[id], 'x', x)
+        Vue.set(instance.$data.nodes[id], 'x', x)
       }
 
       if (y) {
-        instance.$set(instance.$data.nodes[id], 'y', y)
+        Vue.set(instance.$data.nodes[id], 'y', y)
+      }
+    })
+
+    inst.$children[0].$on('update-edge', ({ original, updated }: any) => {
+      const edge = instance.$data.edges.find((e: GraphEdge) => e.from === original.from && e.to === original.to)
+
+      if (edge) {
+        Vue.set(edge, 'from', updated.from)
+        Vue.set(edge, 'to', updated.to)
       }
     })
   }

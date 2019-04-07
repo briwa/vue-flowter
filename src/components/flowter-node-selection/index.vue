@@ -1,24 +1,24 @@
 <template>
   <div
-    class="flowter-edit"
+    class="flowter-node-edit"
     :style="containerStyle">
     <div
-      class="flowter-edit-overlay"
+      class="flowter-node-edit-overlay"
       :style="overlayStyle">
       <div
-        class="flowter-resize-n"
+        class="flowter-node-resize-n"
         @mousedown="onMouseDown($event, 'resize-n')" />
       <div
-        class="flowter-resize-s"
+        class="flowter-node-resize-s"
         @mousedown="onMouseDown($event, 'resize-s')" />
       <div
-        class="flowter-resize-w"
+        class="flowter-node-resize-w"
         @mousedown="onMouseDown($event, 'resize-w')" />
       <div
-        class="flowter-resize-e"
+        class="flowter-node-resize-e"
         @mousedown="onMouseDown($event, 'resize-e')" />
       <div
-        class="flowter-resize-move"
+        class="flowter-node-resize-move"
         @mousedown="onMouseDown($event, 'move')" />
     </div>
     <span
@@ -30,18 +30,18 @@
 </template>
 <script lang="ts" src="./index.ts"></script>
 <style>
-.flowter-edit {
+.flowter-node-edit {
   z-index: 3;
   position: absolute;
 }
 
-.flowter-edit-overlay {
+.flowter-node-edit-overlay {
   background-color: #00ff00;
   opacity: .3;
   position: absolute;
 }
 
-.flowter-edit .flowter-resize-w {
+.flowter-node-edit .flowter-node-resize-w {
   position: absolute;
   width: 20%;
   height: 80%;
@@ -51,7 +51,7 @@
   cursor: w-resize;
 }
 
-.flowter-edit .flowter-resize-e {
+.flowter-node-edit .flowter-node-resize-e {
   position: absolute;
   width: 20%;
   height: 80%;
@@ -61,7 +61,7 @@
   cursor: e-resize;
 }
 
-.flowter-edit .flowter-resize-n {
+.flowter-node-edit .flowter-node-resize-n {
   position: absolute;
   width: 80%;
   height: 20%;
@@ -71,7 +71,7 @@
   cursor: n-resize;
 }
 
-.flowter-edit .flowter-resize-s {
+.flowter-node-edit .flowter-node-resize-s {
   position: absolute;
   width: 80%;
   height: 20%;
@@ -81,7 +81,7 @@
   cursor: s-resize;
 }
 
-.flowter-edit .flowter-resize-move {
+.flowter-node-edit .flowter-node-resize-move {
   position: absolute;
   width: 60%;
   height: 60%;

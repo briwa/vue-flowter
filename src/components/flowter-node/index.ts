@@ -244,14 +244,4 @@ export default class FlowterNode extends Vue {
    * Public methods
    * -------------------------------
    */
-
-  /**
-   * When a node is clicked, this emits the id.
-   * @event
-   *
-   * @fires click
-   */
-  public onClick () {
-    this.$emit('click', this.id)
-  }
 }

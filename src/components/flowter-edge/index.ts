@@ -171,18 +171,7 @@ export default class FlowterEdge extends Vue {
    *   to be rendered differently.
    */
   public get edgePoints () {
-    // Relative position of the edge points is determined
-    // by the actual position from the node relative to
-    // the SVG position in the DOM
-    const start = {
-      x: this.start.x - this.domPosition.x + this.paddingSize,
-      y: this.start.y - this.domPosition.y + this.paddingSize
-    }
-
-    const end = {
-      x: this.end.x - this.domPosition.x + this.paddingSize,
-      y: this.end.y - this.domPosition.y + this.paddingSize
-    }
+    const { start, end } = this.relativePosition
 
     if (this.isSelfReferential) {
       const isSweeping = this.edgeSide === 'e' || this.edgeSide === 'n'
@@ -193,6 +182,7 @@ export default class FlowterEdge extends Vue {
         + `0 1 ${Number(isSweeping)} ${end.x} ${end.y}`
     }
 
+    // Straight edges simply render as-is
     const isCross = this.edgeType === EdgeType.CROSS
     const isWithinRow = this.from.rowIdx === this.to.rowIdx
 
@@ -236,7 +226,7 @@ export default class FlowterEdge extends Vue {
         // - they move vertically then horizontally (because the target is at sw)
         // Inverse the start/end for nodes going right to left
         const isEdgeGoingHV = isEdgeRightSide
-          ? this.start.x > this.end.x : this.end.x > this.start.x
+          ? start.x > end.x : end.x > start.x
 
         // If they go horizontally then vertically (HV),
         // they just need to make a little detour before going vertical
@@ -266,7 +256,7 @@ export default class FlowterEdge extends Vue {
         // - they move vertically then horizontally (because the target is at se)
         // - they move horizontally then vertically (because the target is at nw)
         const isEdgeGoingVH = isEdgeBottomSide
-          ? this.start.y > this.end.y : this.end.y > this.start.y
+          ? start.y > end.y : end.y > start.y
 
         // If they go horizontally then vertically (HV),
         // they just need to make a little detour before going vertical
@@ -320,6 +310,25 @@ export default class FlowterEdge extends Vue {
   }
 
   /**
+   * Relative position of the start and end in the SVG.
+   *
+   * It is determined by the actual position of the nodes
+   * relative to the SVG position in the DOM
+   */
+  public get relativePosition () {
+    return {
+      start: {
+        x: this.start.x - this.domPosition.x + this.paddingSize,
+        y: this.start.y - this.domPosition.y + this.paddingSize
+      },
+      end: {
+        x: this.end.x - this.domPosition.x + this.paddingSize,
+        y: this.end.y - this.domPosition.y + this.paddingSize
+      }
+    }
+  }
+
+  /**
    * Defines the unique arrow marker id.
    */
   public get arrowId () {
@@ -357,10 +366,9 @@ export default class FlowterEdge extends Vue {
    * It should be at least at the center of the edge.
    */
   private get verticalTextStyle (): Record<string, string> {
-    const style: Record<string, string> = {
-      top: `${(this.renderedHeight / 2) - (this.fontSize * 1.5)}px`,
-      fontSize: `${this.fontSize}px`
-    }
+    const style: Record<string, string> = {}
+    style.top = `${(this.renderedHeight / 2) - (this.fontSize * 1.5)}px`,
+    style.fontSize = `${this.fontSize}px`
 
     switch (this.edgeDirection) {
       case 's':
@@ -393,10 +401,9 @@ export default class FlowterEdge extends Vue {
    * It should be at least at the center of the edge.
    */
   private get horizontalTextStyle (): Record<string, string> {
-    const style: Record<string, string> = {
-      left: `${(this.renderedWidth / 2) - (this.fontSize * 1.5)}px`,
-      fontSize: `${this.fontSize}px`
-    }
+    const style: Record<string, string> = {}
+    style.left = `${(this.renderedWidth / 2) - (this.fontSize * 1.5)}px`,
+    style.fontSize = `${this.fontSize}px`
 
     switch (this.edgeDirection) {
       case 's':

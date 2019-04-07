@@ -95,7 +95,7 @@ export const EDGE_SR_SIZE_RATIO = 1.2
 /**
  * The self-referential edge arc ratio.
  */
-export const EDGE_SR_ARC_SIZE_RATIO = 2.2
+export const EDGE_SR_ARC_SIZE_RATIO = 2.1
 
 /**
  * @hidden

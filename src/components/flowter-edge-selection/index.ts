@@ -3,7 +3,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 
 // Components
 import FlowterEdge from '@/components/flowter-edge'
-import { EditingEdgeDetails, Mode, EdgeType, EdgeMarker } from '@/shared/types'
+import { EditingEdgeDetails, Mode, EdgeType, EdgeMarker, Direction } from '@/shared/types'
 
 /**
  * @wip
@@ -33,6 +33,12 @@ export default class FlowterEdgeSelection extends Vue {
    */
   @Prop({ type: Boolean, required: true })
   public showing!: EditingEdgeDetails['showing']
+
+  /**
+   * @todo: Annotate
+   */
+  @Prop({ type: Boolean, required: true })
+  public dragging!: EditingEdgeDetails['dragging']
 
   /**
    * @todo: Annotate
@@ -86,4 +92,62 @@ export default class FlowterEdgeSelection extends Vue {
    */
   @Prop({ type: String, default: '#000000' })
   public color!: string
+
+  /**
+   * @hidden
+   * -------------------------------
+   * Public methods
+   * -------------------------------
+   */
+
+  /**
+   * @todo Comment this
+   */
+  public knobStyle (position: { x: number, y: number }) {
+    return {
+      left: `${position.x - 5}px`,
+      top: `${position.y - 5}px`
+    }
+  }
+
+  /**
+   * @todo Comment this
+   */
+  public onMouseDown (dragType: string) {
+    if (!this.dragging) {
+      this.$emit('edit', { type: 'drag-start', payload: dragType })
+      this.attachMouseEvents()
+    }
+  }
+
+  /**
+   * @hidden
+   * -------------------------------
+   * Private methods
+   * -------------------------------
+   */
+
+  /**
+   * Attaching mouseup events to the document.
+   *
+   * This is because the interactions when dragging is
+   * beyond this component's scope, hence attaching to `document` instead.
+   */
+  private attachMouseEvents () {
+    document.addEventListener('mouseup', this.onMouseUp)
+  }
+
+  /**
+   * Detaching mouseup events to the document.
+   */
+  private detachMouseEvents () {
+    document.addEventListener('mouseup', this.onMouseUp)
+  }
+
+  private onMouseUp () {
+    if (this.dragging) {
+      this.$emit('edit', { type: 'drag-end' })
+      this.detachMouseEvents()
+    }
+  }
 }

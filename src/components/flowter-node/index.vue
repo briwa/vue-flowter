@@ -2,7 +2,7 @@
   <div
     class="flowter-node-parent"
     :style="nodeStyle"
-    @click="onClick"
+    @click="$emit('click', id)"
     @mouseenter="$emit('mouseenter', id)"
     @mouseleave="$emit('mouseleave', id)">
     <div class="flowter-node-text">

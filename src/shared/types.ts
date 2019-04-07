@@ -215,22 +215,28 @@ export interface ShapedEdge {
 }
 
 /**
+ * The shape of the event when editing an edge.
+ */
+export interface EventEditingNode<T extends keyof EventEditingNodePayload = keyof EventEditingNodePayload> {
+  type: string
+  payload: EventEditingNodePayload[T]
+}
+
+export interface EventEditingNodePayload {
+  fromTo: { from: string, to: string }
+  dragType: 'from' | 'to'
+}
+
+/**
  * The detailed info when editing an edge.
  */
 export interface EditingEdgeDetails {
   showing: boolean
   editing: boolean
-  from: null | GraphNodeDetails,
-  to: null | GraphNodeDetails
-}
-
-/**
- * The shape of the event when editing an edge.
- */
-export interface EventEditingNode {
-  event: MouseEvent
-  type: string
-  details: { from: string, to: string }
+  dragging: boolean
+  draggingNode: 'from' | 'to'
+  from: string
+  to: string
 }
 
 /**

@@ -10,7 +10,9 @@
           v-bind="node"
           :key="`node-${node.id}`"
           :font-size="fontSize"
-          @click="onEditingNode" />
+          @click="onEditingNode"
+          @mouseenter="onMouseOverNode"
+          @mouseleave="onMouseOverNode()" />
       </template>
       <template v-for="edge in edges">
         <flowter-edge
@@ -21,8 +23,8 @@
           :mode="mode"
           :font-size="fontSize"
           :edge-type="edgeType"
-          @mouseenter="onEditEdgeEvents({ type: 'hover-start', details: $event })"
-          @click="onEditEdgeEvents({ type: 'edit-start', details: $event })" />
+          @mouseenter="onEditEdge({ type: 'hover-start', payload: $event })"
+          @click="onEditEdge({ type: 'edit-start', payload: $event })" />
       </template>
       <flowter-node-selection
         v-show="editingNodeId"
@@ -33,11 +35,15 @@
         @move="onMoveNode"
         @exit-editing="onEditingNode()" />
       <flowter-edge-selection
-        v-bind="editingEdgeDetails"
+        :from="editingEdgeFrom"
+        :to="editingEdgeTo"
+        :showing="editingEdgeDetails.showing"
+        :editing="editingEdgeDetails.editing"
+        :dragging="editingEdgeDetails.dragging"
         :mode="mode"
         :font-size="fontSize"
         :edge-type="edgeType"
-        @edit="onEditEdgeEvents" />
+        @edit="onEditEdge" />
     </div>
   </div>
 </template>

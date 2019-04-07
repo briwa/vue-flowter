@@ -48,7 +48,7 @@
         :style="textStyle">
         {{ text }}
       </span>
-      <slot name="edit" />
+      <slot v-bind="relativePosition" />
     </div>
   </div>
 </template>

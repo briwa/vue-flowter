@@ -234,11 +234,10 @@ export default class Flowter extends Vue {
    * @todo Remove this styling and make it modular.
    */
   public get containerStyle (): Record<string, string> {
-    const style: Record<string, string> = {
-      userSelect: this.editingNodeId || this.editingEdgeDetails.editing ? 'none' : 'initial',
-      width: this.naturalWidth + 'px',
-      height: this.naturalHeight + 'px'
-    }
+    const style: Record<string, string> = {}
+    style.userSelect = this.editingNodeId || this.editingEdgeDetails.editing ? 'none' : 'initial'
+    style.width = `${this.naturalWidth}px`
+    style.height = `${this.naturalHeight}px`
 
     // Scale the flowchart if width is specified
     if (this.width) {
@@ -285,9 +284,8 @@ export default class Flowter extends Vue {
     let widthDiff = 0
     let heightDiff = 0
 
-    const style: Record<string, string> = {
-      transformOrigin: '0% 0%'
-    }
+    const style: Record<string, string> = {}
+    style.transformOrigin = '0% 0%'
 
     if (this.width) {
       scaleRatio = this.widthRatio
@@ -436,6 +434,30 @@ export default class Flowter extends Vue {
     }
 
     return { bounds, node }
+  }
+
+  /**
+   * @todo Comment this
+   */
+  public get editingEdgeFrom () {
+    const fromId = this.editingEdgeDetails.dragging
+      && this.editingEdgeDetails.draggingNode === 'from'
+      && this.mouseOverNodeId
+      ? this.mouseOverNodeId : this.editingEdgeDetails.from
+
+    return this.renderedNodesDict[fromId]
+  }
+
+  /**
+   * @todo Comment this
+   */
+  public get editingEdgeTo () {
+    const toId = this.editingEdgeDetails.dragging
+      && this.editingEdgeDetails.draggingNode === 'to'
+      && this.mouseOverNodeId
+      ? this.mouseOverNodeId : this.editingEdgeDetails.to
+
+    return this.renderedNodesDict[toId]
   }
 
   /**
@@ -641,13 +663,15 @@ export default class Flowter extends Vue {
    */
 
   /**
-   * @todo Annotate
+   * @todo Comment this
    */
   public editingEdgeDetails: EditingEdgeDetails = {
-    from: null,
-    to: null,
+    from: this.edges[0].from,
+    to: this.edges[0].to,
     showing: false,
-    editing: false
+    editing: false,
+    dragging: false,
+    draggingNode: 'from'
   }
 
   /**
@@ -660,14 +684,13 @@ export default class Flowter extends Vue {
   private editingNodeId: string | null = null
 
   /**
-   * @todo Annotate
+   * The currently edited node's id.
+   *
+   * This value will only be there when a node is
+   * being edited. By default, the value is empty.
+   * See [[onEditingNode]] for more details.
    */
-  private editingEdgeFrom: GraphNodeDetails | null = null
-
-  /**
-   * @todo Annotate
-   */
-  private editingEdgeTo: GraphNodeDetails | null = null
+  private mouseOverNodeId: string | null = null
 
   /**
    * @hidden
@@ -686,29 +709,28 @@ export default class Flowter extends Vue {
   }
 
   /**
-   * When editing an edge, this will set [[editingEdgeFrom]]
-   * and [[editingEdgeTo]] to the node ids' or unset it.
+   * When mouse over a node, this will set [[editingNodeId]]
+   * with the node's id, or unset it.
    * @event
    */
-  public onEditingEdge (fromId?: string, toId?: string) {
-    this.editingEdgeFrom = fromId ? this.renderedNodesDict[fromId] : null
-    this.editingEdgeTo = toId ? this.renderedNodesDict[toId] : null
+  public onMouseOverNode (id?: string) {
+    this.mouseOverNodeId = id || null
   }
 
   /**
-   * When mouse over an edge, this will set [[mouseoverEdgeFrom]]
-   * and [[mouseoverEdgeTo]] to the node ids' or unset it.
-   * @event
+   * @todo Comment this.
    */
-  public onEditEdgeEvents ({ type, details }: EventEditingNode) {
-    switch (type) {
+  public onEditEdge (event: EventEditingNode) {
+    switch (event.type) {
       case 'hover-start': {
         if (this.editingEdgeDetails.editing) {
           return false
         }
 
-        this.editingEdgeDetails.from = this.renderedNodesDict[details.from]
-        this.editingEdgeDetails.to = this.renderedNodesDict[details.to]
+        const payload = event.payload as EventEditingNode<'fromTo'>['payload']
+
+        this.editingEdgeDetails.from = payload.from
+        this.editingEdgeDetails.to = payload.to
         this.editingEdgeDetails.showing = true
         break
       }
@@ -722,17 +744,57 @@ export default class Flowter extends Vue {
       }
       case 'edit-start': {
         this.editingEdgeDetails.editing = true
-        this.editingEdgeDetails.from = this.renderedNodesDict[details.from]
-        this.editingEdgeDetails.to = this.renderedNodesDict[details.to]
+        const payload = event.payload as EventEditingNode<'fromTo'>['payload']
+
+        this.editingEdgeDetails.from = payload.from
+        this.editingEdgeDetails.to = payload.to
         break
       }
       case 'edit-end': {
         this.editingEdgeDetails.editing = false
         this.editingEdgeDetails.showing = false
+        this.editingEdgeDetails.dragging = false
+        break
+      }
+      case 'drag-start': {
+        const payload = event.payload as EventEditingNode<'dragType'>['payload']
+
+        this.editingEdgeDetails.dragging = true
+        this.editingEdgeDetails.draggingNode = payload
+        break
+      }
+      case 'drag-end': {
+        if (!this.editingEdgeDetails.from || !this.editingEdgeDetails.to) {
+          throw new Error(`Unable to find the original edited node from and/or to.`)
+        }
+
+        const updated = {
+          from: this.editingEdgeFrom.node.id,
+          to: this.editingEdgeTo.node.id
+        }
+
+        if (this.orderedNodes.dict[updated.from].to[updated.to]) {
+          // @todo Use a proper notification system
+          // tslint:disable-next-line
+          console.warn('There is already an edge for that.')
+          break
+        }
+
+        const original = {
+          from: this.editingEdgeDetails.from,
+          to: this.editingEdgeDetails.to
+        }
+
+        this.$emit('update-edge', { original, updated })
+
+        // Update the currently editing edge to the new one
+        this.editingEdgeDetails.from = this.editingEdgeFrom.node.id
+        this.editingEdgeDetails.to = this.editingEdgeTo.node.id
+        this.editingEdgeDetails.dragging = false
         break
       }
       default: {
-        throw new Error(`Unknown type: ${type}`)
+        throw new Error(`Unknown type: ${event.type}`)
       }
     }
   }
