@@ -93,8 +93,7 @@ export default class FlowterEdgeSelection extends Vue {
   @Prop({ type: String, default: '#000000' })
   public color!: string
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public methods
    * -------------------------------
@@ -120,8 +119,7 @@ export default class FlowterEdgeSelection extends Vue {
     }
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Private methods
    * -------------------------------

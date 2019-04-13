@@ -25,8 +25,7 @@ import {
  */
 @Component
 export default class FlowterEdge extends Vue {
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Props
    * -------------------------------
@@ -108,8 +107,7 @@ export default class FlowterEdge extends Vue {
   @Prop({ type: String, default: '' })
   public text!: string
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public accessor/computed
    * -------------------------------
@@ -353,8 +351,7 @@ export default class FlowterEdge extends Vue {
     return `0 0 ${this.renderedWidth} ${this.renderedHeight}`
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Private accessor/computed
    * -------------------------------
@@ -762,8 +759,7 @@ export default class FlowterEdge extends Vue {
     return MIN_EDGE_DETOUR_SIZE
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public methods
    * -------------------------------
@@ -818,8 +814,7 @@ export default class FlowterEdge extends Vue {
     })
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Private methods
    * -------------------------------

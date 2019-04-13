@@ -15,8 +15,7 @@ import { DEFAULT_BOUNDS } from '@/shared/constants'
  */
 @Component
 export default class FlowterNodeSelection extends Vue {
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Props
    * -------------------------------
@@ -48,8 +47,7 @@ export default class FlowterNodeSelection extends Vue {
   @Prop({ type: Object, default: () => DEFAULT_BOUNDS() })
   public bounds!: Bounds
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Private data
    * -------------------------------
@@ -90,8 +88,7 @@ export default class FlowterNodeSelection extends Vue {
    */
   private selectionType: SelectionType = SelectionType.DEFAULT
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public accessor/computed
    * -------------------------------
@@ -130,8 +127,7 @@ export default class FlowterNodeSelection extends Vue {
     }
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Private accessor/computed
    * -------------------------------
@@ -153,8 +149,7 @@ export default class FlowterNodeSelection extends Vue {
     }
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public methods
    * -------------------------------
@@ -187,8 +182,7 @@ export default class FlowterNodeSelection extends Vue {
     this.attachMouseEvents()
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Private methods
    * -------------------------------

@@ -217,12 +217,15 @@ export interface ShapedEdge {
 /**
  * The shape of the event when editing an edge.
  */
-export interface EventEditingNode<T extends keyof EventEditingNodePayload = keyof EventEditingNodePayload> {
+export interface EventEditingEdge<T extends keyof EventEditingEdgePayload = keyof EventEditingEdgePayload> {
   type: string
-  payload: EventEditingNodePayload[T]
+  payload: EventEditingEdgePayload[T]
 }
 
-export interface EventEditingNodePayload {
+/**
+ * The payload of an edited edge event
+ */
+export interface EventEditingEdgePayload {
   fromTo: { from: string, to: string }
   dragType: 'from' | 'to'
 }

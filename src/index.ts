@@ -1,5 +1,5 @@
 // Libraries
-import { Prop, Component, Vue } from 'vue-property-decorator'
+import { Prop, Component, Vue, Mixins } from 'vue-property-decorator'
 
 // Components
 import FlowterEdge from '@/components/flowter-edge/index.vue'
@@ -25,7 +25,7 @@ import {
 import {
   EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge,
-  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol, EditingEdgeDetails, EventEditingNode
+  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol, EditingEdgeDetails, EventEditingEdge
 } from '@/shared/types'
 
 /**
@@ -47,8 +47,7 @@ import {
   }
 })
 export default class Flowter extends Vue {
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Props
    * -------------------------------
@@ -214,8 +213,7 @@ export default class Flowter extends Vue {
   @Prop({ type: Number, default: DEFAULT_FONT_SIZE })
   public fontSize!: number
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public accessor/computed
    * -------------------------------
@@ -460,8 +458,7 @@ export default class Flowter extends Vue {
     return this.renderedNodesDict[toId]
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Private accessor/computed
    * -------------------------------
@@ -655,10 +652,9 @@ export default class Flowter extends Vue {
     }, { dict: {}, maxIndex: 0 })
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
-   * Private data properties
+   * Public data properties
    * -------------------------------
    */
 
@@ -673,6 +669,13 @@ export default class Flowter extends Vue {
     dragging: false,
     draggingNode: 'from'
   }
+
+  /*
+   * -------------------------------
+   * Private data properties
+   * -------------------------------
+   */
+
 
   /**
    * The currently edited node's id.
@@ -692,8 +695,7 @@ export default class Flowter extends Vue {
    */
   private mouseOverNodeId: string | null = null
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public methods - events
    * -------------------------------
@@ -720,14 +722,14 @@ export default class Flowter extends Vue {
   /**
    * @todo Comment this.
    */
-  public onEditEdge (event: EventEditingNode) {
+  public onEditEdge (event: EventEditingEdge) {
     switch (event.type) {
       case 'hover-start': {
         if (this.editingEdgeDetails.editing) {
           return false
         }
 
-        const payload = event.payload as EventEditingNode<'fromTo'>['payload']
+        const payload = event.payload as EventEditingEdge<'fromTo'>['payload']
 
         this.editingEdgeDetails.from = payload.from
         this.editingEdgeDetails.to = payload.to
@@ -744,7 +746,7 @@ export default class Flowter extends Vue {
       }
       case 'edit-start': {
         this.editingEdgeDetails.editing = true
-        const payload = event.payload as EventEditingNode<'fromTo'>['payload']
+        const payload = event.payload as EventEditingEdge<'fromTo'>['payload']
 
         this.editingEdgeDetails.from = payload.from
         this.editingEdgeDetails.to = payload.to
@@ -757,7 +759,7 @@ export default class Flowter extends Vue {
         break
       }
       case 'drag-start': {
-        const payload = event.payload as EventEditingNode<'dragType'>['payload']
+        const payload = event.payload as EventEditingEdge<'dragType'>['payload']
 
         this.editingEdgeDetails.dragging = true
         this.editingEdgeDetails.draggingNode = payload
@@ -821,8 +823,7 @@ export default class Flowter extends Vue {
     this.$emit('move', event)
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Private methods
    * -------------------------------

@@ -12,8 +12,7 @@ import { DEFAULT_STROKE_WIDTH, NODE_SMALLER_RATIO } from '@/shared/constants'
  */
 @Component
 export default class FlowterNode extends Vue {
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Props
    * -------------------------------
@@ -101,8 +100,7 @@ export default class FlowterNode extends Vue {
   @Prop({ type: Number, required: true })
   public fontSize!: number
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public accessor/computed
    * -------------------------------
@@ -238,8 +236,7 @@ export default class FlowterNode extends Vue {
     return DEFAULT_STROKE_WIDTH
   }
 
-  /**
-   * @hidden
+  /*
    * -------------------------------
    * Public methods
    * -------------------------------

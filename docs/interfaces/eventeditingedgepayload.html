@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GraphNode | Flowter</title>
+	<title>EventEditingEdgePayload | Flowter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="graphnode.html">GraphNode</a>
+					<a href="eventeditingedgepayload.html">EventEditingEdgePayload</a>
 				</li>
 			</ul>
-			<h1>Interface GraphNode</h1>
+			<h1>Interface EventEditingEdgePayload</h1>
 		</div>
 	</div>
 </header>
@@ -69,22 +69,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The node shape, retrieved as props in <a href="../classes/flowter.html#nodes">Flowter.nodes</a>.</p>
+						<p>The payload of an edited edge event</p>
 					</div>
-					<p><code>Graph</code> prefix is used so that it won&#39;t be confused
-					with the global <code>Node</code> type.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">GraphNode</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="renderedgraphnode.html" class="tsd-signature-type">RenderedGraphNode</a>
-							</li>
-						</ul>
+						<span class="target">EventEditingEdgePayload</span>
 					</li>
 				</ul>
 			</section>
@@ -95,13 +88,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnode.html#bgcolor" class="tsd-kind-icon">bgcolor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnode.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnode.html#symbol" class="tsd-kind-icon">symbol</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnode.html#text" class="tsd-kind-icon">text</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnode.html#width" class="tsd-kind-icon">width</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnode.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnode.html#y" class="tsd-kind-icon">y</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="eventeditingedgepayload.html#dragtype" class="tsd-kind-icon">drag<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="eventeditingedgepayload.html#fromto" class="tsd-kind-icon">from<wbr>To</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,124 +98,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="bgcolor" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> bgcolor</h3>
-					<div class="tsd-signature tsd-kind-icon">bgcolor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="dragtype" class="tsd-anchor"></a>
+					<h3>drag<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">drag<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"from"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"to"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L98">shared/types.ts:98</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L230">shared/types.ts:230</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The node&#39;s background color.</p>
-						</div>
-						<p>If specified, this will override the default color, which is
-						<a href="../globals.html#default_node_bgcolor">DEFAULT_NODE_BGCOLOR</a></p>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="height" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> height</h3>
-					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="fromto" class="tsd-anchor"></a>
+					<h3>from<wbr>To</h3>
+					<div class="tsd-signature tsd-kind-icon">from<wbr>To<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L60">shared/types.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L229">shared/types.ts:229</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The node&#39;s height.</p>
-						</div>
-						<p>If specified, this will override <a href="../globals.html#default_node_height">DEFAULT_NODE_HEIGHT</a>.</p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="symbol" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> symbol</h3>
-					<div class="tsd-signature tsd-kind-icon">symbol<span class="tsd-signature-symbol">:</span> <a href="../enums/nodesymbol.html" class="tsd-signature-type">NodeSymbol</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L90">shared/types.ts:90</a></li>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
 						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The node&#39;s symbol.</p>
-						</div>
-						<p>If specified, this will override the default shape, which is
-						<a href="../enums/nodesymbol.html#rectangle">NodeSymbol.RECTANGLE</a></p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="text" class="tsd-anchor"></a>
-					<h3>text</h3>
-					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L47">shared/types.ts:47</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The node&#39;s text.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="width" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> width</h3>
-					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L53">shared/types.ts:53</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The node&#39;s width.</p>
-						</div>
-						<p>If specified, this will override <a href="../globals.html#default_node_width">DEFAULT_NODE_WIDTH</a>.</p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="x" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L71">shared/types.ts:71</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The node&#39;s x position in the DOM.</p>
-						</div>
-						<p>If specified, this will be the position used when rendering.
-							Do be careful when setting this option manually; it might
-							not be rendered in accordance to the rest of the nodes,
-							since their positions are being calculated depending on
-						the edges.</p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="y" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> y</h3>
-					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/5988f6b/src/shared/types.ts#L82">shared/types.ts:82</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The node&#39;s y position in the DOM.</p>
-						</div>
-						<p>If specified, this will be the position used when rendering.
-							Do be careful when setting this option manually; it might
-							not be rendered in accordance to the rest of the nodes,
-							since their positions are being calculated depending on
-						the edges.</p>
 					</div>
 				</section>
 			</section>
@@ -245,28 +143,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="graphnode.html" class="tsd-kind-icon">Graph<wbr>Node</a>
+						<a href="eventeditingedgepayload.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Edge<wbr>Payload</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnode.html#bgcolor" class="tsd-kind-icon">bgcolor</a>
+								<a href="eventeditingedgepayload.html#dragtype" class="tsd-kind-icon">drag<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnode.html#height" class="tsd-kind-icon">height</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnode.html#symbol" class="tsd-kind-icon">symbol</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnode.html#text" class="tsd-kind-icon">text</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnode.html#width" class="tsd-kind-icon">width</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnode.html#x" class="tsd-kind-icon">x</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnode.html#y" class="tsd-kind-icon">y</a>
+								<a href="eventeditingedgepayload.html#fromto" class="tsd-kind-icon">from<wbr>To</a>
 							</li>
 						</ul>
 					</li>
