@@ -2,7 +2,7 @@
 import { mount } from '@vue/test-utils'
 
 // Component to test
-import Flowter from '@/index.vue'
+import FlowterFlowchart from '@/components/flowter-flowchart/index.vue'
 
 // Mocked data
 import allGraph from '../__fixtures__/all.json'
@@ -12,7 +12,7 @@ import vueLifeCycleGraph from '../__fixtures__/vue-lifecycle.json'
 // This is to test all the possible edges and nodes
 // Using the complex wrapper from the fixtures
 function getComplexWrapper (props = {}) {
-  return mount(Flowter, {
+  return mount(FlowterFlowchart, {
     propsData: {
       nodes: allGraph.nodes,
       edges: allGraph.edges,
@@ -24,7 +24,7 @@ function getComplexWrapper (props = {}) {
 // This is just to test container styles,
 // when changes are not affecting the nodes/edges
 function getSimpleWrapper (props = {}) {
-  return mount(Flowter, {
+  return mount(FlowterFlowchart, {
     propsData: {
       nodes: simpleGraph.nodes,
       edges: simpleGraph.edges,
@@ -36,7 +36,7 @@ function getSimpleWrapper (props = {}) {
 // Types
 import { EdgeType, Mode } from '@/shared/types'
 
-describe('Flowter', () => {
+describe('Flowter Flowchart', () => {
   describe('When rendering in default mode (vertical)', () => {
     describe('And rendering with the default edge type (bent)', () => {
       test('Should render all nodes and edges vertically with edge type bent', () => {
@@ -81,7 +81,7 @@ describe('Flowter', () => {
 
   describe('When rendering using custom appearances', () => {
     test('Should render all nodes and edges horizontally with edge type bent', () => {
-      const wrapper = mount(Flowter, {
+      const wrapper = mount(FlowterFlowchart, {
         propsData: {
           nodes: vueLifeCycleGraph.nodes,
           edges: vueLifeCycleGraph.edges
