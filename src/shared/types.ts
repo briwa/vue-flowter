@@ -153,6 +153,15 @@ export interface GraphNodeDetails {
 }
 
 /**
+ * The detailed info when editing a node.
+ */
+export interface EditingNodeDetails {
+  showing: boolean
+  editing: boolean
+  id: string
+}
+
+/**
  * @hidden
  * -------------------------------
  * Edge types
@@ -215,6 +224,18 @@ export interface ShapedEdge {
 }
 
 /**
+ * The detailed info when editing an edge.
+ */
+export interface EditingEdgeDetails {
+  showing: boolean
+  editing: boolean
+  dragging: boolean
+  draggingNode: 'from' | 'to'
+  from: string
+  to: string
+}
+
+/**
  * The shape of the event when editing an edge.
  */
 export interface EventEditingEdge<T extends keyof EventEditingEdgePayload = keyof EventEditingEdgePayload> {
@@ -228,18 +249,6 @@ export interface EventEditingEdge<T extends keyof EventEditingEdgePayload = keyo
 export interface EventEditingEdgePayload {
   fromTo: { from: string, to: string }
   dragType: 'from' | 'to'
-}
-
-/**
- * The detailed info when editing an edge.
- */
-export interface EditingEdgeDetails {
-  showing: boolean
-  editing: boolean
-  dragging: boolean
-  draggingNode: 'from' | 'to'
-  from: string
-  to: string
 }
 
 /**

@@ -36,7 +36,7 @@ export default class FlowterNodeSelection extends Vue {
    * When no node is being edited, it is set to `null`
    * so that it doesn't have to render/compute anything.
    */
-  @Prop({ type: Object, default: null })
+  @Prop({ type: Object, required: true })
   public node!: RenderedGraphNode
 
   /**
@@ -44,7 +44,7 @@ export default class FlowterNodeSelection extends Vue {
    *
    * When no node is being edited, it is set to [[DEFAULT_BOUNDS]].
    */
-  @Prop({ type: Object, default: () => DEFAULT_BOUNDS() })
+  @Prop({ type: Object, required: true })
   public bounds!: Bounds
 
   /*
@@ -98,10 +98,6 @@ export default class FlowterNodeSelection extends Vue {
    * The edited node's CSS position style.
    */
   public get containerStyle () {
-    if (!this.node) {
-      return null
-    }
-
     return {
       top: `${this.node.y}px`,
       left: `${this.node.x}px`
@@ -115,10 +111,6 @@ export default class FlowterNodeSelection extends Vue {
    * whether it is being moved or resized.
    */
   public get overlayStyle () {
-    if (!this.node) {
-      return null
-    }
-
     return {
       width: `${this.node.width}px`,
       height: `${this.node.height}px`,

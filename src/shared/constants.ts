@@ -1,3 +1,5 @@
+import { Bounds } from './types'
+
 /**
  * @hidden
  * -------------------------------
@@ -117,7 +119,7 @@ export const DEFAULT_STROKE_COLOR = '#000000'
 /**
  * Default values for [[Flowter.allBounds]].
  */
-export const DEFAULT_BOUNDS = () => ({
+export const DEFAULT_BOUNDS = (): Bounds => ({
   x: {
     min: 0,
     max: 0
@@ -125,6 +127,5 @@ export const DEFAULT_BOUNDS = () => ({
   y: {
     min: 0,
     max: 0
-  },
-  length: 0
+  }
 })
