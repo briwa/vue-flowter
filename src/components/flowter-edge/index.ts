@@ -766,10 +766,8 @@ export default class FlowterEdge extends Vue {
    */
 
   /**
-   * @todo This is currently unused, handle this event properly.
-   *
-   * When an edge is clicked, this emits an event.
-   * of the from and to's node id to the parent.
+   * When an edge is clicked, this emits an event
+   * of the from and to's node id to the parent
    * @event
    *
    * @fires click
@@ -782,9 +780,7 @@ export default class FlowterEdge extends Vue {
   }
 
   /**
-   * @todo This is currently unused, handle this event properly.
-   *
-   * When an edge is clicked, this emits an event.
+   * When an edge is being hovered, this emits an event
    * of the from and to's node id to the parent.
    * @event
    *
@@ -798,10 +794,9 @@ export default class FlowterEdge extends Vue {
   }
 
   /**
-   * @todo This is currently unused, handle this event properly.
    * @todo Debounce this
    *
-   * When an edge is clicked, this emits an event.
+   * When an edge is no longer being hovered, this emits an event
    * of the from and to's node id to the parent.
    * @event
    *

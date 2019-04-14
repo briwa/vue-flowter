@@ -1,5 +1,5 @@
 // Libraries
-import { Prop, Component, Vue, Mixins } from 'vue-property-decorator'
+import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Components
 import FlowterEdge from '@/components/flowter-edge/index.vue'
@@ -25,7 +25,7 @@ import {
 import {
   EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge,
-  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol, EditingEdgeDetails, EventEditingEdge
+  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol
 } from '@/shared/types'
 
 /**
@@ -46,7 +46,7 @@ import {
     FlowterEdgeSelection
   }
 })
-export default class Flowter extends Vue {
+export default class FlowterFlowchart extends Vue {
   /*
    * -------------------------------
    * Props
@@ -230,10 +230,11 @@ export default class Flowter extends Vue {
    * Also, this will set the style to have a non-selectable
    * styling when it is in editing mode.
    * @todo Remove this styling and make it modular.
+   * @todo This no longer have the user-select styling when editing,
+   * figure out how to do this properly.
    */
   public get containerStyle (): Record<string, string> {
     const style: Record<string, string> = {}
-    style.userSelect = this.editingNodeId || this.editingEdgeDetails.editing ? 'none' : 'initial'
     style.width = `${this.naturalWidth}px`
     style.height = `${this.naturalHeight}px`
 
@@ -332,130 +333,6 @@ export default class Flowter extends Vue {
     })
 
     return dict
-  }
-
-  /**
-   * Required values for editing the nodes.
-   *
-   * `node` is the currently edited node.
-   * `bounds` will limit the movement of the nodes when editing the position.
-   * Only being computed when it is currently editing a node.
-   *
-   * For editing the node position,nodes are being limited vertically
-   * when editing the position by its previous and the next row.
-   * Also, it is being limited horizontally by the previous and
-   * the next node in that node row.
-   */
-  public get editingNodeDetails (): { bounds: Bounds, node: RenderedGraphNode | null } {
-    const bounds = DEFAULT_BOUNDS()
-
-    if (!this.editingNodeId) {
-      return { bounds, node: null }
-    }
-
-    const {
-      rowIdx,
-      colIdx,
-      node
-    } = this.renderedNodesDict[this.editingNodeId]
-
-    const nodeRow = this.nodeLists[rowIdx].nodes
-    bounds.length = nodeRow.length
-
-    const prevRow = this.nodeLists[rowIdx - 1]
-    const nextRow = this.nodeLists[rowIdx + 1]
-    const prevNode = nodeRow[colIdx - 1]
-    const nextNode = nodeRow[colIdx + 1]
-
-    switch (this.mode) {
-      case Mode.VERTICAL: {
-        if (prevNode) {
-          bounds.x.min = prevNode.x + prevNode.width
-        }
-
-        if (nextNode) {
-          bounds.x.max = nextNode.x
-        }
-
-        if (prevRow) {
-          const prevYMax = prevRow.nodes.reduce((yMax, n) => {
-            return Math.max(n.y + n.height, yMax)
-          }, 0)
-
-          bounds.y.min = prevYMax
-        } else {
-          bounds.y.min = 0
-        }
-
-        if (nextRow) {
-          const nexYMin = nextRow.nodes.reduce((yMin, n) => {
-            return Math.max(n.y, yMin)
-          }, 0)
-
-          bounds.y.max = nexYMin
-        }
-
-        break
-      }
-      case Mode.HORIZONTAL: {
-        if (prevNode) {
-          bounds.y.min = prevNode.y + prevNode.height
-        }
-
-        if (nextNode) {
-          bounds.y.max = nextNode.y
-        }
-
-        if (prevRow) {
-          const prevXMax = prevRow.nodes.reduce((xMax, n) => {
-            return Math.max(n.x + n.width, xMax)
-          }, 0)
-
-          bounds.x.min = prevXMax
-        } else {
-          bounds.x.min = 0
-        }
-
-        if (nextRow) {
-          const prevXMin = nextRow.nodes.reduce((xMin, n) => {
-            return Math.max(n.x, xMin)
-          }, 0)
-
-          bounds.x.max = prevXMin
-        }
-
-        break
-      }
-      default: {
-        throw new Error(`Unknown mode: ${this.mode}`)
-      }
-    }
-
-    return { bounds, node }
-  }
-
-  /**
-   * @todo Comment this
-   */
-  public get editingEdgeFrom () {
-    const fromId = this.editingEdgeDetails.dragging
-      && this.editingEdgeDetails.draggingNode === 'from'
-      && this.mouseOverNodeId
-      ? this.mouseOverNodeId : this.editingEdgeDetails.from
-
-    return this.renderedNodesDict[fromId]
-  }
-
-  /**
-   * @todo Comment this
-   */
-  public get editingEdgeTo () {
-    const toId = this.editingEdgeDetails.dragging
-      && this.editingEdgeDetails.draggingNode === 'to'
-      && this.mouseOverNodeId
-      ? this.mouseOverNodeId : this.editingEdgeDetails.to
-
-    return this.renderedNodesDict[toId]
   }
 
   /*
@@ -650,177 +527,6 @@ export default class Flowter extends Vue {
 
       return result
     }, { dict: {}, maxIndex: 0 })
-  }
-
-  /*
-   * -------------------------------
-   * Public data properties
-   * -------------------------------
-   */
-
-  /**
-   * @todo Comment this
-   */
-  public editingEdgeDetails: EditingEdgeDetails = {
-    from: this.edges[0].from,
-    to: this.edges[0].to,
-    showing: false,
-    editing: false,
-    dragging: false,
-    draggingNode: 'from'
-  }
-
-  /*
-   * -------------------------------
-   * Private data properties
-   * -------------------------------
-   */
-
-
-  /**
-   * The currently edited node's id.
-   *
-   * This value will only be there when a node is
-   * being edited. By default, the value is empty.
-   * See [[onEditingNode]] for more details.
-   */
-  private editingNodeId: string | null = null
-
-  /**
-   * The currently edited node's id.
-   *
-   * This value will only be there when a node is
-   * being edited. By default, the value is empty.
-   * See [[onEditingNode]] for more details.
-   */
-  private mouseOverNodeId: string | null = null
-
-  /*
-   * -------------------------------
-   * Public methods - events
-   * -------------------------------
-   */
-
-  /**
-   * When editing a node, this will set [[editingNodeId]]
-   * with the node's id, or unset it.
-   * @event
-   */
-  public onEditingNode (id?: string) {
-    this.editingNodeId = id || null
-  }
-
-  /**
-   * When mouse over a node, this will set [[editingNodeId]]
-   * with the node's id, or unset it.
-   * @event
-   */
-  public onMouseOverNode (id?: string) {
-    this.mouseOverNodeId = id || null
-  }
-
-  /**
-   * @todo Comment this.
-   */
-  public onEditEdge (event: EventEditingEdge) {
-    switch (event.type) {
-      case 'hover-start': {
-        if (this.editingEdgeDetails.editing) {
-          return false
-        }
-
-        const payload = event.payload as EventEditingEdge<'fromTo'>['payload']
-
-        this.editingEdgeDetails.from = payload.from
-        this.editingEdgeDetails.to = payload.to
-        this.editingEdgeDetails.showing = true
-        break
-      }
-      case 'hover-end': {
-        if (this.editingEdgeDetails.editing) {
-          return false
-        }
-
-        this.editingEdgeDetails.showing = false
-        break
-      }
-      case 'edit-start': {
-        this.editingEdgeDetails.editing = true
-        const payload = event.payload as EventEditingEdge<'fromTo'>['payload']
-
-        this.editingEdgeDetails.from = payload.from
-        this.editingEdgeDetails.to = payload.to
-        break
-      }
-      case 'edit-end': {
-        this.editingEdgeDetails.editing = false
-        this.editingEdgeDetails.showing = false
-        this.editingEdgeDetails.dragging = false
-        break
-      }
-      case 'drag-start': {
-        const payload = event.payload as EventEditingEdge<'dragType'>['payload']
-
-        this.editingEdgeDetails.dragging = true
-        this.editingEdgeDetails.draggingNode = payload
-        break
-      }
-      case 'drag-end': {
-        if (!this.editingEdgeDetails.from || !this.editingEdgeDetails.to) {
-          throw new Error(`Unable to find the original edited node from and/or to.`)
-        }
-
-        const updated = {
-          from: this.editingEdgeFrom.node.id,
-          to: this.editingEdgeTo.node.id
-        }
-
-        if (this.orderedNodes.dict[updated.from].to[updated.to]) {
-          // @todo Use a proper notification system
-          // tslint:disable-next-line
-          console.warn('There is already an edge for that.')
-          break
-        }
-
-        const original = {
-          from: this.editingEdgeDetails.from,
-          to: this.editingEdgeDetails.to
-        }
-
-        this.$emit('update-edge', { original, updated })
-
-        // Update the currently editing edge to the new one
-        this.editingEdgeDetails.from = this.editingEdgeFrom.node.id
-        this.editingEdgeDetails.to = this.editingEdgeTo.node.id
-        this.editingEdgeDetails.dragging = false
-        break
-      }
-      default: {
-        throw new Error(`Unknown type: ${event.type}`)
-      }
-    }
-  }
-
-  /**
-   * When `resize` event is received from the node,
-   * this should fire the exact same event to the parent.
-   * @event
-   *
-   * @fires resize
-   */
-  public onResizeNode (event: { id: string, width: number, height: number }) {
-    this.$emit('resize', event)
-  }
-
-  /**
-   * When `move` event is received from the node,
-   * this should fire the exact same event to the parent.
-   * @event
-   *
-   * @fires resize
-   */
-  public onMoveNode (event: { id: string, x?: number, y?: number }) {
-    this.$emit('move', event)
   }
 
   /*

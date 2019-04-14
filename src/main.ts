@@ -3,7 +3,7 @@ import Vue from 'vue'
 Vue.config.productionTip = false
 
 // Components
-import Flowter from './index.vue'
+import FlowterFlowchart from '@/components/flowter-flowchart/index.vue'
 
 // Types
 import { GraphNode, GraphEdge } from './shared/types'
@@ -32,7 +32,7 @@ const instance = new Vue({
   render: function (h) {
     const inst = this as Main
 
-    return h(Flowter, {
+    return h(FlowterFlowchart, {
       props: { nodes: inst.nodes, edges: inst.edges }
     })
   },

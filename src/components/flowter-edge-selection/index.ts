@@ -23,31 +23,36 @@ import { EditingEdgeDetails, Mode, EdgeType, EdgeMarker, Direction } from '@/sha
 })
 export default class FlowterEdgeSelection extends Vue {
   /**
-   * @todo: Annotate
+   * Whether an edge is being edited or not.
+   *
+   * This would show the Exit button, since it is in editing mode.
    */
   @Prop({ type: Boolean, required: true })
   public editing!: EditingEdgeDetails['editing']
 
   /**
-   * @todo: Annotate
+   * Whether the guide to edit an edge is shown or not.
    */
   @Prop({ type: Boolean, required: true })
   public showing!: EditingEdgeDetails['showing']
 
   /**
-   * @todo: Annotate
+   * Whether an edited edge is being dragged or not.
+   *
+   * When dragging, it should not send out other events
+   * such as mouseover or click.
    */
   @Prop({ type: Boolean, required: true })
   public dragging!: EditingEdgeDetails['dragging']
 
   /**
-   * @todo: Annotate
+   * Specifies the node id that the edited edge is connected from.
    */
   @Prop({ type: Object, default: null })
   public from!: EditingEdgeDetails['from']
 
   /**
-   * @todo: Annotate
+   * Specifies the node id that the edited edge is connected to.
    */
   @Prop({ type: Object, default: null })
   public to!: EditingEdgeDetails['to']
@@ -100,7 +105,7 @@ export default class FlowterEdgeSelection extends Vue {
    */
 
   /**
-   * @todo Comment this
+   * The style of the knob being dragged in/out.
    */
   public knobStyle (position: { x: number, y: number }) {
     return {
@@ -110,7 +115,8 @@ export default class FlowterEdgeSelection extends Vue {
   }
 
   /**
-   * @todo Comment this
+   * When dragging, this should emit event to the parent
+   * and attach the document events so that we know when the dragging ends.
    */
   public onMouseDown (dragType: string) {
     if (!this.dragging) {
@@ -142,6 +148,10 @@ export default class FlowterEdgeSelection extends Vue {
     document.addEventListener('mouseup', this.onMouseUp)
   }
 
+  /**
+   * When it is no longer dragging, this should detach
+   * all document events and let the parent know that the dragging is done.
+   */
   private onMouseUp () {
     if (this.dragging) {
       this.$emit('edit', { type: 'drag-end' })

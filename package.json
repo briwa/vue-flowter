@@ -15,7 +15,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:static": "vue-cli-service build",
-    "build:library": "vue-cli-service build --target lib --name flowter src/index.vue",
+    "build:library": "vue-cli-service build --target lib --name flowter src/components/flowter-flowchart/index.vue",
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit",
     "test:ci": "vue-cli-service test:unit --ci",
