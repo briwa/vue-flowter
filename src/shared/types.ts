@@ -146,10 +146,21 @@ export interface NodeRow {
  * This includes its position on the [[NodeRow]].
  */
 export interface GraphNodeDetails {
-  rowLength: number
-  rowIdx: number
-  colIdx: number
-  node: RenderedGraphNode
+  row: {
+    idx: number
+    prev: NodeRow | null
+    current: NodeRow
+    next: NodeRow | null
+    length: number
+  }
+  node: {
+    idx: number
+    prev: RenderedGraphNode | null
+    current: RenderedGraphNode
+    next: RenderedGraphNode | null
+  }
+  from: Record<string, OrderedNode>
+  to: Record<string, OrderedNode>
 }
 
 /**
@@ -159,6 +170,14 @@ export interface EditingNodeDetails {
   showing: boolean
   editing: boolean
   id: string
+}
+
+/**
+ * The shape of the event when editing a node.
+ */
+export interface EventEditingNode {
+  type: string
+  payload: string
 }
 
 /**

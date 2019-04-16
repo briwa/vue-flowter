@@ -5,9 +5,9 @@
     <div
       class="flowter-scale"
       :style="scaleStyle">
-      <template v-for="{ node } in renderedNodesDict">
+      <template v-for="{ node } in renderedNodes">
         <flowter-node
-          v-bind="node"
+          v-bind="node.current"
           :key="`node-${node.id}`"
           :font-size="fontSize"
           @click="$emit('node-click', $event)"
@@ -18,8 +18,8 @@
         <flowter-edge
           :key="`edge-${edge.from}-${edge.to}`"
           :id="`edge-${edge.from}-${edge.to}`"
-          :from="renderedNodesDict[edge.from]"
-          :to="renderedNodesDict[edge.to]"
+          :from="renderedNodes[edge.from]"
+          :to="renderedNodes[edge.to]"
           :mode="mode"
           :font-size="fontSize"
           :edge-type="edgeType"

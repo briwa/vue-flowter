@@ -318,16 +318,32 @@ export default class FlowterFlowchart extends Vue {
    * of node rows, this is to make it easier to access by the ids,
    * while retaining the info. See [[GraphNodeDetails]] for all the info.
    */
-  public get renderedNodesDict (): Record<string, GraphNodeDetails> {
+  public get renderedNodes (): Record<string, GraphNodeDetails> {
     const dict: Record<string, GraphNodeDetails> = {}
 
     this.nodeLists.forEach((row, rowIdx) => {
       row.nodes.forEach((node, colIdx) => {
+        const prevNode = row.nodes[colIdx - 1] || null
+        const nextNode = row.nodes[colIdx + 1] || null
+        const prevRow = this.nodeLists[rowIdx - 1] || null
+        const nextRow = this.nodeLists[rowIdx + 1] || null
+
         dict[node.id] = {
-          rowIdx,
-          colIdx,
-          rowLength: row.nodes.length,
-          node
+          row: {
+            idx: rowIdx,
+            prev: prevRow,
+            current: row,
+            next: nextRow,
+            length: row.nodes.length
+          },
+          node: {
+            idx: colIdx,
+            prev: prevNode,
+            current: node,
+            next: nextNode
+          },
+          to: this.orderedNodes.dict[node.id].to,
+          from: this.orderedNodes.dict[node.id].from
         }
       })
     })

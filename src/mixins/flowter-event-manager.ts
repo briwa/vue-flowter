@@ -10,7 +10,7 @@ import { DEFAULT_BOUNDS } from '../shared/constants'
 // Types
 import {
   EditingEdgeDetails, EventEditingEdge,
-  Mode, EditingNodeDetails
+  Mode, EditingNodeDetails, EventEditingNode
 } from '../shared/types'
 
 @Component
@@ -24,9 +24,7 @@ export default class FlowterEventManagerMixin extends Vue {
    * however I can't seem to find a way to inherit its types properly.
    * @todo: Find a better way to do this, maybe in Vue 3??
    */
-  public orderedNodes!: FlowterFlowchartClass['orderedNodes']
-  public nodeLists!: FlowterFlowchartClass['nodeLists']
-  public renderedNodesDict!: FlowterFlowchartClass['renderedNodesDict']
+  public renderedNodes!: FlowterFlowchartClass['renderedNodes']
   public mode!: FlowterFlowchartClass['mode']
   public nodes!: FlowterFlowchartClass['nodes']
   public edges!: FlowterFlowchartClass['edges']
@@ -39,8 +37,8 @@ export default class FlowterEventManagerMixin extends Vue {
     editing: false,
     dragging: false,
     draggingNode: 'from',
-    from: this.edges[0].from,
-    to: this.edges[0].to
+    from: this.defaultElems.edgeFrom,
+    to: this.defaultElems.edgeTo
   }
 
   /**
@@ -49,7 +47,7 @@ export default class FlowterEventManagerMixin extends Vue {
   public editingNodeDetails: EditingNodeDetails = {
     showing: false,
     editing: false,
-    id: this.nodeLists[0].nodes[0].id
+    id: this.defaultElems.nodeId
   }
 
   /**
@@ -64,15 +62,14 @@ export default class FlowterEventManagerMixin extends Vue {
     }
 
     const {
-      rowIdx,
-      colIdx
-    } = this.renderedNodesDict[id]
+      row,
+      node
+    } = this.renderedNodes[id]
 
-    const nodeRow = this.nodeLists[rowIdx].nodes
-    const prevRow = this.nodeLists[rowIdx - 1]
-    const nextRow = this.nodeLists[rowIdx + 1]
-    const prevNode = nodeRow[colIdx - 1]
-    const nextNode = nodeRow[colIdx + 1]
+    const prevRow = row.prev
+    const nextRow = row.next
+    const prevNode = node.prev
+    const nextNode = node.next
 
     switch (this.mode) {
       case Mode.VERTICAL: {
@@ -145,7 +142,7 @@ export default class FlowterEventManagerMixin extends Vue {
    * @todo Comment this
    */
   public get editingNode () {
-    return this.renderedNodesDict[this.editingNodeDetails.id].node
+    return this.renderedNodes[this.editingNodeDetails.id].node
   }
 
   /**
@@ -157,7 +154,7 @@ export default class FlowterEventManagerMixin extends Vue {
       && this.editingNodeDetails.id
       ? this.editingNodeDetails.id : this.editingEdgeDetails.from
 
-    return this.renderedNodesDict[fromId]
+    return this.renderedNodes[fromId]
   }
 
   /**
@@ -169,7 +166,46 @@ export default class FlowterEventManagerMixin extends Vue {
       && this.editingNodeDetails.id
       ? this.editingNodeDetails.id : this.editingEdgeDetails.to
 
-    return this.renderedNodesDict[toId]
+    return this.renderedNodes[toId]
+  }
+
+
+  /**
+   * The default values for the flowchart elements.
+   *
+   * This is basically the first node and the first edge.
+   */
+  public get defaultElems (): Record<string, string> {
+    return {
+      nodeId: this.nodeIds[0],
+      edgeFrom: this.edges[0].from,
+      edgeTo: this.edges[0].to
+    }
+  }
+
+  /**
+   * All the node ids in the flowchart.
+   */
+  private get nodeIds (): string[] {
+    return Object.keys(this.nodes)
+  }
+
+  /*
+   * -------------------------------
+   * Lifecycles
+   * -------------------------------
+   */
+
+  /**
+   * Since the idea is to make it decoupled
+   * with the flowchart component, listen to the
+   * events on mounted instead.
+   */
+  public mounted () {
+    this.$on('node-click', (event: string) => this.onEditNode({ type: 'edit-start', payload: event }))
+    this.$on('node-edit-exit', (event: string) => this.onEditNode({ type: 'edit-end', payload: event }))
+    this.$on('node-mouseenter', (event: string) => this.onEditNode({ type: 'hover-start', payload: event }))
+    this.$on('node-mouseleave', (event: string) => this.onEditNode({ type: 'hover-end', payload: event }))
   }
 
   /*
@@ -230,11 +266,11 @@ export default class FlowterEventManagerMixin extends Vue {
         }
 
         const updated = {
-          from: this.editingEdgeFrom.node.id,
-          to: this.editingEdgeTo.node.id
+          from: this.editingEdgeFrom.node.current.id,
+          to: this.editingEdgeTo.node.current.id
         }
 
-        if (this.orderedNodes.dict[updated.from].to[updated.to]) {
+        if (this.renderedNodes[updated.from].to[updated.to]) {
           // @todo Use a proper notification system
           // tslint:disable-next-line
           console.warn('There is already an edge for that.')
@@ -249,9 +285,48 @@ export default class FlowterEventManagerMixin extends Vue {
         this.$emit('update-edge', { original, updated })
 
         // Update the currently editing edge to the new one
-        this.editingEdgeDetails.from = this.editingEdgeFrom.node.id
-        this.editingEdgeDetails.to = this.editingEdgeTo.node.id
+        this.editingEdgeDetails.from = updated.from
+        this.editingEdgeDetails.to = updated.to
         this.editingEdgeDetails.dragging = false
+        break
+      }
+      default: {
+        throw new Error(`Unknown type: ${event.type}`)
+      }
+    }
+  }
+
+  /**
+   * @todo Comment this.
+   */
+  public onEditNode (event: EventEditingNode) {
+    switch (event.type) {
+      case 'hover-start': {
+        if (this.editingNodeDetails.editing) {
+          return false
+        }
+
+        this.editingNodeDetails.showing = true
+        this.editingNodeDetails.id = event.payload
+        break
+      }
+      case 'hover-end': {
+        if (this.editingNodeDetails.editing) {
+          return false
+        }
+
+        this.editingNodeDetails.showing = false
+        break
+      }
+      case 'edit-start': {
+        this.editingEdgeDetails.editing = true
+        break
+      }
+      case 'edit-end': {
+        this.editingEdgeDetails.editing = false
+        break
+      }
+      case 'drag-end': {
         break
       }
       default: {
