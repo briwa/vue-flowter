@@ -316,10 +316,12 @@ export default class FlowterEdge extends Vue {
   public get relativePosition () {
     return {
       start: {
+        id: this.from.node.current.id,
         x: this.start.x - this.domPosition.x + this.paddingSize,
         y: this.start.y - this.domPosition.y + this.paddingSize
       },
       end: {
+        id: this.to.node.current.id,
         x: this.end.x - this.domPosition.x + this.paddingSize,
         y: this.end.y - this.domPosition.y + this.paddingSize
       }

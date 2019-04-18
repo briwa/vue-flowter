@@ -1,7 +1,9 @@
 <template>
   <div
     class="flowter-edge-parent"
-    :style="edgeStyle">
+    :style="edgeStyle"
+    @mouseenter="onMouseEnter"
+    @mouseleave="onMouseLeave">
     <div class="flowter-edge-child">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -22,19 +24,7 @@
           </marker>
         </defs>
         <path
-          class="editing-path"
-          fill="none"
-          :stroke-width="strokeWidth * 10"
-          :stroke="color"
-          :shape-rendering="shapeRendering"
-          :d="edgePoints"
-          :marker-start="markerStart"
-          :marker-end="markerEnd"
-          @click="onClick"
-          @mouseenter="onMouseEnter"
-          @mouseleave="onMouseLeave" />
-        <path
-          class="rendering-path"
+          class="clickable"
           fill="none"
           :stroke-width="strokeWidth"
           :stroke="color"
@@ -44,33 +34,35 @@
           :marker-end="markerEnd" />
       </svg>
       <span
+        class="clickable"
         v-if="text"
         :style="textStyle">
         {{ text }}
       </span>
-      <slot v-bind="relativePosition" />
+      <slot
+        class="clickable"
+        v-bind="relativePosition" />
     </div>
   </div>
 </template>
 <script lang="ts" src="./index.ts"></script>
 <style>
 .flowter-edge-parent {
-  pointer-events: none;
   position: absolute;
   z-index: 1;
+  pointer-events: none;
 }
 
-.flowter-edge-child {
+.flowter-edge-child .clickable {
   position: relative;
+  pointer-events: auto;
 }
 
 .flowter-edge-child span {
   position: absolute;
 }
 
-.flowter-edge-parent .editing-path {
-  opacity: 0;
-  pointer-events: initial;
+.flowter-edge-child path {
   cursor: pointer;
 }
 </style>

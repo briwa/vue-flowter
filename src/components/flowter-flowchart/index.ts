@@ -226,12 +226,6 @@ export default class FlowterFlowchart extends Vue {
    * This will set the custom width and height based
    * on the ratio. See [[widthRatio]] or [[heightRatio]]
    * for more details.
-   *
-   * Also, this will set the style to have a non-selectable
-   * styling when it is in editing mode.
-   * @todo Remove this styling and make it modular.
-   * @todo This no longer have the user-select styling when editing,
-   * figure out how to do this properly.
    */
   public get containerStyle (): Record<string, string> {
     const style: Record<string, string> = {}

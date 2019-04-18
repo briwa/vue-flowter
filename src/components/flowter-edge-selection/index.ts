@@ -3,7 +3,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 
 // Components
 import FlowterEdge from '@/components/flowter-edge'
-import { EditingEdgeDetails, Mode, EdgeType, EdgeMarker, Direction } from '@/shared/types'
+import { EditingEdgeDetails, Mode, EdgeType, EdgeMarker, GraphNodeDetails } from '@/shared/types'
 
 /**
  * @wip
@@ -24,38 +24,21 @@ import { EditingEdgeDetails, Mode, EdgeType, EdgeMarker, Direction } from '@/sha
 export default class FlowterEdgeSelection extends Vue {
   /**
    * Whether an edge is being edited or not.
-   *
-   * This would show the Exit button, since it is in editing mode.
    */
   @Prop({ type: Boolean, required: true })
-  public editing!: EditingEdgeDetails['editing']
-
-  /**
-   * Whether the guide to edit an edge is shown or not.
-   */
-  @Prop({ type: Boolean, required: true })
-  public showing!: EditingEdgeDetails['showing']
-
-  /**
-   * Whether an edited edge is being dragged or not.
-   *
-   * When dragging, it should not send out other events
-   * such as mouseover or click.
-   */
-  @Prop({ type: Boolean, required: true })
-  public dragging!: EditingEdgeDetails['dragging']
+  public editing!: boolean
 
   /**
    * Specifies the node id that the edited edge is connected from.
    */
-  @Prop({ type: Object, default: null })
-  public from!: EditingEdgeDetails['from']
+  @Prop({ type: Object, required: true })
+  public from!: GraphNodeDetails
 
   /**
    * Specifies the node id that the edited edge is connected to.
    */
-  @Prop({ type: Object, default: null })
-  public to!: EditingEdgeDetails['to']
+  @Prop({ type: Object, required: true })
+  public to!: GraphNodeDetails
 
   /**
    * The flowchart mode.
@@ -97,65 +80,4 @@ export default class FlowterEdgeSelection extends Vue {
    */
   @Prop({ type: String, default: '#000000' })
   public color!: string
-
-  /*
-   * -------------------------------
-   * Public methods
-   * -------------------------------
-   */
-
-  /**
-   * The style of the knob being dragged in/out.
-   */
-  public knobStyle (position: { x: number, y: number }) {
-    return {
-      left: `${position.x - 5}px`,
-      top: `${position.y - 5}px`
-    }
-  }
-
-  /**
-   * When dragging, this should emit event to the parent
-   * and attach the document events so that we know when the dragging ends.
-   */
-  public onMouseDown (dragType: string) {
-    if (!this.dragging) {
-      this.$emit('edit', { type: 'drag-start', payload: dragType })
-      this.attachMouseEvents()
-    }
-  }
-
-  /*
-   * -------------------------------
-   * Private methods
-   * -------------------------------
-   */
-
-  /**
-   * Attaching mouseup events to the document.
-   *
-   * This is because the interactions when dragging is
-   * beyond this component's scope, hence attaching to `document` instead.
-   */
-  private attachMouseEvents () {
-    document.addEventListener('mouseup', this.onMouseUp)
-  }
-
-  /**
-   * Detaching mouseup events to the document.
-   */
-  private detachMouseEvents () {
-    document.addEventListener('mouseup', this.onMouseUp)
-  }
-
-  /**
-   * When it is no longer dragging, this should detach
-   * all document events and let the parent know that the dragging is done.
-   */
-  private onMouseUp () {
-    if (this.dragging) {
-      this.$emit('edit', { type: 'drag-end' })
-      this.detachMouseEvents()
-    }
-  }
 }

@@ -2,7 +2,7 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Types
-import { RenderedGraphNode, Mode, Bounds, SelectionType } from '@/shared/types'
+import { Mode, SelectionType, GraphNodeDetails } from '@/shared/types'
 import { DEFAULT_BOUNDS } from '@/shared/constants'
 
 /**
@@ -37,15 +37,13 @@ export default class FlowterNodeSelection extends Vue {
    * so that it doesn't have to render/compute anything.
    */
   @Prop({ type: Object, required: true })
-  public node!: RenderedGraphNode
+  public nodeDetails!: GraphNodeDetails
 
   /**
-   * The bounds allowed to edit node.
-   *
-   * When no node is being edited, it is set to [[DEFAULT_BOUNDS]].
+   * Whether the node is being edited or not.
    */
-  @Prop({ type: Object, required: true })
-  public bounds!: Bounds
+  @Prop({ type: Boolean, required: true })
+  public editing!: boolean
 
   /*
    * -------------------------------
@@ -119,6 +117,100 @@ export default class FlowterNodeSelection extends Vue {
     }
   }
 
+  /**
+   * @todo: Annotate this
+   */
+  public get node () {
+    return this.nodeDetails.node.current
+  }
+
+  /**
+   * @todo: Annotate this
+   */
+  public get bounds () {
+    const bounds = DEFAULT_BOUNDS()
+
+    if (!this.editing) {
+      return bounds
+    }
+
+    const {
+      row,
+      node
+    } = this.nodeDetails
+
+    const prevRow = row.prev
+    const nextRow = row.next
+    const prevNode = node.prev
+    const nextNode = node.next
+
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        if (prevNode) {
+          bounds.x.min = prevNode.x + prevNode.width
+        }
+
+        if (nextNode) {
+          bounds.x.max = nextNode.x
+        }
+
+        if (prevRow) {
+          const prevYMax = prevRow.nodes.reduce((yMax, n) => {
+            return Math.max(n.y + n.height, yMax)
+          }, 0)
+
+          bounds.y.min = prevYMax
+        } else {
+          bounds.y.min = 0
+        }
+
+        if (nextRow) {
+          const nexYMin = nextRow.nodes.reduce((yMin, n) => {
+            return Math.max(n.y, yMin)
+          }, 0)
+
+          bounds.y.max = nexYMin
+        }
+
+        break
+      }
+      case Mode.HORIZONTAL: {
+        if (prevNode) {
+          bounds.y.min = prevNode.y + prevNode.height
+        }
+
+        if (nextNode) {
+          bounds.y.max = nextNode.y
+        }
+
+        if (prevRow) {
+          const prevXMax = prevRow.nodes.reduce((xMax, n) => {
+            return Math.max(n.x + n.width, xMax)
+          }, 0)
+
+          bounds.x.min = prevXMax
+        } else {
+          bounds.x.min = 0
+        }
+
+        if (nextRow) {
+          const prevXMin = nextRow.nodes.reduce((xMin, n) => {
+            return Math.max(n.x, xMin)
+          }, 0)
+
+          bounds.x.max = prevXMin
+        }
+
+        break
+      }
+      default: {
+        throw new Error(`Unknown mode: ${this.mode}`)
+      }
+    }
+
+    return bounds
+  }
+
   /*
    * -------------------------------
    * Private accessor/computed
@@ -126,8 +218,8 @@ export default class FlowterNodeSelection extends Vue {
    */
 
   /**
-   * Depending on the selection, a factor is
-   * used to determine the direction of the selection.
+   * Depending on the selection, a factor is used
+   * to determine the direction of the selection.
    */
   private get deltaDirection () {
     switch (this.selectionType) {
@@ -152,10 +244,10 @@ export default class FlowterNodeSelection extends Vue {
    * to its parent, let them handle it.
    * @event
    *
-   * @fires exit-editing
+   * @fires exit
    */
   public onClickExit () {
-    this.$emit('exit-editing')
+    this.$emit('exit')
   }
 
   /**
@@ -264,17 +356,21 @@ export default class FlowterNodeSelection extends Vue {
       case SelectionType.RESIZE_S:
       case SelectionType.RESIZE_E:
       case SelectionType.RESIZE_W: {
-        const payload: { id: string, width?: number, height?: number } = {
-          id: this.node.id
-        }
-
         if (this.scaleX !== 1) {
-          payload.width = Math.abs(this.node.width * this.scaleX)
-        } else if (this.scaleY !== 1) {
-          payload.height = Math.abs(this.node.height * this.scaleY)
+          this.$emit('update', {
+            id: this.node.id,
+            type: 'width',
+            value: Math.abs(this.node.width * this.scaleX)
+          })
         }
 
-        this.$emit('resize', payload)
+        if (this.scaleY !== 1) {
+          this.$emit('update', {
+            id: this.node.id,
+            type: 'height',
+            value: Math.abs(this.node.height * this.scaleY)
+          })
+        }
 
         // Reset both scales to the default value
         this.scaleX = 1
@@ -282,19 +378,21 @@ export default class FlowterNodeSelection extends Vue {
         break
       }
       case SelectionType.MOVE: {
-        const payload: { id: string, x?: number, y?: number } = {
-          id: this.node.id
-        }
-
         if (this.translateX !== 0) {
-          payload.x = this.node.x + this.translateX
+          this.$emit('update', {
+            id: this.node.id,
+            type: 'x',
+            value: this.node.x + this.translateX
+          })
         }
 
         if (this.translateY !== 0) {
-          payload.y = this.node.y + this.translateY
+          this.$emit('update', {
+            id: this.node.id,
+            type: 'y',
+            value: this.node.y + this.translateY
+          })
         }
-
-        this.$emit('move', payload)
 
         // Reset both translations to the default value
         this.translateX = 0

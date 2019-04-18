@@ -1,5 +1,6 @@
 <template>
   <div
+    v-show="editing"
     class="flowter-node-edit"
     :style="containerStyle">
     <div
