@@ -95,7 +95,7 @@ export default class FlowterNode extends Vue {
   /**
    * Node's font size.
    *
-   * This follows [[Flowter.fontSize]].
+   * This follows [[FlowterFlowchart.fontSize]].
    */
   @Prop({ type: Number, required: true })
   public fontSize!: number

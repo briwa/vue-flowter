@@ -8,17 +8,17 @@ import { Bounds } from './types'
  */
 
 /**
- * Default width margin if [[Flowter.widthMargin]] is not specified.
+ * Default width margin if [[FlowterFlowchart.widthMargin]] is not specified.
  */
 export const DEFAULT_WIDTH_MARGIN = 25
 
 /**
- * Default height margin if [[Flowter.heightMargin]] is not specified.
+ * Default height margin if [[FlowterFlowchart.heightMargin]] is not specified.
  */
 export const DEFAULT_HEIGHT_MARGIN = 25
 
 /**
- * Default font size if [[Flowter.fontSize]] is not specified.
+ * Default font size if [[FlowterFlowchart.fontSize]] is not specified.
  */
 export const DEFAULT_FONT_SIZE = 14
 
@@ -30,22 +30,22 @@ export const DEFAULT_FONT_SIZE = 14
  */
 
 /**
- * Default node width if [[Flowter.nodeWidth]] is not specified.
+ * Default node width if [[FlowterFlowchart.nodeWidth]] is not specified.
  */
 export const DEFAULT_NODE_WIDTH = 150
 
 /**
- * Default node height if [[Flowter.nodeHeight]] is not specified.
+ * Default node height if [[FlowterFlowchart.nodeHeight]] is not specified.
  */
 export const DEFAULT_NODE_HEIGHT = 70
 
 /**
- * Default node row spacing if [[Flowter.nodeRowSpacing]] is not specified.
+ * Default node row spacing if [[FlowterFlowchart.nodeRowSpacing]] is not specified.
  */
 export const DEFAULT_NODE_ROW_SPACING = 70
 
 /**
- * Default node column spacing if [[Flowter.nodeColSpacing]] is not specified.
+ * Default node column spacing if [[FlowterFlowchart.nodeColSpacing]] is not specified.
  */
 export const DEFAULT_NODE_COL_SPACING = 50
 
@@ -117,7 +117,7 @@ export const DEFAULT_STROKE_WIDTH = 2
 export const DEFAULT_STROKE_COLOR = '#000000'
 
 /**
- * Default values for [[Flowter.allBounds]].
+ * Default values for [[FlowterFlowchart.allBounds]].
  */
 export const DEFAULT_BOUNDS = (): Bounds => ({
   x: {

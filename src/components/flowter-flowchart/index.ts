@@ -29,7 +29,7 @@ import {
 } from '@/shared/types'
 
 /**
- * The main Flowter Vue class component.
+ * The Flowter flowchart Vue class component.
  *
  * This class includes Node and Edge component
  * together with its selection component as its children.

@@ -9,7 +9,7 @@ import { DEFAULT_BOUNDS } from '@/shared/constants'
  * The Flowter node selection's Vue class component.
  *
  * This component acts as a representation of the currently
- * edited node. It takes in the `node` as the [[Flowter.RenderedGraphNode]]
+ * edited node. It takes in the `node` as the [[FlowterFlowchart.RenderedGraphNode]]
  * and `bounds` to limit the movements of the edited node.
  * It should be used alongside with [[Flowter]].
  */

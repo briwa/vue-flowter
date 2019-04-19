@@ -35,7 +35,7 @@ export enum NodeSymbol {
 }
 
  /**
-  * The node shape, retrieved as props in [[Flowter.nodes]].
+  * The node shape, retrieved as props in [[FlowterFlowchart.nodes]].
   *
   * `Graph` prefix is used so that it won't be confused
   * with the global `Node` type.
@@ -197,7 +197,7 @@ export enum EdgeType {
 }
 
 /**
- * The edge shape, retrieved as props in [[Flowter.edges]].
+ * The edge shape, retrieved as props in [[FlowterFlowchart.edges]].
  *
  * `Graph` prefix is used to make it consistent
  * with [[GraphNode]].
