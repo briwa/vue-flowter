@@ -229,26 +229,23 @@ export default class FlowterFlowchart extends Vue {
    */
   public get containerStyle (): Record<string, string> {
     const style: Record<string, string> = {}
-    style.width = `${this.naturalWidth}px`
-    style.height = `${this.naturalHeight}px`
+    style.width = `${this.renderedWidth}px`
+    style.height = `${this.renderedHeight}px`
+    style.padding = `${this.renderedHeightMargin}px ${this.renderedWidthMargin}px`
 
     // Scale the flowchart if width is specified
     if (this.width) {
-      style.width = `${this.width}px`
-
-      // The width should never be lower than the natural height
-      style.height = `${Math.max(this.height, this.naturalHeight * this.widthRatio)}px`
-
+      const customRenderedWidth = this.width - (this.renderedWidthMargin * 2)
+      style.width = `${customRenderedWidth}px`
+      style.height = `${this.renderedHeight * this.scaleRatio}px`
       return style
     }
 
-    // Same thing for height in horizontal mode
+    // Same thing for height
     if (this.height) {
-      style.height = `${this.height}px`
-
-      // The height should never be lower than the natural width
-      style.width = `${Math.max(this.width, this.naturalWidth * this.heightRatio)}px`
-
+      const customRenderedHeight = this.height - (this.renderedHeightMargin * 2)
+      style.height = `${customRenderedHeight}px`
+      style.width = `${this.renderedWidth * this.scaleRatio}px`
       return style
     }
 
@@ -269,38 +266,9 @@ export default class FlowterFlowchart extends Vue {
    * still inside the flowchart.
    */
   public get scaleStyle (): Record<string, string> {
-    // To keep the flowchart at the center,
-    // translate them accordingly
-    const translateX = -this.allBounds.x.min * this.widthRatio
-    const translateY = -this.allBounds.y.min * this.heightRatio
-    let scaleRatio = 1
-    let widthDiff = 0
-    let heightDiff = 0
-
     const style: Record<string, string> = {}
     style.transformOrigin = '0% 0%'
-
-    if (this.width) {
-      scaleRatio = this.widthRatio
-
-      // Make sure that the flowchart is still at the middle of the container
-      const scaledHeight = this.naturalHeight * this.widthRatio
-      if (this.height > scaledHeight) {
-        heightDiff = (this.height - scaledHeight) / 2
-      }
-    } else if (this.height) {
-      scaleRatio = this.heightRatio
-
-      // Make sure that the flowchart is still at the middle of the container
-      const scaledWidth = this.naturalWidth * this.heightRatio
-      if (this.width > scaledWidth) {
-        widthDiff = (this.width - scaledWidth) / 2
-      }
-    }
-
-    style.transform = `scale(${scaleRatio})`
-      + ` translateX(${translateX + widthDiff}px)`
-      + ` translateY(${translateY + heightDiff}px)`
+    style.transform = `scale(${this.scaleRatio})`
 
     return style
   }
@@ -369,6 +337,62 @@ export default class FlowterFlowchart extends Vue {
    */
   private get naturalHeight () {
     return this.allBounds.y.max - this.allBounds.y.min
+  }
+
+  /**
+   * Flowchart's overall scaling ratio.
+   *
+   * The value depends on whether custom width/height is specified,
+   * although it would prioritize width, to simplify the calculation.
+   */
+  private get scaleRatio () {
+    if (this.width) {
+      return this.widthRatio
+    }
+
+    if (this.height) {
+      return this.heightRatio
+    }
+
+    return 1
+  }
+
+  /**
+   * Flowchart's rendered width, taking [[widthMargin]] into account.
+   */
+  private get renderedWidth () {
+    return this.naturalWidth - (this.widthMargin * 2)
+  }
+
+  /**
+   * Flowchart's rendered height, taking [[heightMargin]] into account.
+   */
+  private get renderedHeight () {
+    return this.naturalHeight - (this.heightMargin * 2)
+  }
+
+  /**
+   * Flowchart's width margin, taking [[widthRatio]] into account.
+   */
+  private get renderedWidthMargin () {
+    return this.widthMargin * this.scaleRatio
+  }
+
+  /**
+   * Flowchart's height margin, taking [[heightRatio]] into account.
+   *
+   * The flowchart is always scaled by width. This means,
+   * it has to be always get centered to its custom height when both value
+   * are specified. Increment the margin when that happens.
+   */
+  private get renderedHeightMargin () {
+    const marginWithRatio = this.heightMargin * this.scaleRatio
+    if (this.width && this.height) {
+      const heightDiff = (this.height - (this.naturalHeight * this.scaleRatio)) / 2
+      return Math.max(0, heightDiff) + marginWithRatio
+    }
+
+    return marginWithRatio
   }
 
   /**
