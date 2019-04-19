@@ -1,5 +1,4 @@
-/**
- * @hidden
+/*
  * -------------------------------
  * Flowchart types
  * -------------------------------
@@ -16,8 +15,7 @@ export enum Mode {
   HORIZONTAL = 'horizontal'
 }
 
-/**
- * @hidden
+/*
  * -------------------------------
  * Node types
  * -------------------------------
@@ -172,7 +170,18 @@ export interface EventEditingNode {
 }
 
 /**
- * @hidden
+ * The selection types when editing a node.
+ */
+export enum SelectionType {
+  RESIZE_N = 'resize-n',
+  RESIZE_S = 'resize-s',
+  RESIZE_W = 'resize-w',
+  RESIZE_E = 'resize-e',
+  MOVE = 'move',
+  DEFAULT = 'default'
+}
+
+/*
  * -------------------------------
  * Edge types
  * -------------------------------
@@ -258,12 +267,20 @@ export interface EventEditingEdgePayload {
   'drag-type': 'from' | 'to'
 }
 
-/**
- * @hidden
+/*
  * -------------------------------
  * Shared types
  * -------------------------------
  */
+
+/**
+ * The types of edit mode.
+ */
+export enum Editing {
+  NONE = 'none',
+  NODE = 'node',
+  EDGE = 'edge'
+}
 
 /**
  * Cardinal directions.
@@ -278,16 +295,4 @@ export type Direction = 'n' | 's' | 'e' | 'w'
 export interface Bounds {
   x: { min: number, max: number }
   y: { min: number, max: number }
-}
-
-/**
- * The selection types when editing a node.
- */
-export enum SelectionType {
-  RESIZE_N = 'resize-n',
-  RESIZE_S = 'resize-s',
-  RESIZE_W = 'resize-w',
-  RESIZE_E = 'resize-e',
-  MOVE = 'move',
-  DEFAULT = 'default'
 }

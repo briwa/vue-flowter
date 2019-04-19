@@ -41,68 +41,48 @@ export default class FlowterEdge extends Vue {
 
   /**
    * The node where the edge is connecting from.
-   *
-   * It can be any node from the [[FlowterFlowchart.renderedNodes]].
-   * This should be derived from [[FlowterFlowchart.edges]] members' `from` value.
    */
   @Prop({ type: Object, required: true })
   public from!: GraphNodeDetails
 
   /**
    * The node where the edge is connecting to.
-   *
-   * It can be any node from the [[FlowterFlowchart.renderedNodes]].
-   * This should be derived from [[FlowterFlowchart.edges]] members' `to` value.
    */
   @Prop({ type: Object, required: true })
   public to!: GraphNodeDetails
 
   /**
    * The flowchart mode.
-   *
-   * This follows [[FlowterFlowchart.mode]].
    */
   @Prop({ type: String, required: true })
   public mode!: Mode
 
   /**
    * The edge type.
-   *
-   * This follows [[FlowterFlowchart.edgeType]].
    */
   @Prop({ type: String, required: true })
   public edgeType!: EdgeType
 
   /**
    * The edge text's font size.
-   * This follows [[FlowterFlowchart.fontSize]].
    */
   @Prop({ type: Number, required: true })
   public fontSize!: number
 
   /**
    * The side of the marker that will be rendered (optional).
-   *
-   * This should be derived from [[FlowterFlowchart.edges]] members' `marker` value.
-   * By default, it is set to [[EdgeMarker.END]].
    */
   @Prop({ type: String, default: EdgeMarker.END })
   public marker!: EdgeMarker
 
   /**
    * The color of the edge (optional).
-   *
-   * This should be derived from [[FlowterFlowchart.edges]] members' `color` value.
-   * By default, it is set to black (`#000000`).
    */
   @Prop({ type: String, default: '#000000' })
   public color!: string
 
   /**
    * The text of the edge (optional).
-   *
-   * This should be derived from [[FlowterFlowchart.edges]] members' `text` value.
-   * By default, it is set to an empty string.
    */
   @Prop({ type: String, default: '' })
   public text!: string
@@ -788,7 +768,7 @@ export default class FlowterEdge extends Vue {
    *
    * @fires mouseenter
    */
-  public onMouseEnter (event: MouseEvent) {
+  public onMouseEnter () {
     this.$emit('mouseenter', {
       from: this.from.node.current.id,
       to: this.to.node.current.id

@@ -23,79 +23,54 @@ export default class FlowterNode extends Vue {
    *
    * This is mainly used as an identifier
    * when sending out events to the parent.
-   * This is derived from [[RenderedGraphNode.id]]'s key
-   * as part of [[FlowterNode.nodeLists]].
    */
   @Prop({ type: String, required: true })
   public id!: string
 
   /**
-   * X position of the node.
-   *
-   * This is derived from [[RenderedGraphNode.x]]
-   * as part of [[FlowterNode.nodeLists]].
+   * The x position of the node.
    */
   @Prop({ type: Number, required: true })
   public x!: number
 
   /**
-   * Y position of the node.
-   *
-   * This is derived from [[RenderedGraphNode.y]]
-   * as part of [[FlowterNode.nodeLists]].
+   * The y position of the node.
    */
   @Prop({ type: Number, required: true })
   public y!: number
 
   /**
-   * Width of the node.
-   *
-   * This is derived from [[RenderedGraphNode.width]]
-   * as part of [[FlowterNode.nodeLists]].
+   * The width of the node.
    */
   @Prop({ type: Number, required: true })
   public width!: number
 
   /**
-   * Height of the node.
-   *
-   * This is derived from [[RenderedGraphNode.height]]
-   * as part of [[FlowterNode.nodeLists]].
+   * The height of the node.
    */
   @Prop({ type: Number, required: true })
   public height!: number
 
   /**
    * Node symbol.
-   *
-   * This is derived from [[RenderedGraphNode.symbol]]
-   * as part of [[FlowterNode.nodeLists]].
    */
   @Prop({ type: String, required: true })
   public symbol!: NodeSymbol
 
   /**
    * Node background color.
-   *
-   * This is derived from [[RenderedGraphNode.bgcolor]]
-   * as part of [[FlowterNode.nodeLists]].
    */
   @Prop({ type: String, required: true })
   public bgcolor!: string
 
   /**
    * Node's text.
-   *
-   * This is derived from [[RenderedGraphNode.text]]
-   * as part of [[FlowterNode.nodeLists]].
    */
   @Prop({ type: String, required: true })
   public text!: string
 
   /**
    * Node's font size.
-   *
-   * This follows [[FlowterFlowchart.fontSize]].
    */
   @Prop({ type: Number, required: true })
   public fontSize!: number

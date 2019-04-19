@@ -3,7 +3,10 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 
 // Components
 import FlowterEdge from '@/components/flowter-edge'
-import { EditingEdgeDetails, Mode, EdgeType, EdgeMarker, GraphNodeDetails } from '@/shared/types'
+import FlowterKnob from '@/components/flowter-knob'
+
+// Types
+import { Mode, EdgeType, EdgeMarker, GraphNodeDetails } from '@/shared/types'
 
 /**
  * @wip
@@ -18,7 +21,8 @@ import { EditingEdgeDetails, Mode, EdgeType, EdgeMarker, GraphNodeDetails } from
  */
 @Component({
   components: {
-    FlowterEdge
+    FlowterEdge,
+    FlowterKnob
   }
 })
 export default class FlowterEdgeSelection extends Vue {

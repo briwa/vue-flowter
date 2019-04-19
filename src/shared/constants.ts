@@ -1,7 +1,6 @@
 import { Bounds } from './types'
 
-/**
- * @hidden
+/*
  * -------------------------------
  * Flowchart constants
  * -------------------------------
@@ -22,8 +21,7 @@ export const DEFAULT_HEIGHT_MARGIN = 25
  */
 export const DEFAULT_FONT_SIZE = 14
 
-/**
- * @hidden
+/*
  * -------------------------------
  * Node constants
  * -------------------------------
@@ -66,8 +64,7 @@ export const NODE_SMALLER_RATIO = .1
  */
 export const NODE_RHOMBUS_RATIO = 1.25
 
-/**
- * @hidden
+/*
  * -------------------------------
  * Edge constants
  * -------------------------------
@@ -99,12 +96,16 @@ export const EDGE_SR_SIZE_RATIO = 1.2
  */
 export const EDGE_SR_ARC_SIZE_RATIO = 2.1
 
-/**
- * @hidden
+/*
  * -------------------------------
  * Shared constants
  * -------------------------------
  */
+
+/**
+ * Default knob size.
+ */
+export const DEFAULT_KNOB_SIZE = 20
 
 /**
  * Default stroke width for both nodes and edges.

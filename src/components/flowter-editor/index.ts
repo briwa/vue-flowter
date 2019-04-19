@@ -5,6 +5,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import FlowterFlowchart from '@/components/flowter-flowchart/index.vue'
 import FlowterNodeSelection from '@/components/flowter-node-selection/index.vue'
 import FlowterEdgeSelection from '@/components/flowter-edge-selection/index.vue'
+import FlowterKnob from '@/components/flowter-knob/index.vue'
 
 // Fixtrues
 // It won't be used for production...
@@ -14,7 +15,7 @@ import allGraph from '../../../__fixtures__/all.json'
 import {
   GraphNode, GraphEdge,
   EditingEdgeDetails, EventEditingEdge,
-  Mode, EventEditingNode, EdgeType
+  Mode, EventEditingNode, EdgeType, Editing
 } from '@/shared/types'
 
 /**
@@ -24,7 +25,8 @@ import {
   components: {
     FlowterFlowchart,
     FlowterNodeSelection,
-    FlowterEdgeSelection
+    FlowterEdgeSelection,
+    FlowterKnob
   }
 })
 export default class FlowterEditor extends Vue {
@@ -40,6 +42,11 @@ export default class FlowterEditor extends Vue {
   /**
    * @todo Comment this
    */
+  public mouseOverNodeId: string | null = null
+
+  /**
+   * @todo Comment this
+   */
   public editingEdge: EditingEdgeDetails = {
     draggingType: 'from',
     from: this.defaultElems.edgeFrom,
@@ -49,7 +56,7 @@ export default class FlowterEditor extends Vue {
   /**
    * @todo Comment this
    */
-  public editing: string | null = null
+  public editing: Editing = Editing.NONE
 
   /**
    * @todo Comment this
@@ -79,18 +86,20 @@ export default class FlowterEditor extends Vue {
    * @todo Annotate
    */
   public get editingEdgeFromId () {
-    return this.editing === 'edge'
+    return this.isEditingEdge
       && this.editingEdge.draggingType === 'from'
-      ? this.editingNodeId : this.editingEdge.from
+      && this.mouseOverNodeId
+      ? this.mouseOverNodeId : this.editingEdge.from
   }
 
   /**
    * @todo Annotate
    */
   public get editingEdgeToId () {
-    return this.editing === 'edge'
+    return this.isEditingEdge
       && this.editingEdge.draggingType === 'to'
-      ? this.editingNodeId : this.editingEdge.to
+      && this.mouseOverNodeId
+      ? this.mouseOverNodeId : this.editingEdge.to
   }
 
   /**
@@ -98,8 +107,29 @@ export default class FlowterEditor extends Vue {
    */
   public get flowchartStyle () {
     return {
-      userSelect: this.editing ? 'none' : 'auto'
+      userSelect: this.isNotEditing ? 'auto' : 'none'
     }
+  }
+
+  /**
+   * @todo Annotate
+   */
+  public get isEditingNode () {
+    return this.editing === Editing.NODE
+  }
+
+  /**
+   * @todo Annotate
+   */
+  public get isEditingEdge () {
+    return this.editing === Editing.EDGE
+  }
+
+  /**
+   * @todo Annotate
+   */
+  public get isNotEditing () {
+    return this.editing === Editing.NONE
   }
 
   /**
@@ -111,7 +141,7 @@ export default class FlowterEditor extends Vue {
 
   /*
    * -------------------------------
-   * Public methods - events
+   * Public methods
    * -------------------------------
    */
 
@@ -125,20 +155,20 @@ export default class FlowterEditor extends Vue {
           break
         }
 
-        this.editingNodeId = event.payload
+        this.mouseOverNodeId = event.payload
         break
       }
       case 'hover-end': {
-        // Do nothing, for now...
+        this.mouseOverNodeId = null
         break
       }
       case 'edit-start': {
         this.editingNodeId = event.payload
-        this.editing = 'node'
+        this.editing = Editing.NODE
         break
       }
       case 'edit-end': {
-        this.editing = null
+        this.editing = Editing.NONE
         break
       }
       case 'update': {
@@ -163,7 +193,7 @@ export default class FlowterEditor extends Vue {
   public onEditEdge (event: EventEditingEdge) {
     switch (event.type) {
       case 'drag-start': {
-        if (!this.editing) {
+        if (this.editing === Editing.NONE) {
           const payload = event.payload as EventEditingEdge<'from-to'>['payload']
           this.editingEdge.from = payload.from
           this.editingEdge.to = payload.to
@@ -184,7 +214,7 @@ export default class FlowterEditor extends Vue {
             }
           }
 
-          this.editing = 'edge'
+          this.editing = Editing.EDGE
 
           // Attach global mouse events to detect dragging
           this.attachMouseEvents()
@@ -202,7 +232,7 @@ export default class FlowterEditor extends Vue {
           // tslint:disable-next-line
           console.warn('There is already an edge for that')
 
-          this.editing = null
+          this.editing = Editing.NONE
           break
         }
 
@@ -216,7 +246,7 @@ export default class FlowterEditor extends Vue {
         this.$set(edge, 'from', newFromId)
         this.$set(edge, 'to', newToId)
 
-        this.editing = null
+        this.editing = Editing.NONE
         break
       }
       default: {
@@ -225,14 +255,18 @@ export default class FlowterEditor extends Vue {
     }
   }
 
-
   /**
    * The style of the edge knob being dragged in/out.
    */
-  public knobStyle (position: { x: number, y: number }) {
-    return {
-      left: `${position.x - 5}px`,
-      top: `${position.y - 5}px`
+  public showKnob (id: string) {
+    switch (this.editing) {
+      case Editing.NONE: {
+        return this.mouseOverNodeId === id
+      }
+      default: {
+        // Do not show when editing node
+        return false
+      }
     }
   }
 
@@ -244,13 +278,6 @@ export default class FlowterEditor extends Vue {
       return edge.from === from && edge.to === to
     })
   }
-
-
-  /*
-   * -------------------------------
-   * Public methods
-   * -------------------------------
-   */
 
   /**
    * Attaching mouseup events to the document.
@@ -275,10 +302,10 @@ export default class FlowterEditor extends Vue {
    */
   private onMouseUp () {
     switch (this.editing) {
-      case 'node': {
+      case Editing.NODE: {
         break
       }
-      case 'edge': {
+      case Editing.EDGE: {
         // @todo: type this
         const event = { type: 'drag-end', payload: null } as any
         this.onEditEdge(event)

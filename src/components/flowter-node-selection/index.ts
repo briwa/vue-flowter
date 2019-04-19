@@ -130,10 +130,6 @@ export default class FlowterNodeSelection extends Vue {
   public get bounds () {
     const bounds = DEFAULT_BOUNDS()
 
-    if (!this.editing) {
-      return bounds
-    }
-
     const {
       row,
       node
