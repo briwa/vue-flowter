@@ -139,15 +139,20 @@ export default class FlowterNodeSelection extends Vue {
     const nextRow = row.next
     const prevNode = node.prev
     const nextNode = node.next
+    const currentNode = node.current
 
     switch (this.mode) {
       case Mode.VERTICAL: {
         if (prevNode) {
           bounds.x.min = prevNode.x + prevNode.width
+        } else {
+          bounds.x.min = currentNode.x
         }
 
         if (nextNode) {
           bounds.x.max = nextNode.x
+        } else {
+          bounds.x.max = currentNode.x + currentNode.width
         }
 
         if (prevRow) {
@@ -166,6 +171,8 @@ export default class FlowterNodeSelection extends Vue {
           }, 0)
 
           bounds.y.max = nexYMin
+        } else {
+          bounds.y.max = currentNode.y + currentNode.height
         }
 
         break
@@ -173,10 +180,14 @@ export default class FlowterNodeSelection extends Vue {
       case Mode.HORIZONTAL: {
         if (prevNode) {
           bounds.y.min = prevNode.y + prevNode.height
+        } else {
+          bounds.y.min = currentNode.y
         }
 
         if (nextNode) {
           bounds.y.max = nextNode.y
+        } else {
+          bounds.y.max = currentNode.y + currentNode.height
         }
 
         if (prevRow) {
@@ -195,6 +206,8 @@ export default class FlowterNodeSelection extends Vue {
           }, 0)
 
           bounds.x.max = prevXMin
+        } else {
+          bounds.x.max = currentNode.x + currentNode.width
         }
 
         break
@@ -312,16 +325,16 @@ export default class FlowterNodeSelection extends Vue {
         // Also, allow translating when
         // the boundaries itself is 0 (i.e. at the edge or unset)
         const deltaX = e.pageX - this.mouseDownX
-        const isWithinXMin = !this.bounds.x.min || this.node.x + deltaX >= this.bounds.x.min
-        const isWithinXMax = !this.bounds.x.max || this.node.x + this.node.width + deltaX <= this.bounds.x.max
+        const isWithinXMin = this.node.x + deltaX >= this.bounds.x.min
+        const isWithinXMax = this.node.x + this.node.width + deltaX <= this.bounds.x.max
 
         if (isWithinXMin && isWithinXMax) {
           this.translateX = deltaX
         }
 
         const deltaY = e.pageY - this.mouseDownY
-        const isWithinYMin = !this.bounds.y.min || this.node.y + deltaY >= this.bounds.y.min
-        const isWithinYMax = !this.bounds.y.max || this.node.y + this.node.height + deltaY <= this.bounds.y.max
+        const isWithinYMin = this.node.y + deltaY >= this.bounds.y.min
+        const isWithinYMax = this.node.y + this.node.height + deltaY <= this.bounds.y.max
 
         if (isWithinYMin && isWithinYMax) {
           this.translateY = deltaY
