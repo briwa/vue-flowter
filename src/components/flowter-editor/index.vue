@@ -26,14 +26,6 @@
         :node-details="renderedNodes[editingNodeId]"
         @update="onEditNode({ type: 'update', payload: $event })"
         @exit="onEditNode({ type: 'edit-end', payload: $event })" />
-      <flowter-edge-selection
-        :mode="mode"
-        :editing="isEditingEdge"
-        :edge-type="edgeType"
-        :font-size="fontSize"
-        :to="renderedNodes[editingEdgeToId]"
-        :from="renderedNodes[editingEdgeFromId]"
-        @drag-end="onEditEdge({ type: 'drag-end' })" />
     </template>
   </flowter-flowchart>
 </template>

@@ -5,32 +5,20 @@
     <div
       class="flowter-scale"
       :style="scaleStyle">
-      <template v-for="{ node } in renderedNodes">
+      <template v-for="nodeDetails in renderedNodes">
         <flowter-node
-          v-bind="node.current"
-          :key="`node-${node.current.id}`"
+          v-bind="nodeDetails.node.current"
+          :key="`node-${nodeDetails.node.current.id}`"
           :font-size="fontSize"
           @click="$emit('node-click', $event)"
           @mouseenter="$emit('node-mouseenter', $event)"
           @mouseleave="$emit('node-mouseleave', $event)" />
-      </template>
-      <template v-for="edge in edges">
         <flowter-edge
+          v-for="edge in nodeDetails.to.edge"
           :key="`edge-${edge.from}-${edge.to}`"
-          :id="`edge-${edge.from}-${edge.to}`"
-          :from="renderedNodes[edge.from]"
-          :to="renderedNodes[edge.to]"
-          :mode="mode"
-          :font-size="fontSize"
-          :edge-type="edgeType"
-          @click="$emit('edge-click', $event)"
+          v-bind="getRenderedEdge(renderedNodes[edge.from], renderedNodes[edge.to])"
           @mouseenter="$emit('edge-mouseenter', $event)"
           @mouseleave="$emit('edge-mouseleave', $event)">
-          <template #default="relativePosition">
-            <slot
-              name="edge-elements"
-              v-bind="relativePosition" />
-          </template>
         </flowter-edge>
       </template>
       <slot

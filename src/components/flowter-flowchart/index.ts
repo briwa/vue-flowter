@@ -18,14 +18,15 @@ import {
   DEFAULT_FONT_SIZE,
   DEFAULT_BOUNDS,
   DEFAULT_NODE_BGCOLOR,
-  NODE_RHOMBUS_RATIO
+  NODE_RHOMBUS_RATIO,
+  EDGE_SR_SIZE_RATIO
 } from '@/shared/constants'
 
 // Types
 import {
   EdgeType, Mode,
   GraphNode, RenderedGraphNode, GraphEdge,
-  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol
+  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol, Direction, RenderedEdge, EdgeSourcePosition
 } from '@/shared/types'
 
 /**
@@ -517,8 +518,8 @@ export default class FlowterFlowchart extends Vue {
 
       if (!dict[edge.from]) {
         dict[edge.from] = {
-          from: {},
-          to: {},
+          from: { edge: {}, node: {} },
+          to: { edge: {}, node: {} },
           index: 0
         }
       }
@@ -531,17 +532,20 @@ export default class FlowterFlowchart extends Vue {
       // has only one index higher than the from-node
       if (!dict[edge.to]) {
         dict[edge.to] = {
-          from: {},
-          to: {},
+          from: { edge: {}, node: {} },
+          to: { edge: {}, node: {} },
           index: newToIndex
         }
       }
 
       const toNode = dict[edge.to]
 
-      // Establish the reference between two nodes
-      fromNode.to[edge.to] = toNode
-      toNode.from[edge.from] = fromNode
+      // Establish the reference between two nodes,
+      // both the nodes and the edges
+      fromNode.to.node[edge.to] = toNode
+      fromNode.to.edge[edge.to] = edge
+      toNode.from.node[edge.from] = fromNode
+      toNode.from.edge[edge.from] = edge
 
       // Do not assign the new index to the to-node
       // if it's just a connection within the row
@@ -605,6 +609,203 @@ export default class FlowterFlowchart extends Vue {
       height,
       symbol,
       bgcolor
+    }
+  }
+
+  /**
+   * Shapes the edge given from and to node to be rendered by [[FlowterEdge]].
+   *
+   * @todo: Type this any
+   */
+  private getRenderedEdge (fromNodeDetails: GraphNodeDetails, toNodeDetails: GraphNodeDetails): RenderedEdge {
+    const { node: fromNode, row: fromRow } = fromNodeDetails
+    const fromDirections = this.getNodeDirections(fromNode.current)
+
+    const { node: toNode, row: toRow } = toNodeDetails
+    const toDirections = this.getNodeDirections(toNode.current)
+
+    let fromDirection = 'n' as Direction
+    let toDirection = 'n' as Direction
+
+    const fromPosition = { x: 0, y: 0 }
+    const toPosition = { x: 0, y: 0 }
+
+    const direction = this.getEdgeDirection(fromNodeDetails, toNodeDetails)
+    const side = this.getEdgeSide(fromNodeDetails, toNodeDetails)
+    const isCircular = fromNode.current.id === toNode.current.id
+
+    if (toRow.idx > fromRow.idx) {
+      // When the edges go forward,
+      // it is always going from top to bottom (vertically)
+      // or left to right (horizontally).
+      switch (direction) {
+        case 'n':
+        case 's': {
+          fromDirection = 's'
+          toDirection = 'n'
+          break
+        }
+        case 'e':
+        case 'w': {
+          fromDirection = 'e'
+          toDirection = 'w'
+          break
+        }
+        default: {
+          throw new Error(`Unknown edge direction: ${direction}`)
+        }
+      }
+    } else if (toRow.idx < fromRow.idx) {
+      switch (direction) {
+        case 'n':
+        case 's': {
+          fromDirection = side
+          toDirection = side
+          break
+        }
+        case 'e':
+        case 'w': {
+          fromDirection = side
+          toDirection = side
+          break
+        }
+        default: {
+          throw new Error(`Unknown edge direction: ${direction}`)
+        }
+      }
+    } else if (toNode.idx !== fromNode.idx) {
+      fromDirection = direction
+
+      switch (direction) {
+        case 'n': {
+          toDirection = 's'
+          break
+        }
+        case 's': {
+          toDirection = 'n'
+          break
+        }
+        case 'e': {
+          toDirection = 'w'
+          break
+        }
+        case 'w': {
+          toDirection = 'e'
+          break
+        }
+        default: {
+          throw new Error(`Unknown edge direction: ${direction}`)
+        }
+      }
+    } else {
+      switch (direction) {
+        case 'w':
+        case 'e': {
+          fromDirection = 'n'
+          toDirection = 's'
+          break
+        }
+        case 'n':
+        case 's': {
+          fromDirection = 'w'
+          toDirection = 'e'
+          break
+        }
+        default: {
+          throw new Error(`Unknown edge direction: ${direction}`)
+        }
+      }
+    }
+
+    fromPosition.x = fromDirections[fromDirection].x + fromNode.current.x
+    fromPosition.y = fromDirections[fromDirection].y + fromNode.current.y
+    toPosition.x = toDirections[toDirection].x + toNode.current.x
+    toPosition.y = toDirections[toDirection].y + toNode.current.y
+
+    const edge = fromNodeDetails.to.edge[toNode.current.id]
+    const fontSize = typeof edge.fontSize === 'undefined' ? this.fontSize : edge.fontSize
+
+    return {
+      ...edge,
+      fontSize,
+      fromPosition,
+      toPosition,
+      direction,
+      side,
+      isCircular
+    }
+  }
+
+  /**
+   * The direction of where the edge is going relative to the flowchart.
+   *
+   * This is based on where the from-node and the to-node are in the flowchart.
+   * It is used to determine direction of the edge is rendered.
+   */
+  private getEdgeDirection (from: GraphNodeDetails, to: GraphNodeDetails): Direction {
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        if (to.row.idx === from.row.idx) {
+          return to.node.idx > from.node.idx
+            ? 'e' : 'w'
+        }
+
+        return to.row.idx > from.row.idx
+          ? 's' : 'n'
+      }
+      case Mode.HORIZONTAL: {
+        if (to.row.idx === from.row.idx) {
+          return to.node.idx > from.node.idx
+            ? 's' : 'n'
+        }
+
+        return to.row.idx > from.row.idx
+          ? 'e' : 'w'
+      }
+    }
+  }
+
+  /**
+   * The side in which the edge is located, relative to the flowchart.
+   */
+  private getEdgeSide (from: GraphNodeDetails, to: GraphNodeDetails) {
+    const {
+      node: fromNode,
+      row: fromRow
+    } = from
+
+    const {
+      node: toNode,
+      row: toRow
+    } = to
+
+    const startSide = fromNode.idx - Math.floor(fromRow.length / 2)
+    const endSide = toNode.idx - Math.floor(toRow.length / 2)
+    const isNodeAtTheRightSide = startSide + endSide >= 0
+
+    switch (this.mode) {
+      case Mode.VERTICAL: {
+        return isNodeAtTheRightSide ? 'e' : 'w'
+      }
+      case Mode.HORIZONTAL: {
+        return isNodeAtTheRightSide ? 's' : 'n'
+      }
+      default: {
+        throw new Error(`Unknown mode: ${this.mode}.`)
+      }
+    }
+  }
+
+  /**
+   * Get the node's relative direction as the
+   * start/end point of an edge.
+   */
+  private getNodeDirections (node: RenderedGraphNode): Record<Direction, { x: number, y: number }> {
+    return {
+      n: { x: node.width / 2, y: 0 },
+      w: { x: 0, y: node.height / 2 },
+      e: { x: node.width, y: node.height / 2 },
+      s: { x: node.width / 2, y: node.height }
     }
   }
 

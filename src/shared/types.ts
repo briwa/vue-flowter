@@ -103,12 +103,18 @@ export interface OrderedNode {
   /**
    * All the nodes that connects to this node.
    */
-  from: Record<string, OrderedNode>
+  from: {
+    node: Record<string, OrderedNode>
+    edge: Record<string, GraphEdge>
+  }
 
   /**
    * All the nodes that this node connects to.
    */
-  to: Record<string, OrderedNode>
+  to: {
+    node: Record<string, OrderedNode>
+    edge: Record<string, GraphEdge>
+  }
 
   /**
    * The index that represents this node in [[NodeRow]].
@@ -157,8 +163,8 @@ export interface GraphNodeDetails {
     current: RenderedGraphNode
     next: RenderedGraphNode | null
   }
-  from: Record<string, OrderedNode>
-  to: Record<string, OrderedNode>
+  from: OrderedNode['from']
+  to: OrderedNode['to']
 }
 
 /**
@@ -224,13 +230,33 @@ export interface GraphEdge {
 
   /**
    * The text that this edge might have.
+   * If not specified, the text won't be rendered
    */
   text?: string
 
   /**
    * The color of the edge.
+   * Defaults to [[DEFAULT_STROKE_COLOR]].
    */
   color?: string
+
+  /**
+   * The type of the edge.
+   * Defaults to [[EdgeType.BEND]].
+   */
+  type?: EdgeType
+
+  /**
+   * Whether the marker is at the end or the start.
+   * Defaults to [[EdgeMarker.END]].
+   */
+  marker?: EdgeMarker
+
+  /**
+   * The text's font size. If not specified, it will
+   * follow the flowchart's settings.
+   */
+  fontSize?: number
 }
 
 /**
@@ -240,6 +266,32 @@ export interface ShapedEdge {
   x: number
   y: number
   nodeDirection: Direction
+}
+
+/**
+ * The edge translated into the node position.
+ */
+export interface EdgeSourcePosition {
+  x: number
+  y: number
+  nodeDirection: Direction
+}
+
+/**
+ * The rendered edge properties.
+ */
+export interface RenderedEdge extends GraphEdge {
+  fromPosition: {
+    x: number
+    y: number
+  }
+  toPosition: {
+    x: number
+    y: number
+  }
+  direction: Direction
+  side: Direction
+  isCircular: boolean
 }
 
 /**
