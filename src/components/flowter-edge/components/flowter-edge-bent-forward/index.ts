@@ -18,30 +18,60 @@ export default class FlowterEdgeBentForward extends Mixins(FlowterEdgeSharedMixi
   /**
    * The edge's `path` points.
    */
-  public get edgePoints () {
+  public get points () {
     const { from, to } = this.relativePosition
+    const points = [{ x: from.x, y: from.y }]
 
     switch (this.direction) {
       case 's': {
         const halfLength = (to.y + this.paddingSize) * 0.5
+        points.push(
+          { x: from.x, y: halfLength },
+          { x: to.x, y: halfLength },
+          { x: to.x, y: to.y }
+        )
 
-        return `M ${from.x} ${from.y} `
-          + `V ${halfLength} `
-          + `H ${to.x} `
-          + `V ${to.y}`
+        return points
       }
       case 'e': {
         const halfLength = (to.x + this.paddingSize) * 0.5
+        points.push(
+          { x: halfLength, y: from.y },
+          { x: halfLength, y: to.y },
+          { x: to.x, y: to.y }
+        )
 
-        return `M ${from.x} ${from.y} `
-          + `H ${halfLength} `
-          + `V ${to.y} `
-          + `H ${to.x}`
+        return points
       }
       default: {
         throw new Error(`Invalid direction for bent-forward edge: ${this.direction}`)
       }
     }
+  }
+
+  /**
+   * The edge's `path` command.
+   */
+  public get pathCommand () {
+    return this.points.reduce((command, point, index) => {
+      const prevPoint = this.points[index - 1]
+      const separator = index < this.points.length - 1
+        ? ' ' : ''
+
+      if (!prevPoint) {
+        return command + `M ${point.x} ${point.y}${separator}`
+      }
+
+      if (prevPoint.x === point.x) {
+        return command + `V ${point.y}${separator}`
+      }
+
+      if (prevPoint.y === point.y) {
+        return command + `H ${point.x}${separator}`
+      }
+
+      throw new Error(`Invalid point: ${point}`)
+    }, '')
   }
 
   /**

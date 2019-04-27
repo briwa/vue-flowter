@@ -18,7 +18,19 @@ export default class FlowterEdgeStraight extends Mixins(FlowterEdgeSharedMixin) 
   /**
    * The edge's `path` points.
    */
-  public get edgePoints () {
+  public get points () {
+    const { from, to } = this.relativePosition
+
+    return [
+      { x: from.x, y: from.y },
+      { x: to.x, y: to.y }
+    ]
+  }
+
+  /**
+   * The edge's `path` command.
+   */
+  public get pathCommand () {
     const { from, to } = this.relativePosition
 
     return `M ${from.x} ${from.y} L ${to.x} ${to.y}`

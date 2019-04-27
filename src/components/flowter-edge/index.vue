@@ -20,12 +20,6 @@
 .flowter-edge-parent {
   position: absolute;
   z-index: 1;
-  pointer-events: none;
-}
-
-.flowter-edge-child .clickable {
-  position: relative;
-  pointer-events: auto;
 }
 
 .flowter-edge-child span {

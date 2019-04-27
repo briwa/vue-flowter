@@ -18,8 +18,9 @@ export default class FlowterEdgeBentBackward extends Mixins(FlowterEdgeSharedMix
   /**
    * The edge's `path` points.
    */
-  public get edgePoints () {
+  public get points () {
     const { from, to } = this.relativePosition
+    const points = [{ x: from.x, y: from.y }]
 
     switch (this.direction) {
       case 'n': {
@@ -47,10 +48,13 @@ export default class FlowterEdgeBentBackward extends Mixins(FlowterEdgeSharedMix
         const middlePointX = isEdgeGoingHV
           ? from.x + relativeDetourSize : to.x + relativeDetourSize
 
-        return `M ${from.x} ${from.y} `
-          + `H ${middlePointX} `
-          + `V ${to.y} `
-          + `H ${to.x}`
+        points.push(
+          { x: middlePointX, y: from.y },
+          { x: middlePointX, y: to.y },
+          { x: to.x, y: to.y }
+        )
+
+        return points
       }
       case 'w': {
         // To simplify the calc, always assume
@@ -76,15 +80,42 @@ export default class FlowterEdgeBentBackward extends Mixins(FlowterEdgeSharedMix
         const middlePointY = isEdgeGoingVH
           ? from.y + relativeDetourSize : to.y + relativeDetourSize
 
-        return `M ${from.x} ${from.y} `
-          + `V ${middlePointY} `
-          + `H ${to.x} `
-          + `V ${to.y}`
+        points.push(
+          { x: from.x, y: middlePointY },
+          { x: to.x, y: middlePointY },
+          { x: to.x, y: to.y }
+        )
+
+        return points
       }
       default: {
         throw new Error(`Invalid direction for bent-forward edge: ${this.direction}`)
       }
     }
+  }
+
+  /**
+   * The edge's `path` command.
+   */
+  public get pathCommand () {
+    return this.points.reduce((command, point, index) => {
+      const prevPoint = this.points[index - 1]
+      const separator = index < this.points.length - 1 ? ' ' : ''
+
+      if (!prevPoint) {
+        return command + `M ${point.x} ${point.y}${separator}`
+      }
+
+      if (prevPoint.x === point.x) {
+        return command + `V ${point.y}${separator}`
+      }
+
+      if (prevPoint.y === point.y) {
+        return command + `H ${point.x}${separator}`
+      }
+
+      throw new Error(`Invalid point: ${point}`)
+    }, '')
   }
 
   /**
