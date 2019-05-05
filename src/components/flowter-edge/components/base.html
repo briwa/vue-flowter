@@ -23,7 +23,6 @@
         </marker>
       </defs>
       <path
-        class="clickable"
         fill="none"
         :stroke-width="strokeWidth"
         :stroke="color"
@@ -33,9 +32,7 @@
         :marker-end="markerEnd" />
     </svg>
     <template v-if="text">
-      <span
-        class="clickable"
-        :style="textStyle">
+      <span>
         {{ text }}
       </span>
     </template>

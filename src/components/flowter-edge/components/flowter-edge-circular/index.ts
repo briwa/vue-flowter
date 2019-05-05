@@ -6,6 +6,7 @@ import { EDGE_SR_ARC_SIZE_RATIO } from '@/shared/constants'
 
 // Mixins
 import FlowterEdgeSharedMixin from '../../mixins/flowter-edge-shared'
+
 /**
  * The Flowter edge's Vue class component.
  */
@@ -22,24 +23,63 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
    */
   public get points () {
     const { from, to } = this.relativePosition
+    const points = [{ x: from.x, y: from.y }]
 
-    return [
-      { x: from.x, y: from.y },
-      { x: to.x, y: to.y }
-    ]
+    switch (this.side) {
+      case 'e':
+      case 'w': {
+        const halfY = this.relativeHeight / 2
+        const halfArcX = this.side === 'e'
+          ? (this.arcRadiusX * 2) - (this.strokeWidth * 2)
+          : (this.renderedWidth - (this.arcRadiusX * 2)) + (this.strokeWidth * 2)
+
+        const halfArcY = from.y + halfY
+        points.push({ x: halfArcX, y: halfArcY })
+        break
+      }
+      case 'n':
+      case 's': {
+        const halfX = this.relativeWidth / 2
+        const halfArcY = this.side === 's'
+          ? (this.arcRadiusY * 2) - (this.strokeWidth * 2)
+          : (this.renderedHeight - (this.arcRadiusY * 2)) + (this.strokeWidth * 2)
+
+        const halfArcX = from.x + halfX
+        points.push({ x: halfArcX, y: halfArcY })
+        break
+      }
+      default: {
+        throw new Error(`Unknown edge side: ${this.side}.`)
+      }
+    }
+
+    points.push({ x: to.x, y: to.y })
+
+    return points
   }
 
   /**
    * The edge's `path` command.
    */
   public get pathCommand () {
-    const { from, to } = this.relativePosition
-    const isSweeping = this.side === 'e' || this.side === 'n'
+    return this.points.reduce((command, point, index) => {
+      switch (index) {
+        case 0: {
+          return `M ${point.x} ${point.y}`
+        }
+        case 1:
+        case 2: {
+          const isSweeping = Number(this.side === 'e' || this.side === 'n')
 
-    return `M ${from.x} ${from.y} `
-      + `A ${Math.floor(this.renderedWidth / EDGE_SR_ARC_SIZE_RATIO)} `
-      + `${Math.floor(this.renderedHeight / EDGE_SR_ARC_SIZE_RATIO)} `
-      + `0 1 ${Number(isSweeping)} ${to.x} ${to.y}`
+          return `${command} A ${this.arcRadiusX} `
+            + `${this.arcRadiusY} 0 0 ${isSweeping} `
+            + `${point.x} ${point.y}`
+        }
+        default: {
+          throw new Error(`Unhandled point index: ${index}`)
+        }
+      }
+    }, '')
   }
 
   /**
@@ -54,6 +94,7 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
         return this.relativeHeight * 3
       }
       case 'h': {
+        // @todo This is still incorrect. Find out the right value
         return Math.abs(this.relativeWidth) + (this.paddingSize * 2)
       }
       default: {
@@ -74,7 +115,7 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
       }
       case 'h': {
         // @todo This is still incorrect. Find out the right value
-        return this.relativeWidth
+        return this.relativeWidth / 1.25
       }
       default: {
         throw new Error(`Invalid arc side: ${this.arcSide}`)
@@ -125,6 +166,9 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
    * -------------------------------
    */
 
+  /**
+   * @todo Comment this.
+   */
   private get arcSide () {
     if (this.fromPosition.x === this.toPosition.x) {
       return 'v'
@@ -135,5 +179,19 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
     }
 
     throw new Error ('Invalid circular edge position.')
+  }
+
+  /**
+   * @todo Comment this.
+   */
+  private get arcRadiusX () {
+    return Math.floor(this.renderedWidth / EDGE_SR_ARC_SIZE_RATIO)
+  }
+
+  /**
+   * @todo Comment this.
+   */
+  private get arcRadiusY () {
+    return Math.floor(this.renderedHeight / EDGE_SR_ARC_SIZE_RATIO)
   }
 }

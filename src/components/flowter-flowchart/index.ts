@@ -18,8 +18,7 @@ import {
   DEFAULT_FONT_SIZE,
   DEFAULT_BOUNDS,
   DEFAULT_NODE_BGCOLOR,
-  NODE_RHOMBUS_RATIO,
-  EDGE_SR_SIZE_RATIO
+  NODE_RHOMBUS_RATIO
 } from '@/shared/constants'
 
 // Types

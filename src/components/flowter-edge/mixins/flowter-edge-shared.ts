@@ -33,28 +33,6 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
    */
 
   /**
-   * The edge's text style.
-   *
-   * Given the node's direction, the text will be rendered
-   * differently in the DOM.
-   */
-  public get textStyle () {
-    switch (this.direction) {
-      case 'n':
-      case 's': {
-        return this.verticalTextStyle
-      }
-      case 'e':
-      case 'w': {
-        return this.horizontalTextStyle
-      }
-      default: {
-        throw new Error(`Unknown edge direction: ${this.direction}`)
-      }
-    }
-  }
-
-  /**
    * Defines the `viewBox` property of the SVG.
    *
    * Based on the edge's container size itself.
@@ -97,7 +75,8 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
    * Defines the unique arrow marker id.
    */
   public get arrowId () {
-    return `${this.namespace}-arrow-${this.from}-${this.to}`
+    return `${this.namespace ? this.namespace + '-' : ''}`
+      + `arrow-${this.from}-${this.to}`
   }
 
   /**
@@ -122,34 +101,6 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
   }
 
   /**
-   * The styling for the edge's text in [[Mode.VERTICAL]].
-   *
-   * It should be at least at the center of the edge.
-   */
-  public get verticalTextStyle (): Record<string, string> {
-    const style: Record<string, string> = {}
-    style.top = `${(this.relativeHeight / 2) - (this.fontSize * 1.5)}px`,
-    style.fontSize = `${this.fontSize}px`
-    style.left = '0px'
-
-    return style
-  }
-
-  /**
-   * The styling for the edge's text in [[Mode.HORIZONTAL]].
-   *
-   * It should be at least at the center of the edge.
-   */
-  public get horizontalTextStyle (): Record<string, string> {
-    const style: Record<string, string> = {}
-    style.left = `${(this.relativeWidth / 2) - (this.fontSize * 1.5)}px`,
-    style.fontSize = `${this.fontSize}px`
-    style.top = '0px'
-
-    return style
-  }
-
-  /**
    * The width relative to the start and the end of the edge.
    */
   public get relativeWidth () {
@@ -161,20 +112,6 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
    */
   public get relativeHeight () {
     return this.toPosition.y - this.fromPosition.y
-  }
-
-  /**
-   * The minimum size allowed for an edge.
-   */
-  public get minSize () {
-    return MIN_EDGE_SIZE
-  }
-
-  /**
-   * The size allocated to render the edge detour.
-   */
-  public get detourSize () {
-    return MIN_EDGE_DETOUR_SIZE
   }
 
   /**
@@ -220,5 +157,19 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
         y: this.toPosition.y - this.domPosition.y + this.paddingSize
       }
     }
+  }
+
+  /**
+   * The minimum size allowed for an edge.
+   */
+  private get minSize () {
+    return MIN_EDGE_SIZE
+  }
+
+  /**
+   * The size allocated to render the edge detour.
+   */
+  private get detourSize () {
+    return MIN_EDGE_DETOUR_SIZE
   }
 }

@@ -32,8 +32,9 @@ export default class FlowterEdgeBentBackward extends Mixins(FlowterEdgeSharedMix
 
         // The detour value depends on whether
         // the node is going right to left or left to right
+        const detourSize = this.paddingSize / 2
         const relativeDetourSize = isEdgeRightSide
-          ? this.detourSize : -this.detourSize
+          ? detourSize : -detourSize
 
         // Two types of backward edge;
         // - they move horizontally then vertically (because the target is at ne)
@@ -61,12 +62,13 @@ export default class FlowterEdgeBentBackward extends Mixins(FlowterEdgeSharedMix
         // that the edges go from top to bottom.
         // For edges that go bottom to top, we'll just inverse it.
         // This is determined from where the endpoint is in the flowchart.
-        const isEdgeBottomSide = this.side === 'w'
+        const isEdgeBottomSide = this.side === 's'
 
         // The detour value depends on whether
         // the node is going bottom to top or top to bottom
+        const detourSize = this.paddingSize / 2
         const relativeDetourSize = isEdgeBottomSide
-          ? this.detourSize : -this.detourSize
+          ? detourSize : -detourSize
 
         // Two types of backward edge;
         // - they move vertically then horizontally (because the target is at se)
