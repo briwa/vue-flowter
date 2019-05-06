@@ -9,6 +9,9 @@ import FlowterEdgeSharedMixin from '../../mixins/flowter-edge-shared'
 
 /**
  * The Flowter edge's Vue class component.
+ *
+ * @todo: This is an experimental feature. The arc isn't
+ * properly sized based on the node yet. Will be fixed soon (?)
  */
 @Component
 export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) {
@@ -62,24 +65,13 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
    * The edge's `path` command.
    */
   public get pathCommand () {
-    return this.points.reduce((command, point, index) => {
-      switch (index) {
-        case 0: {
-          return `M ${point.x} ${point.y}`
-        }
-        case 1:
-        case 2: {
-          const isSweeping = Number(this.side === 'e' || this.side === 'n')
+    const { from, to } = this.relativePosition
+    const isSweeping = this.side === 'e' || this.side === 'n'
 
-          return `${command} A ${this.arcRadiusX} `
-            + `${this.arcRadiusY} 0 0 ${isSweeping} `
-            + `${point.x} ${point.y}`
-        }
-        default: {
-          throw new Error(`Unhandled point index: ${index}`)
-        }
-      }
-    }, '')
+    return `M ${from.x} ${from.y} `
+      + `A ${Math.floor(this.renderedWidth / EDGE_SR_ARC_SIZE_RATIO)} `
+      + `${Math.floor(this.renderedHeight / EDGE_SR_ARC_SIZE_RATIO)} `
+      + `0 1 ${Number(isSweeping)} ${to.x} ${to.y}`
   }
 
   /**
