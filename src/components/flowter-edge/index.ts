@@ -9,7 +9,7 @@ import FlowterEdgeCircular from './components/flowter-edge-circular/index.vue'
 
 // Mixins
 import FlowterEdgePropsMixin from './mixins/flowter-edge-props'
-import { EdgeType } from '@/shared/types'
+import { EdgeType, EdgeShape } from '@/shared/types'
 
 /**
  * The Flowter edge's base mixin.
@@ -31,25 +31,33 @@ export default class FlowterEdgeBase extends Mixins(FlowterEdgePropsMixin) {
    */
 
   /**
+   * The edge shape
+   * This exports the enum for the template.
+   */
+  public readonly EdgeShape = EdgeShape
+
+  /**
    * @todo Comment this.
    */
-  public get style () {
+  public get componentName () {
+    const namePrefix = 'flowter-edge'
+
     if (this.isCircular) {
-      return 'circular'
+      return `${namePrefix}-${EdgeShape.CIRCULAR}`
     }
 
     if (this.type === EdgeType.CROSS) {
-      return 'straight'
+      return `${namePrefix}-${EdgeShape.STRAIGHT}`
     }
 
     switch (this.direction) {
       case 's':
       case 'e': {
-        return 'bent-forward'
+        return `${namePrefix}-${EdgeShape.BENT_FORWARD}`
       }
       case 'n':
       case 'w': {
-        return 'bent-backward'
+        return `${namePrefix}-${EdgeShape.BENT_BACKWARD}`
       }
       default: {
         throw new Error(`Invalid edge direction: ${this.direction}`)

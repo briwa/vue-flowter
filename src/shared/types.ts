@@ -212,6 +212,16 @@ export enum EdgeType {
 }
 
 /**
+ * Shapes of the edge.
+ */
+export enum EdgeShape {
+  BENT_FORWARD = 'bent-forward',
+  BENT_BACKWARD = 'bent-backward',
+  STRAIGHT = 'straight',
+  CIRCULAR = 'circular'
+}
+
+/**
  * The edge shape, retrieved as props in [[FlowterFlowchart.edges]].
  *
  * `Graph` prefix is used to make it consistent
