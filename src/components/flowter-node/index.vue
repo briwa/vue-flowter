@@ -1,34 +1,5 @@
 <template>
-  <div
-    class="flowter-node-parent"
-    :style="nodeStyle"
-    @click="$emit('click', id)"
-    @mouseenter="$emit('mouseenter', id)"
-    @mouseleave="$emit('mouseleave', id)">
-    <div class="flowter-node-text">
-      <span v-html="text" />
-    </div>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      :view-box.camel="viewBox">
-      <ellipse
-        v-if="isNodeEllipse"
-        stroke="#000000"
-        :stroke-width="strokeWidth"
-        :fill="bgcolor"
-        :cx="halfWidth"
-        :cy="halfHeight"
-        :rx="nodeCenter.x"
-        :ry="nodeCenter.y"
-      />
-      <path
-        v-else
-        stroke="#000000"
-        :stroke-width="strokeWidth"
-        :fill="bgcolor"
-        :d="nodePoints" />
-    </svg>
-  </div>
+  <component :is="componentName" v-bind="$props" />
 </template>
 <script lang="ts" src="./index.ts"></script>
 <style>

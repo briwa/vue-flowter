@@ -2,10 +2,7 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 // Constants
-import {
-  MIN_EDGE_SIZE, MIN_EDGE_DETOUR_SIZE,
-  DEFAULT_STROKE_WIDTH, DEFAULT_STROKE_COLOR
-} from '@/shared/constants'
+import { DEFAULT_STROKE_COLOR } from '@/shared/constants'
 
 // Types
 import {
@@ -14,7 +11,7 @@ import {
 
 /**
  * The Flowter edge's base mixin.
- * This is shared across all edge types.
+ * This is shared across all edge shapes.
  */
 @Component
 export default class FlowterEdgePropsMixin extends Vue {

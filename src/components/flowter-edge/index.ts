@@ -9,11 +9,13 @@ import FlowterEdgeCircular from './components/flowter-edge-circular/index.vue'
 
 // Mixins
 import FlowterEdgePropsMixin from './mixins/flowter-edge-props'
+
+// Types
 import { EdgeType, EdgeShape } from '@/shared/types'
 
 /**
- * The Flowter edge's base mixin.
- * This is shared across all edge types.
+ * The Flowter edge's base component.
+ * This holds all of the edge shapes' components.
  */
 @Component({
   components: {
@@ -29,12 +31,6 @@ export default class FlowterEdgeBase extends Mixins(FlowterEdgePropsMixin) {
    * Public accessor/computed
    * -------------------------------
    */
-
-  /**
-   * The edge shape
-   * This exports the enum for the template.
-   */
-  public readonly EdgeShape = EdgeShape
 
   /**
    * @todo Comment this.

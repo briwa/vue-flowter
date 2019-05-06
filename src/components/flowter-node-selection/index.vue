@@ -33,7 +33,7 @@
 <style>
 .flowter-node-edit {
   z-index: 3;
-  position: absolute;
+  position: relative;
 }
 
 .flowter-node-edit-overlay {

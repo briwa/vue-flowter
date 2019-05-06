@@ -19,10 +19,10 @@
           @mouseleave="$emit('edge-mouseleave', $event)">
         </flowter-edge>
       </template>
-      <slot
-        name="flowchart-elements"
-        :rendered-nodes="renderedNodes" />
     </div>
+    <slot
+      name="flowchart-elements"
+      :rendered-nodes="renderedNodes" />
   </div>
 </template>
 <script lang="ts" src="./index.ts"></script>
