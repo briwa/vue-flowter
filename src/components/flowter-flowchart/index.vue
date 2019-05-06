@@ -2,9 +2,7 @@
   <div
     :style="containerStyle"
     class="flowter-parent">
-    <div
-      class="flowter-scale"
-      :style="scaleStyle">
+    <div class="flowter-nodes-container">
       <template v-for="nodeDetails in renderedNodes">
         <flowter-node
           v-bind="nodeDetails.node.current"
@@ -29,7 +27,7 @@
 </template>
 <script lang="ts" src="./index.ts"></script>
 <style>
-.flowter-parent {
+.flowter-nodes-container {
   position: relative;
 }
 </style>

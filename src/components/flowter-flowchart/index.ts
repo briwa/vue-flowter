@@ -98,36 +98,6 @@ export default class FlowterFlowchart extends Vue {
   public edges!: GraphEdge[]
 
   /**
-   * Width of the flowchart (optional).
-   *
-   * By default, the flowchart width will be rendered as-is,
-   * meaning all the sizes are derived from the nodes width and height.
-   * See [[naturalWidth]] for more details.
-   *
-   * If specified, the flowchart width will be rendered exactly as the width.
-   * Since the flowchart has its own 'natural' size, the flowchart
-   * will be scaled to match the specified width. See [[containerStyle]]
-   * for more details.
-   */
-  @Prop({ type: Number, default: null })
-  public width!: number
-
-  /**
-   * Height of the flowchart (optional).
-   *
-   * By default, the flowchart height will be rendered as-is,
-   * meaning all the sizes are derived from the nodes width and height.
-   * See [[naturalHeight]] for more details.
-   *
-   * If specified, the flowchart's height will be rendered exactly as the height.
-   * Since the flowchart has its own 'natural' size, the flowchart
-   * will be scaled to match the specified height. See [[containerStyle]]
-   * for more details.
-   */
-  @Prop({ type: Number, default: null })
-  public height!: number
-
-  /**
    * How the flowchart is being rendered (optional).
    *
    * By default, the flowchart is rendered vertically
@@ -209,55 +179,14 @@ export default class FlowterFlowchart extends Vue {
    */
 
   /**
-   * The style of the flowchart's container.
-   *
-   * When [[width]] and/or [[height]] is specified,
-   * This will set the custom width and height based
-   * on the ratio. See [[widthRatio]] or [[heightRatio]]
-   * for more details.
+   * The style of the flowchart's container,
+   * with margin included (rendered as the container padding).
    */
   public get containerStyle (): Record<string, string> {
     const style: Record<string, string> = {}
     style.width = `${this.renderedWidth}px`
     style.height = `${this.renderedHeight}px`
-    style.padding = `${this.renderedHeightMargin}px ${this.renderedWidthMargin}px`
-
-    // Scale the flowchart if width is specified
-    if (this.width) {
-      const customRenderedWidth = this.width - (this.renderedWidthMargin * 2)
-      style.width = `${customRenderedWidth}px`
-      style.height = `${this.renderedHeight * this.scaleRatio}px`
-      return style
-    }
-
-    // Same thing for height
-    if (this.height) {
-      const customRenderedHeight = this.height - (this.renderedHeightMargin * 2)
-      style.height = `${customRenderedHeight}px`
-      style.width = `${this.renderedWidth * this.scaleRatio}px`
-      return style
-    }
-
-    return style
-  }
-
-  /**
-   * The scaling style of the flowchart container.
-   *
-   * This will scale and translate the flowchart given the
-   * specified [[width]] and [[height]]. Furthermore, this would
-   * also translate the flowchart so that it will always be at
-   * the center of the container.
-   *
-   * This will take [[allBounds]]'s minimum x and y into account,
-   * so that if there are nodes that are outside of the container,
-   * the whole flowchart is going to be translated so that it is
-   * still inside the flowchart.
-   */
-  public get scaleStyle (): Record<string, string> {
-    const style: Record<string, string> = {}
-    style.transformOrigin = '0% 0%'
-    style.transform = `scale(${this.scaleRatio})`
+    style.padding = `${this.widthMargin}px ${this.heightMargin}px`
 
     return style
   }
@@ -329,24 +258,6 @@ export default class FlowterFlowchart extends Vue {
   }
 
   /**
-   * Flowchart's overall scaling ratio.
-   *
-   * The value depends on whether custom width/height is specified,
-   * although it would prioritize width, to simplify the calculation.
-   */
-  private get scaleRatio () {
-    if (this.width) {
-      return this.widthRatio
-    }
-
-    if (this.height) {
-      return this.heightRatio
-    }
-
-    return 1
-  }
-
-  /**
    * Flowchart's rendered width, taking [[widthMargin]] into account.
    */
   private get renderedWidth () {
@@ -358,30 +269,6 @@ export default class FlowterFlowchart extends Vue {
    */
   private get renderedHeight () {
     return this.naturalHeight - (this.heightMargin * 2)
-  }
-
-  /**
-   * Flowchart's width margin, taking [[widthRatio]] into account.
-   */
-  private get renderedWidthMargin () {
-    return this.widthMargin * this.scaleRatio
-  }
-
-  /**
-   * Flowchart's height margin, taking [[heightRatio]] into account.
-   *
-   * The flowchart is always scaled by width. This means,
-   * it has to be always get centered to its custom height when both value
-   * are specified. Increment the margin when that happens.
-   */
-  private get renderedHeightMargin () {
-    const marginWithRatio = this.heightMargin * this.scaleRatio
-    if (this.width && this.height) {
-      const heightDiff = (this.height - (this.naturalHeight * this.scaleRatio)) / 2
-      return Math.max(0, heightDiff) + marginWithRatio
-    }
-
-    return marginWithRatio
   }
 
   /**
@@ -409,24 +296,6 @@ export default class FlowterFlowchart extends Vue {
         max: y.max + this.widthMargin
       }
     }
-  }
-
-  /**
-   * The ratio of the [[width]] provided and the [[naturalWidth]].
-   *
-   * If [[width]] is not provided, it will always be set to 1.
-   */
-  private get widthRatio () {
-    return this.width ? this.width / this.naturalWidth : 1
-  }
-
-  /**
-   * The ratio of the [[height]] provided and the [[naturalHeight]].
-   *
-   * If [[height]] is not provided, it will always be set to 1.
-   */
-  private get heightRatio () {
-    return this.height ? this.height / this.naturalHeight : 1
   }
 
   /**
