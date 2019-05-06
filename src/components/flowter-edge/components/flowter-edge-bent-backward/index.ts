@@ -150,4 +150,37 @@ export default class FlowterEdgeBentBackward extends Mixins(FlowterEdgeSharedMix
       y: Math.min(this.fromPosition.y, this.toPosition.y)
     }
   }
+
+  /**
+   * The styling for the edge's text.
+   *
+   * It should be at least at the center of the edge.
+   */
+  public get textStyle (): Record<string, string> {
+    const style: Record<string, string> = {}
+
+    switch (this.direction) {
+      case 'n': {
+        style.top = `${(this.renderedHeight / 2) - (this.fontSize * 1.5)}px`
+        const delimiter = this.side === 'e'
+          ? 'right' : 'left'
+
+        style[delimiter] = `${this.paddingSize}px`
+
+        return style
+      }
+      case 'w': {
+        style.left = `${(this.renderedWidth / 2) - (this.fontSize * 1.5)}px`
+        const delimiter = this.side === 's'
+          ? 'bottom' : 'top'
+
+        style[delimiter] = `${this.paddingSize}px`
+
+        return style
+      }
+      default: {
+        throw new Error(`Unknown direction: ${this.direction}`)
+      }
+    }
+  }
 }

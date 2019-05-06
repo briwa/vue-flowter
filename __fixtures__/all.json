@@ -51,7 +51,7 @@
     { "from": "fourth-a", "to": "third-2", "text": "Turn around" },
     { "from": "fourth-a", "to": "third-1" },
     { "from": "fourth-b", "to": "second-c" },
-    { "from": "second-a", "to": "second-a" },
-    { "from": "second-c", "to": "second-c" }
+    { "from": "second-a", "to": "second-a", "text": "Goes back" },
+    { "from": "second-c", "to": "second-c", "text": "Roundin'" }
   ]
 }

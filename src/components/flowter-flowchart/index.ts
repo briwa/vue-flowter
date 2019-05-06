@@ -23,9 +23,9 @@ import {
 
 // Types
 import {
-  EdgeType, Mode,
-  GraphNode, RenderedGraphNode, GraphEdge,
-  GraphNodeDetails, OrderedNode, NodeRow, Bounds, NodeSymbol, Direction, RenderedEdge, EdgeSourcePosition
+  Mode, GraphNode, RenderedGraphNode, GraphEdge,
+  GraphNodeDetails, OrderedNode, NodeRow, Bounds,
+  NodeSymbol, Direction, RenderedEdge
 } from '@/shared/types'
 
 /**
@@ -137,17 +137,6 @@ export default class FlowterFlowchart extends Vue {
    */
   @Prop({ type: String, default: Mode.VERTICAL })
   public mode!: Mode
-
-  /**
-   * How the edges are being rendered (optional).
-   *
-   * By default, the edges are rendered with the bent mode
-   * ([[EdgeType.BENT]]).
-   *
-   * See [[EdgeType]] for the supported modes.
-   */
-  @Prop({ type: String, default: EdgeType.BENT })
-  public edgeType!: EdgeType
 
   /**
    * The default width of all nodes, if not specified in [[nodes]] (optional).
@@ -568,55 +557,14 @@ export default class FlowterFlowchart extends Vue {
 
   /*
    * -------------------------------
-   * Private methods
+   * Public methods
    * -------------------------------
    */
 
   /**
-   * Shapes the node from [[GraphNode]] to [[RenderedGraphNode]].
-   *
-   * This would conditionally set the values depending on whether it exists
-   * or not, otherwise it is set to its default value.
-   *
-   * For nodes with [[NodeSymbol.RHOMBUS]], it will be rendered slightly bigger
-   * than the rest. See [[NODE_RHOMBUS_RATIO]] for more details.
-   *
-   * For `x` and `y`, values are set to `-Infinity` if not specified, since
-   * there will be some logic to set the actual values. See [[shapeNodesVertically]]
-   * or [[shapeNodesHorizontally]] for mode details.
-   */
-  private shapeNode (id: string, node: GraphNode): RenderedGraphNode {
-    const symbol = typeof node.symbol !== 'undefined' ? node.symbol : NodeSymbol.RECTANGLE
-    const text = typeof node.text !== 'undefined' ? node.text.toString() : ''
-    const bgcolor = typeof node.bgcolor !== 'undefined' ? node.bgcolor : DEFAULT_NODE_BGCOLOR
-    const x = typeof node.x !== 'undefined' ? node.x : -Infinity
-    const y = typeof node.y !== 'undefined' ? node.y : -Infinity
-
-    const defaultNodeWidth = symbol === NodeSymbol.RHOMBUS
-      ? this.nodeWidth * NODE_RHOMBUS_RATIO : this.nodeWidth
-    const defaultNodeHeight = symbol === NodeSymbol.RHOMBUS
-      ? this.nodeHeight * NODE_RHOMBUS_RATIO : this.nodeHeight
-    const width = typeof node.width !== 'undefined' ? node.width : defaultNodeWidth
-    const height = typeof node.height !== 'undefined' ? node.height : defaultNodeHeight
-
-    return {
-      id,
-      text,
-      x,
-      y,
-      width,
-      height,
-      symbol,
-      bgcolor
-    }
-  }
-
-  /**
    * Shapes the edge given from and to node to be rendered by [[FlowterEdge]].
-   *
-   * @todo: Type this any
    */
-  private getRenderedEdge (fromNodeDetails: GraphNodeDetails, toNodeDetails: GraphNodeDetails): RenderedEdge {
+  public getRenderedEdge (fromNodeDetails: GraphNodeDetails, toNodeDetails: GraphNodeDetails): RenderedEdge {
     const { node: fromNode, row: fromRow } = fromNodeDetails
     const fromDirections = this.getNodeDirections(fromNode.current)
 
@@ -732,6 +680,51 @@ export default class FlowterFlowchart extends Vue {
       direction,
       side,
       isCircular
+    }
+  }
+
+  /*
+   * -------------------------------
+   * Private methods
+   * -------------------------------
+   */
+
+  /**
+   * Shapes the node from [[GraphNode]] to [[RenderedGraphNode]].
+   *
+   * This would conditionally set the values depending on whether it exists
+   * or not, otherwise it is set to its default value.
+   *
+   * For nodes with [[NodeSymbol.RHOMBUS]], it will be rendered slightly bigger
+   * than the rest. See [[NODE_RHOMBUS_RATIO]] for more details.
+   *
+   * For `x` and `y`, values are set to `-Infinity` if not specified, since
+   * there will be some logic to set the actual values. See [[shapeNodesVertically]]
+   * or [[shapeNodesHorizontally]] for mode details.
+   */
+  private shapeNode (id: string, node: GraphNode): RenderedGraphNode {
+    const symbol = typeof node.symbol !== 'undefined' ? node.symbol : NodeSymbol.RECTANGLE
+    const text = typeof node.text !== 'undefined' ? node.text.toString() : ''
+    const bgcolor = typeof node.bgcolor !== 'undefined' ? node.bgcolor : DEFAULT_NODE_BGCOLOR
+    const x = typeof node.x !== 'undefined' ? node.x : -Infinity
+    const y = typeof node.y !== 'undefined' ? node.y : -Infinity
+
+    const defaultNodeWidth = symbol === NodeSymbol.RHOMBUS
+      ? this.nodeWidth * NODE_RHOMBUS_RATIO : this.nodeWidth
+    const defaultNodeHeight = symbol === NodeSymbol.RHOMBUS
+      ? this.nodeHeight * NODE_RHOMBUS_RATIO : this.nodeHeight
+    const width = typeof node.width !== 'undefined' ? node.width : defaultNodeWidth
+    const height = typeof node.height !== 'undefined' ? node.height : defaultNodeHeight
+
+    return {
+      id,
+      text,
+      x,
+      y,
+      width,
+      height,
+      symbol,
+      bgcolor
     }
   }
 

@@ -9,6 +9,7 @@ import FlowterEdgeCircular from './components/flowter-edge-circular/index.vue'
 
 // Mixins
 import FlowterEdgePropsMixin from './mixins/flowter-edge-props'
+import { EdgeType } from '@/shared/types'
 
 /**
  * The Flowter edge's base mixin.
@@ -37,15 +38,13 @@ export default class FlowterEdgeBase extends Mixins(FlowterEdgePropsMixin) {
       return 'circular'
     }
 
+    if (this.type === EdgeType.CROSS) {
+      return 'straight'
+    }
+
     switch (this.direction) {
       case 's':
       case 'e': {
-        const sameX = this.fromPosition.x === this.toPosition.x
-        const sameY = this.fromPosition.y === this.toPosition.y
-        if (sameX || sameY) {
-          return 'straight'
-        }
-
         return 'bent-forward'
       }
       case 'n':

@@ -160,6 +160,41 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
     }
   }
 
+  /**
+   * The styling for the edge's text.
+   *
+   * It should be at least at the center of the edge.
+   */
+  public get textStyle (): Record<string, string> {
+    const style: Record<string, string> = {}
+
+    switch (this.direction) {
+      case 'e':
+      case 'w': {
+        style.top = `${(this.renderedHeight / 2) - this.fontSize}px`
+        const delimiter = this.side === 'e'
+          ? 'right' : 'left'
+
+        style[delimiter] = `${this.paddingSize}px`
+
+        return style
+      }
+      case 'n':
+      case 's': {
+        style.left = `${(this.renderedWidth / 2) - this.fontSize}px`
+        const delimiter = this.side === 's'
+          ? 'bottom' : 'top'
+
+        style[delimiter] = `${this.paddingSize}px`
+
+        return style
+      }
+      default: {
+        throw new Error(`Unknown direction: ${this.direction}`)
+      }
+    }
+  }
+
   /*
    * -------------------------------
    * Private accessor/computed

@@ -127,7 +127,8 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
       width: `${this.renderedWidth}px`,
       height: `${this.renderedHeight}px`,
       top: `${this.domPosition.y - this.paddingSize}px`,
-      left: `${this.domPosition.x - this.paddingSize}px`
+      left: `${this.domPosition.x - this.paddingSize}px`,
+      fontSize: `${this.fontSize}px`
     }
   }
 
@@ -158,6 +159,12 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
       }
     }
   }
+
+  /*
+   * -------------------------------
+   * Private accessor/computed
+   * -------------------------------
+   */
 
   /**
    * The minimum size allowed for an edge.
