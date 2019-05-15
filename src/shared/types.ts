@@ -170,9 +170,22 @@ export interface GraphNodeDetails {
 /**
  * The shape of the event when editing a node.
  */
-export interface EventEditingNode {
+export interface EventEditingNode<T extends keyof EventEditingNodePayload = keyof EventEditingNodePayload> {
   type: string
-  payload: string
+  payload: EventEditingNodePayload[T]
+}
+
+/**
+ * The payload of an edited node event.
+ */
+export interface EventEditingNodePayload {
+  'hover-start': string
+  'edit-start': string
+  'update': {
+    id: string
+    type: string
+    value: number
+  }
 }
 
 /**
@@ -322,9 +335,10 @@ export interface EventEditingEdge<T extends keyof EventEditingEdgePayload = keyo
 }
 
 /**
- * The payload of an edited edge event
+ * The payload of an edited edge event.
  */
 export interface EventEditingEdgePayload {
+  'drag-end': null
   'from-to': { from: string, to: string, draggingType: string }
   'drag-type': 'from' | 'to'
 }

@@ -33,7 +33,7 @@ export default class FlowterEdgeBase extends Mixins(FlowterEdgePropsMixin) {
    */
 
   /**
-   * @todo Comment this.
+   * The component to render depending on the edge properties.
    */
   public get componentName () {
     const namePrefix = 'flowter-edge'

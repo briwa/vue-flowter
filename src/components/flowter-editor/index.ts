@@ -30,22 +30,41 @@ import {
   }
 })
 export default class FlowterEditor extends Vue {
+  /*
+   * -------------------------------
+   * Public data
+   * -------------------------------
+   */
+
+  /**
+   * The nodes to be rendered in this editor.
+   * Right now it is seeded from the fixtures.
+   */
   public nodes: Record<string, GraphNode> = allGraph.nodes
+
+  /**
+   * The edges to be rendered in this editor.
+   * Right now it is seeded from the fixtures.
+   */
   public edges: GraphEdge[] = allGraph.edges
+
+  /**
+   * The flowchart mode for the editor.
+   */
   public mode: Mode = Mode.VERTICAL
 
   /**
-   * @todo Comment this
+   * The currently edited node id.
    */
   public editingNodeId: string = this.defaultElems.nodeId
 
   /**
-   * @todo Comment this
+   * Whenever the mouse is over a node, the id is saved here.
    */
   public mouseOverNodeId: string | null = null
 
   /**
-   * @todo Comment this
+   * The information needed when editing an edge.
    */
   public editingEdge: EditingEdgeDetails = {
     draggingType: 'from',
@@ -54,20 +73,25 @@ export default class FlowterEditor extends Vue {
   }
 
   /**
-   * @todo Comment this
+   * Whether it's editing an edge or a node.
    */
   public editing: Editing = Editing.NONE
 
   /**
-   * @todo Comment this
+   * The type of the edge being rendered in the editor.
    */
   public edgeType: EdgeType = EdgeType.BENT
 
   /**
-   * @todo Comment this
+   * The font size for nodes and edges in the editor.
    */
   public fontSize: number = 12
 
+  /*
+   * -------------------------------
+   * Public computed properties
+   * -------------------------------
+   */
 
   /**
    * The default values for the flowchart elements.
@@ -83,7 +107,7 @@ export default class FlowterEditor extends Vue {
   }
 
   /**
-   * @todo Annotate
+   * The currently edited edge's node id from.
    */
   public get editingEdgeFromId () {
     return this.isEditingEdge
@@ -93,7 +117,7 @@ export default class FlowterEditor extends Vue {
   }
 
   /**
-   * @todo Annotate
+   * The currently edited edge's node id to.
    */
   public get editingEdgeToId () {
     return this.isEditingEdge
@@ -103,7 +127,7 @@ export default class FlowterEditor extends Vue {
   }
 
   /**
-   * @todo Annotate
+   * Disable the user select when editing.
    */
   public get flowchartStyle () {
     return {
@@ -112,25 +136,31 @@ export default class FlowterEditor extends Vue {
   }
 
   /**
-   * @todo Annotate
+   * Whether it's currently editing a node.
    */
   public get isEditingNode () {
     return this.editing === Editing.NODE
   }
 
   /**
-   * @todo Annotate
+   * Whether it's currently editing an edge.
    */
   public get isEditingEdge () {
     return this.editing === Editing.EDGE
   }
 
   /**
-   * @todo Annotate
+   * Whether it's currently not editing anything.
    */
   public get isNotEditing () {
     return this.editing === Editing.NONE
   }
+
+  /*
+   * -------------------------------
+   * Private computed properties
+   * -------------------------------
+   */
 
   /**
    * All the node ids in the flowchart.
@@ -146,7 +176,7 @@ export default class FlowterEditor extends Vue {
    */
 
   /**
-   * @todo Comment this.
+   * When a node is edited, it is handled depending on the type.
    */
   public onEditNode (event: EventEditingNode) {
     switch (event.type) {
@@ -155,7 +185,7 @@ export default class FlowterEditor extends Vue {
           break
         }
 
-        this.mouseOverNodeId = event.payload
+        this.mouseOverNodeId = event.payload as EventEditingNode<'hover-start'>['payload']
         break
       }
       case 'hover-end': {
@@ -163,7 +193,7 @@ export default class FlowterEditor extends Vue {
         break
       }
       case 'edit-start': {
-        this.editingNodeId = event.payload
+        this.editingNodeId = event.payload as EventEditingNode<'edit-start'>['payload']
         this.editing = Editing.NODE
         break
       }
@@ -172,8 +202,7 @@ export default class FlowterEditor extends Vue {
         break
       }
       case 'update': {
-        // @todo: type this
-        const payload = event.payload as any
+        const payload = event.payload as EventEditingNode<'update'>['payload']
         const editedNode = this.nodes[payload.id]
         this.$set(editedNode, payload.type, payload.value)
         break
@@ -188,7 +217,7 @@ export default class FlowterEditor extends Vue {
   }
 
   /**
-   * @todo Comment this.
+   * When an edge is edited, it is handled depending on the type.
    */
   public onEditEdge (event: EventEditingEdge) {
     switch (event.type) {
@@ -306,8 +335,7 @@ export default class FlowterEditor extends Vue {
         break
       }
       case Editing.EDGE: {
-        // @todo: type this
-        const event = { type: 'drag-end', payload: null } as any
+        const event = { type: 'drag-end', payload: null } as EventEditingEdge
         this.onEditEdge(event)
         break
       }

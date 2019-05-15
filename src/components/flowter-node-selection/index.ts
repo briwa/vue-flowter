@@ -118,14 +118,14 @@ export default class FlowterNodeSelection extends Vue {
   }
 
   /**
-   * @todo: Annotate this
+   * The current node.
    */
   public get node () {
     return this.nodeDetails.node.current
   }
 
   /**
-   * @todo: Annotate this
+   * The bounds given the current node.
    */
   public get bounds () {
     const bounds = DEFAULT_BOUNDS()

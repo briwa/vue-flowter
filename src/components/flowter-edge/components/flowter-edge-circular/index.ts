@@ -194,7 +194,7 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
    */
 
   /**
-   * @todo Comment this.
+   * Whether the ellipse arc is shaped vertically or horizontally.
    */
   private get arcSide () {
     if (this.fromPosition.x === this.toPosition.x) {
@@ -209,14 +209,14 @@ export default class FlowterEdgeCircular extends Mixins(FlowterEdgeSharedMixin) 
   }
 
   /**
-   * @todo Comment this.
+   * The arc horizontal radius.
    */
   private get arcRadiusX () {
     return Math.floor(this.renderedWidth / EDGE_SR_ARC_SIZE_RATIO)
   }
 
   /**
-   * @todo Comment this.
+   * The arc vertical radius.
    */
   private get arcRadiusY () {
     return Math.floor(this.renderedHeight / EDGE_SR_ARC_SIZE_RATIO)

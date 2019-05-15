@@ -54,7 +54,6 @@ export default class FlowterEdgePropsMixin extends Vue {
 
   /**
    * Whether the edge is rendered on one side or the other.
-   * @todo I can't explain this properly. Find a better definition.
    */
   @Prop({ type: String, required: true })
   public side!: Direction
