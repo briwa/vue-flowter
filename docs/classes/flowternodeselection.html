@@ -72,7 +72,7 @@
 						<p>The Flowter node selection&#39;s Vue class component.</p>
 					</div>
 					<p>This component acts as a representation of the currently
-						edited node. It takes in the <code>node</code> as the <a href="../interfaces/renderedgraphnode.html">Flowter.RenderedGraphNode</a>
+						edited node. It takes in the <code>node</code> as the [[FlowterFlowchart.RenderedGraphNode]]
 						and <code>bounds</code> to limit the movements of the edited node.
 					It should be used alongside with [[Flowter]].</p>
 				</div>
@@ -108,11 +108,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodeselection.html#bounds" class="tsd-kind-icon">bounds</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodeselection.html#editing" class="tsd-kind-icon">editing</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodeselection.html#mode" class="tsd-kind-icon">mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowternodeselection.html#mousedownx" class="tsd-kind-icon">mouse<wbr>DownX</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowternodeselection.html#mousedowny" class="tsd-kind-icon">mouse<wbr>DownY</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodeselection.html#node" class="tsd-kind-icon">node</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodeselection.html#nodedetails" class="tsd-kind-icon">node<wbr>Details</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowternodeselection.html#scalex" class="tsd-kind-icon">scaleX</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowternodeselection.html#scaley" class="tsd-kind-icon">scaleY</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowternodeselection.html#selectiontype" class="tsd-kind-icon">selection<wbr>Type</a></li>
@@ -123,8 +123,10 @@
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodeselection.html#bounds" class="tsd-kind-icon">bounds</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodeselection.html#containerstyle" class="tsd-kind-icon">container<wbr>Style</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-private"><a href="flowternodeselection.html#deltadirection" class="tsd-kind-icon">delta<wbr>Direction</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodeselection.html#node" class="tsd-kind-icon">node</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodeselection.html#overlaystyle" class="tsd-kind-icon">overlay<wbr>Style</a></li>
 							</ul>
 						</section>
@@ -152,7 +154,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L165">components/flowter-node-selection/index.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L258">src/components/flowter-node-selection/index.ts:258</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -162,7 +164,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>fires</dt>
-									<dd><p>exit-editing</p>
+									<dd><p>exit</p>
 									</dd>
 								</dl>
 							</div>
@@ -180,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L267">components/flowter-node-selection/index.ts:267</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L360">src/components/flowter-node-selection/index.ts:360</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -206,19 +208,18 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="bounds" class="tsd-anchor"></a>
-					<h3>bounds</h3>
-					<div class="tsd-signature tsd-kind-icon">bounds<span class="tsd-signature-symbol">:</span> <a href="../interfaces/bounds.html" class="tsd-signature-type">Bounds</a></div>
+					<a name="editing" class="tsd-anchor"></a>
+					<h3>editing</h3>
+					<div class="tsd-signature tsd-kind-icon">editing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L48">components/flowter-node-selection/index.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L46">src/components/flowter-node-selection/index.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The bounds allowed to edit node.</p>
+							<p>Whether the node is being edited or not.</p>
 						</div>
-						<p>When no node is being edited, it is set to <a href="../globals.html#default_bounds">DEFAULT_BOUNDS</a>.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
@@ -227,7 +228,7 @@
 					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <a href="../enums/mode.html" class="tsd-signature-type">Mode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L31">components/flowter-node-selection/index.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L31">src/components/flowter-node-selection/index.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -244,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">mouse<wbr>DownX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L59">components/flowter-node-selection/index.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L57">src/components/flowter-node-selection/index.ts:57</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -259,7 +260,7 @@
 					<div class="tsd-signature tsd-kind-icon">mouse<wbr>DownY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L64">components/flowter-node-selection/index.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L62">src/components/flowter-node-selection/index.ts:62</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -269,12 +270,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="node" class="tsd-anchor"></a>
-					<h3>node</h3>
-					<div class="tsd-signature tsd-kind-icon">node<span class="tsd-signature-symbol">:</span> <a href="../interfaces/renderedgraphnode.html" class="tsd-signature-type">RenderedGraphNode</a></div>
+					<a name="nodedetails" class="tsd-anchor"></a>
+					<h3>node<wbr>Details</h3>
+					<div class="tsd-signature tsd-kind-icon">node<wbr>Details<span class="tsd-signature-symbol">:</span> <a href="../interfaces/graphnodedetails.html" class="tsd-signature-type">GraphNodeDetails</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L40">components/flowter-node-selection/index.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L40">src/components/flowter-node-selection/index.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -291,7 +292,7 @@
 					<div class="tsd-signature tsd-kind-icon">scaleX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L69">components/flowter-node-selection/index.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L67">src/components/flowter-node-selection/index.ts:67</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -306,7 +307,7 @@
 					<div class="tsd-signature tsd-kind-icon">scaleY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L74">components/flowter-node-selection/index.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L72">src/components/flowter-node-selection/index.ts:72</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -321,7 +322,7 @@
 					<div class="tsd-signature tsd-kind-icon">selection<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/selectiontype.html" class="tsd-signature-type">SelectionType</a><span class="tsd-signature-symbol"> =&nbsp;SelectionType.DEFAULT</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L89">components/flowter-node-selection/index.ts:89</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L87">src/components/flowter-node-selection/index.ts:87</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -336,7 +337,7 @@
 					<div class="tsd-signature tsd-kind-icon">translateX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L79">components/flowter-node-selection/index.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L77">src/components/flowter-node-selection/index.ts:77</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -351,7 +352,7 @@
 					<div class="tsd-signature tsd-kind-icon">translateY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L84">components/flowter-node-selection/index.ts:84</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L82">src/components/flowter-node-selection/index.ts:82</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -364,16 +365,38 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="containerstyle" class="tsd-anchor"></a>
-					<h3>container<wbr>Style</h3>
+					<a name="bounds" class="tsd-anchor"></a>
+					<h3>bounds</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> containerStyle<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> bounds<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/bounds.html" class="tsd-signature-type">Bounds</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L100">components/flowter-node-selection/index.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L130">src/components/flowter-node-selection/index.ts:130</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The bounds given the current node.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/bounds.html" class="tsd-signature-type">Bounds</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="containerstyle" class="tsd-anchor"></a>
+					<h3>container<wbr>Style</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> containerStyle<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L98">src/components/flowter-node-selection/index.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -381,10 +404,15 @@
 									<p>The edited node&#39;s CSS position style.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">object</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>left<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>top<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -398,13 +426,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L140">components/flowter-node-selection/index.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L233">src/components/flowter-node-selection/index.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Depending on the selection, a factor is
-									used to determine the direction of the selection.</p>
+									<p>Depending on the selection, a factor is used
+									to determine the direction of the selection.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">1</span>
@@ -415,16 +443,38 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="overlaystyle" class="tsd-anchor"></a>
-					<h3>overlay<wbr>Style</h3>
+					<a name="node" class="tsd-anchor"></a>
+					<h3>node</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> overlayStyle<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> node<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/renderedgraphnode.html" class="tsd-signature-type">RenderedGraphNode</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L117">components/flowter-node-selection/index.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L123">src/components/flowter-node-selection/index.ts:123</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The current node.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/renderedgraphnode.html" class="tsd-signature-type">RenderedGraphNode</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="overlaystyle" class="tsd-anchor"></a>
+					<h3>overlay<wbr>Style</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> overlayStyle<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L111">src/components/flowter-node-selection/index.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -434,10 +484,18 @@
 								<p>This is rendered based on the currently edited properties,
 								whether it is being moved or resized.</p>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">object</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>transform<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -454,7 +512,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L194">components/flowter-node-selection/index.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L287">src/components/flowter-node-selection/index.ts:287</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -476,7 +534,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L202">components/flowter-node-selection/index.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L295">src/components/flowter-node-selection/index.ts:295</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -498,7 +556,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L177">components/flowter-node-selection/index.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L270">src/components/flowter-node-selection/index.ts:270</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -533,7 +591,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/components/flowter-node-selection/index.ts#L216">components/flowter-node-selection/index.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node-selection/index.ts#L309">src/components/flowter-node-selection/index.ts:309</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -567,33 +625,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="../enums/edgemarker.html" class="tsd-kind-icon">Edge<wbr>Marker</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/edgetype.html" class="tsd-kind-icon">Edge<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/mode.html" class="tsd-kind-icon">Mode</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/nodesymbol.html" class="tsd-kind-icon">Node<wbr>Symbol</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/selectiontype.html" class="tsd-kind-icon">Selection<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="flowteredge.html" class="tsd-kind-icon">Flowter<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="flowteredgeselection.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Selection</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="flowterflowchart.html" class="tsd-kind-icon">Flowter<wbr>Flowchart</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="flowternode.html" class="tsd-kind-icon">Flowter<wbr>Node</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
@@ -606,7 +637,7 @@
 								<a href="flowternodeselection.html#onmouseup" class="tsd-kind-icon">on<wbr>Mouse<wbr>Up</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowternodeselection.html#bounds" class="tsd-kind-icon">bounds</a>
+								<a href="flowternodeselection.html#editing" class="tsd-kind-icon">editing</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="flowternodeselection.html#mode" class="tsd-kind-icon">mode</a>
@@ -618,7 +649,7 @@
 								<a href="flowternodeselection.html#mousedowny" class="tsd-kind-icon">mouse<wbr>DownY</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowternodeselection.html#node" class="tsd-kind-icon">node</a>
+								<a href="flowternodeselection.html#nodedetails" class="tsd-kind-icon">node<wbr>Details</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="flowternodeselection.html#scalex" class="tsd-kind-icon">scaleX</a>
@@ -636,10 +667,16 @@
 								<a href="flowternodeselection.html#translatey" class="tsd-kind-icon">translateY</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="flowternodeselection.html#bounds" class="tsd-kind-icon">bounds</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="flowternodeselection.html#containerstyle" class="tsd-kind-icon">container<wbr>Style</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-private">
 								<a href="flowternodeselection.html#deltadirection" class="tsd-kind-icon">delta<wbr>Direction</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="flowternodeselection.html#node" class="tsd-kind-icon">node</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="flowternodeselection.html#overlaystyle" class="tsd-kind-icon">overlay<wbr>Style</a>
@@ -660,96 +697,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/bounds.html" class="tsd-kind-icon">Bounds</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/editingedgedetails.html" class="tsd-kind-icon">Editing<wbr>Edge<wbr>Details</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="../interfaces/eventeditingedge.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/eventeditingedgepayload.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Edge<wbr>Payload</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/graphedge.html" class="tsd-kind-icon">Graph<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/graphnode.html" class="tsd-kind-icon">Graph<wbr>Node</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/graphnodedetails.html" class="tsd-kind-icon">Graph<wbr>Node<wbr>Details</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/noderow.html" class="tsd-kind-icon">Node<wbr>Row</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/orderednode.html" class="tsd-kind-icon">Ordered<wbr>Node</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/renderedgraphnode.html" class="tsd-kind-icon">Rendered<wbr>Graph<wbr>Node</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/shapededge.html" class="tsd-kind-icon">Shaped<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#direction" class="tsd-kind-icon">Direction</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_font_size" class="tsd-kind-icon">DEFAULT_<wbr>FONT_<wbr>SIZE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_height_margin" class="tsd-kind-icon">DEFAULT_<wbr>HEIGHT_<wbr>MARGIN</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_bgcolor" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>BGCOLOR</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_col_spacing" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>COL_<wbr>SPACING</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_height" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>HEIGHT</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_row_spacing" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>ROW_<wbr>SPACING</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_width" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>WIDTH</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_stroke_color" class="tsd-kind-icon">DEFAULT_<wbr>STROKE_<wbr>COLOR</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_stroke_width" class="tsd-kind-icon">DEFAULT_<wbr>STROKE_<wbr>WIDTH</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_width_margin" class="tsd-kind-icon">DEFAULT_<wbr>WIDTH_<wbr>MARGIN</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#edge_midpoint_ratio" class="tsd-kind-icon">EDGE_<wbr>MIDPOINT_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#edge_sr_arc_size_ratio" class="tsd-kind-icon">EDGE_<wbr>SR_<wbr>ARC_<wbr>SIZE_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#edge_sr_size_ratio" class="tsd-kind-icon">EDGE_<wbr>SR_<wbr>SIZE_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#min_edge_detour_size" class="tsd-kind-icon">MIN_<wbr>EDGE_<wbr>DETOUR_<wbr>SIZE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#min_edge_size" class="tsd-kind-icon">MIN_<wbr>EDGE_<wbr>SIZE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#node_rhombus_ratio" class="tsd-kind-icon">NODE_<wbr>RHOMBUS_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#node_smaller_ratio" class="tsd-kind-icon">NODE_<wbr>SMALLER_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#default_bounds" class="tsd-kind-icon">DEFAULT_<wbr>BOUNDS</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

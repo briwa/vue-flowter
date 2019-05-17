@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>FlowterEdgeSelection | Flowter</title>
+	<title>FlowterNodePropsMixin | Flowter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="flowteredgeselection.html">FlowterEdgeSelection</a>
+					<a href="flowternodepropsmixin.html">FlowterNodePropsMixin</a>
 				</li>
 			</ul>
-			<h1>Class FlowterEdgeSelection</h1>
+			<h1>Class FlowterNodePropsMixin</h1>
 		</div>
 	</div>
 </header>
@@ -68,15 +68,10 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>wip</dt>
-						<dd><h2 id="this-component-is-still-a-work-in-progress-">This component is still a work in progress.</h2>
-							<p>The Flowter node selection&#39;s Vue class component.</p>
-							<p>This component acts as a representation of the currently
-								edited edge. It relies on [[FlowterEdge]] so that the edge
-							being edited is represented and rendered as the edge itself.</p>
-						</dd>
-					</dl>
+					<div class="lead">
+						<p>The Flowter node&#39;s base mixin.
+						This is shared across all node types.</p>
+					</div>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -90,7 +85,7 @@
 						<span class="tsd-signature-type">Vue</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">FlowterEdgeSelection</span>
+								<span class="target">FlowterNodePropsMixin</span>
 							</li>
 						</ul>
 					</li>
@@ -103,14 +98,15 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowteredgeselection.html#color" class="tsd-kind-icon">color</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowteredgeselection.html#edgetype" class="tsd-kind-icon">edge<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowteredgeselection.html#editing" class="tsd-kind-icon">editing</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowteredgeselection.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowteredgeselection.html#from" class="tsd-kind-icon">from</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowteredgeselection.html#marker" class="tsd-kind-icon">marker</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowteredgeselection.html#mode" class="tsd-kind-icon">mode</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowteredgeselection.html#to" class="tsd-kind-icon">to</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#bgcolor" class="tsd-kind-icon">bgcolor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#symbol" class="tsd-kind-icon">symbol</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#text" class="tsd-kind-icon">text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#width" class="tsd-kind-icon">width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodepropsmixin.html#y" class="tsd-kind-icon">y</a></li>
 							</ul>
 						</section>
 					</div>
@@ -119,47 +115,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="color" class="tsd-anchor"></a>
-					<h3>color</h3>
-					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="bgcolor" class="tsd-anchor"></a>
+					<h3>bgcolor</h3>
+					<div class="tsd-signature tsd-kind-icon">bgcolor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-edge-selection/index.ts#L75">src/components/flowter-edge-selection/index.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L64">src/components/flowter-node/mixins/flowter-node-props.ts:64</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The color of the edge (optional).</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="edgetype" class="tsd-anchor"></a>
-					<h3>edge<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">edge<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/edgetype.html" class="tsd-signature-type">EdgeType</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-edge-selection/index.ts#L57">src/components/flowter-edge-selection/index.ts:57</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The edge type.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="editing" class="tsd-anchor"></a>
-					<h3>editing</h3>
-					<div class="tsd-signature tsd-kind-icon">editing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-edge-selection/index.ts#L33">src/components/flowter-edge-selection/index.ts:33</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether an edge is being edited or not.</p>
+							<p>Node background color.</p>
 						</div>
 					</div>
 				</section>
@@ -169,72 +135,119 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-edge-selection/index.ts#L63">src/components/flowter-edge-selection/index.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L76">src/components/flowter-node/mixins/flowter-node-props.ts:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The edge text&#39;s font size.</p>
+							<p>Node&#39;s font size.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="from" class="tsd-anchor"></a>
-					<h3>from</h3>
-					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <a href="../interfaces/graphnodedetails.html" class="tsd-signature-type">GraphNodeDetails</a></div>
+					<a name="height" class="tsd-anchor"></a>
+					<h3>height</h3>
+					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-edge-selection/index.ts#L39">src/components/flowter-edge-selection/index.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L52">src/components/flowter-node/mixins/flowter-node-props.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Specifies the node id that the edited edge is connected from.</p>
+							<p>The height of the node.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="marker" class="tsd-anchor"></a>
-					<h3>marker</h3>
-					<div class="tsd-signature tsd-kind-icon">marker<span class="tsd-signature-symbol">:</span> <a href="../enums/edgemarker.html" class="tsd-signature-type">EdgeMarker</a></div>
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-edge-selection/index.ts#L69">src/components/flowter-edge-selection/index.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L28">src/components/flowter-node/mixins/flowter-node-props.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The side of the marker that will be rendered (optional).</p>
+							<p>Id of the node.</p>
+						</div>
+						<p>This is mainly used as an identifier
+						when sending out events to the parent.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="symbol" class="tsd-anchor"></a>
+					<h3>symbol</h3>
+					<div class="tsd-signature tsd-kind-icon">symbol<span class="tsd-signature-symbol">:</span> <a href="../enums/nodesymbol.html" class="tsd-signature-type">NodeSymbol</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L58">src/components/flowter-node/mixins/flowter-node-props.ts:58</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Node symbol.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="mode" class="tsd-anchor"></a>
-					<h3>mode</h3>
-					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <a href="../enums/mode.html" class="tsd-signature-type">Mode</a></div>
+					<a name="text" class="tsd-anchor"></a>
+					<h3>text</h3>
+					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-edge-selection/index.ts#L51">src/components/flowter-edge-selection/index.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L70">src/components/flowter-node/mixins/flowter-node-props.ts:70</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The flowchart mode.</p>
+							<p>Node&#39;s text.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="to" class="tsd-anchor"></a>
-					<h3>to</h3>
-					<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <a href="../interfaces/graphnodedetails.html" class="tsd-signature-type">GraphNodeDetails</a></div>
+					<a name="width" class="tsd-anchor"></a>
+					<h3>width</h3>
+					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-edge-selection/index.ts#L45">src/components/flowter-edge-selection/index.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L46">src/components/flowter-node/mixins/flowter-node-props.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Specifies the node id that the edited edge is connected to.</p>
+							<p>The width of the node.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="x" class="tsd-anchor"></a>
+					<h3>x</h3>
+					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L34">src/components/flowter-node/mixins/flowter-node-props.ts:34</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The x position of the node.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="y" class="tsd-anchor"></a>
+					<h3>y</h3>
+					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-props.ts#L40">src/components/flowter-node/mixins/flowter-node-props.ts:40</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The y position of the node.</p>
 						</div>
 					</div>
 				</section>
@@ -253,31 +266,34 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="flowteredgeselection.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Selection</a>
+						<a href="flowternodepropsmixin.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Props<wbr>Mixin</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowteredgeselection.html#color" class="tsd-kind-icon">color</a>
+								<a href="flowternodepropsmixin.html#bgcolor" class="tsd-kind-icon">bgcolor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowteredgeselection.html#edgetype" class="tsd-kind-icon">edge<wbr>Type</a>
+								<a href="flowternodepropsmixin.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowteredgeselection.html#editing" class="tsd-kind-icon">editing</a>
+								<a href="flowternodepropsmixin.html#height" class="tsd-kind-icon">height</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowteredgeselection.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a>
+								<a href="flowternodepropsmixin.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowteredgeselection.html#from" class="tsd-kind-icon">from</a>
+								<a href="flowternodepropsmixin.html#symbol" class="tsd-kind-icon">symbol</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowteredgeselection.html#marker" class="tsd-kind-icon">marker</a>
+								<a href="flowternodepropsmixin.html#text" class="tsd-kind-icon">text</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowteredgeselection.html#mode" class="tsd-kind-icon">mode</a>
+								<a href="flowternodepropsmixin.html#width" class="tsd-kind-icon">width</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="flowteredgeselection.html#to" class="tsd-kind-icon">to</a>
+								<a href="flowternodepropsmixin.html#x" class="tsd-kind-icon">x</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="flowternodepropsmixin.html#y" class="tsd-kind-icon">y</a>
 							</li>
 						</ul>
 					</li>

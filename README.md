@@ -69,9 +69,9 @@ This component is not complete. Several things before the first major release:
 - [x] Ability to add a text to an edge
 - [x] Annotate props/getters/methods
 - [x] Ability to connect a node to itself
-- [x] Ability to edit the nodes size and position
+- [ ] Ability to edit the nodes size and position
 - [ ] Ability to edit the edges position
-- [ ] Multiple types of the nodes
+- [x] Multiple types of the nodes
 - [ ] Ability to customize the color of the nodes/edges/texts
 - [ ] Ability to point a node to an edge
 

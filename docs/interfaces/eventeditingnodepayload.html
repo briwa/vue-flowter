@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ShapedEdge | Flowter</title>
+	<title>EventEditingNodePayload | Flowter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="shapededge.html">ShapedEdge</a>
+					<a href="eventeditingnodepayload.html">EventEditingNodePayload</a>
 				</li>
 			</ul>
-			<h1>Interface ShapedEdge</h1>
+			<h1>Interface EventEditingNodePayload</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The edge translated into the node position.</p>
+						<p>The payload of an edited node event.</p>
 					</div>
 				</div>
 			</section>
@@ -77,7 +77,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ShapedEdge</span>
+						<span class="target">EventEditingNodePayload</span>
 					</li>
 				</ul>
 			</section>
@@ -88,9 +88,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#nodedirection" class="tsd-kind-icon">node<wbr>Direction</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#y" class="tsd-kind-icon">y</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="eventeditingnodepayload.html#edit_start" class="tsd-kind-icon">edit-<wbr>start</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="eventeditingnodepayload.html#hover_start" class="tsd-kind-icon">hover-<wbr>start</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="eventeditingnodepayload.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -99,34 +99,48 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nodedirection" class="tsd-anchor"></a>
-					<h3>node<wbr>Direction</h3>
-					<div class="tsd-signature tsd-kind-icon">node<wbr>Direction<span class="tsd-signature-symbol">:</span> <a href="../globals.html#direction" class="tsd-signature-type">Direction</a></div>
+					<a name="edit_start" class="tsd-anchor"></a>
+					<h3>edit-<wbr>start</h3>
+					<div class="tsd-signature tsd-kind-icon">edit-<wbr>start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L291">src/shared/types.ts:291</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L183">src/shared/types.ts:183</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="x" class="tsd-anchor"></a>
-					<h3>x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="hover_start" class="tsd-anchor"></a>
+					<h3>hover-<wbr>start</h3>
+					<div class="tsd-signature tsd-kind-icon">hover-<wbr>start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L289">src/shared/types.ts:289</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L182">src/shared/types.ts:182</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="y" class="tsd-anchor"></a>
-					<h3>y</h3>
-					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="update" class="tsd-anchor"></a>
+					<h3>update</h3>
+					<div class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L290">src/shared/types.ts:290</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L184">src/shared/types.ts:184</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -143,16 +157,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="shapededge.html" class="tsd-kind-icon">Shaped<wbr>Edge</a>
+						<a href="eventeditingnodepayload.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Node<wbr>Payload</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#nodedirection" class="tsd-kind-icon">node<wbr>Direction</a>
+								<a href="eventeditingnodepayload.html#edit_start" class="tsd-kind-icon">edit-<wbr>start</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#x" class="tsd-kind-icon">x</a>
+								<a href="eventeditingnodepayload.html#hover_start" class="tsd-kind-icon">hover-<wbr>start</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#y" class="tsd-kind-icon">y</a>
+								<a href="eventeditingnodepayload.html#update" class="tsd-kind-icon">update</a>
 							</li>
 						</ul>
 					</li>

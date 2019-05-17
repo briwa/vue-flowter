@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GraphEdge | Flowter</title>
+	<title>RenderedEdge | Flowter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="graphedge.html">GraphEdge</a>
+					<a href="renderededge.html">RenderedEdge</a>
 				</li>
 			</ul>
-			<h1>Interface GraphEdge</h1>
+			<h1>Interface RenderedEdge</h1>
 		</div>
 	</div>
 </header>
@@ -69,20 +69,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The edge shape, retrieved as props in <a href="../classes/flowterflowchart.html#edges">FlowterFlowchart.edges</a>.</p>
+						<p>The rendered edge properties.</p>
 					</div>
-					<p><code>Graph</code> prefix is used to make it consistent
-					with <a href="graphnode.html">GraphNode</a>.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">GraphEdge</span>
+						<a href="graphedge.html" class="tsd-signature-type">GraphEdge</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="renderededge.html" class="tsd-signature-type">RenderedEdge</a>
+								<span class="target">RenderedEdge</span>
 							</li>
 						</ul>
 					</li>
@@ -95,13 +93,18 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphedge.html#color" class="tsd-kind-icon">color</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphedge.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphedge.html#from" class="tsd-kind-icon">from</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphedge.html#marker" class="tsd-kind-icon">marker</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphedge.html#text" class="tsd-kind-icon">text</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphedge.html#to" class="tsd-kind-icon">to</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphedge.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="renderededge.html#color" class="tsd-kind-icon">color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderededge.html#direction" class="tsd-kind-icon">direction</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="renderededge.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="renderededge.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderededge.html#fromposition" class="tsd-kind-icon">from<wbr>Position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderededge.html#iscircular" class="tsd-kind-icon">is<wbr>Circular</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="renderededge.html#marker" class="tsd-kind-icon">marker</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderededge.html#side" class="tsd-kind-icon">side</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="renderededge.html#text" class="tsd-kind-icon">text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="renderededge.html#to" class="tsd-kind-icon">to</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderededge.html#toposition" class="tsd-kind-icon">to<wbr>Position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="renderededge.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -109,11 +112,12 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="color" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> color</h3>
 					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="graphedge.html">GraphEdge</a>.<a href="graphedge.html#color">color</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L264">src/shared/types.ts:264</a></li>
 						</ul>
@@ -126,10 +130,21 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="direction" class="tsd-anchor"></a>
+					<h3>direction</h3>
+					<div class="tsd-signature tsd-kind-icon">direction<span class="tsd-signature-symbol">:</span> <a href="../globals.html#direction" class="tsd-signature-type">Direction</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L315">src/shared/types.ts:315</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="fontsize" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> font<wbr>Size</h3>
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="graphedge.html">GraphEdge</a>.<a href="graphedge.html#fontsize">fontSize</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L282">src/shared/types.ts:282</a></li>
 						</ul>
@@ -141,11 +156,12 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="from" class="tsd-anchor"></a>
 					<h3>from</h3>
 					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="graphedge.html">GraphEdge</a>.<a href="graphedge.html#from">from</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L247">src/shared/types.ts:247</a></li>
 						</ul>
@@ -157,10 +173,42 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fromposition" class="tsd-anchor"></a>
+					<h3>from<wbr>Position</h3>
+					<div class="tsd-signature tsd-kind-icon">from<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L307">src/shared/types.ts:307</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="iscircular" class="tsd-anchor"></a>
+					<h3>is<wbr>Circular</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Circular<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L317">src/shared/types.ts:317</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="marker" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> marker</h3>
 					<div class="tsd-signature tsd-kind-icon">marker<span class="tsd-signature-symbol">:</span> <a href="../enums/edgemarker.html" class="tsd-signature-type">EdgeMarker</a></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="graphedge.html">GraphEdge</a>.<a href="graphedge.html#marker">marker</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L276">src/shared/types.ts:276</a></li>
 						</ul>
@@ -173,10 +221,21 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="side" class="tsd-anchor"></a>
+					<h3>side</h3>
+					<div class="tsd-signature tsd-kind-icon">side<span class="tsd-signature-symbol">:</span> <a href="../globals.html#direction" class="tsd-signature-type">Direction</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L316">src/shared/types.ts:316</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="text" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> text</h3>
 					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="graphedge.html">GraphEdge</a>.<a href="graphedge.html#text">text</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L258">src/shared/types.ts:258</a></li>
 						</ul>
@@ -188,11 +247,12 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="to" class="tsd-anchor"></a>
 					<h3>to</h3>
 					<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="graphedge.html">GraphEdge</a>.<a href="graphedge.html#to">to</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L252">src/shared/types.ts:252</a></li>
 						</ul>
@@ -204,10 +264,32 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="toposition" class="tsd-anchor"></a>
+					<h3>to<wbr>Position</h3>
+					<div class="tsd-signature tsd-kind-icon">to<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L311">src/shared/types.ts:311</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="type" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/edgetype.html" class="tsd-signature-type">EdgeType</a></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="graphedge.html">GraphEdge</a>.<a href="graphedge.html#type">type</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L270">src/shared/types.ts:270</a></li>
 						</ul>
@@ -234,28 +316,43 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="graphedge.html" class="tsd-kind-icon">Graph<wbr>Edge</a>
+						<a href="renderededge.html" class="tsd-kind-icon">Rendered<wbr>Edge</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphedge.html#color" class="tsd-kind-icon">color</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="renderededge.html#color" class="tsd-kind-icon">color</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphedge.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a>
+								<a href="renderededge.html#direction" class="tsd-kind-icon">direction</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="renderededge.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="renderededge.html#from" class="tsd-kind-icon">from</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphedge.html#from" class="tsd-kind-icon">from</a>
+								<a href="renderededge.html#fromposition" class="tsd-kind-icon">from<wbr>Position</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphedge.html#marker" class="tsd-kind-icon">marker</a>
+								<a href="renderededge.html#iscircular" class="tsd-kind-icon">is<wbr>Circular</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="renderededge.html#marker" class="tsd-kind-icon">marker</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphedge.html#text" class="tsd-kind-icon">text</a>
+								<a href="renderededge.html#side" class="tsd-kind-icon">side</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="renderededge.html#text" class="tsd-kind-icon">text</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="renderededge.html#to" class="tsd-kind-icon">to</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphedge.html#to" class="tsd-kind-icon">to</a>
+								<a href="renderededge.html#toposition" class="tsd-kind-icon">to<wbr>Position</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphedge.html#type" class="tsd-kind-icon">type</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="renderededge.html#type" class="tsd-kind-icon">type</a>
 							</li>
 						</ul>
 					</li>

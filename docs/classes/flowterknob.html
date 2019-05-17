@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ShapedEdge | Flowter</title>
+	<title>FlowterKnob | Flowter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="shapededge.html">ShapedEdge</a>
+					<a href="flowterknob.html">FlowterKnob</a>
 				</li>
 			</ul>
-			<h1>Interface ShapedEdge</h1>
+			<h1>Class FlowterKnob</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The edge translated into the node position.</p>
+						<p>The Flowter knob&#39;s Vue class component.</p>
 					</div>
 				</div>
 			</section>
@@ -77,7 +77,16 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ShapedEdge</span>
+						<span class="tsd-signature-type">object</span>
+						<span class="tsd-signature-symbol"> &amp; </span>
+						<span class="tsd-signature-type">object</span>
+						<span class="tsd-signature-symbol"> &amp; </span>
+						<span class="tsd-signature-type">Vue</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">FlowterKnob</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -88,9 +97,17 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#nodedirection" class="tsd-kind-icon">node<wbr>Direction</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#y" class="tsd-kind-icon">y</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowterknob.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowterknob.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowterknob.html#y" class="tsd-kind-icon">y</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowterknob.html#knobstyle" class="tsd-kind-icon">knob<wbr>Style</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowterknob.html#strokewidth" class="tsd-kind-icon">stroke<wbr>Width</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowterknob.html#viewbox" class="tsd-kind-icon">view<wbr>Box</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,35 +115,133 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nodedirection" class="tsd-anchor"></a>
-					<h3>node<wbr>Direction</h3>
-					<div class="tsd-signature tsd-kind-icon">node<wbr>Direction<span class="tsd-signature-symbol">:</span> <a href="../globals.html#direction" class="tsd-signature-type">Direction</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
+					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L291">src/shared/types.ts:291</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-knob/index.ts#L34">src/components/flowter-knob/index.ts:34</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The size of the knob.</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="x" class="tsd-anchor"></a>
 					<h3>x</h3>
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L289">src/shared/types.ts:289</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-knob/index.ts#L22">src/components/flowter-knob/index.ts:22</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The x position of the knob.</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="y" class="tsd-anchor"></a>
 					<h3>y</h3>
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L290">src/shared/types.ts:290</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-knob/index.ts#L28">src/components/flowter-knob/index.ts:28</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The y position of the knob.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="knobstyle" class="tsd-anchor"></a>
+					<h3>knob<wbr>Style</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> knobStyle<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-knob/index.ts#L45">src/components/flowter-knob/index.ts:45</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The style of the knob.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>left<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>top<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="strokewidth" class="tsd-anchor"></a>
+					<h3>stroke<wbr>Width</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> strokeWidth<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-knob/index.ts#L57">src/components/flowter-knob/index.ts:57</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The stroke width of the knob.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="viewbox" class="tsd-anchor"></a>
+					<h3>view<wbr>Box</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> viewBox<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-knob/index.ts#L64">src/components/flowter-knob/index.ts:64</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The viewbox of the knob.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -142,17 +257,26 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="shapededge.html" class="tsd-kind-icon">Shaped<wbr>Edge</a>
+					<li class="current tsd-kind-class">
+						<a href="flowterknob.html" class="tsd-kind-icon">Flowter<wbr>Knob</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#nodedirection" class="tsd-kind-icon">node<wbr>Direction</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="flowterknob.html#size" class="tsd-kind-icon">size</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#x" class="tsd-kind-icon">x</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="flowterknob.html#x" class="tsd-kind-icon">x</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#y" class="tsd-kind-icon">y</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="flowterknob.html#y" class="tsd-kind-icon">y</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="flowterknob.html#knobstyle" class="tsd-kind-icon">knob<wbr>Style</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="flowterknob.html#strokewidth" class="tsd-kind-icon">stroke<wbr>Width</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="flowterknob.html#viewbox" class="tsd-kind-icon">view<wbr>Box</a>
 							</li>
 						</ul>
 					</li>

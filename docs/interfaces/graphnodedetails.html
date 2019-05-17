@@ -89,10 +89,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnodedetails.html#colidx" class="tsd-kind-icon">col<wbr>Idx</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnodedetails.html#node" class="tsd-kind-icon">node</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnodedetails.html#rowidx" class="tsd-kind-icon">row<wbr>Idx</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnodedetails.html#rowlength" class="tsd-kind-icon">row<wbr>Length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnodedetails.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnodedetails.html#node-1" class="tsd-kind-icon">node</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnodedetails.html#row" class="tsd-kind-icon">row</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="graphnodedetails.html#to" class="tsd-kind-icon">to</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,44 +101,103 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="colidx" class="tsd-anchor"></a>
-					<h3>col<wbr>Idx</h3>
-					<div class="tsd-signature tsd-kind-icon">col<wbr>Idx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="from" class="tsd-anchor"></a>
+					<h3>from</h3>
+					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/shared/types.ts#L151">shared/types.ts:151</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L166">src/shared/types.ts:166</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>edge<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="graphedge.html" class="tsd-signature-type">GraphEdge</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="orderednode.html" class="tsd-signature-type">OrderedNode</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="node" class="tsd-anchor"></a>
+					<a name="node-1" class="tsd-anchor"></a>
 					<h3>node</h3>
-					<div class="tsd-signature tsd-kind-icon">node<span class="tsd-signature-symbol">:</span> <a href="renderedgraphnode.html" class="tsd-signature-type">RenderedGraphNode</a></div>
+					<div class="tsd-signature tsd-kind-icon">node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/shared/types.ts#L152">shared/types.ts:152</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L160">src/shared/types.ts:160</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>current<span class="tsd-signature-symbol">: </span><a href="renderedgraphnode.html" class="tsd-signature-type">RenderedGraphNode</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>idx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>next<span class="tsd-signature-symbol">: </span><a href="renderedgraphnode.html" class="tsd-signature-type">RenderedGraphNode</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>prev<span class="tsd-signature-symbol">: </span><a href="renderedgraphnode.html" class="tsd-signature-type">RenderedGraphNode</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="rowidx" class="tsd-anchor"></a>
-					<h3>row<wbr>Idx</h3>
-					<div class="tsd-signature tsd-kind-icon">row<wbr>Idx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="row" class="tsd-anchor"></a>
+					<h3>row</h3>
+					<div class="tsd-signature tsd-kind-icon">row<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/shared/types.ts#L150">shared/types.ts:150</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L153">src/shared/types.ts:153</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>current<span class="tsd-signature-symbol">: </span><a href="noderow.html" class="tsd-signature-type">NodeRow</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>idx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>next<span class="tsd-signature-symbol">: </span><a href="noderow.html" class="tsd-signature-type">NodeRow</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>prev<span class="tsd-signature-symbol">: </span><a href="noderow.html" class="tsd-signature-type">NodeRow</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="rowlength" class="tsd-anchor"></a>
-					<h3>row<wbr>Length</h3>
-					<div class="tsd-signature tsd-kind-icon">row<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="to" class="tsd-anchor"></a>
+					<h3>to</h3>
+					<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/0512a42/src/shared/types.ts#L149">shared/types.ts:149</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L167">src/shared/types.ts:167</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>edge<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="graphedge.html" class="tsd-signature-type">GraphEdge</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="orderednode.html" class="tsd-signature-type">OrderedNode</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -152,144 +211,27 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="../enums/edgemarker.html" class="tsd-kind-icon">Edge<wbr>Marker</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/edgetype.html" class="tsd-kind-icon">Edge<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/mode.html" class="tsd-kind-icon">Mode</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/nodesymbol.html" class="tsd-kind-icon">Node<wbr>Symbol</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/selectiontype.html" class="tsd-kind-icon">Selection<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/flowteredge.html" class="tsd-kind-icon">Flowter<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/flowteredgeselection.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Selection</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/flowterflowchart.html" class="tsd-kind-icon">Flowter<wbr>Flowchart</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/flowternode.html" class="tsd-kind-icon">Flowter<wbr>Node</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/flowternodeselection.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Selection</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="bounds.html" class="tsd-kind-icon">Bounds</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="editingedgedetails.html" class="tsd-kind-icon">Editing<wbr>Edge<wbr>Details</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="eventeditingedge.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="eventeditingedgepayload.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Edge<wbr>Payload</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="graphedge.html" class="tsd-kind-icon">Graph<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="graphnode.html" class="tsd-kind-icon">Graph<wbr>Node</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
 						<a href="graphnodedetails.html" class="tsd-kind-icon">Graph<wbr>Node<wbr>Details</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnodedetails.html#colidx" class="tsd-kind-icon">col<wbr>Idx</a>
+								<a href="graphnodedetails.html#from" class="tsd-kind-icon">from</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnodedetails.html#node" class="tsd-kind-icon">node</a>
+								<a href="graphnodedetails.html#node-1" class="tsd-kind-icon">node</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnodedetails.html#rowidx" class="tsd-kind-icon">row<wbr>Idx</a>
+								<a href="graphnodedetails.html#row" class="tsd-kind-icon">row</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="graphnodedetails.html#rowlength" class="tsd-kind-icon">row<wbr>Length</a>
+								<a href="graphnodedetails.html#to" class="tsd-kind-icon">to</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="noderow.html" class="tsd-kind-icon">Node<wbr>Row</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="orderednode.html" class="tsd-kind-icon">Ordered<wbr>Node</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="renderedgraphnode.html" class="tsd-kind-icon">Rendered<wbr>Graph<wbr>Node</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="shapededge.html" class="tsd-kind-icon">Shaped<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#direction" class="tsd-kind-icon">Direction</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_font_size" class="tsd-kind-icon">DEFAULT_<wbr>FONT_<wbr>SIZE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_height_margin" class="tsd-kind-icon">DEFAULT_<wbr>HEIGHT_<wbr>MARGIN</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_bgcolor" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>BGCOLOR</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_col_spacing" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>COL_<wbr>SPACING</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_height" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>HEIGHT</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_row_spacing" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>ROW_<wbr>SPACING</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_node_width" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>WIDTH</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_stroke_color" class="tsd-kind-icon">DEFAULT_<wbr>STROKE_<wbr>COLOR</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_stroke_width" class="tsd-kind-icon">DEFAULT_<wbr>STROKE_<wbr>WIDTH</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#default_width_margin" class="tsd-kind-icon">DEFAULT_<wbr>WIDTH_<wbr>MARGIN</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#edge_midpoint_ratio" class="tsd-kind-icon">EDGE_<wbr>MIDPOINT_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#edge_sr_arc_size_ratio" class="tsd-kind-icon">EDGE_<wbr>SR_<wbr>ARC_<wbr>SIZE_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#edge_sr_size_ratio" class="tsd-kind-icon">EDGE_<wbr>SR_<wbr>SIZE_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#min_edge_detour_size" class="tsd-kind-icon">MIN_<wbr>EDGE_<wbr>DETOUR_<wbr>SIZE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#min_edge_size" class="tsd-kind-icon">MIN_<wbr>EDGE_<wbr>SIZE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#node_rhombus_ratio" class="tsd-kind-icon">NODE_<wbr>RHOMBUS_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#node_smaller_ratio" class="tsd-kind-icon">NODE_<wbr>SMALLER_<wbr>RATIO</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#default_bounds" class="tsd-kind-icon">DEFAULT_<wbr>BOUNDS</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

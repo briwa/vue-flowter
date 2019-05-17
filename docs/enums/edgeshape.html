@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ShapedEdge | Flowter</title>
+	<title>EdgeShape | Flowter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="shapededge.html">ShapedEdge</a>
+					<a href="edgeshape.html">EdgeShape</a>
 				</li>
 			</ul>
-			<h1>Interface ShapedEdge</h1>
+			<h1>Enumeration EdgeShape</h1>
 		</div>
 	</div>
 </header>
@@ -69,62 +69,65 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The edge translated into the node position.</p>
+						<p>Shapes of the edge.</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">ShapedEdge</span>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#nodedirection" class="tsd-kind-icon">node<wbr>Direction</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapededge.html#y" class="tsd-kind-icon">y</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="edgeshape.html#bent_backward" class="tsd-kind-icon">BENT_<wbr>BACKWARD</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="edgeshape.html#bent_forward" class="tsd-kind-icon">BENT_<wbr>FORWARD</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="edgeshape.html#circular" class="tsd-kind-icon">CIRCULAR</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="edgeshape.html#straight" class="tsd-kind-icon">STRAIGHT</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nodedirection" class="tsd-anchor"></a>
-					<h3>node<wbr>Direction</h3>
-					<div class="tsd-signature tsd-kind-icon">node<wbr>Direction<span class="tsd-signature-symbol">:</span> <a href="../globals.html#direction" class="tsd-signature-type">Direction</a></div>
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="bent_backward" class="tsd-anchor"></a>
+					<h3>BENT_<wbr>BACKWARD</h3>
+					<div class="tsd-signature tsd-kind-icon">BENT_<wbr>BACKWARD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;bent-backward&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L291">src/shared/types.ts:291</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L232">src/shared/types.ts:232</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="x" class="tsd-anchor"></a>
-					<h3>x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="bent_forward" class="tsd-anchor"></a>
+					<h3>BENT_<wbr>FORWARD</h3>
+					<div class="tsd-signature tsd-kind-icon">BENT_<wbr>FORWARD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;bent-forward&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L289">src/shared/types.ts:289</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L231">src/shared/types.ts:231</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="y" class="tsd-anchor"></a>
-					<h3>y</h3>
-					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="circular" class="tsd-anchor"></a>
+					<h3>CIRCULAR</h3>
+					<div class="tsd-signature tsd-kind-icon">CIRCULAR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;circular&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L290">src/shared/types.ts:290</a></li>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L234">src/shared/types.ts:234</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="straight" class="tsd-anchor"></a>
+					<h3>STRAIGHT</h3>
+					<div class="tsd-signature tsd-kind-icon">STRAIGHT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;straight&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/shared/types.ts#L233">src/shared/types.ts:233</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -142,17 +145,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="shapededge.html" class="tsd-kind-icon">Shaped<wbr>Edge</a>
+					<li class="current tsd-kind-enum">
+						<a href="edgeshape.html" class="tsd-kind-icon">Edge<wbr>Shape</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#nodedirection" class="tsd-kind-icon">node<wbr>Direction</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="edgeshape.html#bent_backward" class="tsd-kind-icon">BENT_<wbr>BACKWARD</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#x" class="tsd-kind-icon">x</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="edgeshape.html#bent_forward" class="tsd-kind-icon">BENT_<wbr>FORWARD</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="shapededge.html#y" class="tsd-kind-icon">y</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="edgeshape.html#circular" class="tsd-kind-icon">CIRCULAR</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="edgeshape.html#straight" class="tsd-kind-icon">STRAIGHT</a>
 							</li>
 						</ul>
 					</li>

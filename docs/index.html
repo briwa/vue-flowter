@@ -111,9 +111,9 @@ Vue.component(<span class="hljs-string">'Flowter'</span>, Flowter)</code></pre>
 					<li><input checked="" disabled="" type="checkbox"> Ability to add a text to an edge</li>
 					<li><input checked="" disabled="" type="checkbox"> Annotate props/getters/methods</li>
 					<li><input checked="" disabled="" type="checkbox"> Ability to connect a node to itself</li>
-					<li><input checked="" disabled="" type="checkbox"> Ability to edit the nodes size and position</li>
+					<li><input disabled="" type="checkbox"> Ability to edit the nodes size and position</li>
 					<li><input disabled="" type="checkbox"> Ability to edit the edges position</li>
-					<li><input disabled="" type="checkbox"> Multiple types of the nodes</li>
+					<li><input checked="" disabled="" type="checkbox"> Multiple types of the nodes</li>
 					<li><input disabled="" type="checkbox"> Ability to customize the color of the nodes/edges/texts</li>
 					<li><input disabled="" type="checkbox"> Ability to point a node to an edge</li>
 				</ul>
@@ -139,7 +139,13 @@ Vue.component(<span class="hljs-string">'Flowter'</span>, Flowter)</code></pre>
 						<a href="enums/edgemarker.html" class="tsd-kind-icon">Edge<wbr>Marker</a>
 					</li>
 					<li class=" tsd-kind-enum">
+						<a href="enums/edgeshape.html" class="tsd-kind-icon">Edge<wbr>Shape</a>
+					</li>
+					<li class=" tsd-kind-enum">
 						<a href="enums/edgetype.html" class="tsd-kind-icon">Edge<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/editing.html" class="tsd-kind-icon">Editing</a>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/mode.html" class="tsd-kind-icon">Mode</a>
@@ -151,22 +157,67 @@ Vue.component(<span class="hljs-string">'Flowter'</span>, Flowter)</code></pre>
 						<a href="enums/selectiontype.html" class="tsd-kind-icon">Selection<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/flowteredge.html" class="tsd-kind-icon">Flowter<wbr>Edge</a>
+						<a href="classes/flowteredgebase.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowteredgebentbackward.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Bent<wbr>Backward</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowteredgebentforward.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Bent<wbr>Forward</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowteredgecircular.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Circular</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowteredgepropsmixin.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Props<wbr>Mixin</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/flowteredgeselection.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Selection</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/flowteredgesharedmixin.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Shared<wbr>Mixin</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowteredgestraight.html" class="tsd-kind-icon">Flowter<wbr>Edge<wbr>Straight</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowtereditor.html" class="tsd-kind-icon">Flowter<wbr>Editor</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/flowterflowchart.html" class="tsd-kind-icon">Flowter<wbr>Flowchart</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/flowternode.html" class="tsd-kind-icon">Flowter<wbr>Node</a>
+						<a href="classes/flowterknob.html" class="tsd-kind-icon">Flowter<wbr>Knob</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowternodeellipse.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Ellipse</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowternodeparallelogram.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Parallelogram</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowternodepropsmixin.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Props<wbr>Mixin</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowternoderectangle.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Rectangle</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowternoderhombus.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Rhombus</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowternoderoundedrectangle.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Rounded<wbr>Rectangle</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/flowternodeselection.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Selection</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowternodesharedmixin.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Shared<wbr>Mixin</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/bounds.html" class="tsd-kind-icon">Bounds</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/edgesourceposition.html" class="tsd-kind-icon">Edge<wbr>Source<wbr>Position</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/editingedgedetails.html" class="tsd-kind-icon">Editing<wbr>Edge<wbr>Details</a>
@@ -176,6 +227,12 @@ Vue.component(<span class="hljs-string">'Flowter'</span>, Flowter)</code></pre>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/eventeditingedgepayload.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Edge<wbr>Payload</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/eventeditingnode.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Node</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/eventeditingnodepayload.html" class="tsd-kind-icon">Event<wbr>Editing<wbr>Node<wbr>Payload</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/graphedge.html" class="tsd-kind-icon">Graph<wbr>Edge</a>
@@ -193,6 +250,9 @@ Vue.component(<span class="hljs-string">'Flowter'</span>, Flowter)</code></pre>
 						<a href="interfaces/orderednode.html" class="tsd-kind-icon">Ordered<wbr>Node</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/renderededge.html" class="tsd-kind-icon">Rendered<wbr>Edge</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/renderedgraphnode.html" class="tsd-kind-icon">Rendered<wbr>Graph<wbr>Node</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -206,6 +266,9 @@ Vue.component(<span class="hljs-string">'Flowter'</span>, Flowter)</code></pre>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#default_height_margin" class="tsd-kind-icon">DEFAULT_<wbr>HEIGHT_<wbr>MARGIN</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#default_knob_size" class="tsd-kind-icon">DEFAULT_<wbr>KNOB_<wbr>SIZE</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#default_node_bgcolor" class="tsd-kind-icon">DEFAULT_<wbr>NODE_<wbr>BGCOLOR</a>
