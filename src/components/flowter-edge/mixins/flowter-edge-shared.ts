@@ -28,18 +28,37 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
 
   /*
    * -------------------------------
-   * Public accessor/computed
+   * Public constants
    * -------------------------------
    */
 
   /**
-   * Defines the `viewBox` property of the SVG.
-   *
-   * Based on the edge's container size itself.
+   * Defines the stroke width of the edge.
+   * @todo This should be configurable.
    */
-  public get strokeWidth () {
-    return DEFAULT_STROKE_WIDTH
-  }
+  public readonly strokeWidth = DEFAULT_STROKE_WIDTH
+
+  /*
+   * -------------------------------
+   * Private constants
+   * -------------------------------
+   */
+
+  /**
+   * The minimum size allowed for an edge.
+   */
+  private readonly minSize = MIN_EDGE_SIZE
+
+  /**
+   * The size allocated to render the edge detour.
+   */
+  private readonly detourSize = MIN_EDGE_DETOUR_SIZE
+
+  /*
+   * -------------------------------
+   * Public accessor/computed
+   * -------------------------------
+   */
 
   /**
    * Whether the arrow marker is rendered at the start of the `path`.
@@ -158,25 +177,5 @@ export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
         y: this.toPosition.y - this.domPosition.y + this.paddingSize
       }
     }
-  }
-
-  /*
-   * -------------------------------
-   * Private accessor/computed
-   * -------------------------------
-   */
-
-  /**
-   * The minimum size allowed for an edge.
-   */
-  private get minSize () {
-    return MIN_EDGE_SIZE
-  }
-
-  /**
-   * The size allocated to render the edge detour.
-   */
-  private get detourSize () {
-    return MIN_EDGE_DETOUR_SIZE
   }
 }

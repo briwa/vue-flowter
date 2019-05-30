@@ -97,17 +97,62 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodesharedmixin.html#margin" class="tsd-kind-icon">margin</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowternodesharedmixin.html#strokewidth" class="tsd-kind-icon">stroke<wbr>Width</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodesharedmixin.html#halfheight" class="tsd-kind-icon">half<wbr>Height</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodesharedmixin.html#halfwidth" class="tsd-kind-icon">half<wbr>Width</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodesharedmixin.html#margin" class="tsd-kind-icon">margin</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodesharedmixin.html#nodecenter" class="tsd-kind-icon">node<wbr>Center</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodesharedmixin.html#nodestyle" class="tsd-kind-icon">node<wbr>Style</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodesharedmixin.html#strokewidth" class="tsd-kind-icon">stroke<wbr>Width</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowternodesharedmixin.html#viewbox" class="tsd-kind-icon">view<wbr>Box</a></li>
 							</ul>
 						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="margin" class="tsd-anchor"></a>
+					<h3>margin</h3>
+					<div class="tsd-signature tsd-kind-icon">margin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;DEFAULT_STROKE_WIDTH / 2</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/76cf659/src/components/flowter-node/mixins/flowter-node-shared.ts#L29">src/components/flowter-node/mixins/flowter-node-shared.ts:29</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The margin to account for the stroke width.</p>
+						</div>
+						<p>This is to make the node always renders inside the
+						container, regardless of the stroke width.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="strokewidth" class="tsd-anchor"></a>
+					<h3>stroke<wbr>Width</h3>
+					<div class="tsd-signature tsd-kind-icon">stroke<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">2</span><span class="tsd-signature-symbol"> =&nbsp;DEFAULT_STROKE_WIDTH</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/76cf659/src/components/flowter-node/mixins/flowter-node-shared.ts#L35">src/components/flowter-node/mixins/flowter-node-shared.ts:35</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default stroke width.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>todo</dt>
+							<dd><p>This should be configurable.</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -123,7 +168,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-shared.ts#L56">src/components/flowter-node/mixins/flowter-node-shared.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/76cf659/src/components/flowter-node/mixins/flowter-node-shared.ts#L76">src/components/flowter-node/mixins/flowter-node-shared.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -145,37 +190,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-shared.ts#L49">src/components/flowter-node/mixins/flowter-node-shared.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/76cf659/src/components/flowter-node/mixins/flowter-node-shared.ts#L69">src/components/flowter-node/mixins/flowter-node-shared.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Half of the node&#39;s width.</p>
 								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="margin" class="tsd-anchor"></a>
-					<h3>margin</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> margin<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-shared.ts#L76">src/components/flowter-node/mixins/flowter-node-shared.ts:76</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The margin to account for the stroke width.</p>
-								</div>
-								<p>This is to make the edge always renders inside the
-								container, regardless of the stroke width.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
@@ -191,7 +212,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-shared.ts#L63">src/components/flowter-node/mixins/flowter-node-shared.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/76cf659/src/components/flowter-node/mixins/flowter-node-shared.ts#L83">src/components/flowter-node/mixins/flowter-node-shared.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,7 +242,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-shared.ts#L26">src/components/flowter-node/mixins/flowter-node-shared.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/76cf659/src/components/flowter-node/mixins/flowter-node-shared.ts#L46">src/components/flowter-node/mixins/flowter-node-shared.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -230,33 +251,6 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="strokewidth" class="tsd-anchor"></a>
-					<h3>stroke<wbr>Width</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> strokeWidth<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-shared.ts#L84">src/components/flowter-node/mixins/flowter-node-shared.ts:84</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The default stroke width.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>todo</dt>
-									<dd><p>This could be configurable.</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -270,7 +264,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/9f8bd22/src/components/flowter-node/mixins/flowter-node-shared.ts#L42">src/components/flowter-node/mixins/flowter-node-shared.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/briwa/vue-flowter/blob/76cf659/src/components/flowter-node/mixins/flowter-node-shared.ts#L62">src/components/flowter-node/mixins/flowter-node-shared.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,6 +294,12 @@
 					<li class="current tsd-kind-class">
 						<a href="flowternodesharedmixin.html" class="tsd-kind-icon">Flowter<wbr>Node<wbr>Shared<wbr>Mixin</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="flowternodesharedmixin.html#margin" class="tsd-kind-icon">margin</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="flowternodesharedmixin.html#strokewidth" class="tsd-kind-icon">stroke<wbr>Width</a>
+							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="flowternodesharedmixin.html#halfheight" class="tsd-kind-icon">half<wbr>Height</a>
 							</li>
@@ -307,16 +307,10 @@
 								<a href="flowternodesharedmixin.html#halfwidth" class="tsd-kind-icon">half<wbr>Width</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="flowternodesharedmixin.html#margin" class="tsd-kind-icon">margin</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="flowternodesharedmixin.html#nodecenter" class="tsd-kind-icon">node<wbr>Center</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="flowternodesharedmixin.html#nodestyle" class="tsd-kind-icon">node<wbr>Style</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="flowternodesharedmixin.html#strokewidth" class="tsd-kind-icon">stroke<wbr>Width</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="flowternodesharedmixin.html#viewbox" class="tsd-kind-icon">view<wbr>Box</a>

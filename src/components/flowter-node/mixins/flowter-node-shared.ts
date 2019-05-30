@@ -16,6 +16,26 @@ import FlowterNodeProps from './flowter-node-props'
 export default class FlowterNodeSharedMixin extends Mixins(FlowterNodeProps) {
   /*
    * -------------------------------
+   * Public constants
+   * -------------------------------
+   */
+
+  /**
+   * The margin to account for the stroke width.
+   *
+   * This is to make the node always renders inside the
+   * container, regardless of the stroke width.
+   */
+  public readonly margin = DEFAULT_STROKE_WIDTH / 2
+
+  /**
+   * The default stroke width.
+   * @todo This should be configurable.
+   */
+  public readonly strokeWidth = DEFAULT_STROKE_WIDTH
+
+  /*
+   * -------------------------------
    * Public accessor/computed
    * -------------------------------
    */
@@ -65,23 +85,5 @@ export default class FlowterNodeSharedMixin extends Mixins(FlowterNodeProps) {
       x: (this.halfWidth) - this.margin,
       y: (this.halfHeight) - this.margin
     }
-  }
-
-  /**
-   * The margin to account for the stroke width.
-   *
-   * This is to make the edge always renders inside the
-   * container, regardless of the stroke width.
-   */
-  public get margin () {
-    return DEFAULT_STROKE_WIDTH / 2
-  }
-
-  /**
-   * The default stroke width.
-   * @todo This could be configurable.
-   */
-  public get strokeWidth () {
-    return DEFAULT_STROKE_WIDTH
   }
 }

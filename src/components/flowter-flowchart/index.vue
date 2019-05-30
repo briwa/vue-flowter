@@ -5,9 +5,9 @@
     <div class="flowter-nodes-container">
       <template v-for="nodeDetails in renderedNodes">
         <flowter-node
-          v-bind="nodeDetails.node.current"
           :key="`node-${nodeDetails.node.current.id}`"
           :font-size="fontSize"
+          v-bind="nodeDetails.node.current"
           @click="$emit('node-click', $event)"
           @mouseenter="$emit('node-mouseenter', $event)"
           @mouseleave="$emit('node-mouseleave', $event)" />
@@ -20,9 +20,6 @@
         </flowter-edge>
       </template>
     </div>
-    <slot
-      name="flowchart-elements"
-      :rendered-nodes="renderedNodes" />
   </div>
 </template>
 <script lang="ts" src="./index.ts"></script>

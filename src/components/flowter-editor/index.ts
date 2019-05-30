@@ -3,11 +3,8 @@ import { Component, Vue } from 'vue-property-decorator'
 
 // Components
 import FlowterFlowchart from '@/components/flowter-flowchart/index.vue'
-import FlowterNodeSelection from '@/components/flowter-node-selection/index.vue'
-import FlowterEdgeSelection from '@/components/flowter-edge-selection/index.vue'
-import FlowterKnob from '@/components/flowter-knob/index.vue'
 
-// Fixtrues
+// Fixtures
 // It won't be used for production...
 import allGraph from '../../../__fixtures__/all.json'
 
@@ -15,7 +12,7 @@ import allGraph from '../../../__fixtures__/all.json'
 import {
   GraphNode, GraphEdge,
   EditingEdgeDetails, EventEditingEdge,
-  Mode, EventEditingNode, EdgeType, Editing
+  Mode, EdgeType, Editing
 } from '@/shared/types'
 
 /**
@@ -23,10 +20,7 @@ import {
  */
 @Component({
   components: {
-    FlowterFlowchart,
-    FlowterNodeSelection,
-    FlowterEdgeSelection,
-    FlowterKnob
+    FlowterFlowchart
   }
 })
 export default class FlowterEditor extends Vue {
@@ -176,47 +170,6 @@ export default class FlowterEditor extends Vue {
    */
 
   /**
-   * When a node is edited, it is handled depending on the type.
-   */
-  public onEditNode (event: EventEditingNode) {
-    switch (event.type) {
-      case 'hover-start': {
-        if (this.editing === 'node') {
-          break
-        }
-
-        this.mouseOverNodeId = event.payload as EventEditingNode<'hover-start'>['payload']
-        break
-      }
-      case 'hover-end': {
-        this.mouseOverNodeId = null
-        break
-      }
-      case 'edit-start': {
-        this.editingNodeId = event.payload as EventEditingNode<'edit-start'>['payload']
-        this.editing = Editing.NODE
-        break
-      }
-      case 'edit-end': {
-        this.editing = Editing.NONE
-        break
-      }
-      case 'update': {
-        const payload = event.payload as EventEditingNode<'update'>['payload']
-        const editedNode = this.nodes[payload.id]
-        this.$set(editedNode, payload.type, payload.value)
-        break
-      }
-      case 'drag-end': {
-        break
-      }
-      default: {
-        throw new Error(`Unknown type: ${event.type}`)
-      }
-    }
-  }
-
-  /**
    * When an edge is edited, it is handled depending on the type.
    */
   public onEditEdge (event: EventEditingEdge) {
@@ -280,21 +233,6 @@ export default class FlowterEditor extends Vue {
       }
       default: {
         throw new Error(`Unknown type: ${event.type}`)
-      }
-    }
-  }
-
-  /**
-   * The style of the edge knob being dragged in/out.
-   */
-  public showKnob (id: string) {
-    switch (this.editing) {
-      case Editing.NONE: {
-        return this.mouseOverNodeId === id
-      }
-      default: {
-        // Do not show when editing node
-        return false
       }
     }
   }

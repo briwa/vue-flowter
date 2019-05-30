@@ -24,7 +24,7 @@ import FlowterNodePropsMixin from './mixins/flowter-node-props'
     FlowterNodeRoundedRectangle
   }
 })
-export default class FlowterEdgeBase extends Mixins(FlowterNodePropsMixin) {
+export default class FlowterNodeBase extends Mixins(FlowterNodePropsMixin) {
   /*
    * -------------------------------
    * Public accessor/computed

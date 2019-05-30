@@ -4,8 +4,6 @@ import { Prop, Component, Vue } from 'vue-property-decorator'
 // Components
 import FlowterEdge from '@/components/flowter-edge/index.vue'
 import FlowterNode from '@/components/flowter-node/index.vue'
-import FlowterNodeSelection from '@/components/flowter-node-selection/index.vue'
-import FlowterEdgeSelection from '@/components/flowter-edge-selection/index.vue'
 
 // Constants
 import {
@@ -41,9 +39,7 @@ import {
 @Component({
   components: {
     FlowterEdge,
-    FlowterNode,
-    FlowterNodeSelection,
-    FlowterEdgeSelection
+    FlowterNode
   }
 })
 export default class FlowterFlowchart extends Vue {

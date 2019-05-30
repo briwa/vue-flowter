@@ -32,12 +32,12 @@ export enum NodeSymbol {
   RHOMBUS = 'rhombus'
 }
 
- /**
-  * The node shape, retrieved as props in [[FlowterFlowchart.nodes]].
-  *
-  * `Graph` prefix is used so that it won't be confused
-  * with the global `Node` type.
-  */
+/**
+ * The node shape, retrieved as props in [[FlowterFlowchart.nodes]].
+ *
+ * `Graph` prefix is used so that it won't be confused
+ * with the global `Node` type.
+ */
 export interface GraphNode {
   /**
    * The node's text.
@@ -165,39 +165,6 @@ export interface GraphNodeDetails {
   }
   from: OrderedNode['from']
   to: OrderedNode['to']
-}
-
-/**
- * The shape of the event when editing a node.
- */
-export interface EventEditingNode<T extends keyof EventEditingNodePayload = keyof EventEditingNodePayload> {
-  type: string
-  payload: EventEditingNodePayload[T]
-}
-
-/**
- * The payload of an edited node event.
- */
-export interface EventEditingNodePayload {
-  'hover-start': string
-  'edit-start': string
-  'update': {
-    id: string
-    type: string
-    value: number
-  }
-}
-
-/**
- * The selection types when editing a node.
- */
-export enum SelectionType {
-  RESIZE_N = 'resize-n',
-  RESIZE_S = 'resize-s',
-  RESIZE_W = 'resize-w',
-  RESIZE_E = 'resize-e',
-  MOVE = 'move',
-  DEFAULT = 'default'
 }
 
 /*
