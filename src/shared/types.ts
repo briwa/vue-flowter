@@ -94,6 +94,14 @@ export interface GraphNode {
    * [[DEFAULT_NODE_BGCOLOR]]
    */
   bgcolor?: string
+
+  /**
+   * The node text's font size.
+   *
+   * If specified, this will override the default font size, which is
+   * [[DEFAULT_FONT_SIZE]]
+   */
+  fontSize?: number
 }
 
 /**
@@ -133,6 +141,7 @@ export interface RenderedGraphNode extends GraphNode {
   height: number
   symbol: NodeSymbol
   bgcolor: string
+  fontSize: number
 }
 
 /**

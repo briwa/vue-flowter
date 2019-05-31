@@ -31,8 +31,11 @@
         :marker-start="markerStart"
         :marker-end="markerEnd" />
     </svg>
-    <span
-      v-if="text"
-      :style="textStyle">{{ text }}</span>
+    <template v-if="text">
+      <span
+        v-if="text"
+        :style="textStyle">{{ text }}</span>
+    </template>
+    <template v-else />
   </div>
 </div>

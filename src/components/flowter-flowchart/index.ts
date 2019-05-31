@@ -573,6 +573,7 @@ export default class FlowterFlowchart extends Vue {
     const bgcolor = typeof node.bgcolor !== 'undefined' ? node.bgcolor : DEFAULT_NODE_BGCOLOR
     const x = typeof node.x !== 'undefined' ? node.x : -Infinity
     const y = typeof node.y !== 'undefined' ? node.y : -Infinity
+    const fontSize = typeof node.fontSize !== 'undefined' ? node.fontSize : DEFAULT_FONT_SIZE
 
     const defaultNodeWidth = symbol === NodeSymbol.RHOMBUS
       ? this.nodeWidth * NODE_RHOMBUS_RATIO : this.nodeWidth
@@ -589,7 +590,8 @@ export default class FlowterFlowchart extends Vue {
       width,
       height,
       symbol,
-      bgcolor
+      bgcolor,
+      fontSize
     }
   }
 
@@ -654,8 +656,7 @@ export default class FlowterFlowchart extends Vue {
   }
 
   /**
-   * Get the node's relative direction as the
-   * start/end point of an edge.
+   * Get the node's relative direction as the start/end point of an edge.
    */
   private getNodeDirections (node: RenderedGraphNode): Record<Direction, { x: number, y: number }> {
     return {
