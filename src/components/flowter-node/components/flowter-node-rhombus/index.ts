@@ -2,14 +2,14 @@
 import { Component, Mixins } from 'vue-property-decorator'
 
 // Mixins
-import FlowterNodeSharedMixin from '../../mixins/flowter-node-shared'
+import FlowterNodeRendererMixin from '../../mixins/flowter-node-renderer'
 import { NODE_SMALLER_RATIO } from '@/shared/constants'
 
 /**
  * The Flowter node rhombus's Vue class component.
  */
 @Component
-export default class FlowterNodeRhombus extends Mixins(FlowterNodeSharedMixin) {
+export default class FlowterNodeRhombus extends Mixins(FlowterNodeRendererMixin) {
   /*
    * -------------------------------
    * Public accessor/computed

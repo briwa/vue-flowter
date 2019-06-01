@@ -2,14 +2,14 @@
 import { Component, Mixins } from 'vue-property-decorator'
 
 // Mixins
-import FlowterNodeSharedMixin from '../../mixins/flowter-node-shared'
+import FlowterNodeRendererMixin from '../../mixins/flowter-node-renderer'
 import { NODE_SMALLER_RATIO } from '@/shared/constants'
 
 /**
  * The Flowter node rounded rectangle's Vue class component.
  */
 @Component
-export default class FlowterNodeRoundedRectangle extends Mixins(FlowterNodeSharedMixin) {
+export default class FlowterNodeRoundedRectangle extends Mixins(FlowterNodeRendererMixin) {
   /*
    * -------------------------------
    * Public accessor/computed

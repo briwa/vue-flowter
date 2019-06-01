@@ -2,13 +2,13 @@
 import { Component, Mixins } from 'vue-property-decorator'
 
 // Mixins
-import FlowterEdgeSharedMixin from '../../mixins/flowter-edge-shared'
+import FlowterEdgeRendererMixin from '../../mixins/flowter-edge-renderer'
 
 /**
  * The Flowter edge's Vue class component.
  */
 @Component
-export default class FlowterEdgeStraight extends Mixins(FlowterEdgeSharedMixin) {
+export default class FlowterEdgeStraight extends Mixins(FlowterEdgeRendererMixin) {
   /*
    * -------------------------------
    * Public accessor/computed

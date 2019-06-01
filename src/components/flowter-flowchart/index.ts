@@ -161,7 +161,9 @@ export default class FlowterFlowchart extends Vue {
   public heightMargin!: number
 
   /**
-   * The font size of the texts in nodes and edges (optional).
+   * The font size of the texts in all nodes and edges (optional).
+   * This value will be set as default when the individual node
+   * or edge has no font size.
    *
    * If not specified, the value is set to [[DEFAULT_FONT_SIZE]].
    */
@@ -573,7 +575,7 @@ export default class FlowterFlowchart extends Vue {
     const bgcolor = typeof node.bgcolor !== 'undefined' ? node.bgcolor : DEFAULT_NODE_BGCOLOR
     const x = typeof node.x !== 'undefined' ? node.x : -Infinity
     const y = typeof node.y !== 'undefined' ? node.y : -Infinity
-    const fontSize = typeof node.fontSize !== 'undefined' ? node.fontSize : DEFAULT_FONT_SIZE
+    const fontSize = typeof node.fontSize !== 'undefined' ? node.fontSize : this.fontSize
 
     const defaultNodeWidth = symbol === NodeSymbol.RHOMBUS
       ? this.nodeWidth * NODE_RHOMBUS_RATIO : this.nodeWidth

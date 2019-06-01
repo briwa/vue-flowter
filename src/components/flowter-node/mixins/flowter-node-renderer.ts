@@ -10,10 +10,10 @@ import {
 import FlowterNodeProps from './flowter-node-props'
 
 /**
- * The Flowter node's shared mixin. This mixin extends the props.
+ * The Flowter node's renderer mixin. This mixin extends the props.
  */
 @Component
-export default class FlowterNodeSharedMixin extends Mixins(FlowterNodeProps) {
+export default class FlowterNodeRendererMixin extends Mixins(FlowterNodeProps) {
   /*
    * -------------------------------
    * Public constants

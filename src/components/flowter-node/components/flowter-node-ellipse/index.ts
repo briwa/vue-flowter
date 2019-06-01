@@ -2,11 +2,11 @@
 import { Component, Mixins } from 'vue-property-decorator'
 
 // Mixins
-import FlowterNodeSharedMixin from '../../mixins/flowter-node-shared'
+import FlowterNodeRendererMixin from '../../mixins/flowter-node-renderer'
 
 /**
  * The Flowter node ellipse's Vue class component.
  */
 @Component
-export default class FlowterNodeEllipse extends Mixins(FlowterNodeSharedMixin) {
+export default class FlowterNodeEllipse extends Mixins(FlowterNodeRendererMixin) {
 }

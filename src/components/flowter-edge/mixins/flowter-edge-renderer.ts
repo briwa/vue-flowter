@@ -13,10 +13,10 @@ import { EdgeMarker } from '@/shared/types'
 import FlowterEdgeProps from './flowter-edge-props'
 
 /**
- * The Flowter edge's shared mixin. This mixin extends the props.
+ * The Flowter edge's renderer mixin. This mixin extends the props.
  */
 @Component
-export default class FlowterEdgeSharedMixin extends Mixins(FlowterEdgeProps) {
+export default class FlowterEdgeRendererMixin extends Mixins(FlowterEdgeProps) {
   /*
    * -------------------------------
    * Properties from the edge components
