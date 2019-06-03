@@ -116,17 +116,3 @@ export const DEFAULT_STROKE_WIDTH = 2
  * Default stroke color for both nodes and edges.
  */
 export const DEFAULT_STROKE_COLOR = '#000000'
-
-/**
- * Default values for [[FlowterFlowchart.allBounds]].
- */
-export const DEFAULT_BOUNDS = (): Bounds => ({
-  x: {
-    min: 0,
-    max: 0
-  },
-  y: {
-    min: 0,
-    max: 0
-  }
-})
