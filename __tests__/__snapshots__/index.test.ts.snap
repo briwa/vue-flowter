@@ -4,7 +4,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
 <div style="width: 800px; height: 1100px; position: relative;">
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 25px; left: 325px;">
     <div class="flowter-node-text"><span>Before first</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 85px; left: 290px; font-size: 14px;">
@@ -14,7 +14,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-before-first-first-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-before-first-first-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 85px; left: 390px; font-size: 14px;">
@@ -24,12 +24,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-before-first-first-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-before-first-first-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 225px;">
     <div class="flowter-node-text"><span>First A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 225px; left: 190px; font-size: 14px;">
@@ -39,7 +39,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-first-a-second-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-first-a-second-a)"></path>
       </svg> <span style="top: 24px; left: 10px;">Yes</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 225px; left: 290px; font-size: 14px;">
@@ -49,8 +49,8 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-first-a-second-b)"></path>
-      </svg> <span style="top: 24px; right: 10px;">No</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-first-a-second-b)"></path>
+      </svg> <span style="top: 24px; left: 10px;">No</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 180px; top: 40px; left: 205px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 180">
@@ -59,7 +59,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 10 V 20 H 120" marker-end="url(#arrow-first-a-before-first)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 120 20" marker-end="url(#arrow-first-a-before-first)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 370px; top: 225px; left: 290px; font-size: 14px;">
@@ -69,12 +69,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 185 H 210 V 360" marker-end="url(#arrow-first-a-third-3)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 360" marker-end="url(#arrow-first-a-third-3)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 425px;">
     <div class="flowter-node-text"><span>First B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 225px; left: 490px; font-size: 14px;">
@@ -84,7 +84,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-first-b-second-c)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-first-b-second-c)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 180px; top: 40px; left: 455px; font-size: 14px;">
@@ -94,7 +94,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 160 H 130 V 20 H 20" marker-end="url(#arrow-first-b-before-first)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 160 L 20 20" marker-end="url(#arrow-first-b-before-first)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 370px; top: 225px; left: 290px; font-size: 14px;">
@@ -104,12 +104,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 V 185 H 10 V 360" marker-end="url(#arrow-first-b-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 L 10 360" marker-end="url(#arrow-first-b-third-2)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 125px;">
     <div class="flowter-node-text"><span>Second A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 365px; left: 190px; font-size: 14px;">
@@ -119,22 +119,22 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 210 V 80" marker-end="url(#arrow-second-a-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 80" marker-end="url(#arrow-second-a-in-between-second)"></path>
       </svg> </div>
   </div>
-  <div class="flowter-edge-parent" style="width: 210px; height: 110px; top: 285px; left: 10px; font-size: 14px;">
-    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 110">
+  <div class="flowter-edge-parent" style="width: 40px; height: 110px; top: 285px; left: 180px; font-size: 14px;">
+    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 110">
         <defs>
           <marker viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" id="arrow-second-a-second-a">
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 190 20 A 100 52 0 1 0 190 90" marker-end="url(#arrow-second-a-second-a)"></path>
-      </svg> <span style="top: 41px; left: 20px;">Goes back</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 L 20 90" marker-end="url(#arrow-second-a-second-a)"></path>
+      </svg> <span style="left: -1px; top: 20px;">Goes back</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 325px;">
     <div class="flowter-node-text"><span>Second B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 365px; left: 390px; font-size: 14px;">
@@ -144,27 +144,27 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-second-b-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-second-b-in-between-second)"></path>
       </svg> <span style="top: 24px; left: 10px;">Go straight</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 525px;">
     <div class="flowter-node-text"><span>Second C</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
-  <div class="flowter-edge-parent" style="width: 210px; height: 110px; top: 285px; left: 580px; font-size: 14px;">
-    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 110">
+  <div class="flowter-edge-parent" style="width: 40px; height: 110px; top: 285px; left: 580px; font-size: 14px;">
+    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 110">
         <defs>
           <marker viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" id="arrow-second-c-second-c">
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 A 100 52 0 1 1 20 90" marker-end="url(#arrow-second-c-second-c)"></path>
-      </svg> <span style="top: 41px; right: 20px;">Roundin'</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 L 20 90" marker-end="url(#arrow-second-c-second-c)"></path>
+      </svg> <span style="left: -1px; top: 20px;">Roundin'</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 445px; left: 325px;">
     <div class="flowter-node-text"><span>In between second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 320px; height: 90px; top: 505px; left: 90px; font-size: 14px;">
@@ -174,7 +174,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 310 10 V 45 H 10 V 80" marker-end="url(#arrow-in-between-second-third-1)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 310 10 L 10 80" marker-end="url(#arrow-in-between-second-third-1)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 505px; left: 290px; font-size: 14px;">
@@ -184,7 +184,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-in-between-second-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-in-between-second-third-2)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 505px; left: 390px; font-size: 14px;">
@@ -194,7 +194,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-in-between-second-third-3)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-in-between-second-third-3)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 320px; height: 90px; top: 505px; left: 390px; font-size: 14px;">
@@ -204,12 +204,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 310 V 80" marker-end="url(#arrow-in-between-second-third-4)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 310 80" marker-end="url(#arrow-in-between-second-third-4)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 585px; left: 25px;">
     <div class="flowter-node-text"><span>Third 1</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 645px; left: 90px; font-size: 14px;">
@@ -219,7 +219,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 210 V 80" marker-end="url(#arrow-third-1-fourth-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 80" marker-end="url(#arrow-third-1-fourth-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 340px; height: 180px; top: 460px; left: 5px; font-size: 14px;">
@@ -229,12 +229,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 10 V 20 H 320" marker-end="url(#arrow-third-1-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 320 20" marker-end="url(#arrow-third-1-in-between-second)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 585px; left: 225px;">
     <div class="flowter-node-text"><span>Third 2</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 645px; left: 290px; font-size: 14px;">
@@ -244,12 +244,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-third-2-fourth-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-third-2-fourth-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 585px; left: 425px;">
     <div class="flowter-node-text"><span>Third 3</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 645px; left: 490px; font-size: 14px;">
@@ -259,12 +259,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-third-3-fourth-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-third-3-fourth-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 585px; left: 625px;">
     <div class="flowter-node-text"><span>Third 4</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 645px; left: 490px; font-size: 14px;">
@@ -274,7 +274,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 V 45 H 10 V 80" marker-end="url(#arrow-third-4-fourth-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 L 10 80" marker-end="url(#arrow-third-4-fourth-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 340px; height: 180px; top: 460px; left: 455px; font-size: 14px;">
@@ -284,12 +284,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 320 160 H 330 V 20 H 20" marker-end="url(#arrow-third-4-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 320 160 L 20 20" marker-end="url(#arrow-third-4-in-between-second)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 725px; left: 225px;">
     <div class="flowter-node-text"><span>Fourth A?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 785px; left: 290px; font-size: 14px;">
@@ -299,7 +299,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-fourth-a-you-said-no)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-fourth-a-you-said-no)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 785px; left: 290px; font-size: 14px;">
@@ -309,7 +309,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 210 V 80" marker-end="url(#arrow-fourth-a-you-said-yes)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 80" marker-end="url(#arrow-fourth-a-you-said-yes)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 460px; top: 320px; left: 105px; font-size: 14px;">
@@ -319,7 +319,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 440 H 10 V 20 H 20" marker-end="url(#arrow-fourth-a-second-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 440 L 20 20" marker-end="url(#arrow-fourth-a-second-a)"></path>
       </svg> <span style="top: 209px; left: 20px;">Go back</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 40px; height: 180px; top: 600px; left: 205px; font-size: 14px;">
@@ -329,7 +329,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 10 V 20 H 20" marker-end="url(#arrow-fourth-a-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 20 20" marker-end="url(#arrow-fourth-a-third-2)"></path>
       </svg> <span style="top: 69px; left: 20px;">Turn around</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 180px; top: 600px; left: 5px; font-size: 14px;">
@@ -339,12 +339,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 160 H 10 V 20 H 20" marker-end="url(#arrow-fourth-a-third-1)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 160 L 20 20" marker-end="url(#arrow-fourth-a-third-1)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 725px; left: 425px;">
     <div class="flowter-node-text"><span>Fourth B?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 785px; left: 290px; font-size: 14px;">
@@ -354,7 +354,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 V 45 H 10 V 80" marker-end="url(#arrow-fourth-b-you-said-no)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 L 10 80" marker-end="url(#arrow-fourth-b-you-said-no)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 785px; left: 490px; font-size: 14px;">
@@ -364,7 +364,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-fourth-b-you-said-yes)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-fourth-b-you-said-yes)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 40px; height: 180px; top: 600px; left: 555px; font-size: 14px;">
@@ -374,8 +374,8 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 30 V 20 H 20" marker-end="url(#arrow-fourth-b-third-3)"></path>
-      </svg> <span style="top: 69px; right: 20px;">Go back</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 20 20" marker-end="url(#arrow-fourth-b-third-3)"></path>
+      </svg> <span style="top: 69px; left: 20px;">Go back</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 180px; top: 600px; left: 555px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
@@ -384,8 +384,8 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 230 V 20 H 220" marker-end="url(#arrow-fourth-b-third-4)"></path>
-      </svg> <span style="top: 69px; right: 20px;">Detour</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 220 20" marker-end="url(#arrow-fourth-b-third-4)"></path>
+      </svg> <span style="top: 69px; left: 20px;">Detour</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 460px; top: 320px; left: 555px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 460">
@@ -394,12 +394,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 440 H 130 V 20 H 120" marker-end="url(#arrow-fourth-b-second-c)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 440 L 120 20" marker-end="url(#arrow-fourth-b-second-c)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 865px; left: 225px;">
     <div class="flowter-node-text"><span>You said No</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 925px; left: 290px; font-size: 14px;">
@@ -409,12 +409,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-you-said-no-thats-it)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-you-said-no-thats-it)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 865px; left: 425px;">
     <div class="flowter-node-text"><span>You said Yes</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 925px; left: 390px; font-size: 14px;">
@@ -424,12 +424,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-you-said-yes-thats-it)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-you-said-yes-thats-it)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 1005px; left: 325px;">
     <div class="flowter-node-text"><span>That's it!</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
 </div>
@@ -439,7 +439,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
 <div style="width: 800px; height: 1100px; position: relative;" edgetype="cross">
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 25px; left: 325px;">
     <div class="flowter-node-text"><span>Before first</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 85px; left: 290px; font-size: 14px;">
@@ -449,7 +449,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-before-first-first-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-before-first-first-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 85px; left: 390px; font-size: 14px;">
@@ -459,12 +459,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-before-first-first-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-before-first-first-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 225px;">
     <div class="flowter-node-text"><span>First A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 225px; left: 190px; font-size: 14px;">
@@ -474,7 +474,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-first-a-second-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-first-a-second-a)"></path>
       </svg> <span style="top: 24px; left: 10px;">Yes</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 225px; left: 290px; font-size: 14px;">
@@ -484,8 +484,8 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-first-a-second-b)"></path>
-      </svg> <span style="top: 24px; right: 10px;">No</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-first-a-second-b)"></path>
+      </svg> <span style="top: 24px; left: 10px;">No</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 180px; top: 40px; left: 205px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 180">
@@ -494,7 +494,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 10 V 20 H 120" marker-end="url(#arrow-first-a-before-first)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 120 20" marker-end="url(#arrow-first-a-before-first)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 370px; top: 225px; left: 290px; font-size: 14px;">
@@ -504,12 +504,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 185 H 210 V 360" marker-end="url(#arrow-first-a-third-3)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 360" marker-end="url(#arrow-first-a-third-3)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 425px;">
     <div class="flowter-node-text"><span>First B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 225px; left: 490px; font-size: 14px;">
@@ -519,7 +519,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-first-b-second-c)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-first-b-second-c)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 180px; top: 40px; left: 455px; font-size: 14px;">
@@ -529,7 +529,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 160 H 130 V 20 H 20" marker-end="url(#arrow-first-b-before-first)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 160 L 20 20" marker-end="url(#arrow-first-b-before-first)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 370px; top: 225px; left: 290px; font-size: 14px;">
@@ -539,12 +539,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 V 185 H 10 V 360" marker-end="url(#arrow-first-b-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 L 10 360" marker-end="url(#arrow-first-b-third-2)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 125px;">
     <div class="flowter-node-text"><span>Second A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 365px; left: 190px; font-size: 14px;">
@@ -554,22 +554,22 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 210 V 80" marker-end="url(#arrow-second-a-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 80" marker-end="url(#arrow-second-a-in-between-second)"></path>
       </svg> </div>
   </div>
-  <div class="flowter-edge-parent" style="width: 210px; height: 110px; top: 285px; left: 10px; font-size: 14px;">
-    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 110">
+  <div class="flowter-edge-parent" style="width: 40px; height: 110px; top: 285px; left: 180px; font-size: 14px;">
+    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 110">
         <defs>
           <marker viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" id="arrow-second-a-second-a">
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 190 20 A 100 52 0 1 0 190 90" marker-end="url(#arrow-second-a-second-a)"></path>
-      </svg> <span style="top: 41px; left: 20px;">Goes back</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 L 20 90" marker-end="url(#arrow-second-a-second-a)"></path>
+      </svg> <span style="left: -1px; top: 20px;">Goes back</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 325px;">
     <div class="flowter-node-text"><span>Second B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 365px; left: 390px; font-size: 14px;">
@@ -579,27 +579,27 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-second-b-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-second-b-in-between-second)"></path>
       </svg> <span style="top: 24px; left: 10px;">Go straight</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 525px;">
     <div class="flowter-node-text"><span>Second C</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
-  <div class="flowter-edge-parent" style="width: 210px; height: 110px; top: 285px; left: 580px; font-size: 14px;">
-    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 110">
+  <div class="flowter-edge-parent" style="width: 40px; height: 110px; top: 285px; left: 580px; font-size: 14px;">
+    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 110">
         <defs>
           <marker viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" id="arrow-second-c-second-c">
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 A 100 52 0 1 1 20 90" marker-end="url(#arrow-second-c-second-c)"></path>
-      </svg> <span style="top: 41px; right: 20px;">Roundin'</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 L 20 90" marker-end="url(#arrow-second-c-second-c)"></path>
+      </svg> <span style="left: -1px; top: 20px;">Roundin'</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 445px; left: 325px;">
     <div class="flowter-node-text"><span>In between second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 320px; height: 90px; top: 505px; left: 90px; font-size: 14px;">
@@ -609,7 +609,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 310 10 V 45 H 10 V 80" marker-end="url(#arrow-in-between-second-third-1)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 310 10 L 10 80" marker-end="url(#arrow-in-between-second-third-1)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 505px; left: 290px; font-size: 14px;">
@@ -619,7 +619,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-in-between-second-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-in-between-second-third-2)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 505px; left: 390px; font-size: 14px;">
@@ -629,7 +629,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-in-between-second-third-3)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-in-between-second-third-3)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 320px; height: 90px; top: 505px; left: 390px; font-size: 14px;">
@@ -639,12 +639,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 310 V 80" marker-end="url(#arrow-in-between-second-third-4)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 310 80" marker-end="url(#arrow-in-between-second-third-4)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 585px; left: 25px;">
     <div class="flowter-node-text"><span>Third 1</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 645px; left: 90px; font-size: 14px;">
@@ -654,7 +654,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 210 V 80" marker-end="url(#arrow-third-1-fourth-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 80" marker-end="url(#arrow-third-1-fourth-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 340px; height: 180px; top: 460px; left: 5px; font-size: 14px;">
@@ -664,12 +664,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 10 V 20 H 320" marker-end="url(#arrow-third-1-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 320 20" marker-end="url(#arrow-third-1-in-between-second)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 585px; left: 225px;">
     <div class="flowter-node-text"><span>Third 2</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 645px; left: 290px; font-size: 14px;">
@@ -679,12 +679,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-third-2-fourth-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-third-2-fourth-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 585px; left: 425px;">
     <div class="flowter-node-text"><span>Third 3</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 645px; left: 490px; font-size: 14px;">
@@ -694,12 +694,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-third-3-fourth-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-third-3-fourth-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 585px; left: 625px;">
     <div class="flowter-node-text"><span>Third 4</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 645px; left: 490px; font-size: 14px;">
@@ -709,7 +709,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 V 45 H 10 V 80" marker-end="url(#arrow-third-4-fourth-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 L 10 80" marker-end="url(#arrow-third-4-fourth-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 340px; height: 180px; top: 460px; left: 455px; font-size: 14px;">
@@ -719,12 +719,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 320 160 H 330 V 20 H 20" marker-end="url(#arrow-third-4-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 320 160 L 20 20" marker-end="url(#arrow-third-4-in-between-second)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 725px; left: 225px;">
     <div class="flowter-node-text"><span>Fourth A?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 785px; left: 290px; font-size: 14px;">
@@ -734,7 +734,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-fourth-a-you-said-no)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-fourth-a-you-said-no)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 785px; left: 290px; font-size: 14px;">
@@ -744,7 +744,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 210 V 80" marker-end="url(#arrow-fourth-a-you-said-yes)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 80" marker-end="url(#arrow-fourth-a-you-said-yes)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 460px; top: 320px; left: 105px; font-size: 14px;">
@@ -754,7 +754,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 440 H 10 V 20 H 20" marker-end="url(#arrow-fourth-a-second-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 440 L 20 20" marker-end="url(#arrow-fourth-a-second-a)"></path>
       </svg> <span style="top: 209px; left: 20px;">Go back</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 40px; height: 180px; top: 600px; left: 205px; font-size: 14px;">
@@ -764,7 +764,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 10 V 20 H 20" marker-end="url(#arrow-fourth-a-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 20 20" marker-end="url(#arrow-fourth-a-third-2)"></path>
       </svg> <span style="top: 69px; left: 20px;">Turn around</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 180px; top: 600px; left: 5px; font-size: 14px;">
@@ -774,12 +774,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 160 H 10 V 20 H 20" marker-end="url(#arrow-fourth-a-third-1)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 160 L 20 20" marker-end="url(#arrow-fourth-a-third-1)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 725px; left: 425px;">
     <div class="flowter-node-text"><span>Fourth B?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 785px; left: 290px; font-size: 14px;">
@@ -789,7 +789,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 V 45 H 10 V 80" marker-end="url(#arrow-fourth-b-you-said-no)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 210 10 L 10 80" marker-end="url(#arrow-fourth-b-you-said-no)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 785px; left: 490px; font-size: 14px;">
@@ -799,7 +799,7 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-fourth-b-you-said-yes)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-fourth-b-you-said-yes)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 40px; height: 180px; top: 600px; left: 555px; font-size: 14px;">
@@ -809,8 +809,8 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 30 V 20 H 20" marker-end="url(#arrow-fourth-b-third-3)"></path>
-      </svg> <span style="top: 69px; right: 20px;">Go back</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 20 20" marker-end="url(#arrow-fourth-b-third-3)"></path>
+      </svg> <span style="top: 69px; left: 20px;">Go back</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 180px; top: 600px; left: 555px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
@@ -819,8 +819,8 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 H 230 V 20 H 220" marker-end="url(#arrow-fourth-b-third-4)"></path>
-      </svg> <span style="top: 69px; right: 20px;">Detour</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 160 L 220 20" marker-end="url(#arrow-fourth-b-third-4)"></path>
+      </svg> <span style="top: 69px; left: 20px;">Detour</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 460px; top: 320px; left: 555px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 460">
@@ -829,12 +829,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 440 H 130 V 20 H 120" marker-end="url(#arrow-fourth-b-second-c)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 440 L 120 20" marker-end="url(#arrow-fourth-b-second-c)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 865px; left: 225px;">
     <div class="flowter-node-text"><span>You said No</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 925px; left: 290px; font-size: 14px;">
@@ -844,12 +844,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-you-said-no-thats-it)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-you-said-no-thats-it)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 865px; left: 425px;">
     <div class="flowter-node-text"><span>You said Yes</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 925px; left: 390px; font-size: 14px;">
@@ -859,12 +859,12 @@ exports[`Flowter Flowchart When rendering in default mode (vertical) And renderi
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-you-said-yes-thats-it)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-you-said-yes-thats-it)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 1005px; left: 325px;">
     <div class="flowter-node-text"><span>That's it!</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
 </div>
@@ -874,7 +874,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
 <div style="width: 1600px; height: 540px; position: relative;">
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 235px; left: 25px;">
     <div class="flowter-node-text"><span>Before first</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 190px; left: 165px; font-size: 14px;">
@@ -884,7 +884,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-before-first-first-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-before-first-first-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 260px; left: 165px; font-size: 14px;">
@@ -894,12 +894,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-before-first-first-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-before-first-first-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 225px;">
     <div class="flowter-node-text"><span>First A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 120px; left: 365px; font-size: 14px;">
@@ -909,7 +909,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-first-a-second-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-first-a-second-a)"></path>
       </svg> <span style="left: 14px; top: 10px;">Yes</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 190px; left: 365px; font-size: 14px;">
@@ -919,8 +919,8 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-first-a-second-b)"></path>
-      </svg> <span style="left: 14px; bottom: 10px;">No</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-first-a-second-b)"></path>
+      </svg> <span style="left: 14px; top: 10px;">No</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 110px; top: 145px; left: 80px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 110">
@@ -929,7 +929,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 10 H 20 V 90" marker-end="url(#arrow-first-a-before-first)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 90" marker-end="url(#arrow-first-a-before-first)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 470px; height: 160px; top: 190px; left: 365px; font-size: 14px;">
@@ -939,12 +939,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 235 V 150 H 460" marker-end="url(#arrow-first-a-third-3)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 460 150" marker-end="url(#arrow-first-a-third-3)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 225px;">
     <div class="flowter-node-text"><span>First B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 330px; left: 365px; font-size: 14px;">
@@ -954,7 +954,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-first-b-second-c)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-first-b-second-c)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 110px; top: 285px; left: 80px; font-size: 14px;">
@@ -964,7 +964,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 90 V 100 H 20 V 20" marker-end="url(#arrow-first-b-before-first)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 90 L 20 20" marker-end="url(#arrow-first-b-before-first)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 470px; height: 160px; top: 190px; left: 365px; font-size: 14px;">
@@ -974,12 +974,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 H 235 V 10 H 460" marker-end="url(#arrow-first-b-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 L 460 10" marker-end="url(#arrow-first-b-third-2)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 95px; left: 425px;">
     <div class="flowter-node-text"><span>Second A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 120px; left: 565px; font-size: 14px;">
@@ -989,22 +989,22 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 150 H 60" marker-end="url(#arrow-second-a-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 150" marker-end="url(#arrow-second-a-in-between-second)"></path>
       </svg> </div>
   </div>
-  <div class="flowter-edge-parent" style="width: 190px; height: 120px; top: 30px; left: 405px; font-size: 14px;">
-    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 120">
+  <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 110px; left: 405px; font-size: 14px;">
+    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40">
         <defs>
           <marker viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" id="arrow-second-a-second-a">
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 100 A 90 57 0 1 1 170 100" marker-end="url(#arrow-second-a-second-a)"></path>
-      </svg> <span style="left: 81px; top: 20px;">Goes back</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 L 170 20" marker-end="url(#arrow-second-a-second-a)"></path>
+      </svg> <span style="top: -1px; left: 20px;">Goes back</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 235px; left: 425px;">
     <div class="flowter-node-text"><span>Second B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 260px; left: 565px; font-size: 14px;">
@@ -1014,27 +1014,27 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-second-b-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-second-b-in-between-second)"></path>
       </svg> <span style="left: 14px; top: 10px;">Go straight</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 375px; left: 425px;">
     <div class="flowter-node-text"><span>Second C</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
-  <div class="flowter-edge-parent" style="width: 190px; height: 120px; top: 390px; left: 405px; font-size: 14px;">
-    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 120">
+  <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 390px; left: 405px; font-size: 14px;">
+    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40">
         <defs>
           <marker viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" id="arrow-second-c-second-c">
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 A 90 57 0 1 0 170 20" marker-end="url(#arrow-second-c-second-c)"></path>
-      </svg> <span style="left: 81px; bottom: 20px;">Roundin'</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 L 170 20" marker-end="url(#arrow-second-c-second-c)"></path>
+      </svg> <span style="top: -1px; left: 20px;">Roundin'</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 235px; left: 625px;">
     <div class="flowter-node-text"><span>In between second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 230px; top: 50px; left: 765px; font-size: 14px;">
@@ -1044,7 +1044,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 220 H 35 V 10 H 60" marker-end="url(#arrow-in-between-second-third-1)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 220 L 60 10" marker-end="url(#arrow-in-between-second-third-1)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 190px; left: 765px; font-size: 14px;">
@@ -1054,7 +1054,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-in-between-second-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-in-between-second-third-2)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 260px; left: 765px; font-size: 14px;">
@@ -1064,7 +1064,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-in-between-second-third-3)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-in-between-second-third-3)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 230px; top: 260px; left: 765px; font-size: 14px;">
@@ -1074,12 +1074,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 220 H 60" marker-end="url(#arrow-in-between-second-third-4)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 220" marker-end="url(#arrow-in-between-second-third-4)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 25px; left: 825px;">
     <div class="flowter-node-text"><span>Third 1</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 50px; left: 965px; font-size: 14px;">
@@ -1089,7 +1089,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 150 H 60" marker-end="url(#arrow-third-1-fourth-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 150" marker-end="url(#arrow-third-1-fourth-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 250px; top: 5px; left: 680px; font-size: 14px;">
@@ -1099,12 +1099,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 10 H 20 V 230" marker-end="url(#arrow-third-1-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 230" marker-end="url(#arrow-third-1-in-between-second)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 825px;">
     <div class="flowter-node-text"><span>Third 2</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 190px; left: 965px; font-size: 14px;">
@@ -1114,12 +1114,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-third-2-fourth-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-third-2-fourth-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 825px;">
     <div class="flowter-node-text"><span>Third 3</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 330px; left: 965px; font-size: 14px;">
@@ -1129,12 +1129,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-third-3-fourth-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-third-3-fourth-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 445px; left: 825px;">
     <div class="flowter-node-text"><span>Third 4</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 330px; left: 965px; font-size: 14px;">
@@ -1144,7 +1144,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 H 35 V 10 H 60" marker-end="url(#arrow-third-4-fourth-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 L 60 10" marker-end="url(#arrow-third-4-fourth-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 250px; top: 285px; left: 680px; font-size: 14px;">
@@ -1154,12 +1154,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 230 V 240 H 20 V 20" marker-end="url(#arrow-third-4-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 230 L 20 20" marker-end="url(#arrow-third-4-in-between-second)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 1025px;">
     <div class="flowter-node-text"><span>Fourth A?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 190px; left: 1165px; font-size: 14px;">
@@ -1169,7 +1169,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-fourth-a-you-said-no)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-fourth-a-you-said-no)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 190px; left: 1165px; font-size: 14px;">
@@ -1179,7 +1179,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 150 H 60" marker-end="url(#arrow-fourth-a-you-said-yes)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 150" marker-end="url(#arrow-fourth-a-you-said-yes)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 640px; height: 110px; top: 75px; left: 480px; font-size: 14px;">
@@ -1189,7 +1189,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 620 90 V 10 H 20 V 20" marker-end="url(#arrow-fourth-a-second-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 620 90 L 20 20" marker-end="url(#arrow-fourth-a-second-a)"></path>
       </svg> <span style="left: 299px; top: 20px;">Go back</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 40px; top: 145px; left: 880px; font-size: 14px;">
@@ -1199,7 +1199,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 10 H 20 V 20" marker-end="url(#arrow-fourth-a-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 20" marker-end="url(#arrow-fourth-a-third-2)"></path>
       </svg> <span style="left: 99px; top: 20px;">Turn around</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 180px; top: 5px; left: 880px; font-size: 14px;">
@@ -1209,12 +1209,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 160 V 10 H 20 V 20" marker-end="url(#arrow-fourth-a-third-1)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 160 L 20 20" marker-end="url(#arrow-fourth-a-third-1)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 1025px;">
     <div class="flowter-node-text"><span>Fourth B?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 190px; left: 1165px; font-size: 14px;">
@@ -1224,7 +1224,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 H 35 V 10 H 60" marker-end="url(#arrow-fourth-b-you-said-no)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 L 60 10" marker-end="url(#arrow-fourth-b-you-said-no)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 330px; left: 1165px; font-size: 14px;">
@@ -1234,7 +1234,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-fourth-b-you-said-yes)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-fourth-b-you-said-yes)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 40px; top: 355px; left: 880px; font-size: 14px;">
@@ -1244,8 +1244,8 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 30 H 20 V 20" marker-end="url(#arrow-fourth-b-third-3)"></path>
-      </svg> <span style="left: 99px; bottom: 20px;">Go back</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 20" marker-end="url(#arrow-fourth-b-third-3)"></path>
+      </svg> <span style="left: 99px; top: 20px;">Go back</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 180px; top: 355px; left: 880px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
@@ -1254,8 +1254,8 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 170 H 20 V 160" marker-end="url(#arrow-fourth-b-third-4)"></path>
-      </svg> <span style="left: 99px; bottom: 20px;">Detour</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 160" marker-end="url(#arrow-fourth-b-third-4)"></path>
+      </svg> <span style="left: 99px; top: 20px;">Detour</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 640px; height: 110px; top: 355px; left: 480px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 110">
@@ -1264,12 +1264,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 620 20 V 100 H 20 V 90" marker-end="url(#arrow-fourth-b-second-c)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 620 20 L 20 90" marker-end="url(#arrow-fourth-b-second-c)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 1225px;">
     <div class="flowter-node-text"><span>You said No</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 190px; left: 1365px; font-size: 14px;">
@@ -1279,12 +1279,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-you-said-no-thats-it)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-you-said-no-thats-it)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 1225px;">
     <div class="flowter-node-text"><span>You said Yes</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 260px; left: 1365px; font-size: 14px;">
@@ -1294,12 +1294,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-you-said-yes-thats-it)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-you-said-yes-thats-it)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 235px; left: 1425px;">
     <div class="flowter-node-text"><span>That's it!</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
 </div>
@@ -1309,7 +1309,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
 <div style="width: 1600px; height: 540px; position: relative;" edgetype="cross">
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 235px; left: 25px;">
     <div class="flowter-node-text"><span>Before first</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 190px; left: 165px; font-size: 14px;">
@@ -1319,7 +1319,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-before-first-first-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-before-first-first-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 260px; left: 165px; font-size: 14px;">
@@ -1329,12 +1329,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-before-first-first-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-before-first-first-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 225px;">
     <div class="flowter-node-text"><span>First A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 120px; left: 365px; font-size: 14px;">
@@ -1344,7 +1344,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-first-a-second-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-first-a-second-a)"></path>
       </svg> <span style="left: 14px; top: 10px;">Yes</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 190px; left: 365px; font-size: 14px;">
@@ -1354,8 +1354,8 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-first-a-second-b)"></path>
-      </svg> <span style="left: 14px; bottom: 10px;">No</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-first-a-second-b)"></path>
+      </svg> <span style="left: 14px; top: 10px;">No</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 110px; top: 145px; left: 80px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 110">
@@ -1364,7 +1364,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 10 H 20 V 90" marker-end="url(#arrow-first-a-before-first)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 90" marker-end="url(#arrow-first-a-before-first)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 470px; height: 160px; top: 190px; left: 365px; font-size: 14px;">
@@ -1374,12 +1374,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 235 V 150 H 460" marker-end="url(#arrow-first-a-third-3)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 460 150" marker-end="url(#arrow-first-a-third-3)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 225px;">
     <div class="flowter-node-text"><span>First B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 330px; left: 365px; font-size: 14px;">
@@ -1389,7 +1389,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-first-b-second-c)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-first-b-second-c)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 110px; top: 285px; left: 80px; font-size: 14px;">
@@ -1399,7 +1399,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 90 V 100 H 20 V 20" marker-end="url(#arrow-first-b-before-first)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 90 L 20 20" marker-end="url(#arrow-first-b-before-first)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 470px; height: 160px; top: 190px; left: 365px; font-size: 14px;">
@@ -1409,12 +1409,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 H 235 V 10 H 460" marker-end="url(#arrow-first-b-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 L 460 10" marker-end="url(#arrow-first-b-third-2)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 95px; left: 425px;">
     <div class="flowter-node-text"><span>Second A</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 120px; left: 565px; font-size: 14px;">
@@ -1424,22 +1424,22 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 150 H 60" marker-end="url(#arrow-second-a-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 150" marker-end="url(#arrow-second-a-in-between-second)"></path>
       </svg> </div>
   </div>
-  <div class="flowter-edge-parent" style="width: 190px; height: 120px; top: 30px; left: 405px; font-size: 14px;">
-    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 120">
+  <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 110px; left: 405px; font-size: 14px;">
+    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40">
         <defs>
           <marker viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" id="arrow-second-a-second-a">
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 100 A 90 57 0 1 1 170 100" marker-end="url(#arrow-second-a-second-a)"></path>
-      </svg> <span style="left: 81px; top: 20px;">Goes back</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 L 170 20" marker-end="url(#arrow-second-a-second-a)"></path>
+      </svg> <span style="top: -1px; left: 20px;">Goes back</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 235px; left: 425px;">
     <div class="flowter-node-text"><span>Second B</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 260px; left: 565px; font-size: 14px;">
@@ -1449,27 +1449,27 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-second-b-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-second-b-in-between-second)"></path>
       </svg> <span style="left: 14px; top: 10px;">Go straight</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 375px; left: 425px;">
     <div class="flowter-node-text"><span>Second C</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
-  <div class="flowter-edge-parent" style="width: 190px; height: 120px; top: 390px; left: 405px; font-size: 14px;">
-    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 120">
+  <div class="flowter-edge-parent" style="width: 190px; height: 40px; top: 390px; left: 405px; font-size: 14px;">
+    <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40">
         <defs>
           <marker viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" id="arrow-second-c-second-c">
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 A 90 57 0 1 0 170 20" marker-end="url(#arrow-second-c-second-c)"></path>
-      </svg> <span style="left: 81px; bottom: 20px;">Roundin'</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 20 20 L 170 20" marker-end="url(#arrow-second-c-second-c)"></path>
+      </svg> <span style="top: -1px; left: 20px;">Roundin'</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 235px; left: 625px;">
     <div class="flowter-node-text"><span>In between second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 230px; top: 50px; left: 765px; font-size: 14px;">
@@ -1479,7 +1479,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 220 H 35 V 10 H 60" marker-end="url(#arrow-in-between-second-third-1)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 220 L 60 10" marker-end="url(#arrow-in-between-second-third-1)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 190px; left: 765px; font-size: 14px;">
@@ -1489,7 +1489,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-in-between-second-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-in-between-second-third-2)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 260px; left: 765px; font-size: 14px;">
@@ -1499,7 +1499,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-in-between-second-third-3)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-in-between-second-third-3)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 230px; top: 260px; left: 765px; font-size: 14px;">
@@ -1509,12 +1509,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 220 H 60" marker-end="url(#arrow-in-between-second-third-4)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 220" marker-end="url(#arrow-in-between-second-third-4)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 25px; left: 825px;">
     <div class="flowter-node-text"><span>Third 1</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 50px; left: 965px; font-size: 14px;">
@@ -1524,7 +1524,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 150 H 60" marker-end="url(#arrow-third-1-fourth-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 150" marker-end="url(#arrow-third-1-fourth-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 250px; top: 5px; left: 680px; font-size: 14px;">
@@ -1534,12 +1534,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 10 H 20 V 230" marker-end="url(#arrow-third-1-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 230" marker-end="url(#arrow-third-1-in-between-second)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 825px;">
     <div class="flowter-node-text"><span>Third 2</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 190px; left: 965px; font-size: 14px;">
@@ -1549,12 +1549,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-third-2-fourth-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-third-2-fourth-a)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 825px;">
     <div class="flowter-node-text"><span>Third 3</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 330px; left: 965px; font-size: 14px;">
@@ -1564,12 +1564,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-third-3-fourth-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-third-3-fourth-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 445px; left: 825px;">
     <div class="flowter-node-text"><span>Third 4</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 330px; left: 965px; font-size: 14px;">
@@ -1579,7 +1579,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 H 35 V 10 H 60" marker-end="url(#arrow-third-4-fourth-b)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 L 60 10" marker-end="url(#arrow-third-4-fourth-b)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 250px; top: 285px; left: 680px; font-size: 14px;">
@@ -1589,12 +1589,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 230 V 240 H 20 V 20" marker-end="url(#arrow-third-4-in-between-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 230 L 20 20" marker-end="url(#arrow-third-4-in-between-second)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 1025px;">
     <div class="flowter-node-text"><span>Fourth A?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 190px; left: 1165px; font-size: 14px;">
@@ -1604,7 +1604,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-fourth-a-you-said-no)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-fourth-a-you-said-no)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 190px; left: 1165px; font-size: 14px;">
@@ -1614,7 +1614,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 150 H 60" marker-end="url(#arrow-fourth-a-you-said-yes)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 150" marker-end="url(#arrow-fourth-a-you-said-yes)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 640px; height: 110px; top: 75px; left: 480px; font-size: 14px;">
@@ -1624,7 +1624,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 620 90 V 10 H 20 V 20" marker-end="url(#arrow-fourth-a-second-a)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 620 90 L 20 20" marker-end="url(#arrow-fourth-a-second-a)"></path>
       </svg> <span style="left: 299px; top: 20px;">Go back</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 40px; top: 145px; left: 880px; font-size: 14px;">
@@ -1634,7 +1634,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 10 H 20 V 20" marker-end="url(#arrow-fourth-a-third-2)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 20" marker-end="url(#arrow-fourth-a-third-2)"></path>
       </svg> <span style="left: 99px; top: 20px;">Turn around</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 180px; top: 5px; left: 880px; font-size: 14px;">
@@ -1644,12 +1644,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 160 V 10 H 20 V 20" marker-end="url(#arrow-fourth-a-third-1)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 160 L 20 20" marker-end="url(#arrow-fourth-a-third-1)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 1025px;">
     <div class="flowter-node-text"><span>Fourth B?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 160px; top: 190px; left: 1165px; font-size: 14px;">
@@ -1659,7 +1659,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 H 35 V 10 H 60" marker-end="url(#arrow-fourth-b-you-said-no)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 150 L 60 10" marker-end="url(#arrow-fourth-b-you-said-no)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 20px; top: 330px; left: 1165px; font-size: 14px;">
@@ -1669,7 +1669,7 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 10 H 60" marker-end="url(#arrow-fourth-b-you-said-yes)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 10" marker-end="url(#arrow-fourth-b-you-said-yes)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 40px; top: 355px; left: 880px; font-size: 14px;">
@@ -1679,8 +1679,8 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 30 H 20 V 20" marker-end="url(#arrow-fourth-b-third-3)"></path>
-      </svg> <span style="left: 99px; bottom: 20px;">Go back</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 20" marker-end="url(#arrow-fourth-b-third-3)"></path>
+      </svg> <span style="left: 99px; top: 20px;">Go back</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 240px; height: 180px; top: 355px; left: 880px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
@@ -1689,8 +1689,8 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 V 170 H 20 V 160" marker-end="url(#arrow-fourth-b-third-4)"></path>
-      </svg> <span style="left: 99px; bottom: 20px;">Detour</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 220 20 L 20 160" marker-end="url(#arrow-fourth-b-third-4)"></path>
+      </svg> <span style="left: 99px; top: 20px;">Detour</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 640px; height: 110px; top: 355px; left: 480px; font-size: 14px;">
     <div class="flowter-edge-child"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 110">
@@ -1699,12 +1699,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 620 20 V 100 H 20 V 90" marker-end="url(#arrow-fourth-b-second-c)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 620 20 L 20 90" marker-end="url(#arrow-fourth-b-second-c)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 1225px;">
     <div class="flowter-node-text"><span>You said No</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 190px; left: 1365px; font-size: 14px;">
@@ -1714,12 +1714,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 80 H 60" marker-end="url(#arrow-you-said-no-thats-it)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 80" marker-end="url(#arrow-you-said-no-thats-it)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 1225px;">
     <div class="flowter-node-text"><span>You said Yes</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 260px; left: 1365px; font-size: 14px;">
@@ -1729,12 +1729,12 @@ exports[`Flowter Flowchart When rendering in horizontal mode And rendering with 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-you-said-yes-thats-it)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-you-said-yes-thats-it)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 235px; left: 1425px;">
     <div class="flowter-node-text"><span>That's it!</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
 </div>
@@ -1754,12 +1754,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-new-vue-events-lifecycle)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-new-vue-events-lifecycle)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 143.75px;">
     <div class="flowter-node-text"><span>Init events &amp; lifecycle</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 225px; left: 208.75px; font-size: 14px;">
@@ -1769,12 +1769,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-events-lifecycle-injections-reactivity)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-events-lifecycle-injections-reactivity)"></path>
       </svg> <span style="top: 24px; left: 10px;">beforeCreate</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 305px; left: 143.75px;">
     <div class="flowter-node-text"><span>Init injections &amp; reactivity</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 365px; left: 208.75px; font-size: 14px;">
@@ -1784,12 +1784,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-injections-reactivity-has-el)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-injections-reactivity-has-el)"></path>
       </svg> <span style="top: 24px; left: 10px;">created</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 187.5px; height: 87.5px; font-size: 14px; line-height: 80.5px; top: 445px; left: 125px;">
     <div class="flowter-node-text"><span>Has 'el' option?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 187.5 87.5">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 93.75 1 L 186.5 43.75 L 93.75 86.5 L 1 43.75 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 19.75 1 H 186.5 L 167.75 86.5 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 522.5px; left: 108.75px; font-size: 14px;">
@@ -1799,7 +1799,7 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-has-el-has-template)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-has-el-has-template)"></path>
       </svg> <span style="top: 24px; left: 10px;">Yes</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 138.75px; height: 90px; top: 522.5px; left: 208.75px; font-size: 14px;">
@@ -1809,12 +1809,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 128.75 V 80" marker-end="url(#arrow-has-el-when-mounted)"></path>
-      </svg> <span style="top: 24px; right: 10px;">No</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 128.75 80" marker-end="url(#arrow-has-el-when-mounted)"></path>
+      </svg> <span style="top: 24px; left: 10px;">No</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 187.5px; height: 87.5px; font-size: 14px; line-height: 80.5px; top: 602.5px; left: 25px;">
     <div class="flowter-node-text"><span>Has 'template'<br> option?</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 187.5 87.5">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 93.75 1 L 186.5 43.75 L 93.75 86.5 L 1 43.75 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 19.75 1 H 186.5 L 167.75 86.5 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 680px; left: 108.75px; font-size: 14px;">
@@ -1824,7 +1824,7 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-has-template-compile-render)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-has-template-compile-render)"></path>
       </svg> <span style="top: 24px; left: 10px;">Yes</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 220px; height: 90px; top: 680px; left: 108.75px; font-size: 14px;">
@@ -1834,12 +1834,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 210 V 80" marker-end="url(#arrow-has-template-compile-template)"></path>
-      </svg> <span style="top: 24px; right: 10px;">No</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 210 80" marker-end="url(#arrow-has-template-compile-template)"></path>
+      </svg> <span style="top: 24px; left: 10px;">No</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 602.5px; left: 262.5px;">
     <div class="flowter-node-text"><span>when vm.$mount(el) is called</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 90px; height: 48.75px; top: 617.5px; left: 192.5px; font-size: 14px;">
@@ -1849,12 +1849,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 70 20 V 10 H 20 V 28.75" marker-end="url(#arrow-when-mounted-has-template)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 70 20 L 20 28.75" marker-end="url(#arrow-when-mounted-has-template)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 760px; left: 43.75px;">
     <div class="flowter-node-text"><span>Compile template into render function</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 820px; left: 108.75px; font-size: 14px;">
@@ -1864,12 +1864,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-compile-render-create-el)"></path>
-      </svg> <span style="top: 24px; right: 10px;">beforeMount</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-compile-render-create-el)"></path>
+      </svg> <span style="top: 24px; left: 10px;">beforeMount</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 760px; left: 243.75px;">
     <div class="flowter-node-text"><span>Compile el's outerHTML as template</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 820px; left: 208.75px; font-size: 14px;">
@@ -1879,12 +1879,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-compile-template-create-el)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-compile-template-create-el)"></path>
       </svg> <span style="top: 24px; left: 10px;">beforeMount</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 900px; left: 143.75px;">
     <div class="flowter-node-text"><span>Create vm.$el and replace el with it</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 20px; height: 90px; top: 960px; left: 208.75px; font-size: 14px;">
@@ -1894,12 +1894,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 V 45 V 80" marker-end="url(#arrow-create-el-mounted)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 10 80" marker-end="url(#arrow-create-el-mounted)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 1040px; left: 143.75px;">
     <div class="flowter-node-text"><span>mounted</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 1100px; left: 108.75px; font-size: 14px;">
@@ -1909,7 +1909,7 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-mounted-teardown)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-mounted-teardown)"></path>
       </svg> </div>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 1100px; left: 208.75px; font-size: 14px;">
@@ -1919,12 +1919,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-mounted-virtual-dom-rerender)"></path>
-      </svg> <span style="top: 24px; right: 10px;">updated</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-mounted-virtual-dom-rerender)"></path>
+      </svg> <span style="top: 24px; left: 10px;">updated</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 1180px; left: 43.75px;">
     <div class="flowter-node-text"><span>Teardown watchers, child components and event listeners</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 1240px; left: 108.75px; font-size: 14px;">
@@ -1934,12 +1934,12 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 110 V 80" marker-end="url(#arrow-teardown-destroyed)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 110 80" marker-end="url(#arrow-teardown-destroyed)"></path>
       </svg> </div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 1180px; left: 243.75px;">
     <div class="flowter-node-text"><span>Virtual DOM re-render and patch</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 140px; height: 180px; top: 1055px; left: 273.75px; font-size: 14px;">
@@ -1949,8 +1949,8 @@ exports[`Flowter Flowchart When rendering using custom appearances Should render
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 160 H 130 V 20 H 20" marker-end="url(#arrow-virtual-dom-rerender-mounted)"></path>
-      </svg> <span style="top: 69px; right: 20px;">beforeUpdate</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 120 160 L 20 20" marker-end="url(#arrow-virtual-dom-rerender-mounted)"></path>
+      </svg> <span style="top: 69px; left: 20px;">beforeUpdate</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 1320px; left: 143.75px;">
     <div class="flowter-node-text"><span>Destroyed</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
@@ -1964,7 +1964,7 @@ exports[`Flowter Flowchart When rendering using custom node sizes In horizontal 
 <div style="width: 450px; height: 390px; position: relative;">
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 160px; left: 25px;">
     <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 90px; top: 115px; left: 165px; font-size: 14px;">
@@ -1974,7 +1974,7 @@ exports[`Flowter Flowchart When rendering using custom node sizes In horizontal 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 H 35 V 10 H 60" marker-end="url(#arrow-first-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 80 L 60 10" marker-end="url(#arrow-first-second)"></path>
       </svg> <span style="left: 14px; top: 10px;">Yes</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 70px; height: 155px; top: 185px; left: 165px; font-size: 14px;">
@@ -1984,17 +1984,17 @@ exports[`Flowter Flowchart When rendering using custom node sizes In horizontal 
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 H 35 V 145 H 60" marker-end="url(#arrow-first-third)"></path>
-      </svg> <span style="left: 14px; bottom: 10px;">No</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 60 145" marker-end="url(#arrow-first-third)"></path>
+      </svg> <span style="left: 14px; top: 10px;">No</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 200px; height: 200px; font-size: 14px; line-height: 193px; top: 25px; left: 225px;">
     <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 199 V 199 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 21 1 H 199 L 179 199 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 295px; left: 225px;">
     <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
 </div>
@@ -2004,7 +2004,7 @@ exports[`Flowter Flowchart When rendering using custom node sizes In vertical mo
 <div style="width: 450px; height: 390px; position: relative;">
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 25px; left: 150px;">
     <div class="flowter-node-text"><span>First</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-edge-parent" style="width: 120px; height: 90px; top: 85px; left: 115px; font-size: 14px;">
@@ -2014,7 +2014,7 @@ exports[`Flowter Flowchart When rendering using custom node sizes In vertical mo
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 V 45 H 10 V 80" marker-end="url(#arrow-first-second)"></path>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 110 10 L 10 80" marker-end="url(#arrow-first-second)"></path>
       </svg> <span style="top: 24px; left: 10px;">Yes</span></div>
   </div>
   <div class="flowter-edge-parent" style="width: 145px; height: 90px; top: 85px; left: 215px; font-size: 14px;">
@@ -2024,17 +2024,17 @@ exports[`Flowter Flowchart When rendering using custom node sizes In vertical mo
             <path d="M 0 0 L 9 5 L 0 10 z" fill="#000000" stroke="#000000"></path>
           </marker>
         </defs>
-        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 V 45 H 135 V 80" marker-end="url(#arrow-first-third)"></path>
-      </svg> <span style="top: 24px; right: 10px;">No</span></div>
+        <path fill="none" stroke-width="2" stroke="#000000" d="M 10 10 L 135 80" marker-end="url(#arrow-first-third)"></path>
+      </svg> <span style="top: 24px; left: 10px;">No</span></div>
   </div>
   <div class="flowter-node-parent" style="width: 200px; height: 200px; font-size: 14px; line-height: 193px; top: 165px; left: 25px;">
     <div class="flowter-node-text"><span>Second</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 199 V 199 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 21 1 H 199 L 179 199 H 1 Z"></path>
     </svg>
   </div>
   <div class="flowter-node-parent" style="width: 150px; height: 70px; font-size: 14px; line-height: 63px; top: 165px; left: 275px;">
     <div class="flowter-node-text"><span>Third</span></div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
-      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 1 1 H 149 V 69 H 1 Z"></path>
+      <path stroke="#000000" stroke-width="2" fill="#ffffff" d="M 16 1 H 149 L 134 69 H 1 Z"></path>
     </svg>
   </div>
 </div>
