@@ -12,14 +12,14 @@ npm install --save vue-flowter
 ## Usage
 Import in your component (and the CSS as well):
 ```javascript
-import 'vue-flowter/flowter.css'
+import 'vue-flowter/dist/flowter.css'
 import Flowter from 'vue-flowter'
 Vue.component('Flowter', Flowter)
 ```
 
 ```html
 <template>
-  <flowter :nodes="nodes" :edges="edges">
+  <flowter :nodes="nodes" :edges="edges" />
 </template>
 <script>
 export default {
