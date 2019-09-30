@@ -6,7 +6,7 @@ import FlowterFlowchart from '@/components/flowter-flowchart/index.vue'
 
 // Fixtures
 // It won't be used for production...
-import allGraph from '../../../__fixtures__/all.json'
+import allGraph from '../../../__fixtures__/simple.json'
 
 // Types
 import {
