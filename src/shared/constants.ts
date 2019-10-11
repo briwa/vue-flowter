@@ -1,5 +1,3 @@
-import { Bounds } from './types'
-
 /*
  * -------------------------------
  * Flowchart constants

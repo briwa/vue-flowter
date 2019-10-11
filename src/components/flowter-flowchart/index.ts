@@ -6,7 +6,7 @@ import FlowterEdge from '@/components/flowter-edge/index.vue'
 import FlowterNode from '@/components/flowter-node/index.vue'
 
 // Mixins
-import FlowterFlowchartRendererMixin from '@/mixins/flowter-flowchart-renderer'
+import FlowterFlowchartRendererMixin from './mixins/flowter-flowchart-renderer'
 
 /**
  * The Flowter flowchart Vue class component.
