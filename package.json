@@ -1,7 +1,7 @@
 {
   "name": "vue-flowter",
   "description": "Moved: https://www.npmjs.com/package/flowter",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "keywords": [
     "flowchart",
     "typescript",
